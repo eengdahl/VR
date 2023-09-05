@@ -45,7 +45,7 @@ public class ShootableMoving : MonoBehaviour
             MoveWaypoints();
     }
 
-    void MoveWaypoints()
+    void MoveWaypoints() //State Machine for a target moving with Waypoints
     {
         switch (currentState)
         {
@@ -67,7 +67,7 @@ public class ShootableMoving : MonoBehaviour
 
         if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) < 0.1f)
         {
-            currentwaypoint = NewWaypoint();
+            currentwaypoint = NewWaypoint(); //Get our new waypoint, depending on if we're moving sequential or random
 
             waitTimer = waitTime;
             currentState = CurrentState.Waiting;
@@ -91,6 +91,7 @@ public class ShootableMoving : MonoBehaviour
         {
             newWayPoint = Random.Range(0, waypoints.Count);
 
+            //if it rolls 3 twice it's fine, it just waits an extra half-second or something
             if (newWayPoint == currentwaypoint && currentwaypoint < waypoints.Count - 1)
                 newWayPoint++;
 

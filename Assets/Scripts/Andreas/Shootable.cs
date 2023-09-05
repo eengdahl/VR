@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Shootable : MonoBehaviour
 {
+    [Tooltip("For Testing Purposes! Click once and then turn false to test animations")]
     [SerializeField] bool hit; //for testing purposes
 
-    Quaternion startRot = new(0, 0, 0, 0);
-    Quaternion downRot = new(-90, 0, 0, 0);
-    [SerializeField] float rotateSpeed;
-
+    [Tooltip("How long to wait before getting up again after being shot down")]
     [SerializeField] float downTime = 2f;
 
     Animator anim;
