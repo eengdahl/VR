@@ -8,12 +8,21 @@ public class ShootableMoving : MonoBehaviour
     [SerializeField] MoveType moveType;
 
     [Header("Waypoints")]
-    [SerializeField] Transform[] waypoints;
+    [SerializeField] Transform waypointParent;
+    readonly List<Transform> waypoints;
     [SerializeField] float waitTime = 1f;
     [SerializeField] float moveSpeed = 1f;
     public int currentwaypoint;
     enum CurrentState { Moving, Waiting }
     CurrentState currentState = CurrentState.Waiting;
+
+    private void Start()
+    {
+        for (int i = 0; i < waypointParent.childCount; i++)
+        {
+            waypoints.Add(waypointParent.GetChild(i));
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,7 +52,7 @@ public class ShootableMoving : MonoBehaviour
 
         if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) < 0.1f)
         {
-            if (currentwaypoint < waypoints.Length - 1)
+            if (currentwaypoint < waypoints.Count - 1)
                 currentwaypoint++;
             else
                 currentwaypoint = 0;
