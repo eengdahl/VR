@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletPool : MonoBehaviour
@@ -7,78 +9,79 @@ public class BulletPool : MonoBehaviour
 
     public GameObject bulletPrefab;
     public int maxBullet = 100;
-    private LinkedList<GameObject> freeBullet = new LinkedList<GameObject>();
+    public Queue<GameObject> bullets = new Queue<GameObject>();
 
-
-    //private void OnDisable()
-    //{
-    //    foreach (var objPrefab in freeBullet)
-    //    {
-    //        Destroy(objPrefab);
-
-    //        freeBullet.Clear();
-    //    }
-    //}
-
+    private void Start()
+    {
+        transform.forward = Vector3.right;
+        bullets ??= new Queue<GameObject>();
+    }
 
 
 
 
     private void OnEnable()
     {
-        for (int i = 0; i < maxBullet; i++)
-        {
-            var temp = CreateObj();
-            DestroyBullet(temp);
-        }
+        bullets ??= new Queue<GameObject>();
+
+        CreateBullets(10);
+         DeactivateBullets();
 
         Invoke(nameof(TestShoot), 2);
     }
 
+
+
+
+    private void CreateBullets(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            var newBullet = Instantiate(bulletPrefab);
+            newBullet.transform.parent = this.transform;
+            //newBullet.transform.parent = transform;
+             bullets.Enqueue(newBullet);
+           // DisableBullet(newBullet);
+        }
+    }
+    public void DisableBullet(GameObject usedBullet)
+    {
+        usedBullet.transform.parent = null;
+        // usedBullet = bullets.Dequeue();
+        usedBullet.SetActive(false);
+        bullets.Enqueue(usedBullet);
+    }
+    private void DeactivateBullets()
+    {
+        int amount = bullets.Count;
+        for (int i = 0; i < amount; i++)
+        {
+            var bullet = bullets.Dequeue();
+            bullet.transform.parent = null;
+          //  bullet.SetActive(false);
+            bullets.Enqueue(bullet);
+        }
+    }
+
+
     private void TestShoot()
     {
-        var bullet = CreateObj();
-
-        bullet.transform.up = transform.up;
-        bullet.transform.up = this.transform.up;
-        bullet.transform.parent = this.transform;
-        bullet.transform.position = this.transform.position;
-        bullet.transform.rotation = transform.rotation;
-        bullet.GetComponent<Rigidbody>().velocity = transform.up * 10;
+        GameObject bullet = GetBullet();
+        bullet.GetComponent<Rigidbody>().velocity = transform.forward * 10;
         Invoke(nameof(TestShoot), 1);
     }
 
-    public GameObject CreateObj()
+    private GameObject GetBullet()
     {
-        if (freeBullet.Count <= 0)
+        if (bullets.Count == 0)
         {
-            return Instantiate(bulletPrefab);
+            var newBullet = Instantiate(bulletPrefab);
+            return newBullet;
         }
-
-        var freeObjNode = freeBullet.First;
-        var tempobject = freeObjNode.Value;
-        freeBullet.Remove(freeObjNode);
-        tempobject.SetActive(true);
-
-
-        return tempobject;
-    }
-
-    public void DestroyBullet(GameObject usedObj)
-    {
-
-        if (freeBullet.Count >= maxBullet)
-        {
-            Debug.Log(freeBullet.Count);
-            Destroy(usedObj);
-            return;
-        }
-
-        usedObj.transform.parent = null;
-        usedObj.SetActive(false);
-        // freeBullet.AddFirst(usedObj);
-        //  freeBullet.AddLast(usedObj);
-
-
+        var bullet = bullets.Dequeue();
+        
+        bullet.gameObject.SetActive(true);
+        //  bullets.Enqueue(bullet);
+        return bullet;
     }
 }
