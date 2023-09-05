@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7113039411443954211}
   - component: {fileID: 7670821907829174974}
   - component: {fileID: 8155150513693157187}
+  - component: {fileID: 749922898527328330}
   m_Layer: 0
   m_Name: FPSPlayer
   m_TagString: Untagged
@@ -142,6 +143,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyes: {fileID: 6273192337816342009}
   hand: {fileID: 2905017351122719893}
+--- !u!114 &749922898527328330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128113517439581987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f2996c0a0d9fd40a009730f1e2c32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4541193075240087695
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,13 +212,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6273192337816342009}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.001513884, y: 0.70710516, z: 0.0015138838, w: 0.70710516}
-  m_LocalPosition: {x: 0, y: -0.058, z: 0.409}
+  m_LocalRotation: {x: -0.0022214092, y: 0.7071033, z: -0.0022214092, w: 0.7071033}
+  m_LocalPosition: {x: 0, y: -0.018, z: 0.409}
   m_LocalScale: {x: 0.14538378, y: 0.11098945, z: 0.40567854}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4845587757938242433}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0.245}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -0.36}
 --- !u!33 &1671497031242358699
 MeshFilter:
   m_ObjectHideFlags: 0
