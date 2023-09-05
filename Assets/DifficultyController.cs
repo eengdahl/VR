@@ -9,4 +9,9 @@ public class DifficultyController : MonoBehaviour
     {
         
     }
+
+    public void RemoveTargets()
+    {
+        
+    }
 }
