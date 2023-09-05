@@ -37,11 +37,22 @@ public class PickupTest : MonoBehaviour
                         hit.collider.transform.Rotate(hand.rotation.eulerAngles);
                         hit.collider.transform.SetParent(hand);
                         hit.collider.transform.localPosition = Vector3.zero;
+                        hit.collider.gameObject.GetComponent<Collider>().enabled = false;
                         gunEquipped = true;
                     }
                 }
             }
 
+        }
+
+        if (Input.GetKeyDown("g"))
+        {
+            gunEquipped = false;
+            var gun = GameObject.Find("Gun");
+            gun.transform.parent = null;
+            gun.GetComponent<Rigidbody>().isKinematic = false;
+            gun.GetComponent<Collider>().enabled = true;
+            gun.GetComponent<Rigidbody>().AddForce(Vector3.up,ForceMode.Impulse);
         }
     }
 }
