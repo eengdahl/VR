@@ -29,12 +29,12 @@ public class AimTest : MonoBehaviour
                 gun.transform.position = Vector3.Lerp(gun.transform.position, eyes.transform.position, Time.deltaTime * aimLerpSpeed);
             }
         }
-        //else
-        //{
-        //    if (pickupScript.gunEquipped)
-        //    {
-        //        gun.transform.position = Vector3.Lerp(eyes.transform.position, hand.transform.position, Time.deltaTime * aimLerpSpeed);
-        //    }
-        //}
+        else
+        {
+            if (pickupScript.gunEquipped)
+            {
+                gun.transform.position = Vector3.Lerp(gun.transform.position, hand.transform.position, Time.deltaTime * aimLerpSpeed);
+            }
+        }
     }
 }
