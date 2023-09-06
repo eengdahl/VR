@@ -408,7 +408,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 8083280942337625009, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   gun: {fileID: 208354170735891307}
 --- !u!1 &2330345482136418089
 GameObject:
