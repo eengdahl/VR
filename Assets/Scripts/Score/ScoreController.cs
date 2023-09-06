@@ -18,6 +18,10 @@ public class ScoreController : MonoBehaviour
     [SerializeField] float multiplierTime;
     float multiplierTimer;
 
+    public bool timeTrialEnabled;
+
+    public GameController gameController;
+    
     private void Update()
     {
         if (multiplierTimer > 0)
@@ -48,5 +52,15 @@ public class ScoreController : MonoBehaviour
         //TODO update the text and all that
         scoreText.text = "Score: " + score.ToString();
         multiplierText.text = "Combo: " + currentMultiplier.ToString();
+    }
+
+    public void StartNewGame(bool timeTrial)
+    {
+        
+    }
+
+    public void EndCurrentGame()
+    {
+        
     }
 }

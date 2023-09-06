@@ -7,47 +7,68 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    //private ScoreController scoreController;
     private GameObject easyTargetConfig;
     private GameObject normalTargetConfig;
     private GameObject hardTargetConfig;
 
-    public bool playing;
-
     private DifficultyController difficultyController;
-    private UIController uiController;
+    public UIController uiController;
+    public ScoreController scoreController;
+
+    public bool playing;
     
+    public Difficulty chosenDifficulty;
+    public bool timeTrialEnabled;
     private void Start()
     {
         difficultyController = FindObjectOfType<DifficultyController>();
         uiController = FindObjectOfType<UIController>();
-        //Create reference to scorecontroller
-
-    }
-
-    public void StartGame(Difficulty difficulty)
-    {
-        switch (difficulty)
-        {
-            case Difficulty.Easy:
-                difficultyController.PlaceTargets(Difficulty.Easy);
-                break;
-            case Difficulty.Normal:
-                difficultyController.PlaceTargets(Difficulty.Normal);
-                break;
-            case Difficulty.Hard:
-                difficultyController.PlaceTargets(Difficulty.Hard);
-                break;
-        }
+        scoreController = FindObjectOfType<ScoreController>();
         
-        uiController.StartGame();
+        difficultyController.gameController = this;
+        uiController.gameController = this;
+        scoreController.gameController = this;
     }
 
-    public void RestartGame()
+    private void Update()
     {
-        playing ^= playing;
-        difficultyController.RemoveTargets();
+        if (playing)
+        {
+            
+        }
+    }
+
+    public void InitializeGame(Difficulty difficulty, bool timeTrial)
+    {
+        if (!playing)
+        {
+            switch (difficulty)
+            {
+                case Difficulty.Easy:
+                    chosenDifficulty = difficulty;
+                    timeTrialEnabled = timeTrial;
+                    difficultyController.PlaceTargets(chosenDifficulty);
+                    break;
+                case Difficulty.Normal:
+                    chosenDifficulty = difficulty;
+                    timeTrialEnabled = timeTrial;
+                    difficultyController.PlaceTargets(chosenDifficulty);
+                    break;
+                case Difficulty.Hard:
+                    chosenDifficulty = difficulty;
+                    timeTrialEnabled = timeTrial;
+                    difficultyController.PlaceTargets(chosenDifficulty);
+                    break;
+            }
+        }
     }
     
+    public void RestartGame()
+    {
+        playing = false;
+        difficultyController.RemoveTargets();
+        difficultyController.PlaceTargets(chosenDifficulty);
+        uiController.StartCountDown();
+    }
     
 }
