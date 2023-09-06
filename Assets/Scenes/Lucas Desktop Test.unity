@@ -1362,6 +1362,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun_VR
       objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: fanRelease.m_Reference
+      value: 
+      objectReference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: fanRelease.m_Action.m_Id
+      value: 99565967-4b92-4577-ac28-6a446cb49bc8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: fanRelease.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: fanRelease.m_Action.m_Name
+      value: Fan Release
+      objectReference: {fileID: 0}
     - target: {fileID: 6152119848142440592, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8063917
