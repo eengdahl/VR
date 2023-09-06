@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - Bottle
   - Score
+  - Target
   layers:
   - Default
   - TransparentFX
