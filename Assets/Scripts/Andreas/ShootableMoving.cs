@@ -82,7 +82,7 @@ public class ShootableMoving : MonoBehaviour
         if (!randomWaypoint)
         {
             if (currentwaypoint < waypoints.Count - 1)
-                newWayPoint = currentwaypoint++;
+                newWayPoint = currentwaypoint += 1;
             else
                 newWayPoint = 0;
 
