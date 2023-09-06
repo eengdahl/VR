@@ -16,8 +16,8 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool triggerActive = weaponTrigger.action.ReadValue<bool>();
-        if (triggerActive)
+        float triggerValue = weaponTrigger.action.ReadValue<float>();
+        if (triggerValue != 0)
         {
             var aS = gameObject.GetComponent<AudioSource>();
             aS.Play();
