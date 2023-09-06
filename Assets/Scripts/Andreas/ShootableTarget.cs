@@ -26,7 +26,10 @@ public class ShootableTarget : MonoBehaviour
     {
         //for testing purposes
         if (hit)
+        {
             OnHit();
+            hit = false;
+        }
     }
 
     public void OnHit()
