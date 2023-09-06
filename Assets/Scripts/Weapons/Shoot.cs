@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Shoot : MonoBehaviour
 {
     public InputActionProperty weaponTrigger;
+    public InputActionProperty fanRelease;
     public Transform gun;
     private bool shooting = false;
     private bool isCock; 
@@ -20,30 +21,36 @@ public class Shoot : MonoBehaviour
     {
         if (!shooting)
         {
+            bool triggerHeld = weaponTrigger.action.ReadValue<bool>();
             bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
+            bool fanReleased = fanRelease.action.WasReleasedThisFrame();
+            if (triggerHeld)
+            {
+                if (fanReleased)
+                {
+                    Fire();
+                }
+            }
+
             if (triggerValue)
             {
-                StartCoroutine(Shooting());
+                Fire();
             }
         }
     }
 
-    IEnumerator Shooting()
+    private void Fire()
     {
-        shooting = true;
         var aS = gameObject.GetComponent<AudioSource>();
         aS.Play();
         RaycastHit hit;
         Physics.Raycast(gun.position, gun.forward, out hit, 1000);
         //shootcode sound instatiate decal etc
         
-
         if (hit.collider != null && hit.collider.CompareTag("Target"))
         {
             Debug.Log("hit");
             hit.collider.gameObject.GetComponent<AudioSource>().Play();
         }
-        yield return new WaitForSeconds(0f);
-        shooting = false;
     }
 }
