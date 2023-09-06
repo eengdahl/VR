@@ -13,26 +13,36 @@ public interface BulletStats
 }
 public class BulletScript : MonoBehaviour, BulletStats
 {
-    private Transform parent;
+    // public Transform parent;
     private Rigidbody rb;
+    private float deathTimer = 5;
+    BulletPool pool;
+
 
     private void Start()
     {
+        pool = FindAnyObjectByType<BulletPool>();
         rb = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
     {
-        //parent = GetComponentInParent<Transform>();
-        //transform.position = parent.transform.position;
-        //transform.rotation = parent.transform.rotation;
+        Invoke(nameof(DisableMe), 1);
+
+        transform.position = GetComponentInParent<Transform>().position;
+        transform.rotation = GetComponentInParent<Transform>().rotation;
     }
 
     private void OnDisable()
     {
-        //rb.velocity = Vector3.zero;
-        //rb.angularVelocity = Vector3.zero;
-        //rb.rotation = Quaternion.identity;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.rotation = Quaternion.identity;
+    }
+
+    public void DisableMe()
+    {
+        pool.DisableBullet(this.transform.gameObject);
     }
 
     public void InitialSpeed(float speed)
