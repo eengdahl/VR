@@ -7,6 +7,7 @@ public class Shoot : MonoBehaviour
 {
     public InputActionProperty weaponTrigger;
     public Transform gun;
+    private bool shooting = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,20 +17,31 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float triggerValue = weaponTrigger.action.ReadValue<float>();
-        if (triggerValue != 0)
+        if (!shooting)
         {
-            var aS = gameObject.GetComponent<AudioSource>();
-            aS.Play();
-            RaycastHit hit;
-            Physics.Raycast(gun.position, gun.forward, out hit, 1000);
-            //shootcode sound instatiate decal etc
-
-            if (hit.collider.CompareTag("Target"))
+            float triggerValue = weaponTrigger.action.ReadValue<float>();
+            if (triggerValue != 0)
             {
-                Debug.Log("hit");
-                //hit code
+                StartCoroutine(Shooting());
             }
         }
+    }
+
+    IEnumerator Shooting()
+    {
+        shooting = true;
+        var aS = gameObject.GetComponent<AudioSource>();
+        aS.Play();
+        RaycastHit hit;
+        Physics.Raycast(gun.position, gun.forward, out hit, 1000);
+        //shootcode sound instatiate decal etc
+
+        if (hit.collider.CompareTag("Target"))
+        {
+            Debug.Log("hit");
+            //hit code
+        }
+        yield return new WaitForSeconds(0.1f);
+        shooting = false;
     }
 }
