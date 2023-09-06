@@ -40,7 +40,7 @@ public class Shoot : MonoBehaviour
         if (hit.collider.CompareTag("Target"))
         {
             Debug.Log("hit");
-            //hit code
+            hit.collider.gameObject.GetComponent<AudioSource>().Play();
         }
         yield return new WaitForSeconds(0.1f);
         shooting = false;
