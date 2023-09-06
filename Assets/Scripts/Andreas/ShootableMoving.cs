@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootableMoving : MonoBehaviour
 {
     enum MoveType { Waypoints, FlipUp }
+    [Tooltip("Should the target move from point to point or only flip up? NOTE! FlipUp is not finished")]
     [SerializeField] MoveType moveType;
 
     [Header("Waypoints")]
