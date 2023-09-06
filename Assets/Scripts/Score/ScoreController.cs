@@ -13,23 +13,26 @@ public class ScoreController : MonoBehaviour
     public int score;
     private int latestScoreReceived;
     public int currentMultiplier;
-    private int maxMultiplier;
+    [SerializeField] int maxMultiplier = 9;
 
     [SerializeField] float multiplierTime;
     float multiplierTimer;
 
     private void Update()
     {
-        if (multiplierTimer < 0)
+        if (multiplierTimer > 0)
         {
             multiplierTimer -= Time.deltaTime;
             multiplierSlider.value = multiplierTimer / multiplierTime;
         }
         else if (multiplierTimer <= 0)
+        {
             currentMultiplier = 0;
+            UpdateScoreText();
+        }
     }
 
-    void AddScore(int scoreToAdd)
+    public void AddScore(int scoreToAdd)
     {
         latestScoreReceived = scoreToAdd;
         latestScoreReceived *= (currentMultiplier + 1);
@@ -37,12 +40,13 @@ public class ScoreController : MonoBehaviour
 
         if (currentMultiplier < maxMultiplier) currentMultiplier++;
         multiplierTimer = multiplierTime;
+        UpdateScoreText();
     }
 
     void UpdateScoreText()
     {
         //TODO update the text and all that
-        scoreText.text = score.ToString();
-        multiplierText.text = currentMultiplier.ToString();
+        scoreText.text = "Score: " + score.ToString();
+        multiplierText.text = "Combo: " + currentMultiplier.ToString();
     }
 }
