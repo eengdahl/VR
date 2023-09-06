@@ -20,8 +20,8 @@ public class Shoot : MonoBehaviour
     {
         if (!shooting)
         {
-            float triggerValue = weaponTrigger.action.ReadValue<float>();
-            if (triggerValue != 0)
+            bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
+            if (triggerValue)
             {
                 StartCoroutine(Shooting());
             }
@@ -43,7 +43,7 @@ public class Shoot : MonoBehaviour
             Debug.Log("hit");
             hit.collider.gameObject.GetComponent<AudioSource>().Play();
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0f);
         shooting = false;
     }
 }
