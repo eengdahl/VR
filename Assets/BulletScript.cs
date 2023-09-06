@@ -13,36 +13,24 @@ public interface BulletStats
 }
 public class BulletScript : MonoBehaviour, BulletStats
 {
-   // public Transform parent;
+    // public Transform parent;
     private Rigidbody rb;
     private float deathTimer = 5;
     BulletPool pool;
-    bool firstRun = true;
 
 
     private void Start()
     {
         pool = FindAnyObjectByType<BulletPool>();
         rb = GetComponent<Rigidbody>();
-        firstRun = true;
     }
 
     private void OnEnable()
     {
-        //if (firstRun)
-        //{
-        //    firstRun = false;
-        //    return;
-        //}
-
         Invoke(nameof(DisableMe), 1);
-        Debug.Log("ping");
 
-       // parent = GetComponentInParent<Transform>();
-       transform.position=GetComponentInParent<Transform>().position;
+        transform.position = GetComponentInParent<Transform>().position;
         transform.rotation = GetComponentInParent<Transform>().rotation;
-        //transform.position = parent.transform.position;
-      //  transform.rotation = parent.transform.rotation;
     }
 
     private void OnDisable()
