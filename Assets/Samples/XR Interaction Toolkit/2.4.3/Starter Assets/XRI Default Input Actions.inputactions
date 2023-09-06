@@ -704,12 +704,12 @@
                 },
                 {
                     "name": "X-Button",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "33e10b4a-05b3-4370-b174-2271c560308a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

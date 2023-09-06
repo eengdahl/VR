@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     public InputActionProperty weaponTrigger;
     public Transform gun;
     private bool shooting = false;
+    private bool isCock; 
     // Start is called before the first frame update
     void Start()
     {
