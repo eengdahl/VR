@@ -36,8 +36,9 @@ public class Shoot : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(gun.position, gun.forward, out hit, 1000);
         //shootcode sound instatiate decal etc
+        
 
-        if (hit.collider.CompareTag("Target"))
+        if (hit.collider != null && hit.collider.CompareTag("Target"))
         {
             Debug.Log("hit");
             hit.collider.gameObject.GetComponent<AudioSource>().Play();
