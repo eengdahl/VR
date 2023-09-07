@@ -543,6 +543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun_VR
       objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: reloadingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
     - target: {fileID: 6152119848142440592, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4362552

@@ -12,18 +12,33 @@ public class Shoot : MonoBehaviour
     public Transform gunhead;
     private bool shooting = false;
     private bool isCock;
-    // Start is called before the first frame update
+
+    //Realoding
+    private bool reloading = false;
+    private float reloadTime = 1.5f;
+    private int maxAmmo = 1000;
+    public int currentAmmo;
+    public int magSize = 10;
+    public AudioClip reloadingClip;
+
     private void Start()
     {
         bulletPool = FindAnyObjectByType<BulletPool>();
+        currentAmmo = maxAmmo;
 
+    }
+    private void OnEnable()
+    {
+        reloading = false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!shooting)
+
+
+        if (!reloading)
         {
             bool triggerHeld = weaponTrigger.action.ReadValue<bool>();
             bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
@@ -39,6 +54,11 @@ public class Shoot : MonoBehaviour
             if (triggerValue)
             {
                 Fire();
+            }
+
+            if (currentAmmo <= 0)
+            {
+                StartCoroutine(Reloading());
             }
         }
     }
@@ -63,5 +83,19 @@ public class Shoot : MonoBehaviour
             Debug.Log("hit");
             hit.collider.gameObject.GetComponent<AudioSource>().Play();
         }
+
+        currentAmmo--;
+    }
+
+
+
+    IEnumerator Reloading()
+    {
+        reloading = true;
+        var aS = gameObject.GetComponent<AudioSource>();
+        aS.PlayOneShot(reloadingClip);
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = magSize;
+        reloading = false;
     }
 }
