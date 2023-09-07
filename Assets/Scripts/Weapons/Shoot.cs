@@ -43,7 +43,7 @@ public class Shoot : MonoBehaviour
         if (!reloading)
         {
             float triggerHeld = weaponTrigger.action.ReadValue<float>();
-            Debug.Log(triggerHeld);
+            //Debug.Log(triggerHeld);
             bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
             bool fanReleased = fanRelease.action.WasReleasedThisFrame();
             if (triggerHeld != 0)
