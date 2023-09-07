@@ -88,6 +88,8 @@ public class Shoot : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<AudioSource>().Play();
             }
+
+            hit.collider.GetComponent<ShootableTarget>().OnHit();
             scoreController.AddScore(100);
 
         }

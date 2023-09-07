@@ -13,10 +13,12 @@ public class ShootableTarget : MonoBehaviour
 
     Animator anim;
     ScoreController score;
+    Collider collider;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
+        collider = GetComponent<CapsuleCollider>();
         score = GameObject.FindWithTag("Score").GetComponent<ScoreController>();
         if (score == null) Debug.LogError("Cannot find ScoreController, is there one in the scene tagged 'Score'?");
     }
@@ -41,10 +43,12 @@ public class ShootableTarget : MonoBehaviour
     IEnumerator PlayHitAnim()
     {
         anim.SetTrigger("hit");
+        collider.enabled = false;
 
         yield return new WaitForSeconds(downTime);
 
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
+        collider.enabled = true;
     }
 }
