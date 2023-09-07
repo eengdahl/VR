@@ -69,6 +69,7 @@ public class Shoot : MonoBehaviour
     private void Fire()
     {
         var aS = gameObject.GetComponent<AudioSource>();
+        aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
         //RaycastHit hit;
         Physics.Raycast(gun.position, gun.forward, out RaycastHit hit, 1000);
