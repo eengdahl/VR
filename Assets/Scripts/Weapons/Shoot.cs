@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour
     public Transform gunhead;
     private bool shooting = false;
     private bool isCock;
+    ScoreController scoreController;
 
     //Realoding
     private bool reloading = false;
@@ -24,6 +25,7 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         bulletPool = FindAnyObjectByType<BulletPool>();
+        scoreController = FindObjectOfType<ScoreController>();
         currentAmmo = magSize;
 
     }
@@ -68,8 +70,8 @@ public class Shoot : MonoBehaviour
     {
         var aS = gameObject.GetComponent<AudioSource>();
         aS.Play();
-        RaycastHit hit;
-        Physics.Raycast(gun.position, gun.forward, out hit, 1000);
+        //RaycastHit hit;
+        Physics.Raycast(gun.position, gun.forward, out RaycastHit hit, 1000);
         //shootcode sound instatiate decal etc
 
         //Physical bullet
@@ -82,7 +84,12 @@ public class Shoot : MonoBehaviour
         if (hit.collider != null && hit.collider.CompareTag("Target"))
         {
             Debug.Log("hit");
-            hit.collider.gameObject.GetComponent<AudioSource>().Play();
+            if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
+            {
+                hit.collider.gameObject.GetComponent<AudioSource>().Play();
+            }
+            scoreController.AddScore(100);
+
         }
 
         currentAmmo--;
