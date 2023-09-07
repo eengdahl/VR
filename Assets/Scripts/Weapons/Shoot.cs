@@ -7,6 +7,7 @@ public class Shoot : MonoBehaviour
 {
     public InputActionProperty weaponTrigger;
     public InputActionProperty fanRelease;
+    public GameObject linePrefab;
     BulletPool bulletPool;
     public Transform gun;
     public Transform gunhead;
@@ -68,6 +69,7 @@ public class Shoot : MonoBehaviour
 
     private void Fire()
     {
+        Instantiate(linePrefab);
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();

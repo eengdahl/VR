@@ -34,7 +34,7 @@ public class DecalPainter : MonoBehaviour
                 break;
             }
         }
-        decalImage.sprite = decalData[selectedDecalIndex].sprite;
+        //decalImage.sprite = decalData[selectedDecalIndex].sprite;
     }
 
     //Swap the decal image (data) when Q is pressed

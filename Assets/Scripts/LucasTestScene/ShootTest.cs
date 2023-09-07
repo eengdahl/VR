@@ -5,9 +5,11 @@ using UnityEngine;
 public class ShootTest : MonoBehaviour
 {
     RaycastHit hit;
+    public GameObject linePrefab;
     PickupTest pickupScript;
     AudioSource gunAS;
     DecalPainter decalPainter;
+    public Transform gunTip;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class ShootTest : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 100.0f))
             {
+                var Line = GetLine();
+                Line.GetComponent<LineController>().DrawLine(gunTip.localToWorldMatrix.GetPosition(), hit.point);
                 decalPainter.PaintDecal(hit.point, hit.normal, hit.collider);
                 if (hit.collider.CompareTag("Bottle"))
                 {
@@ -36,5 +40,11 @@ public class ShootTest : MonoBehaviour
             }
 
         }
+    }
+
+    private GameObject GetLine()
+    {
+        var newLine = Instantiate(linePrefab);
+        return newLine;
     }
 }
