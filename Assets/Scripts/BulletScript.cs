@@ -6,9 +6,10 @@ using UnityEngine;
 
 public interface BulletStats
 {
-    public void InitialSpeed(float speed = 50);
+    public void InitialSpeed(float speed = 500);
     public void AimOffset(Vector3 offset);
     public bool HitTarget();
+
 
 }
 public class BulletScript : MonoBehaviour, BulletStats
@@ -17,20 +18,22 @@ public class BulletScript : MonoBehaviour, BulletStats
     private Rigidbody rb;
     private float deathTimer = 5;
     BulletPool pool;
+    public int magazineSize = 6;
 
 
     private void Start()
     {
         pool = FindAnyObjectByType<BulletPool>();
         rb = GetComponent<Rigidbody>();
+        Invoke(nameof(DisableMe), 1);
     }
 
     private void OnEnable()
     {
         Invoke(nameof(DisableMe), 1);
 
-        transform.position = GetComponentInParent<Transform>().position;
-        transform.rotation = GetComponentInParent<Transform>().rotation;
+        //transform.position = GetComponentInParent<Transform>().position;
+        //transform.rotation = GetComponentInParent<Transform>().rotation;
     }
 
     private void OnDisable()
@@ -53,6 +56,8 @@ public class BulletScript : MonoBehaviour, BulletStats
     {
 
     }
+
+
     public bool HitTarget()
     {
 
