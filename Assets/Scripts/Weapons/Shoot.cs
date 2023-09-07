@@ -24,7 +24,7 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         bulletPool = FindAnyObjectByType<BulletPool>();
-        currentAmmo = maxAmmo;
+        currentAmmo = magSize;
 
     }
     private void OnEnable()
@@ -40,10 +40,11 @@ public class Shoot : MonoBehaviour
 
         if (!reloading)
         {
-            bool triggerHeld = weaponTrigger.action.ReadValue<bool>();
+            float triggerHeld = weaponTrigger.action.ReadValue<float>();
+            Debug.Log(triggerHeld);
             bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
             bool fanReleased = fanRelease.action.WasReleasedThisFrame();
-            if (triggerHeld)
+            if (triggerHeld != 0)
             {
                 if (fanReleased)
                 {
