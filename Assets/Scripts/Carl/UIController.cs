@@ -68,6 +68,7 @@ public class UIController : MonoBehaviour
     
     public void SelectNewDifficulty()
     {
+        CancelInvoke();
         gameController.playing = false;
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);

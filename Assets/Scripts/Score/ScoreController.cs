@@ -56,11 +56,16 @@ public class ScoreController : MonoBehaviour
 
     public void StartNewGame(bool timeTrial)
     {
-        
+        ResetScore();
     }
 
     public void EndCurrentGame()
     {
-        
+        //Add code to save score if time trial was enabled
+    }
+
+    public void ResetScore()
+    {
+        score = 0;
     }
 }
