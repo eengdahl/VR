@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Carl;
@@ -9,15 +10,28 @@ public class DifficultyController : MonoBehaviour
     [SerializeField] private ScriptableObject mediumDifficulty;
     [SerializeField] private ScriptableObject hardDifficulty;
 
-    public GameController gameController;
+    public List<GameObject> activeTargets = new List<GameObject>();
     
+    public GameController gameController;
+    private TargetPlacer targetPlacer;
+
+    private void Start()
+    {
+        targetPlacer = FindObjectOfType<TargetPlacer>();
+        targetPlacer.difficultyController = this;
+    }
+
     public void PlaceTargets(Difficulty difficulty)
     {
-        //Add code to set up the targets depending on difficulty
+        RemoveTargets();
+        targetPlacer.PlaceTargets(difficulty);
     }
 
     public void RemoveTargets()
     {
-        //Add code to remove all the targets
+        foreach (var target in activeTargets)
+        {
+            Destroy(target);
+        }
     }
 }

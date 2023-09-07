@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShootableMoving : MonoBehaviour
 {
-    enum MoveType { Waypoints, FlipUp }
+    public enum MoveType { Waypoints, FlipUp }
     [Tooltip("Should the target move from point to point or only flip up?")]
-    [SerializeField] MoveType moveType;
+    [SerializeField] public MoveType moveType;
 
     [Header("Waypoints")]
     [Tooltip("An empty gameobject with the transforms of the waypoints as children")]
