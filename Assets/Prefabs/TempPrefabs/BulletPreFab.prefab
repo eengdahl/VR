@@ -121,6 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4570737503435115584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e830e32c4409fa4ca616e123d33b3c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 43c42ccbbb136c1428d358c3a76b9ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magazineSize: 6

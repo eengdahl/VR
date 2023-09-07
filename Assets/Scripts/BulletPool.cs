@@ -9,11 +9,13 @@ public class BulletPool : MonoBehaviour
 
     public GameObject bulletPrefab;
     public int maxBullet = 100;
+    private Transform parent;
     public Queue<GameObject> bullets = new Queue<GameObject>();
 
     private void Start()
     {
-        transform.forward = Vector3.right;
+        parent = this.gameObject.transform;
+        //transform.forward = Vector3.right;
         bullets ??= new Queue<GameObject>();
     }
     private void OnEnable()
@@ -21,9 +23,6 @@ public class BulletPool : MonoBehaviour
         bullets ??= new Queue<GameObject>();
 
         CreateBullets(10);
-        DeactivateBullets();
-
-        Invoke(nameof(TestShoot), 2);
     }
 
 
@@ -32,11 +31,10 @@ public class BulletPool : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             var newBullet = Instantiate(bulletPrefab);
-            newBullet.transform.parent = this.transform;
-            //Shall parent to weapon to start from right position
-            //newBullet.transform.parent = transform;
+            newBullet.transform.parent = parent;
             bullets.Enqueue(newBullet);
         }
+        DeactivateBullets();
     }
     public void DisableBullet(GameObject usedBullet)
     {
@@ -55,22 +53,14 @@ public class BulletPool : MonoBehaviour
         }
     }
 
-
-    private void TestShoot()
-    {
-        GameObject bullet = GetBullet();
-        bullet.GetComponent<Rigidbody>().velocity = transform.forward * 10;
-        Invoke(nameof(TestShoot), 1);
-    }
-
-    private GameObject GetBullet()
+    public GameObject GetBullet()
     {
         if (bullets.Count == 0)
         {
             var newBullet = Instantiate(bulletPrefab);
             return newBullet;
         }
-        var bullet = bullets.Dequeue();
+         var bullet = bullets.Dequeue();
 
         bullet.gameObject.SetActive(true);
         return bullet;

@@ -409,7 +409,23 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 8083280942337625009, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  fanRelease:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Fan Release
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 99565967-4b92-4577-ac28-6a446cb49bc8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   gun: {fileID: 208354170735891307}
+  gunhead: {fileID: 208354170735891307}
+  currentAmmo: 0
+  magSize: 10
+  reloadingClip: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
 --- !u!1 &2330345482136418089
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 208354170735891307}
+  - component: {fileID: 1407928640018026430}
   m_Layer: 0
   m_Name: Tip
   m_TagString: Untagged
@@ -441,6 +458,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6152119848142440592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407928640018026430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330345482136418089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00d57b6499e01a46b2fb27bcaa6cb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4570737503435115584, guid: 2b81887e27954094fb2e6317a9b313f9, type: 3}
+  maxBullet: 100
 --- !u!1 &3760973140541361770
 GameObject:
   m_ObjectHideFlags: 0

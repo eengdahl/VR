@@ -6,44 +6,96 @@ using UnityEngine.InputSystem;
 public class Shoot : MonoBehaviour
 {
     public InputActionProperty weaponTrigger;
+    public InputActionProperty fanRelease;
+    BulletPool bulletPool;
     public Transform gun;
+    public Transform gunhead;
     private bool shooting = false;
-    private bool isCock; 
-    // Start is called before the first frame update
-    void Start()
+    private bool isCock;
+
+    //Realoding
+    private bool reloading = false;
+    private float reloadTime = 1.5f;
+    private int maxAmmo = 1000;
+    public int currentAmmo;
+    public int magSize = 10;
+    public AudioClip reloadingClip;
+
+    private void Start()
     {
-        
+        bulletPool = FindAnyObjectByType<BulletPool>();
+        currentAmmo = maxAmmo;
+
     }
+    private void OnEnable()
+    {
+        reloading = false;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (!shooting)
+
+
+        if (!reloading)
         {
+            bool triggerHeld = weaponTrigger.action.ReadValue<bool>();
             bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
+            bool fanReleased = fanRelease.action.WasReleasedThisFrame();
+            if (triggerHeld)
+            {
+                if (fanReleased)
+                {
+                    Fire();
+                }
+            }
+
             if (triggerValue)
             {
-                StartCoroutine(Shooting());
+                Fire();
+            }
+
+            if (currentAmmo <= 0)
+            {
+                StartCoroutine(Reloading());
             }
         }
     }
 
-    IEnumerator Shooting()
+    private void Fire()
     {
-        shooting = true;
         var aS = gameObject.GetComponent<AudioSource>();
         aS.Play();
         RaycastHit hit;
         Physics.Raycast(gun.position, gun.forward, out hit, 1000);
         //shootcode sound instatiate decal etc
-        
+
+        //Physical bullet
+        var physBullet = bulletPool.GetBullet();
+        physBullet.transform.parent = gunhead;
+        physBullet.transform.position = gunhead.transform.position;
+        physBullet.transform.rotation = gunhead.transform.rotation;
+        physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
         if (hit.collider != null && hit.collider.CompareTag("Target"))
         {
             Debug.Log("hit");
             hit.collider.gameObject.GetComponent<AudioSource>().Play();
         }
-        yield return new WaitForSeconds(0f);
-        shooting = false;
+
+        currentAmmo--;
+    }
+
+
+
+    IEnumerator Reloading()
+    {
+        reloading = true;
+        var aS = gameObject.GetComponent<AudioSource>();
+        aS.PlayOneShot(reloadingClip);
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = magSize;
+        reloading = false;
     }
 }
