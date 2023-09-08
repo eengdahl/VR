@@ -12,17 +12,24 @@ public class ShootableMoving : MonoBehaviour
     [Tooltip("An empty gameobject with the transforms of the waypoints as children")]
     [SerializeField] Transform waypointParent;
     List<Transform> waypoints = new(); //added automatically
+
     [Tooltip("Should the target move in sequence or randomly?")]
     [SerializeField] bool randomWaypoint = false;
+
     [Header("Variables")]
     [Tooltip("How long the target should wait at each waypoint")]
     [SerializeField] float waitTime = 1f;
+    float waitTimer;
+
     [Tooltip("How fast the target is walking between waypoints, Recommended between 1 and 5")]
     [SerializeField] float moveSpeed = 1f;
-    float waitTimer;
+
     [Tooltip("Only viewable for debugging purposes, don't touch!")]
     [SerializeField] int currentwaypoint;
-    enum CurrentState { Moving, Waiting }
+
+    float returnBuffer;
+
+    public enum CurrentState { Moving, Waiting, Idle }
     CurrentState currentState = CurrentState.Waiting;
 
     private void Start()
@@ -57,6 +64,9 @@ public class ShootableMoving : MonoBehaviour
                 //StartCoroutine(nameof(WaypointWait));
                 WaypointWait();
                 break;
+            case CurrentState.Idle:
+                ReturnToStart();
+                break;
             default:
                 break;
         }
@@ -79,7 +89,7 @@ public class ShootableMoving : MonoBehaviour
     {
         int newWayPoint = 0;
 
-        if (!randomWaypoint)
+        if (!randomWaypoint) //move in sequence
         {
             if (currentwaypoint < waypoints.Count - 1)
                 newWayPoint = currentwaypoint += 1;
@@ -88,7 +98,7 @@ public class ShootableMoving : MonoBehaviour
 
             return newWayPoint;
         }
-        else
+        else //otherwise, pick a random point
         {
             newWayPoint = Random.Range(0, waypoints.Count);
 
@@ -110,10 +120,23 @@ public class ShootableMoving : MonoBehaviour
         }
     }
 
-    //IEnumerator WaypointWait()
-    //{
-    //    yield return new WaitForSeconds(waitTime);
+    void ReturnToStart()
+    {
+        if (returnBuffer > 0) returnBuffer -= Time.deltaTime;
 
-    //    currentState = CurrentState.Moving;
-    //}
+        else
+        {
+            currentwaypoint = 0;
+
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, moveSpeed * Time.deltaTime);
+        }
+    }
+
+    public void ManualChangeState(CurrentState stateToChangeTo) //should you need to manually change the state of a target
+    {
+        if (stateToChangeTo == CurrentState.Idle)
+            returnBuffer = .8f;
+
+        currentState = stateToChangeTo;
+    }
 }

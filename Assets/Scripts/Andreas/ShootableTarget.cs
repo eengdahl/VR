@@ -11,14 +11,19 @@ public class ShootableTarget : MonoBehaviour
     [Tooltip("How long to wait before getting up again after being shot down")]
     [SerializeField] float downTime = 2f;
 
+    float returnBuffer;
+
+    //components
     Animator anim;
     ScoreController score;
-    Collider collider;
+    Collider _collider;
+    ShootableMoving mover;
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
-        collider = GetComponent<CapsuleCollider>();
+        _collider = GetComponent<CapsuleCollider>();
+        mover = GetComponent<ShootableMoving>();
         score = GameObject.FindWithTag("Score").GetComponent<ScoreController>();
         if (score == null) Debug.LogError("Cannot find ScoreController, is there one in the scene tagged 'Score'?");
     }
@@ -26,6 +31,7 @@ public class ShootableTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //for testing purposes
         if (hit)
         {
@@ -38,17 +44,20 @@ public class ShootableTarget : MonoBehaviour
     {
         //Idk what to do here yet
         StartCoroutine(nameof(PlayHitAnim));
+
+        mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
     }
 
     IEnumerator PlayHitAnim()
     {
         anim.SetTrigger("hit");
-        collider.enabled = false;
+        _collider.enabled = false;
 
         yield return new WaitForSeconds(downTime);
 
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
-        collider.enabled = true;
+        _collider.enabled = true;
+        mover.ManualChangeState(ShootableMoving.CurrentState.Moving);
     }
 }
