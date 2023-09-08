@@ -114,7 +114,7 @@ public class Shoot : MonoBehaviour
                 hit.collider.gameObject.GetComponent<AudioSource>().Play();
             }
             Instantiate(hitSparkPS, hit.point, Quaternion.identity);
-            hit.collider.GetComponent<ShootableTarget>().OnHit();
+            hit.collider.GetComponentInParent<ShootableTarget>().OnHit();
             scoreController.AddScore(100);
 
         }
