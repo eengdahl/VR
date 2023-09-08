@@ -17,6 +17,7 @@ public class Shoot : MonoBehaviour
     public Transform gunhead;
     private bool shooting = false;
     private bool isCock;
+    private bool equipped = false;
     ScoreController scoreController;
 
     //Realoding
@@ -93,6 +94,12 @@ public class Shoot : MonoBehaviour
 
         var Line = GetLine();
         Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
+        if (hit.collider == null)
+        {
+            return;
+        }
+        else
+        {
 
         if (hit.collider.CompareTag("Ground"))
         {
@@ -113,6 +120,7 @@ public class Shoot : MonoBehaviour
         }
 
         currentAmmo--;
+        }
     }
 
 
