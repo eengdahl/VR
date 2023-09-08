@@ -9,6 +9,7 @@ TagManager:
   - Bottle
   - Score
   - Target
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class ShootTest : MonoBehaviour
     AudioSource gunAS;
     DecalPainter decalPainter;
     public Transform gunTip;
+    public GameObject smokePuff;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,10 @@ public class ShootTest : MonoBehaviour
                     Vector3 direction = hit.rigidbody.transform.position - hit.point;
                     hit.rigidbody.AddForceAtPosition(direction * 1000, hit.point);
                     hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                }
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    Instantiate(smokePuff, hit.point, Quaternion.identity);
                 }
             }
 

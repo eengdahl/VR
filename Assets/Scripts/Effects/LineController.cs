@@ -9,6 +9,7 @@ public class LineController : MonoBehaviour
     void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        Invoke(nameof(FadeOut),0.5f);
     }
 
     // Update is called once per frame
@@ -17,5 +18,10 @@ public class LineController : MonoBehaviour
     {
         Vector3[] linePoints = new Vector3[] { hitPoint, gunTip };
         lineRenderer.SetPositions(linePoints);
+    }
+
+    private void FadeOut()
+    {
+        Destroy(gameObject);
     }
 }
