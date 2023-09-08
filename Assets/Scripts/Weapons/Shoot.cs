@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     public InputActionProperty weaponTrigger;
     public InputActionProperty fanRelease;
     public GameObject linePrefab;
+    public GameObject SmokePuffPS;
     BulletPool bulletPool;
     public Transform gun;
     public Transform gunhead;
@@ -83,6 +84,14 @@ public class Shoot : MonoBehaviour
         physBullet.transform.rotation = gunhead.transform.rotation;
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
+        var Line = GetLine();
+        Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
+
+        if (hit.collider.CompareTag("Ground"))
+        {
+            Instantiate(SmokePuffPS, hit.point, Quaternion.identity);
+        }
+
         if (hit.collider != null && hit.collider.CompareTag("Target"))
         {
             Debug.Log("hit");
@@ -109,5 +118,11 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = magSize;
         reloading = false;
+    }
+
+    private GameObject GetLine()
+    {
+        var newLine = Instantiate(linePrefab);
+        return newLine;
     }
 }
