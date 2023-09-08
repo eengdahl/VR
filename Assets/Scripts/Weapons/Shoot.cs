@@ -8,7 +8,8 @@ public class Shoot : MonoBehaviour
     public InputActionProperty weaponTrigger;
     public InputActionProperty fanRelease;
     public GameObject linePrefab;
-    public GameObject SmokePuffPS;
+    public GameObject smokePuffPS;
+    public GameObject hitSparkPS;
     BulletPool bulletPool;
     public Transform gun;
     public Transform gunhead;
@@ -89,7 +90,7 @@ public class Shoot : MonoBehaviour
 
         if (hit.collider.CompareTag("Ground"))
         {
-            Instantiate(SmokePuffPS, hit.point, Quaternion.identity);
+            Instantiate(smokePuffPS, hit.point, Quaternion.identity);
         }
 
         if (hit.collider != null && hit.collider.CompareTag("Target"))
@@ -99,7 +100,7 @@ public class Shoot : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<AudioSource>().Play();
             }
-
+            Instantiate(hitSparkPS, hit.point, Quaternion.identity);
             hit.collider.GetComponent<ShootableTarget>().OnHit();
             scoreController.AddScore(100);
 
