@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
-    public InputActionProperty weaponTrigger;
-    public InputActionProperty fanRelease;
+    public InputActionProperty leftWeaponTrigger;
+    public InputActionProperty rightWeaponTrigger;
+    public InputActionProperty leftFanReleased;
+    public InputActionProperty rightFanReleased;
     public GameObject linePrefab;
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
@@ -45,19 +47,23 @@ public class Shoot : MonoBehaviour
 
         if (!reloading)
         {
-            float triggerHeld = weaponTrigger.action.ReadValue<float>();
+            float leftTriggerHeld = leftWeaponTrigger.action.ReadValue<float>();
+            float righttriggerHeld = rightWeaponTrigger.action.ReadValue<float>();
             //Debug.Log(triggerHeld);
-            bool triggerValue = weaponTrigger.action.WasPressedThisFrame();
-            bool fanReleased = fanRelease.action.WasReleasedThisFrame();
-            if (triggerHeld != 0)
+            bool leftTriggerValue = leftWeaponTrigger.action.WasPressedThisFrame();
+            bool rightTriggerValue = rightWeaponTrigger.action.WasPressedThisFrame();
+
+            bool leftFanReleased = this.leftFanReleased.action.WasReleasedThisFrame();
+            bool rightFanReleased = this.rightFanReleased.action.WasReleasedThisFrame();
+            if (leftTriggerHeld != 0 || righttriggerHeld != 0)
             {
-                if (fanReleased)
+                if (leftFanReleased || rightFanReleased)
                 {
                     Fire();
                 }
             }
 
-            if (triggerValue)
+            if (leftTriggerValue || rightTriggerValue)
             {
                 Fire();
             }

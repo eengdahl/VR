@@ -287,6 +287,58 @@ PrefabInstance:
       propertyPath: m_RetainTransformParent
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: leftFanReleased.m_Reference
+      value: 
+      objectReference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightFanReleased.m_Reference
+      value: 
+      objectReference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: leftFanReleased.m_Action.m_Id
+      value: 964d9514-da80-44cc-bd14-e154058c5463
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightFanReleased.m_Action.m_Id
+      value: b8489e46-6153-4563-8086-4c54f4fb7921
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightWeaponTrigger.m_Reference
+      value: 
+      objectReference: {fileID: -7854965674248981027, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: leftFanReleased.m_Action.m_Name
+      value: Left Fan Released
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: leftWeaponTrigger.m_Action.m_Id
+      value: 10bb2fc7-7196-4a1e-a5fe-02576d76e57a
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightFanReleased.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightFanReleased.m_Action.m_Name
+      value: Right Fan Released
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightWeaponTrigger.m_Action.m_Id
+      value: 0ea37808-b25e-4968-8cb8-59fd02316709
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: leftWeaponTrigger.m_Action.m_Name
+      value: Left Weapon Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightWeaponTrigger.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797523808891475433, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
+      propertyPath: rightWeaponTrigger.m_Action.m_Name
+      value: Right Weapon Trigger
+      objectReference: {fileID: 0}
     - target: {fileID: 6152119848142440592, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.22726059
