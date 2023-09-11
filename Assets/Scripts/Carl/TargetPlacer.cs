@@ -16,7 +16,7 @@ public class TargetPlacer : MonoBehaviour
     [Header("Moving target objects")]
     [SerializeField] private List<GameObject> easyTargetMovingParents;
     [SerializeField] private List<GameObject> normalTargetMovingParents;
-    [SerializeField] private List<Transform> hardTargetMovingParents;
+    [SerializeField] private List<GameObject> hardTargetMovingParents;
     [Header("Scriptable Objects for the difficulty settings")]
     [SerializeField] private DifficultySettings easySettings;
     [SerializeField] private DifficultySettings normalSettings;
@@ -65,12 +65,6 @@ public class TargetPlacer : MonoBehaviour
                 }
                 
                 currentIndex = 0;
-                // foreach (var transform in easyTargetStationaryPoints)
-                // {
-                //     GameObject newTarget = Instantiate(stationaryTarget, transform.position, transform.rotation);
-                //     newTarget.GetComponent<ShootableMoving>().moveType = ShootableMoving.MoveType.FlipUp;
-                //     difficultyController.activeTargets.Add(newTarget);
-                // }
                 break;
             
             case Difficulty.Normal:
@@ -80,7 +74,7 @@ public class TargetPlacer : MonoBehaviour
                 int normalMovingTargetCount = normalSettings.movingTargets;
                 int normalStationaryTargetCount = normalTotalTargetCount - normalMovingTargetCount;
                 
-                for (int j = 1; j <= normalStationaryTargetCount; j++)
+                for (int j = 0; j < normalStationaryTargetCount; j++)
                 {
                     Transform newPoint = GetRandomPoint();
                     GameObject newTarget = Instantiate(stationaryTarget, newPoint.position, newPoint.rotation);
@@ -100,20 +94,35 @@ public class TargetPlacer : MonoBehaviour
                 }
                 
                 currentIndex = 0;
-                
-                
-                // foreach (var transform in normalTargetStationaryPoints)
-                // {
-                //     GameObject newTarget = Instantiate(stationaryTarget, transform.position, transform.rotation);
-                //     difficultyController.activeTargets.Add(newTarget);
-                // }
                 break;
+            
             case Difficulty.Hard:
-                foreach (var transform in normalTargetStationaryPoints)
+                ShuffleStationaryTargetPoints(hardTargetStationaryPoints);
+                ShuffleMovingParents(hardTargetMovingParents);
+                int hardTotalTargetCount = normalSettings.totalTargets;
+                int hardMovingTargetCount = normalSettings.movingTargets;
+                int hardStationaryTargetCount = hardTotalTargetCount - hardMovingTargetCount;
+                
+                for (int j = 0; j < hardStationaryTargetCount; j++)
                 {
-                    GameObject newTarget = Instantiate(stationaryTarget, transform.position, transform.rotation);
+                    Transform newPoint = GetRandomPoint();
+                    GameObject newTarget = Instantiate(stationaryTarget, newPoint.position, newPoint.rotation);
                     difficultyController.activeTargets.Add(newTarget);
+                    j++;
                 }
+
+                currentIndex = 0;
+                
+                for (int j = 0; j < hardMovingTargetCount; j++)
+                {
+                    GameObject newParent = GetRandomParent();
+                    GameObject newTarget = Instantiate(movingTarget, newParent.transform.position, newParent.transform.rotation);
+                    newTarget.GetComponent<ShootableMoving>().InitiatePatrol(newParent);
+                    difficultyController.activeTargets.Add(newTarget);
+                    j++;
+                }
+                
+                currentIndex = 0;
                 break;
         }
     }
