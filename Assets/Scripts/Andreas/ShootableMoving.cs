@@ -31,8 +31,11 @@ public class ShootableMoving : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     float acceleration;
 
+    [Header("Debugging")]
     [Tooltip("Only viewable for debugging purposes, don't touch!")]
     [SerializeField] int currentwaypoint;
+    [Tooltip("Targets that exists in the scene on start need this")]
+    [SerializeField] bool testTarget = false;
 
     float returnBuffer;
 
@@ -41,7 +44,18 @@ public class ShootableMoving : MonoBehaviour
 
     private void Start()
     {
-        
+        if (testTarget)
+        {
+            if (moveType == MoveType.Waypoints)
+            {
+                for (int i = 0; i < waypointParent.childCount; i++)
+                {
+                    waypoints.Add(waypointParent.GetChild(i));
+                }
+
+                if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
+            }
+        }
     }
 
     public void InitiatePatrol(GameObject newParent)
