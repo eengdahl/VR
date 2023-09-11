@@ -55,6 +55,11 @@ public class BulletScript : MonoBehaviour, BulletStats
     public void AimOffset(Vector3 offset)
     {
 
+        if (offset == Vector3.zero)
+        {
+            return;
+        }
+        this.transform.forward = offset;
     }
 
 

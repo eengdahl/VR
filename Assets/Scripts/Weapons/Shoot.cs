@@ -101,12 +101,13 @@ public class Shoot : MonoBehaviour
         // shots fired rapidly 
         if (burst > 0.1f)
         {
-            offset = new Vector3(Random.Range(gunhead.forward.x - burst, gunhead.forward.x + burst), Random.Range(gunhead.forward.y - burst, gunhead.forward.y + burst), gunhead.forward.z);
+            offset = new Vector3(Random.Range(gunhead.forward.x - burst, gunhead.forward.x + burst), Random.Range(gunhead.forward.y, gunhead.forward.y + burst), gunhead.forward.z);
             Physics.Raycast(gunhead.position, offset, out hit, 1000);
         }
         //RaycastHit hit;
         else
         {
+            offset = Vector3.zero;
             Physics.Raycast(gunhead.position, gunhead.forward, out hit, 1000);
         }
         burst += 0.1f;
@@ -119,6 +120,9 @@ public class Shoot : MonoBehaviour
         physBullet.transform.parent = gunhead;
         physBullet.transform.position = gunhead.transform.position;
         physBullet.transform.rotation = gunhead.transform.rotation;
+
+        physBullet.GetComponent<BulletScript>().AimOffset(offset);
+
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
         var Line = GetLine();
