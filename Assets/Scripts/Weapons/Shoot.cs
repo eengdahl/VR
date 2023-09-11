@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour
     public GameObject linePrefab;
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
+    public GameObject shell;
     BulletPool bulletPool;
     public Transform gunhead;
     private bool shooting = false;
@@ -59,6 +60,11 @@ public class Shoot : MonoBehaviour
             burst = 0;
         }
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Fire();
+        }
+
 
         if (!reloading && equipped)
         {
@@ -95,6 +101,7 @@ public class Shoot : MonoBehaviour
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
+        Instantiate(shell, transform.position, transform.rotation);
         if (burst > 0.5f)
             burst = 0.5f;
 

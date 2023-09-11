@@ -11,6 +11,13 @@ public class SVDestroyAfterTime : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		startTime = Time.time;
+
+		Invoke(nameof(destroyMe), 5);
+	}
+
+	void destroyMe()
+	{
+		Destroy(this.gameObject);
 	}
 
 	public void StartTimer() {
