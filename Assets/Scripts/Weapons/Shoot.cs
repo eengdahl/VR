@@ -13,7 +13,6 @@ public class Shoot : MonoBehaviour
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
     BulletPool bulletPool;
-    public Transform gun;
     public Transform gunhead;
     private bool shooting = false;
     private bool isCock;
@@ -100,13 +99,13 @@ public class Shoot : MonoBehaviour
         // shots fired rapidly 
         if (burst > 0.1f)
         {
-            offset = new Vector3(Random.Range(gun.forward.x - burst, gun.forward.x + burst), Random.Range(gun.forward.y - burst, gun.forward.y + burst), gun.forward.z);
-            Physics.Raycast(gun.position, offset, out hit, 1000);
+            offset = new Vector3(Random.Range(gunhead.forward.x - burst, gunhead.forward.x + burst), Random.Range(gunhead.forward.y - burst, gunhead.forward.y + burst), gunhead.forward.z);
+            Physics.Raycast(gunhead.position, offset, out hit, 1000);
         }
         //RaycastHit hit;
         else
         {
-            Physics.Raycast(gun.position, gun.forward, out hit, 1000);
+            Physics.Raycast(gunhead.position, gunhead.forward, out hit, 1000);
         }
         burst += 0.1f;
         offsetTimer = 0;
