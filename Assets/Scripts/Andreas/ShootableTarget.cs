@@ -26,6 +26,8 @@ public class ShootableTarget : MonoBehaviour
         mover = GetComponent<ShootableMoving>();
         score = GameObject.FindWithTag("Score").GetComponent<ScoreController>();
         if (score == null) Debug.LogError("Cannot find ScoreController, is there one in the scene tagged 'Score'?");
+        
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

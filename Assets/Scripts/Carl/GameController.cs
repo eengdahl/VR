@@ -14,11 +14,14 @@ public class GameController : MonoBehaviour
     private DifficultyController difficultyController;
     public UIController uiController;
     public ScoreController scoreController;
-
+    public TargetPlacer targetPlacer;
+    
     public bool playing;
     
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
+
+    public float gameTime = 90f;
     private void Start()
     {
         difficultyController = FindObjectOfType<DifficultyController>();
@@ -32,9 +35,14 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (playing)
+        if (playing && timeTrialEnabled)
         {
-            
+            gameTime -= 1 * Time.deltaTime;
+
+            if (gameTime <= 0)
+            {
+                EndGame();
+            }
         }
     }
 
@@ -66,9 +74,20 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         playing = false;
-        difficultyController.RemoveTargets();
+        targetPlacer.RemoveTargets();
         difficultyController.PlaceTargets(chosenDifficulty);
         uiController.StartCountDown();
     }
+
+    void SpawnCountDownTargets()
+    {
+        
+    } 
     
+    private void EndGame()
+    {
+        playing = false;
+
+        //Code to end the round and save score
+    }
 }
