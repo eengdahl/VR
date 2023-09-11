@@ -323,13 +323,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431238365511148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 0.0383, y: 0.0145, z: 0}
+  m_LocalRotation: {x: 0.00000010430811, y: -0.00000005960463, z: 0.15486443, w: 0.9879358}
+  m_LocalPosition: {x: 0.0364, y: 0.0203, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4442924771686878}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.818}
 --- !u!33 &33216293007584198
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -779,6 +779,7 @@ MonoBehaviour:
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
+  shell: {fileID: 0}
   gunhead: {fileID: 4294462989375342}
   currentAmmo: 0
   magSize: 10
