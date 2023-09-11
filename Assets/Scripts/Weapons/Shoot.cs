@@ -61,7 +61,7 @@ public class Shoot : MonoBehaviour
         }
 
 
-        if (!reloading)
+        if (!reloading && equipped)
         {
             float leftTriggerHeld = leftWeaponTrigger.action.ReadValue<float>();
             float righttriggerHeld = rightWeaponTrigger.action.ReadValue<float>();
@@ -167,5 +167,18 @@ public class Shoot : MonoBehaviour
     {
         var newLine = Instantiate(linePrefab);
         return newLine;
+    }
+
+    public void Equipped()
+    {
+        equipped = true;
+        Debug.Log(equipped);
+    }
+
+    public void Dropped()
+    {
+        equipped = false;
+        Debug.Log(equipped);
+
     }
 }
