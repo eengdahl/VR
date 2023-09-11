@@ -28,11 +28,19 @@ public class Shoot : MonoBehaviour
     public int magSize = 10;
     public AudioClip reloadingClip;
 
+    //HitOffset
+    RaycastHit hit;
+    private float offsetTimer;
+    private float gunStabilizer;
+    private float burst;
+    public Vector3 offset;
+
     private void Start()
     {
         bulletPool = FindAnyObjectByType<BulletPool>();
         scoreController = FindObjectOfType<ScoreController>();
         currentAmmo = magSize;
+        gunStabilizer = 0.2f;
 
     }
     private void OnEnable()
@@ -44,6 +52,13 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Counting how many bullets that has been shot in this burst
+        offsetTimer += Time.deltaTime;
+        if (offsetTimer > gunStabilizer)
+        {
+            burst = 0;
+        }
 
 
         if (!reloading)
@@ -81,8 +96,21 @@ public class Shoot : MonoBehaviour
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
+
+        // shots fired rapidly 
+        if (burst > 0.1f)
+        {
+            offset = new Vector3(Random.Range(gun.forward.x - burst, gun.forward.x + burst), Random.Range(gun.forward.y - burst, gun.forward.y + burst), gun.forward.z);
+            Physics.Raycast(gun.position, offset, out hit, 1000);
+        }
         //RaycastHit hit;
-        Physics.Raycast(gun.position, gun.forward, out RaycastHit hit, 1000);
+        else
+        {
+            Physics.Raycast(gun.position, gun.forward, out hit, 1000);
+        }
+        burst += 0.1f;
+        offsetTimer = 0;
+
         //shootcode sound instatiate decal etc
 
         //Physical bullet
@@ -101,25 +129,25 @@ public class Shoot : MonoBehaviour
         else
         {
 
-        if (hit.collider.CompareTag("Ground"))
-        {
-            Instantiate(smokePuffPS, hit.point, Quaternion.identity);
-        }
-
-        if (hit.collider != null && hit.collider.CompareTag("Target"))
-        {
-            Debug.Log("hit");
-            if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
+            if (hit.collider.CompareTag("Ground"))
             {
-                hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                Instantiate(smokePuffPS, hit.point, Quaternion.identity);
             }
-            Instantiate(hitSparkPS, hit.point, Quaternion.identity);
-            hit.collider.GetComponentInParent<ShootableTarget>().OnHit();
-            scoreController.AddScore(100);
 
-        }
+            if (hit.collider != null && hit.collider.CompareTag("Target"))
+            {
+                Debug.Log("hit");
+                if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                }
+                Instantiate(hitSparkPS, hit.point, Quaternion.identity);
+                hit.collider.GetComponentInParent<ShootableTarget>().OnHit();
+                scoreController.AddScore(100);
 
-        currentAmmo--;
+            }
+
+            currentAmmo--;
         }
     }
 
