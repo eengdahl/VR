@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!54 &67883700 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 7626166420062887005, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-  m_PrefabInstance: {fileID: 5715843487002043661}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &85268160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,82 +2085,6 @@ PrefabInstance:
     - target: {fileID: 4168377896971870, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Axis.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Axis.y
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Axis.z
-      value: 0.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Anchor.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_UseMotor
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_UseLimits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Limits.max
-      value: 167.09087
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Limits.min
-      value: 84.56401
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Motor.force
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_ConnectedBody
-      value: 
-      objectReference: {fileID: 67883700}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.018
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_Motor.targetVelocity
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714783451142508666, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_AutoConfigureConnectedAnchor
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119961605838845334, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119961605838845334, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626166420062887005, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626166420062887005, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
