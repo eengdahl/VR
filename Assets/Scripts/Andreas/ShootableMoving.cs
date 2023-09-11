@@ -16,6 +16,12 @@ public class ShootableMoving : MonoBehaviour
     [Tooltip("Should the target move in sequence or randomly?")]
     [SerializeField] bool randomWaypoint = false;
 
+    [Tooltip("Should the target teleport back when reaching the last waypoint?")]
+    [SerializeField] bool teleportToStart = false;
+
+    [Tooltip("Should the target accelerate? Don't use for normal targets!")]
+    [SerializeField] bool smoothMovement = false;
+
     [Header("Variables")]
     [Tooltip("How long the target should wait at each waypoint")]
     [SerializeField] float waitTime = 1f;
@@ -23,6 +29,7 @@ public class ShootableMoving : MonoBehaviour
 
     [Tooltip("How fast the target is walking between waypoints, Recommended between 1 and 5")]
     [SerializeField] float moveSpeed = 1f;
+    float acceleration;
 
     [Tooltip("Only viewable for debugging purposes, don't touch!")]
     [SerializeField] int currentwaypoint;
@@ -79,7 +86,18 @@ public class ShootableMoving : MonoBehaviour
 
     void WaypointMove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, moveSpeed * Time.deltaTime);
+        if (!smoothMovement)
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, moveSpeed * Time.deltaTime);
+        else
+        {
+            if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) > 5f)
+                if (acceleration <= moveSpeed) acceleration += Time.deltaTime * 3;
+
+            if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) < 5f)
+                acceleration -= Time.deltaTime * 3;
+
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, acceleration * Time.deltaTime);
+        }
 
         if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) < 0.1f)
         {
@@ -87,6 +105,12 @@ public class ShootableMoving : MonoBehaviour
 
             waitTimer = waitTime;
             currentState = CurrentState.Waiting;
+            acceleration = 0;
+
+            if (currentwaypoint == 0 && teleportToStart)
+            {
+                transform.position = waypoints[0].position;
+            }
         }
     }
 

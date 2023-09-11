@@ -101,25 +101,25 @@ public class Shoot : MonoBehaviour
         else
         {
 
-        if (hit.collider.CompareTag("Ground"))
-        {
-            Instantiate(smokePuffPS, hit.point, Quaternion.identity);
-        }
-
-        if (hit.collider != null && hit.collider.CompareTag("Target"))
-        {
-            Debug.Log("hit");
-            if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
+            if (hit.collider.CompareTag("Ground"))
             {
-                hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                Instantiate(smokePuffPS, hit.point, Quaternion.identity);
             }
-            Instantiate(hitSparkPS, hit.point, Quaternion.identity);
-            hit.collider.GetComponentInParent<ShootableTarget>().OnHit();
-            scoreController.AddScore(100);
 
-        }
+            if (hit.collider != null && hit.collider.CompareTag("Target"))
+            {
+                Debug.Log("hit");
+                if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                }
+                Instantiate(hitSparkPS, hit.point, Quaternion.identity);
+                hit.collider.GetComponentInParent<ShootableTarget>().OnHit();
+                scoreController.AddScore(100);
 
-        currentAmmo--;
+            }
+
+            currentAmmo--;
         }
     }
 
