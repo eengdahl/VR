@@ -95,6 +95,8 @@ public class Shoot : MonoBehaviour
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
+        if (burst > 0.5f)
+            burst = 0.5f;
 
         // shots fired rapidly 
         if (burst > 0.1f)
