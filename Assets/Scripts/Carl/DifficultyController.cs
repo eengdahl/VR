@@ -9,8 +9,6 @@ public class DifficultyController : MonoBehaviour
     [SerializeField] private ScriptableObject easyDifficulty;
     [SerializeField] private ScriptableObject mediumDifficulty;
     [SerializeField] private ScriptableObject hardDifficulty;
-
-    public List<GameObject> activeTargets = new List<GameObject>();
     
     public GameController gameController;
     private TargetPlacer targetPlacer;
@@ -23,15 +21,7 @@ public class DifficultyController : MonoBehaviour
 
     public void PlaceTargets(Difficulty difficulty)
     {
-        RemoveTargets();
+        gameController.targetPlacer.RemoveTargets();
         targetPlacer.PlaceTargets(difficulty);
-    }
-
-    public void RemoveTargets()
-    {
-        foreach (var target in activeTargets)
-        {
-            Destroy(target);
-        }
     }
 }
