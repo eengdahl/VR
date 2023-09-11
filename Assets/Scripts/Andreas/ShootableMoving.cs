@@ -34,6 +34,12 @@ public class ShootableMoving : MonoBehaviour
 
     private void Start()
     {
+        
+    }
+
+    public void InitiatePatrol(GameObject newParent)
+    {
+        waypointParent = newParent.transform;
         //Create our list of waypoints and warns if it's empty
         if (moveType == MoveType.Waypoints)
         {
@@ -45,7 +51,6 @@ public class ShootableMoving : MonoBehaviour
             if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
         }
     }
-
     // Update is called once per frame
     void Update()
     {
