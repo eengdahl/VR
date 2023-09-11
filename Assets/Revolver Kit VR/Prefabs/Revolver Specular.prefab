@@ -728,10 +728,34 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6348070893201334953}
+        m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
+        m_MethodName: Equipped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6348070893201334953}
+        m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
+        m_MethodName: Dropped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -762,7 +786,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 4407872963788710}
+  m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -871,11 +895,11 @@ MonoBehaviour:
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
-  gun: {fileID: 4294462989375342}
   gunhead: {fileID: 4294462989375342}
   currentAmmo: 0
   magSize: 10
   reloadingClip: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!82 &1564205702103906150
 AudioSource:
   m_ObjectHideFlags: 0
