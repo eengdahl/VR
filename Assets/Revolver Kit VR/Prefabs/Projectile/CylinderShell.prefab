@@ -95,10 +95,8 @@ GameObject:
   - component: {fileID: 4490677775107208}
   - component: {fileID: 54065642720688538}
   - component: {fileID: 136853751101435762}
-  - component: {fileID: 114964495843060702}
-  - component: {fileID: 114753331801791360}
   m_Layer: 0
-  m_Name: shell
+  m_Name: CylinderShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,8 +112,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: -0.0378}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4784443508599002}
   m_Father: {fileID: 0}
@@ -142,7 +140,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -164,45 +162,9 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.0042
   m_Height: 0.025
   m_Direction: 0
   m_Center: {x: -0.002, y: 0, z: 0}
---- !u!114 &114964495843060702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813471793046504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9889e04d9737da42bfddb80ef8bb853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect:
-  - {fileID: 8300000, guid: 416588f163167a14886ea1e46d85dd78, type: 3}
-  - {fileID: 8300000, guid: df681159557e46749985b3082dcad189, type: 3}
-  - {fileID: 8300000, guid: 5a93936ed06639346b41881d538cef7c, type: 3}
-  - {fileID: 8300000, guid: d24693499dc7f5a499aae693a7ec1590, type: 3}
-  - {fileID: 8300000, guid: eb405788e3ca24948ac7e139cf86fc51, type: 3}
-  minPitch: 0.99
-  maxPitch: 1.01
-  volume: 1
-  onlyPlayOnce: 1
---- !u!114 &114753331801791360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813471793046504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024e3952b1d51624f8770ce54887de49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsToLive: 5
-  startManaully: 1

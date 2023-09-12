@@ -16,11 +16,28 @@ public class SVDestroyAfterTime : MonoBehaviour
         Invoke(nameof(destroyMe), 5);
     }
 
-    void destroyMe()
+    void Update()
+    {
+        if (startManaully && !isStarted)
+        {
+            return;
+        }
+        if (Time.time - startTime > secondsToLive)
+
+        {
+            Destroy(gameObject);
+        }
+    }
+        void destroyMe()
     {
         Destroy(this.gameObject);
     }
 
+    public void StartTimer()
+    {
+        startTime = Time.time;
+        isStarted = true;
+    }
 
 
 }

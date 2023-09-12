@@ -779,7 +779,7 @@ MonoBehaviour:
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
-  shell: {fileID: 0}
+  shell: {fileID: 1813471793046504, guid: a880ba4d1682c7644a5bf51c28dbd0ef, type: 3}
   gunhead: {fileID: 4294462989375342}
   currentAmmo: 0
   magSize: 10
@@ -1088,7 +1088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6268000277634446131}
   m_Layer: 0
-  m_Name: Pivot (1)
+  m_Name: GrabPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,11 +1120,10 @@ GameObject:
   - component: {fileID: 7991731807337712350}
   - component: {fileID: 800486512659804881}
   - component: {fileID: 6232381047251268961}
-  - component: {fileID: 7978063085081359270}
   - component: {fileID: 992877813865408312}
   - component: {fileID: 2920568037183771858}
   m_Layer: 0
-  m_Name: revolver (1)
+  m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,39 +1194,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7978063085081359270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7146796511352294180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc374b8879a4a2a4fabf280d0b4f90ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfChambers: 6
-  rotationSpeed: 0.1
-  revolverOpenClip: {fileID: 8300000, guid: b80e38c89cea5524ba2c08c3be8562b0, type: 3}
-  revolverClickClip: {fileID: 8300000, guid: 1420d7394388812489e126b0622aafed, type: 3}
-  revolverCloseClip: {fileID: 8300000, guid: b80e38c89cea5524ba2c08c3be8562b0, type: 3}
-  openPosition: {x: 0.0025, y: 0.0036, z: -0.0268}
-  closedPosition: {x: 0.0025, y: 0.0036, z: 0}
-  openSpeed: 1000
-  bulletPrefab: {fileID: 1813471793046504, guid: a880ba4d1682c7644a5bf51c28dbd0ef, type: 3}
-  minRotationSpeedForReloading: 200
-  openDurationReloadNeeded: 3
-  openDurationReloadNotNeeded: 0.65
-  minStayOpenDuration: 0.65
-  shellEjectionForce: 1
-  gunColliders:
-  - {fileID: 64761800549044114}
-  - {fileID: 64256242759725914}
-  bulletPlacementRadius: 0.0102
-  bulletForwardAxisOffset: 0.0092
-  revolverParent: {fileID: 0}
-  isOpen: 0
 --- !u!54 &992877813865408312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1239,7 +1205,7 @@ Rigidbody:
   m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -1248,7 +1214,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1270,9 +1236,9 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
