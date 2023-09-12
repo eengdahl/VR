@@ -9,14 +9,17 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
 
-    [SerializeField] private GameObject difficultyPanel;
-    [SerializeField] private GameObject startPanel;
-    [SerializeField] private GameObject restartPanel;
-    [SerializeField] private GameObject timeTrialPanel;
-    [SerializeField] private Toggle timeTrialButton;
-    
+    [SerializeField] public GameObject difficultyPanel;
+    [SerializeField] public GameObject startPanel;
+    [SerializeField] public GameObject restartPanel;
+    [SerializeField] public GameObject timeTrialPanel;
+    [SerializeField] public Toggle timeTrialButton;
     public GameController gameController;
 
+    [SerializeField] private CountdownSign signThree;
+    [SerializeField] private CountdownSign signTwo;
+    [SerializeField] private CountdownSign signOne;
+    
     private bool countDown;
     private bool playing;
 
@@ -48,17 +51,14 @@ public class UIController : MonoBehaviour
         
         difficultyPanel.SetActive(false);
         startPanel.SetActive(true);
-    }
-
-    public void ChangeDifficulty()
-    {
-        
+        MoveUpCountDownSigns();
     }
     
-    private void StartGame()
+    public void MoveUpCountDownSigns()
     {
-        gameController.playing = true;
-        gameController.scoreController.StartNewGame(timeTrialEnabled);
+        signOne.MoveUpSigns();
+        signTwo.MoveUpSigns();
+        signThree.MoveUpSigns();
     }
 
     public void ToggleTimeTrial()
@@ -68,7 +68,7 @@ public class UIController : MonoBehaviour
     
     public void SelectNewDifficulty()
     {
-        CancelInvoke();
+        StopAllCoroutines();
         gameController.playing = false;
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
@@ -84,6 +84,25 @@ public class UIController : MonoBehaviour
         //Add function to move Canvas
         startPanel.SetActive(false);
         restartPanel.SetActive(true);
-        Invoke(nameof(StartGame), 3f);
+        StartCoroutine(nameof(CountDown));
+    }
+
+    IEnumerator CountDown()
+    {
+        yield return new WaitForSeconds(1);
+        signThree.CountdownSignFlip();
+        yield return new WaitForSeconds(1);
+        signTwo.CountdownSignFlip();
+        yield return new WaitForSeconds(1);
+        signOne.CountdownSignFlip();
+        yield return new WaitForSeconds(1);
+        //Add something to show that the game has started
+        gameController.playing = true;
+    }
+
+    public void EndGame()
+    {
+        restartPanel.SetActive(false);
+        difficultyPanel.SetActive(true);
     }
 }

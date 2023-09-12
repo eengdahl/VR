@@ -39,6 +39,7 @@ public class TargetPlacer : MonoBehaviour
 
     public void PlaceTargets(Difficulty difficulty)
     {
+        RemoveTargets();
         switch (difficulty)
         {
             case Difficulty.Easy:
@@ -99,8 +100,8 @@ public class TargetPlacer : MonoBehaviour
             case Difficulty.Hard:
                 ShuffleStationaryTargetPoints(hardStationaryTargets);
                 ShuffleMovingParents(hardTargetMovingParents);
-                int hardTotalTargetCount = normalSettings.totalTargets;
-                int hardMovingTargetCount = normalSettings.movingTargets;
+                int hardTotalTargetCount = hardSettings.totalTargets;
+                int hardMovingTargetCount = hardSettings.movingTargets;
                 int hardStationaryTargetCount = hardTotalTargetCount - hardMovingTargetCount;
                 
                 for (int j = 0; j < hardStationaryTargetCount; j++)

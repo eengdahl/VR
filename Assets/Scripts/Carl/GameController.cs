@@ -10,11 +10,12 @@ public class GameController : MonoBehaviour
     private GameObject easyTargetConfig;
     private GameObject normalTargetConfig;
     private GameObject hardTargetConfig;
-
-    private DifficultyController difficultyController;
+    
     public UIController uiController;
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
+    
+
     
     public bool playing;
     
@@ -22,13 +23,12 @@ public class GameController : MonoBehaviour
     public bool timeTrialEnabled;
 
     public float gameTime = 90f;
+    
     private void Start()
     {
-        difficultyController = FindObjectOfType<DifficultyController>();
         uiController = FindObjectOfType<UIController>();
         scoreController = FindObjectOfType<ScoreController>();
         
-        difficultyController.gameController = this;
         uiController.gameController = this;
         scoreController.gameController = this;
     }
@@ -48,46 +48,26 @@ public class GameController : MonoBehaviour
 
     public void InitializeGame(Difficulty difficulty, bool timeTrial)
     {
-        if (!playing)
-        {
-            switch (difficulty)
-            {
-                case Difficulty.Easy:
-                    chosenDifficulty = difficulty;
-                    timeTrialEnabled = timeTrial;
-                    difficultyController.PlaceTargets(chosenDifficulty);
-                    break;
-                case Difficulty.Normal:
-                    chosenDifficulty = difficulty;
-                    timeTrialEnabled = timeTrial;
-                    difficultyController.PlaceTargets(chosenDifficulty);
-                    break;
-                case Difficulty.Hard:
-                    chosenDifficulty = difficulty;
-                    timeTrialEnabled = timeTrial;
-                    difficultyController.PlaceTargets(chosenDifficulty);
-                    break;
-            }
-        }
+        chosenDifficulty = difficulty;
+        timeTrialEnabled = timeTrial;
+        targetPlacer.PlaceTargets(chosenDifficulty);
     }
     
     public void RestartGame()
     {
         playing = false;
         targetPlacer.RemoveTargets();
-        difficultyController.PlaceTargets(chosenDifficulty);
+        targetPlacer.PlaceTargets(chosenDifficulty);
+        uiController.MoveUpCountDownSigns();
         uiController.StartCountDown();
     }
-
-    void SpawnCountDownTargets()
-    {
-        
-    } 
     
-    private void EndGame()
+    public void EndGame()
     {
         playing = false;
-
+        scoreController.SaveHighscore(chosenDifficulty);
         //Code to end the round and save score
+        targetPlacer.RemoveTargets();
+        uiController.EndGame();
     }
 }
