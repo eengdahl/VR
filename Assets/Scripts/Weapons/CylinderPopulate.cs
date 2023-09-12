@@ -35,36 +35,16 @@ public class CylinderPopulate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.isAnimating)
-        {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
-            float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
-            if (curAngle < 1)
-            {
-                this.isAnimating = false;
-            }
-        }
+        //if (this.isAnimating)
 
-        if (gun.transform.localRotation.x < -120 || gun.transform.localRotation.x > 120 && cylinderOpen == true)
-        {
-            foreach (GameObject bullet in bullets)
-            {
-                bullet.GetComponent<Rigidbody>().isKinematic = false;
-            }
-        }
-
-        if (gameObject.transform.localRotation.y == 0)
-        {
-            cylinderOpen = true;
-            //foreach (GameObject bullet in bullets)
-            //{
-            //    bullet.GetComponent<Rigidbody>().isKinematic = false;
-            //}
-        }
-        if (gameObject.transform.rotation.y == 90)
-        {
-            cylinderOpen = false;
-        }
+        //{
+        //    transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
+        //    float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
+        //    if (curAngle < 1)
+        //    {
+        //        this.isAnimating = false;
+        //    }
+        //}
     }
 
     void FillBarrel()
@@ -119,5 +99,28 @@ public class CylinderPopulate : MonoBehaviour
         {
             currentRevolvIndex = 0;
         }
+    }
+
+    public void OpenCylinder()
+    {
+        Debug.Log("Open");
+        cylinderOpen = true;
+    }
+
+    public void CloseCylinder()
+    {
+        Debug.Log("Closed");
+        cylinderOpen = false;
+    }
+
+    public void ReleaseBullets()
+    {
+            Debug.Log("shouldfall");
+            foreach (GameObject bullet in bullets)
+            {
+                bullet.GetComponent<CylinderShell>().StartCoroutine("EnablePhysics");
+                bullet.transform.parent = null;
+                bullet.GetComponent<Rigidbody>().isKinematic = false;
+            }
     }
 }

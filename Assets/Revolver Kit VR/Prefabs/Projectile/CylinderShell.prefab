@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4490677775107208}
   - component: {fileID: 54065642720688538}
   - component: {fileID: 136853751101435762}
+  - component: {fileID: -6117626938547264326}
   m_Layer: 0
   m_Name: CylinderShell
   m_TagString: Untagged
@@ -168,3 +169,15 @@ CapsuleCollider:
   m_Height: 0.025
   m_Direction: 0
   m_Center: {x: -0.002, y: 0, z: 0}
+--- !u!114 &-6117626938547264326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813471793046504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5968e1d20bc92614bbdc63fea4b05643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
