@@ -538,7 +538,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 1572762221778890235}
   - component: {fileID: 537215984350732009}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1122,6 +1122,7 @@ GameObject:
   - component: {fileID: 6232381047251268961}
   - component: {fileID: 992877813865408312}
   - component: {fileID: 2920568037183771858}
+  - component: {fileID: 8451837797441125636}
   m_Layer: 0
   m_Name: Revolver
   m_TagString: Untagged
@@ -1236,10 +1237,31 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
-  m_CookingOptions: 30
+  m_CookingOptions: -1
   m_Mesh: {fileID: 4300000, guid: f939e4e5a75294b4fa4322c12949a3c3, type: 3}
+--- !u!114 &8451837797441125636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146796511352294180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd0949adae4b1f45b7e75a20dce5585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfChambers: 6
+  gunColliders:
+  - {fileID: 64761800549044114}
+  - {fileID: 64761800549044114}
+  bulletPlacementRadius: 0.0102
+  bulletForwardAxisOffset: 0.0092
+  rotationSpeed: 0.1
+  gun: {fileID: 1991293317751832}
+  bulletPrefab: {fileID: 1813471793046504, guid: 6e3ce6fc0134b1c498e1796842ed858b, type: 3}
