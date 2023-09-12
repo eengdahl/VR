@@ -42,7 +42,7 @@ public class ScoreController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("HighscoreSaveData"))
         {
-            print("Found highscoredata: " + PlayerPrefs.GetString("HighscoreSaveData"));
+            //print("Found highscoredata: " + PlayerPrefs.GetString("HighscoreSaveData"));
             hsSaveData = JsonUtility.FromJson<HighscoreSaveData>(PlayerPrefs.GetString("HighscoreSaveData"));
 
             for (int i = 0; i < easyHighscores.Count; i++)
