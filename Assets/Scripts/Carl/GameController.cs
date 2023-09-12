@@ -15,8 +15,6 @@ public class GameController : MonoBehaviour
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
     
-
-    
     public bool playing;
     
     public Difficulty chosenDifficulty;
@@ -28,6 +26,7 @@ public class GameController : MonoBehaviour
     {
         uiController = FindObjectOfType<UIController>();
         scoreController = FindObjectOfType<ScoreController>();
+        targetPlacer = FindObjectOfType<TargetPlacer>();
         
         uiController.gameController = this;
         scoreController.gameController = this;
