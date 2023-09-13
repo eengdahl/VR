@@ -19,14 +19,6 @@ class HighscoreSaveData
     public List<ScoreEntry> easyEntries = new(3);
     public List<ScoreEntry> mediumEntries = new(3);
     public List<ScoreEntry> hardEntries = new(3);
-
-    //public int[] easyHighscores = new int[3];
-    //public int[] mediumHighscores = new int[3];
-    //public int[] hardHighscores = new int[3];
-
-    //public string[] easyNames = new string[3];
-    //public string[] mediumNames = new string[3];
-    //public string[] hardNames = new string[3];
 }
 
 public class ScoreController : MonoBehaviour
@@ -60,7 +52,7 @@ public class ScoreController : MonoBehaviour
     [SerializeField] List<string> mediumNames = new(3);
     [SerializeField] List<string> hardNames = new(3);
 
-    [SerializeField] List<char> currentName = new(3);
+    [SerializeField] string currentName;
     [SerializeField] List<int> charInt = new(3);
     string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -230,7 +222,11 @@ public class ScoreController : MonoBehaviour
         else
             charInt[i] = 0;
 
-        currentName[i] = GetLetter(charInt[i]);
+        currentName = currentName.Remove(i, 1);
+        currentName = currentName.Insert(i, GetLetter(charInt[i]).ToString());
+
+
+        print(currentName);
     }
 
     public string SubmitName()
