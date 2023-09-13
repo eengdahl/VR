@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.47129002, g: 0.19655956, b: 0.14083257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18007,6 +18007,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 691878209}
     - target: {fileID: 6799110289907468153, guid: bd96a62c85daaf44ab239c0d9de55d9a, type: 3}
+      propertyPath: currentName
+      value: AAA
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799110289907468153, guid: bd96a62c85daaf44ab239c0d9de55d9a, type: 3}
       propertyPath: charInt.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -18040,7 +18044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799110289907468153, guid: bd96a62c85daaf44ab239c0d9de55d9a, type: 3}
       propertyPath: currentName.Array.data[2]
-      value: 43
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6799110289907468153, guid: bd96a62c85daaf44ab239c0d9de55d9a, type: 3}
       propertyPath: easyHighscores.Array.size
