@@ -35,6 +35,9 @@ public class Shoot : MonoBehaviour
     private float burst;
     public Vector3 offset;
 
+    //Play state (round started or not), controlled and updated by GameController
+    public bool playing;
+    
     private void Start()
     {
         bulletPool = FindAnyObjectByType<BulletPool>();
@@ -62,7 +65,10 @@ public class Shoot : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Fire();
+            if (playing)
+                Fire();
+            else
+                BlankFire();
         }
 
 
@@ -80,13 +86,19 @@ public class Shoot : MonoBehaviour
             {
                 if (leftFanReleased || rightFanReleased)
                 {
-                    Fire();
+                    if (playing)
+                        Fire();
+                    else
+                        BlankFire();
                 }
             }
 
             if (leftTriggerValue || rightTriggerValue)
             {
-                Fire();
+                if (playing)
+                    Fire();
+                else
+                    BlankFire();
             }
 
             if (currentAmmo <= 0)
@@ -133,7 +145,9 @@ public class Shoot : MonoBehaviour
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
         var Line = GetLine();
+        
         Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
+        
         if (hit.collider == null)
         {
             return;
@@ -156,14 +170,65 @@ public class Shoot : MonoBehaviour
                 Instantiate(hitSparkPS, hit.point, Quaternion.identity);
                 hit.collider.GetComponentInParent<ShootableTarget>().OnHit();
                 scoreController.AddScore(100);
-
             }
 
+            if (hit.collider != null && hit.collider.CompareTag("UI"))
+            {
+                hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
+            }
+            
             currentAmmo--;
         }
     }
 
+    private void BlankFire()
+    {
+        var aS = gameObject.GetComponent<AudioSource>();
+        aS.pitch = Random.Range(0.80f, 1.20f);
+        aS.Play();
+        Instantiate(shell, transform.position, transform.rotation);
+       
+        //RaycastHit hit;
+        Physics.Raycast(gunhead.position, gunhead.forward, out hit, 1000);
+        
+        //shootcode sound instatiate decal etc
 
+        //Physical bullet
+        var physBullet = bulletPool.GetBullet();
+        physBullet.transform.parent = gunhead;
+        physBullet.transform.position = gunhead.transform.position;
+        physBullet.transform.rotation = gunhead.transform.rotation;
+
+        physBullet.GetComponent<BulletScript>().AimOffset(offset);
+
+        physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
+
+        var Line = GetLine();
+        
+        Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Ground"))
+            {
+                Instantiate(smokePuffPS, hit.point, Quaternion.identity);
+            }
+            else if (hit.collider.CompareTag("Target"))
+            {
+                Debug.Log("hit");
+                if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                }
+                Instantiate(hitSparkPS, hit.point, Quaternion.identity);
+            }
+            else if (hit.collider.CompareTag("UI"))
+            {
+                hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
+                Instantiate(hitSparkPS, hit.point, Quaternion.identity);
+            }
+            
+        }
+    }
 
     IEnumerator Reloading()
     {

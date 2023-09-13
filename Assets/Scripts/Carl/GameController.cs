@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public UIController uiController;
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
+    public Shoot shoot;
     
     public bool playing;
     
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
         uiController = FindObjectOfType<UIController>();
         scoreController = FindObjectOfType<ScoreController>();
         targetPlacer = FindObjectOfType<TargetPlacer>();
+        shoot = FindObjectOfType<Shoot>();
         
         uiController.gameController = this;
         scoreController.gameController = this;
@@ -54,7 +56,7 @@ public class GameController : MonoBehaviour
     
     public void RestartGame()
     {
-        playing = false;
+        TogglePlayState();
         targetPlacer.RemoveTargets();
         targetPlacer.PlaceTargets(chosenDifficulty);
         uiController.MoveUpCountDownSigns();
@@ -63,10 +65,16 @@ public class GameController : MonoBehaviour
     
     public void EndGame()
     {
-        playing = false;
+        TogglePlayState();
         scoreController.SaveHighscore(chosenDifficulty);
         //Code to end the round and save score
         targetPlacer.RemoveTargets();
         uiController.EndGame();
+    }
+
+    public void TogglePlayState()
+    {
+        playing ^= playing;
+        shoot.playing = playing;
     }
 }
