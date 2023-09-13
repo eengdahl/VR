@@ -56,8 +56,6 @@ public class ShootableMoving : MonoBehaviour
                 if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
             }
         }
-        
-        gameObject.SetActive(false);
     }
 
     public void InitiatePatrol(GameObject newParent)
