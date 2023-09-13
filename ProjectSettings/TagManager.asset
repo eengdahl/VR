@@ -10,6 +10,7 @@ TagManager:
   - Score
   - Target
   - Ground
+  - .44
   layers:
   - Default
   - TransparentFX

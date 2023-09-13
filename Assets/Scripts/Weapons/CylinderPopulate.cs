@@ -20,61 +20,64 @@ public class CylinderPopulate : MonoBehaviour
 
     public GameObject gun;
     public GameObject bulletPrefab;
-    private GameObject[] bullets;
-    private bool[] bulletSpent;
+    public List<GameObject> bullets = new List<GameObject>();
+    //private bool[] bulletSpent;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        bullets = new GameObject[numberOfChambers];
-        bulletSpent = new bool[numberOfChambers];
-        FillBarrel();
+        //bulletSpent = new bool[numberOfChambers];
+        FillBarrel(6);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (this.isAnimating)
+        if (this.isAnimating)
 
-        //{
-        //    transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
-        //    float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
-        //    if (curAngle < 1)
-        //    {
-        //        this.isAnimating = false;
-        //    }
-        //}
-    }
-
-    void FillBarrel()
-    {
-        foreach (GameObject bullet in bullets)
         {
-            if (bullet != null)
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
+            float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
+            if (curAngle < 1)
             {
-                Destroy(bullet);
+                this.isAnimating = false;
             }
         }
+    }
 
-        for (int i = 0; i < numberOfChambers; i++)
+    void FillBarrel(int amount)
+    {
+        int space = 0;
+        for (int i = 0; i < amount; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, this.transform);
-            float degrees = AngleForIndex(i);
-            float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
-            float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);
-
-            bullet.transform.localPosition = new Vector3(bulletForwardAxisOffset, x, y);
-            Collider col = bullet.GetComponent<Collider>();
-            foreach (Collider col2 in gunColliders)
+            if (bullets != null)
             {
-                Physics.IgnoreCollision(col, col2);
-            }
-            col.enabled = false;
-            bullet.GetComponent<Collider>().enabled = false;
+                space = bullets.Count;
 
-            bulletSpent[i] = false;
-            bullets[i] = bullet;
+            }
+            else
+            {
+                space = 0;
+            }
+
+            if (space < 6)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, this.transform);
+                float degrees = AngleForIndex(space);
+                float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
+                float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);
+
+                bullet.transform.localPosition = new Vector3(bulletForwardAxisOffset, x, y);
+                Collider col = bullet.GetComponent<Collider>();
+                foreach (Collider col2 in gunColliders)
+                {
+                    Physics.IgnoreCollision(col, col2);
+                }
+                col.enabled = false;
+                bullet.GetComponent<Collider>().enabled = false;
+                bullets.Add(bullet);
+            }
         }
     }
 
@@ -91,7 +94,7 @@ public class CylinderPopulate : MonoBehaviour
 
     public void Revolve()
     {
-        bulletSpent[currentRevolvIndex] = true;
+        //bulletSpent[currentRevolvIndex] = true;
         this.rotationTarget = RotationForIndex(++currentRevolvIndex);
         this.isAnimating = true;
 
@@ -116,11 +119,24 @@ public class CylinderPopulate : MonoBehaviour
     public void ReleaseBullets()
     {
             Debug.Log("shouldfall");
+        if (bullets.Count != 0)
+        {
+
             foreach (GameObject bullet in bullets)
             {
                 bullet.GetComponent<CylinderShell>().StartCoroutine("EnablePhysics");
                 bullet.transform.parent = null;
                 bullet.GetComponent<Rigidbody>().isKinematic = false;
             }
+            bullets.Clear();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(".44"))
+        {
+            FillBarrel(1);
+        }
     }
 }
