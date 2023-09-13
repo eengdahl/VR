@@ -13,15 +13,6 @@ public class CountdownSign : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-            MoveUpSigns();
-        
-        if (Input.GetKeyDown(KeyCode.K))
-            CountdownSignFlip();
-    }
-
     public void MoveUpSigns()
     {
         
@@ -30,7 +21,6 @@ public class CountdownSign : MonoBehaviour
     
     public void CountdownSignFlip()
     {
-        
         StartCoroutine(nameof(PlayHitAnim));
     }
 
