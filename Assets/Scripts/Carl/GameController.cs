@@ -66,8 +66,9 @@ public class GameController : MonoBehaviour
     public void EndGame()
     {
         TogglePlayState();
-        playing = false;
+        //playing = false;
         //scoreController.SaveHighscoreToJson(chosenDifficulty, "WAD");
+        scoreController.CheckLeaderboard(chosenDifficulty);
         //Code to end the round and save score
         targetPlacer.RemoveTargets();
         uiController.EndGame();
