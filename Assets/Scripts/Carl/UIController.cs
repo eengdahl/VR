@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Carl;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,9 +25,14 @@ public class UIController : MonoBehaviour
     private bool playing;
 
     public bool timeTrialEnabled;
-    
+
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+            MoveUpCountDownSigns();
+        if (Input.GetKeyDown(KeyCode.K))
+            StartCountDown();
+        
         if (playing)
         {
             
@@ -69,7 +75,7 @@ public class UIController : MonoBehaviour
     public void SelectNewDifficulty()
     {
         StopAllCoroutines();
-        gameController.playing = false;
+        gameController.TogglePlayState();
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
     }
@@ -95,6 +101,7 @@ public class UIController : MonoBehaviour
         signTwo.CountdownSignFlip();
         yield return new WaitForSeconds(1);
         signOne.CountdownSignFlip();
+        
         yield return new WaitForSeconds(1);
         //Add something to show that the game has started
         gameController.playing = true;

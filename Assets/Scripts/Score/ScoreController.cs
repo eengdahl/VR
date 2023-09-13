@@ -7,21 +7,32 @@ using UnityEngine.UI;
 using Carl;
 
 [Serializable]
+class ScoreEntry
+{
+    public string name;
+    public int score;
+}
+
+[Serializable]
 class HighscoreSaveData
 {
-    public int[] easyHighscores = new int[3];
-    public int[] mediumHighscores = new int[3];
-    public int[] hardHighscores = new int[3];
+    public List<ScoreEntry> easyEntries = new(3);
+    public List<ScoreEntry> mediumEntries = new(3);
+    public List<ScoreEntry> hardEntries = new(3);
 }
 
 public class ScoreController : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI multiplierText;
     [SerializeField] Slider multiplierSlider;
+    [SerializeField] GameObject nameInputPanel;
+    [SerializeField] TextMeshProUGUI[] nameButtons;
 
-    HighscoreSaveData hsSaveData = new HighscoreSaveData();
+    [SerializeField] HighscoreSaveData hsSaveData = new HighscoreSaveData();
 
+    [Header("Current Score")]
     public int score;
     private int latestScoreReceived;
     public int currentMultiplier;
@@ -30,26 +41,40 @@ public class ScoreController : MonoBehaviour
     [SerializeField] float multiplierTime;
     float multiplierTimer;
 
-    public bool timeTrialEnabled;
+    [HideInInspector] public bool timeTrialEnabled;
 
-    public GameController gameController;
+    [HideInInspector] public GameController gameController;
 
+    [Header("Highscore Lists")]
     [SerializeField] List<int> easyHighscores = new(3);
     [SerializeField] List<int> mediumHighscores = new(3);
     [SerializeField] List<int> hardHighscores = new(3);
+
+    [SerializeField] List<string> easyNames = new(3);
+    [SerializeField] List<string> mediumNames = new(3);
+    [SerializeField] List<string> hardNames = new(3);
+
+    [SerializeField] string currentName;
+    [SerializeField] List<int> charInt = new(3);
+    string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     private void Start()
     {
         if (PlayerPrefs.HasKey("HighscoreSaveData"))
         {
-            //print("Found highscoredata: " + PlayerPrefs.GetString("HighscoreSaveData"));
+            print("Found highscoredata: " + PlayerPrefs.GetString("HighscoreSaveData"));
             hsSaveData = JsonUtility.FromJson<HighscoreSaveData>(PlayerPrefs.GetString("HighscoreSaveData"));
 
-            for (int i = 0; i < easyHighscores.Count; i++)
+            for (int i = 0; i < 3; i++)
             {
-                easyHighscores[i] = hsSaveData.easyHighscores[i];
-                mediumHighscores[i] = hsSaveData.mediumHighscores[i];
-                hardHighscores[i] = hsSaveData.hardHighscores[i];
+                easyHighscores[i] = hsSaveData.easyEntries[i].score;
+                easyNames[i] = hsSaveData.easyEntries[i].name;
+
+                mediumHighscores[i] = hsSaveData.mediumEntries[i].score;
+                mediumNames[i] = hsSaveData.mediumEntries[i].name;
+
+                hardHighscores[i] = hsSaveData.hardEntries[i].score;
+                hardNames[i] = hsSaveData.hardEntries[i].name;
             }
         }
     }
@@ -99,9 +124,58 @@ public class ScoreController : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
+        currentMultiplier = 0;
+        multiplierTimer = 0;
     }
 
-    public void SaveHighscore(Difficulty difficulty)
+    public void CheckLeaderboard(Difficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                if (score > easyHighscores[2])
+                {
+                    //TODO show panel for inputting name
+                    ShowInputName();
+                }
+                break;
+            case Difficulty.Normal:
+                if (score > mediumHighscores[2])
+                {
+                    //TODO show panel for inputting name
+                    ShowInputName();
+                }
+                break;
+            case Difficulty.Hard:
+                if (score > hardHighscores[2])
+                {
+                    //TODO show panel for inputting name
+                    ShowInputName();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    void ShowInputName()
+    {
+        nameInputPanel.SetActive(true);
+        currentName = "AAA";
+
+        for (int i = 0; i < charInt.Count; i++)
+        {
+            charInt[i] = 0;
+            nameButtons[i].text = "A";
+        }
+    }
+
+    public void SaveHighscore()
+    {
+        SaveHighscoreToJson(gameController.chosenDifficulty, currentName);
+    }
+
+    public void SaveHighscoreToJson(Difficulty difficulty, string name)
     {
         switch (difficulty)
         {
@@ -111,12 +185,20 @@ public class ScoreController : MonoBehaviour
                     if (score > easyHighscores[i]) //if it's higher, we insert it at that spot
                     {
                         easyHighscores.Insert(i, score);
+                        easyNames.Insert(i, name); //save the name
                         break;
                     }
                 }
 
-                for (int i = 0; i < easyHighscores.Count; i++)
-                    hsSaveData.easyHighscores[i] = easyHighscores[i];
+                //the list is too long, remove the now not-highscore
+                easyHighscores.RemoveAt(3);
+                easyNames.RemoveAt(3);
+
+                for (int i = 0; i < 3; i++) //save it to our highscore savedata
+                {
+                    hsSaveData.easyEntries[i].score = easyHighscores[i];
+                    hsSaveData.easyEntries[i].name = easyNames[i];
+                }
 
                 break;
             case Difficulty.Normal:
@@ -125,9 +207,19 @@ public class ScoreController : MonoBehaviour
                     if (score > mediumHighscores[i]) //if it's higher, we insert it at that spot
                     {
                         mediumHighscores.Insert(i, score);
+                        mediumNames.Insert(i, name);
                         break;
                     }
                 }
+                mediumHighscores.RemoveAt(3);
+                mediumNames.RemoveAt(3);
+
+                for (int i = 0; i < 3; i++) //save it to our highscore savedata
+                {
+                    hsSaveData.mediumEntries[i].score = mediumHighscores[i];
+                    hsSaveData.mediumEntries[i].name = mediumNames[i];
+                }
+
                 break;
             case Difficulty.Hard:
                 for (int i = 0; i < hardHighscores.Count; i++) //compare current score to current highscores
@@ -135,76 +227,85 @@ public class ScoreController : MonoBehaviour
                     if (score > hardHighscores[i]) //if it's higher, we insert it at that spot
                     {
                         hardHighscores.Insert(i, score);
+                        hardNames.Insert(i, name);
                         break;
                     }
                 }
+
+                hardHighscores.RemoveAt(3);
+                hardNames.RemoveAt(3);
+
+                for (int i = 0; i < 3; i++) //save it to our highscore savedata
+                {
+                    hsSaveData.hardEntries[i].score = hardHighscores[i];
+                    hsSaveData.hardEntries[i].name = hardNames[i];
+                }
+
                 break;
             default:
                 break;
         }
 
-        if (easyHighscores.Count >= 4) //if we inserted, the list is too long and we trim the excess
-            easyHighscores.RemoveAt(3);
+        //if (easyHighscores.Count >= 4) //if we inserted, the list is too long and we trim the excess
 
         string jsonString = JsonUtility.ToJson(hsSaveData);
         print(jsonString);
     }
+
     public void SaveHighscore(int difficulty)
     {
-        switch (difficulty)
-        {
-            case 0:
-                for (int i = 0; i < easyHighscores.Count; i++) //compare current score to current highscores
-                {
-                    if (score > easyHighscores[i]) //if it's higher, we insert it at that spot
-                    {
-                        easyHighscores.Insert(i, score);
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < easyHighscores.Count; i++)
-                    hsSaveData.easyHighscores[i] = easyHighscores[i];
-
-                break;
-            case 1:
-                for (int i = 0; i < mediumHighscores.Count; i++) //compare current score to current highscores
-                {
-                    if (score > mediumHighscores[i]) //if it's higher, we insert it at that spot
-                    {
-                        mediumHighscores.Insert(i, score);
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < mediumHighscores.Count; i++)
-                    hsSaveData.mediumHighscores[i] = mediumHighscores[i];
-
-                break;
-            case 2:
-                for (int i = 0; i < hardHighscores.Count; i++) //compare current score to current highscores
-                {
-                    if (score > hardHighscores[i]) //if it's higher, we insert it at that spot
-                    {
-                        hardHighscores.Insert(i, score);
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < hardHighscores.Count; i++)
-                    hsSaveData.hardHighscores[i] = hardHighscores[i];
-
-                break;
-            default:
-                break;
-        }
-
-        if (easyHighscores.Count >= 4) //if we inserted, the list is too long and we trim the excess
-            easyHighscores.RemoveAt(3);
-
         //save all highscoredata to json and playerprefs
         string jsonString = JsonUtility.ToJson(hsSaveData);
-        PlayerPrefs.SetString("HighscoreSaveData", jsonString);
+        //PlayerPrefs.SetString("HighscoreSaveData", jsonString);
         print(jsonString);
+        PlayerPrefs.SetString("HighscoreSaveData", jsonString);
+        //PlayerPrefs.SetString("EasyHighscores", jsonString);
+    }
+
+    public void WriteName(int i)
+    {
+        //print(RandomName());
+
+        if (charInt[i] < chars.Length - 1)
+            charInt[i]++;
+        else
+            charInt[i] = 0;
+
+        currentName = currentName.Remove(i, 1);
+        currentName = currentName.Insert(i, GetLetter(charInt[i]).ToString());
+
+        nameButtons[i].text = GetLetter(charInt[i]).ToString();
+
+        print(currentName);
+    }
+
+    public string SubmitName()
+    {
+        string returnedName = "";
+
+        for (int i = 0; i < 3; i++)
+            returnedName += currentName[i];
+
+        return returnedName;
+    }
+
+    public string RandomName()
+    {
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        string returnedName = "";
+
+        for (int i = 0; i < 3; i++)
+        {
+            int ind = UnityEngine.Random.Range(0, chars.Length);
+
+            returnedName += chars[ind];
+        }
+
+        return returnedName;
+    }
+
+    public char GetLetter(int i)
+    {
+        return chars[i];
     }
 }
