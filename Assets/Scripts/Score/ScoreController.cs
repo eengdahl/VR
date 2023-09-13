@@ -26,6 +26,8 @@ public class ScoreController : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI multiplierText;
     [SerializeField] Slider multiplierSlider;
+    [SerializeField] private TextMeshProUGUI bulletsFiredText;
+    [SerializeField] private TextMeshProUGUI accuracyText;
     [SerializeField] GameObject nameInputPanel;
     [SerializeField] TextMeshProUGUI[] nameButtons;
 
@@ -40,6 +42,10 @@ public class ScoreController : MonoBehaviour
     [SerializeField] float multiplierTime;
     float multiplierTimer;
 
+    private int bulletsFired;
+    private int bulletsOnTarget;
+    private float accuracy;
+    
     [HideInInspector] public bool timeTrialEnabled;
 
     [HideInInspector] public GameController gameController;
@@ -114,8 +120,10 @@ public class ScoreController : MonoBehaviour
     void UpdateScoreText()
     {
         //TODO update the text and all that
-        scoreText.text = "Score: " + score.ToString();
-        multiplierText.text = "Combo: " + currentMultiplier.ToString();
+        scoreText.text = "Score: " + score;
+        multiplierText.text = "Combo: " + currentMultiplier;
+        bulletsFiredText.text = "Shots fired: " + bulletsFired;
+        accuracyText.text = "Accuracy: " + accuracy.ToString("P1"); 
     }
 
     public void StartNewGame(bool timeTrial)
@@ -321,5 +329,13 @@ public class ScoreController : MonoBehaviour
             mediumLeaderboard[i].text = mediumNames[i] + " " + mediumHighscores[i].ToString("000000");
             hardLeaderboard[i].text = hardNames[i] + " " + hardHighscores[i].ToString("000000");
         }
+    }
+
+    public void BulletWasFired(bool wasOnTarget)
+    {
+        bulletsFired++;
+        if (wasOnTarget)
+            bulletsOnTarget++;
+        accuracy = bulletsFired / bulletsOnTarget;
     }
 }

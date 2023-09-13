@@ -84,10 +84,7 @@ public class GameController : MonoBehaviour
 
     public void BulletFired(bool wasOnTarget)
     {
-        bulletsFired++;
-        if (wasOnTarget)
-            bulletsOnTarget++;
-        accuracy = bulletsFired / bulletsOnTarget;
+        scoreController.BulletWasFired(wasOnTarget);
     }
 
     private void UpdateScoreBoardData()

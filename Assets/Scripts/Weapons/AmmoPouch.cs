@@ -27,6 +27,7 @@ public class AmmoPouch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Hand"))
         {
             Instantiate(ammoPrefab, transform.position, Quaternion.identity);
