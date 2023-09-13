@@ -35,6 +35,8 @@ public class Shoot : MonoBehaviour
     private float burst;
     public Vector3 offset;
 
+    public GameController gameController;
+    
     //Play state (round started or not), controlled and updated by GameController
     public bool playing;
     
@@ -158,11 +160,13 @@ public class Shoot : MonoBehaviour
             if (hit.collider.CompareTag("Ground"))
             {
                 Instantiate(smokePuffPS, hit.point, Quaternion.identity);
+                gameController.BulletFired(false);
             }
 
             if (hit.collider != null && hit.collider.CompareTag("Target"))
             {
                 Debug.Log("hit");
+                gameController.BulletFired(true);
                 if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
                 {
                     hit.collider.gameObject.GetComponent<AudioSource>().Play();
@@ -174,6 +178,7 @@ public class Shoot : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("UI"))
             {
+                gameController.BulletFired(false);
                 hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
             }
             

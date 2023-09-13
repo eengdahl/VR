@@ -16,7 +16,6 @@ public class DifficultyController : MonoBehaviour
     private void Start()
     {
         targetPlacer = FindObjectOfType<TargetPlacer>();
-        targetPlacer.difficultyController = this;
     }
 
     public void PlaceTargets(Difficulty difficulty)

@@ -7,33 +7,33 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private GameObject easyTargetConfig;
-    private GameObject normalTargetConfig;
-    private GameObject hardTargetConfig;
-
     public UIController uiController;
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
     public Shoot shoot;
 
     public bool playing;
-
+    
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
 
     public float gameTime = 90f;
-
+    public int bulletsFired;
+    public int bulletsOnTarget;
+    public float accuracy;
+    
     private void Start()
     {
         uiController = FindObjectOfType<UIController>();
         scoreController = FindObjectOfType<ScoreController>();
+        scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
         shoot = FindObjectOfType<Shoot>();
 
         uiController.gameController = this;
         scoreController.gameController = this;
     }
-
+    
     private void Update()
     {
         if (playing && timeTrialEnabled)
@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        gameTime = 90f;
         TogglePlayState();
         targetPlacer.RemoveTargets();
         targetPlacer.PlaceTargets(chosenDifficulty);
@@ -65,6 +66,7 @@ public class GameController : MonoBehaviour
 
     public void EndGame()
     {
+        gameTime = 90f;
         TogglePlayState();
         playing = false;
         //scoreController.SaveHighscoreToJson(chosenDifficulty, "WAD");
@@ -77,5 +79,18 @@ public class GameController : MonoBehaviour
     {
         playing ^= playing;
         shoot.playing = playing;
+    }
+
+    public void BulletFired(bool wasOnTarget)
+    {
+        bulletsFired++;
+        if (wasOnTarget)
+            bulletsOnTarget++;
+        accuracy = bulletsFired / bulletsOnTarget;
+    }
+
+    private void UpdateScoreBoardData()
+    {
+        //Code to update the scoreboard with time/shots fired/accuracy
     }
 }
