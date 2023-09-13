@@ -10,26 +10,26 @@ public class GameController : MonoBehaviour
     private GameObject easyTargetConfig;
     private GameObject normalTargetConfig;
     private GameObject hardTargetConfig;
-    
+
     public UIController uiController;
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
     public Shoot shoot;
-    
+
     public bool playing;
-    
+
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
 
     public float gameTime = 90f;
-    
+
     private void Start()
     {
         uiController = FindObjectOfType<UIController>();
         scoreController = FindObjectOfType<ScoreController>();
         targetPlacer = FindObjectOfType<TargetPlacer>();
         shoot = FindObjectOfType<Shoot>();
-        
+
         uiController.gameController = this;
         scoreController.gameController = this;
     }
@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
         timeTrialEnabled = timeTrial;
         targetPlacer.PlaceTargets(chosenDifficulty);
     }
-    
+
     public void RestartGame()
     {
         TogglePlayState();
@@ -62,11 +62,12 @@ public class GameController : MonoBehaviour
         uiController.MoveUpCountDownSigns();
         uiController.StartCountDown();
     }
-    
+
     public void EndGame()
     {
         TogglePlayState();
-        scoreController.SaveHighscore(chosenDifficulty);
+        playing = false;
+        scoreController.SaveHighscore(chosenDifficulty, "WAD");
         //Code to end the round and save score
         targetPlacer.RemoveTargets();
         uiController.EndGame();
