@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using Carl;
+using System;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 class ScoreEntry
@@ -58,11 +57,16 @@ public class ScoreController : MonoBehaviour
     [SerializeField] List<int> charInt = new(3);
     string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    [Header("Leaderboards")]
+    [SerializeField] TextMeshProUGUI[] easyLeaderboard;
+    [SerializeField] TextMeshProUGUI[] mediumLeaderboard;
+    [SerializeField] TextMeshProUGUI[] hardLeaderboard;
+
     private void Start()
     {
         if (PlayerPrefs.HasKey("HighscoreSaveData"))
         {
-            print("Found highscoredata: " + PlayerPrefs.GetString("HighscoreSaveData"));
+            //print("Found highscoredata: " + PlayerPrefs.GetString("HighscoreSaveData"));
             hsSaveData = JsonUtility.FromJson<HighscoreSaveData>(PlayerPrefs.GetString("HighscoreSaveData"));
 
             for (int i = 0; i < 3; i++)
@@ -77,6 +81,8 @@ public class ScoreController : MonoBehaviour
                 hardNames[i] = hsSaveData.hardEntries[i].name;
             }
         }
+
+        UpdateLeaderboard();
     }
 
     private void Update()
@@ -93,6 +99,7 @@ public class ScoreController : MonoBehaviour
         }
     }
 
+    //INGAME SCORE:
     public void AddScore(int scoreToAdd)
     {
         latestScoreReceived = scoreToAdd;
@@ -128,6 +135,7 @@ public class ScoreController : MonoBehaviour
         multiplierTimer = 0;
     }
 
+    //HIGHSCORE:
     public void CheckLeaderboard(Difficulty difficulty)
     {
         switch (difficulty)
@@ -249,7 +257,7 @@ public class ScoreController : MonoBehaviour
         //if (easyHighscores.Count >= 4) //if we inserted, the list is too long and we trim the excess
 
         string jsonString = JsonUtility.ToJson(hsSaveData);
-        print(jsonString);
+        //print(jsonString);
     }
 
     public void SaveHighscore(int difficulty)
@@ -264,8 +272,6 @@ public class ScoreController : MonoBehaviour
 
     public void WriteName(int i)
     {
-        //print(RandomName());
-
         if (charInt[i] < chars.Length - 1)
             charInt[i]++;
         else
@@ -275,8 +281,6 @@ public class ScoreController : MonoBehaviour
         currentName = currentName.Insert(i, GetLetter(charInt[i]).ToString());
 
         nameButtons[i].text = GetLetter(charInt[i]).ToString();
-
-        print(currentName);
     }
 
     public string SubmitName()
@@ -289,7 +293,7 @@ public class ScoreController : MonoBehaviour
         return returnedName;
     }
 
-    public string RandomName()
+    public string RandomName() //NOT USED ANYMORE
     {
         string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         string returnedName = "";
@@ -307,5 +311,15 @@ public class ScoreController : MonoBehaviour
     public char GetLetter(int i)
     {
         return chars[i];
+    }
+
+    public void UpdateLeaderboard()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            easyLeaderboard[i].text = easyNames[i] + " " + easyHighscores[i].ToString("000000");
+            mediumLeaderboard[i].text = mediumNames[i] + " " + mediumHighscores[i].ToString("000000");
+            hardLeaderboard[i].text = hardNames[i] + " " + hardHighscores[i].ToString("000000");
+        }
     }
 }
