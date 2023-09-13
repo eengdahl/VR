@@ -134,6 +134,7 @@ public class CylinderPopulate : MonoBehaviour
         if (other.CompareTag(".44"))
         {
             FillBarrel(1);
+            Destroy(other.gameObject);
         }
     }
 }
