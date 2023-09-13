@@ -14,12 +14,14 @@ public class HandScript : MonoBehaviour
 
     private float gripTarget = 0f;
     private float currentGrip = 0f;
+    public float testfloat;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
+    // Update is called once per frame
     // Update is called once per frame
     void Update()
     {
@@ -32,3 +34,4 @@ public class HandScript : MonoBehaviour
         }
     }
 }
+
