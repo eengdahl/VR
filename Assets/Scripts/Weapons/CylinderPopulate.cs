@@ -48,13 +48,6 @@ public class CylinderPopulate : MonoBehaviour
 
     void FillBarrel(int amount)
     {
-        foreach (GameObject bullet in bullets)
-        {
-            if (bullet != null)
-            {
-                Destroy(bullet);
-            }
-        }
 
         for (int i = 0; i < amount; i++)
         {
@@ -123,11 +116,14 @@ public class CylinderPopulate : MonoBehaviour
 
     public void ReleaseBullets()
     {
-        foreach (GameObject bullet in bullets)
+        if (cylinderOpen)
         {
-            bullet.GetComponent<CylinderShell>().StartCoroutine("EnablePhysics");
-            bullet.transform.parent = null;
-            bullet.GetComponent<Rigidbody>().isKinematic = false;
+            foreach (GameObject bullet in bullets)
+            {
+                bullet.GetComponent<CylinderShell>().StartCoroutine("EnablePhysics");
+                bullet.transform.parent = null;
+                bullet.GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
 
         bullets.Clear();

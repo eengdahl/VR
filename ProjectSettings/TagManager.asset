@@ -11,6 +11,7 @@ TagManager:
   - Target
   - Ground
   - UI
+  - .44
   layers:
   - Default
   - TransparentFX
