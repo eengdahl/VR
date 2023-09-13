@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class ShootableTarget : MonoBehaviour
 {
-    [Tooltip("For Testing Purposes! Click once and then turn false to test animations")]
+    [Tooltip("For Testing Purposes! Click to test animations")]
     [SerializeField] bool hit; //for testing purposes
 
     [Tooltip("How long to wait before getting up again after being shot down")]
     [SerializeField] float downTime = 2f;
+
+    [Tooltip("Check true to keep target on start. For testing purposes!")]
+    [SerializeField] bool keepOnStart = false;
 
     float returnBuffer;
 
@@ -24,10 +27,12 @@ public class ShootableTarget : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         _collider = GetComponent<CapsuleCollider>();
         mover = GetComponent<ShootableMoving>();
+
         score = GameObject.FindWithTag("Score").GetComponent<ScoreController>();
         if (score == null) Debug.LogError("Cannot find ScoreController, is there one in the scene tagged 'Score'?");
-        
-        gameObject.SetActive(false);
+
+        if (!keepOnStart)
+            gameObject.SetActive(false);
     }
 
     // Update is called once per frame
