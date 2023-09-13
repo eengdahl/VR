@@ -20,7 +20,7 @@ public class CylinderPopulate : MonoBehaviour
 
     public GameObject gun;
     public GameObject bulletPrefab;
-    private List<GameObject> bullets = new List<GameObject>();
+    public List<GameObject> bullets = new List<GameObject>();
     private bool[] bulletSpent;
 
 
@@ -34,16 +34,16 @@ public class CylinderPopulate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (this.isAnimating)
+        if (this.isAnimating)
 
-        //{
-        //    transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
-        //    float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
-        //    if (curAngle < 1)
-        //    {
-        //        this.isAnimating = false;
-        //    }
-        //}
+        {
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
+            float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
+            if (curAngle < 1)
+            {
+                this.isAnimating = false;
+            }
+        }
     }
 
     void FillBarrel(int amount)
