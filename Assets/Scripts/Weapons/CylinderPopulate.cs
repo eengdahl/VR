@@ -20,16 +20,15 @@ public class CylinderPopulate : MonoBehaviour
 
     public GameObject gun;
     public GameObject bulletPrefab;
-    private GameObject[] bullets;
+    private List<GameObject> bullets = new List<GameObject>();
     private bool[] bulletSpent;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        bullets = new GameObject[numberOfChambers];
         bulletSpent = new bool[numberOfChambers];
-        FillBarrel();
+        FillBarrel(6);
     }
 
     // Update is called once per frame
@@ -47,7 +46,7 @@ public class CylinderPopulate : MonoBehaviour
         //}
     }
 
-    void FillBarrel()
+    void FillBarrel(int amount)
     {
         foreach (GameObject bullet in bullets)
         {
@@ -57,24 +56,35 @@ public class CylinderPopulate : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < numberOfChambers; i++)
+        for (int i = 0; i < amount; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, this.transform);
-            float degrees = AngleForIndex(i);
-            float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
-            float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);
+            int space = 0;
 
-            bullet.transform.localPosition = new Vector3(bulletForwardAxisOffset, x, y);
-            Collider col = bullet.GetComponent<Collider>();
-            foreach (Collider col2 in gunColliders)
+            if (bullets != null)
             {
-                Physics.IgnoreCollision(col, col2);
+                space = bullets.Count;
             }
-            col.enabled = false;
-            bullet.GetComponent<Collider>().enabled = false;
+            else
+            {
+                space = 0;
+            }
+            if (space < 6)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, this.transform);
+                float degrees = AngleForIndex(space);
+                float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
+                float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);
 
-            bulletSpent[i] = false;
-            bullets[i] = bullet;
+                bullet.transform.localPosition = new Vector3(bulletForwardAxisOffset, x, y);
+                Collider col = bullet.GetComponent<Collider>();
+                foreach (Collider col2 in gunColliders)
+                {
+                    Physics.IgnoreCollision(col, col2);
+                }
+                col.enabled = false;
+                bullet.GetComponent<Collider>().enabled = false;
+                bullets.Add(bullet);
+            }
         }
     }
 
@@ -103,24 +113,31 @@ public class CylinderPopulate : MonoBehaviour
 
     public void OpenCylinder()
     {
-        Debug.Log("Open");
         cylinderOpen = true;
     }
 
     public void CloseCylinder()
     {
-        Debug.Log("Closed");
         cylinderOpen = false;
     }
 
     public void ReleaseBullets()
     {
-            Debug.Log("shouldfall");
-            foreach (GameObject bullet in bullets)
-            {
-                bullet.GetComponent<CylinderShell>().StartCoroutine("EnablePhysics");
-                bullet.transform.parent = null;
-                bullet.GetComponent<Rigidbody>().isKinematic = false;
-            }
+        foreach (GameObject bullet in bullets)
+        {
+            bullet.GetComponent<CylinderShell>().StartCoroutine("EnablePhysics");
+            bullet.transform.parent = null;
+            bullet.GetComponent<Rigidbody>().isKinematic = false;
+        }
+
+        bullets.Clear();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(".44"))
+        {
+            FillBarrel(1);
+        }
     }
 }
