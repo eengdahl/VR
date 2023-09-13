@@ -1530,6 +1530,7 @@ GameObject:
   - component: {fileID: 729512288}
   - component: {fileID: 729512287}
   - component: {fileID: 729512286}
+  - component: {fileID: 729512290}
   m_Layer: 0
   m_Name: AmmoPouch
   m_TagString: AmmoPouch
@@ -1623,6 +1624,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729512290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729512285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842b8e44bd7fa8f41a228f09bb2db869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabAmmo:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grab Ammo
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: de635e06-368a-403c-ac55-f397dec8aad5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  ammoPrefab: {fileID: 1813471793046504, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
 --- !u!1 &810358470
 GameObject:
   m_ObjectHideFlags: 0
