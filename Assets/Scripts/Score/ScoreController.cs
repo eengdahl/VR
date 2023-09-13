@@ -27,6 +27,8 @@ public class ScoreController : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI multiplierText;
     [SerializeField] Slider multiplierSlider;
+    [SerializeField] GameObject nameInputPanel;
+    [SerializeField] TextMeshProUGUI[] nameButtons;
 
     [SerializeField] HighscoreSaveData hsSaveData = new HighscoreSaveData();
 
@@ -123,10 +125,57 @@ public class ScoreController : MonoBehaviour
     {
         score = 0;
         currentMultiplier = 0;
-        multiplierTime = 0;
+        multiplierTimer = 0;
     }
 
-    public void SaveHighscore(Difficulty difficulty, string name)
+    public void CheckLeaderboard(Difficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                if (score > easyHighscores[2])
+                {
+                    //TODO show panel for inputting name
+                    ShowInputName();
+                }
+                break;
+            case Difficulty.Normal:
+                if (score > mediumHighscores[2])
+                {
+                    //TODO show panel for inputting name
+                    ShowInputName();
+                }
+                break;
+            case Difficulty.Hard:
+                if (score > hardHighscores[2])
+                {
+                    //TODO show panel for inputting name
+                    ShowInputName();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    void ShowInputName()
+    {
+        nameInputPanel.SetActive(true);
+        currentName = "AAA";
+
+        for (int i = 0; i < charInt.Count; i++)
+        {
+            charInt[i] = 0;
+            nameButtons[i].text = "A";
+        }
+    }
+
+    public void SaveHighscore()
+    {
+        SaveHighscoreToJson(gameController.chosenDifficulty, currentName);
+    }
+
+    public void SaveHighscoreToJson(Difficulty difficulty, string name)
     {
         switch (difficulty)
         {
@@ -225,6 +274,7 @@ public class ScoreController : MonoBehaviour
         currentName = currentName.Remove(i, 1);
         currentName = currentName.Insert(i, GetLetter(charInt[i]).ToString());
 
+        nameButtons[i].text = GetLetter(charInt[i]).ToString();
 
         print(currentName);
     }
