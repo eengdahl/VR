@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - UI
   - .44
+  - AmmoPouch
   layers:
   - Default
   - TransparentFX
