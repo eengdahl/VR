@@ -484,6 +484,18 @@ PrefabInstance:
       propertyPath: m_ModelPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847993, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_AnimateModel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847993, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_ModelSelectTransition
+      value: 0,1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847993, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_ModelDeSelectTransition
+      value: 0,1
+      objectReference: {fileID: 0}
     - target: {fileID: 9014170783728641054, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.15
@@ -575,6 +587,18 @@ PrefabInstance:
     - target: {fileID: 9014170785475729497, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_ModelPrefab
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170785475729497, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_AnimateModel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170785475729497, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_ModelSelectTransition
+      value: 0,1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170785475729497, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_ModelDeSelectTransition
+      value: 0,1
       objectReference: {fileID: 0}
     - target: {fileID: 9032954039820430273, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_TranslateSpeed
@@ -1045,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3338dde1ae80a3b43826deca5c238356, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1107,6 +1135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b5efa0c69d901449a38989140500c0d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
