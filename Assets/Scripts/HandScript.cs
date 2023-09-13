@@ -10,24 +10,25 @@ public class HandScript : MonoBehaviour
     private GameObject hand_R;
     private Animator animator;
     [SerializeField] private ActionBasedController controller;
-    [SerializeField] private float speed = 0f;
+    [SerializeField] private float speed = 8f;
 
     private float gripTarget = 0f;
-    private float curGrip = 0f;
+    private float currentGrip = 0f;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        gripTarget = controller.selectAction.action.ReadValue<float>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (curGrip != gripTarget)
+        gripTarget=controller.selectAction.action.ReadValue<float>();
+
+        if (currentGrip != gripTarget) 
         {
-            curGrip = Mathf.MoveTowards(curGrip, gripTarget, Time.deltaTime * speed);
-            animator.SetFloat("Grip", curGrip);
+            currentGrip = Mathf.MoveTowards(currentGrip, gripTarget, Time.deltaTime * speed);
+            animator.SetFloat("Grip", currentGrip);
         }
     }
 }
