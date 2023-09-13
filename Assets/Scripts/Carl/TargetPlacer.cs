@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class TargetPlacer : MonoBehaviour
 {
-    [Header("Target prefabs")]
-    [SerializeField] private GameObject stationaryTarget;
-    [SerializeField] private GameObject movingTarget;
     [Header("Stationary target points")]
     [SerializeField] private List<GameObject> easyStationaryTargets = new();
     [SerializeField] private List<GameObject> normalStationaryTargets = new();
@@ -24,8 +21,7 @@ public class TargetPlacer : MonoBehaviour
 
     private List<GameObject> shuffledPointsList = new();
     public List<GameObject> shuffledParentsList = new();
-    private int currentIndex = 0;
-    public DifficultyController difficultyController;
+    private int currentIndex;
     
     public List<GameObject> activeTargets = new();
     

@@ -13,6 +13,7 @@ TagManager:
   - UI
   - .44
   - AmmoPouch
+  - Hand
   layers:
   - Default
   - TransparentFX
