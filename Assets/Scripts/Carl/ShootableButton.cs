@@ -11,7 +11,7 @@ public class ShootableButton : MonoBehaviour
     public enum UItype { buttonType, toggleType }
 
     [SerializeField] private UItype uiType;
-    
+
     public void TriggerButton()
     {
         switch (uiType)

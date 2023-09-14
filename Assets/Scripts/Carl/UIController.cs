@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
 
     public void SelectDifficulty(int selection)
     {
-        
+
         switch (selection)
         {
             case 0:
@@ -46,12 +46,12 @@ public class UIController : MonoBehaviour
                 gameController.InitializeGame(Difficulty.Hard, timeTrialEnabled);
                 break;
         }
-        
+
         difficultyPanel.SetActive(false);
         startPanel.SetActive(true);
         MoveUpCountDownSigns();
     }
-    
+
     public void MoveUpCountDownSigns()
     {
         signOne.MoveUpSigns();
@@ -59,11 +59,12 @@ public class UIController : MonoBehaviour
         signThree.MoveUpSigns();
     }
 
-    public void ToggleTimeTrial()
+    public void ToggleTimeTrial(bool timeTrial)
     {
-        timeTrialEnabled = timeTrialButton.isOn;
+        timeTrialEnabled = timeTrial;
+        //print("Enabled Time Trial");
     }
-    
+
     public void SelectNewDifficulty()
     {
         StopAllCoroutines();
@@ -93,7 +94,7 @@ public class UIController : MonoBehaviour
         signTwo.CountdownSignFlip();
         yield return new WaitForSeconds(1);
         signOne.CountdownSignFlip();
-        
+
         yield return new WaitForSeconds(0.5f);
         //Add something to show that the game has started
         gameController.TogglePlayState();
