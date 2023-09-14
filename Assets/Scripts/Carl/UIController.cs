@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     [SerializeField] public GameObject startPanel;
     [SerializeField] public GameObject restartPanel;
     [SerializeField] public GameObject timeTrialPanel;
-    [SerializeField] public Toggle timeTrialButton;
+    [SerializeField] public GameObject backPanel;
     public GameController gameController;
 
     [SerializeField] private CountdownSign signThree;
@@ -42,6 +42,7 @@ public class UIController : MonoBehaviour
         difficultyPanel.SetActive(false);
         timeTrialPanel.SetActive(false);
         startPanel.SetActive(true);
+        backPanel.SetActive(true);
         MoveUpCountDownSigns();
     }
 
@@ -56,6 +57,15 @@ public class UIController : MonoBehaviour
     {
         timeTrialEnabled = timeTrial;
         //print("Enabled Time Trial");
+    }
+
+    public void BackToDifficultySelection()
+    {
+        backPanel.SetActive(false);
+        startPanel.SetActive(false);
+        difficultyPanel.SetActive(true);
+        timeTrialPanel.SetActive(true);
+        gameController.targetPlacer.RemoveTargets();
     }
 
     public void SelectNewDifficulty()
