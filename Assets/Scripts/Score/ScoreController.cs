@@ -187,9 +187,13 @@ public class ScoreController : MonoBehaviour
         }
     }
 
-    public void SaveHighscore()
+    public void SubmitHighscore()
     {
         SaveHighscoreToJson(gameController.chosenDifficulty, currentName);
+
+        UpdateLeaderboard();
+
+        nameInputPanel.SetActive(false);
     }
 
     public void SaveHighscoreToJson(Difficulty difficulty, string name)
@@ -266,6 +270,8 @@ public class ScoreController : MonoBehaviour
         //if (easyHighscores.Count >= 4) //if we inserted, the list is too long and we trim the excess
 
         string jsonString = JsonUtility.ToJson(hsSaveData);
+        PlayerPrefs.SetString("HighscoreSaveData", jsonString);
+
         //print(jsonString);
     }
 
@@ -275,7 +281,6 @@ public class ScoreController : MonoBehaviour
         string jsonString = JsonUtility.ToJson(hsSaveData);
         //PlayerPrefs.SetString("HighscoreSaveData", jsonString);
         print(jsonString);
-        PlayerPrefs.SetString("HighscoreSaveData", jsonString);
         //PlayerPrefs.SetString("EasyHighscores", jsonString);
     }
 
