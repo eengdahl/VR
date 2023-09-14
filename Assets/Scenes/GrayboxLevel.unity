@@ -8253,6 +8253,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1124164299}
     - target: {fileID: 4119300314008123903, guid: 16d0254cd0b96d94994ee2a6ce46460c, type: 3}
+      propertyPath: backPanel
+      value: 
+      objectReference: {fileID: 1816942706}
+    - target: {fileID: 4119300314008123903, guid: 16d0254cd0b96d94994ee2a6ce46460c, type: 3}
       propertyPath: signThree
       value: 
       objectReference: {fileID: 1124164300}
@@ -13990,6 +13994,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 40e2902034948fe4f8123d4f1ecb6c4a, type: 3}
   m_PrefabInstance: {fileID: 1783291794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1816942706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8320787286577973543, guid: b50e43d940c3c7b418bc6855e456023c, type: 3}
+  m_PrefabInstance: {fileID: 346703984}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1822570683 stripped
 MonoBehaviour:

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class CylinderPopulate : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class CylinderPopulate : MonoBehaviour
     public List<GameObject> bullets = new List<GameObject>();
     private bool[] bulletSpent;
 
+    public InputActionReference actioRef;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +41,6 @@ public class CylinderPopulate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.localRotation.y);
         if (this.isAnimating)
 
         {
@@ -162,5 +165,10 @@ public class CylinderPopulate : MonoBehaviour
             FillBarrel(1);
             Destroy(other.gameObject);
         }
+    }
+
+    public void DisableGrabInput()
+    {
+        actioRef.action.Disable();
     }
 }
