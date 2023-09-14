@@ -41,6 +41,7 @@ public class Shoot : MonoBehaviour
     public GameController gameController;
 
     public XRBaseController thisController;
+    public XRDirectInteractor rightController;
     public XRGrabInteractable grabscript;
 
     //Play state (round started or not), controlled and updated by GameController
@@ -264,8 +265,9 @@ public class Shoot : MonoBehaviour
     {
         //update thisController
         equipped = true;
-        transform.parent = grabscript.attachTransform;
-        Debug.Log(grabscript.attachTransform);
+        transform.parent = thisController.GetComponent<XRDirectInteractor>().transform;
+        Debug.Log("without script ref" + thisController.transform);
+        Debug.Log("withscriptref" + thisController.GetComponent<XRDirectInteractor>().transform);
         Debug.Log(equipped);
     }
 
