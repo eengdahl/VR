@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class Shoot : MonoBehaviour
 {
@@ -13,14 +15,13 @@ public class Shoot : MonoBehaviour
     public GameObject linePrefab;
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
-    public GameObject shell;
     BulletPool bulletPool;
     public Transform gunhead;
     private bool shooting = false;
     private bool isCock;
     private bool equipped = false;
     ScoreController scoreController;
-    [SerializeField] XRController controllerR;
+    [SerializeField] UnityEngine.XR.Interaction.Toolkit.XRController controllerR;
 
     //Realoding
     private bool reloading = false;
@@ -120,7 +121,6 @@ public class Shoot : MonoBehaviour
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
-        Instantiate(shell, transform.position, transform.rotation);
         if (burst > 0.5f)
             burst = 0.5f;
 
@@ -196,7 +196,6 @@ public class Shoot : MonoBehaviour
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
-        Instantiate(shell, transform.position, transform.rotation);
 
         //RaycastHit hit;
         Physics.Raycast(gunhead.position, gunhead.forward, out hit, 1000);
