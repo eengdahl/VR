@@ -21,7 +21,6 @@ public class Shoot : MonoBehaviour
     private bool isCock;
     private bool equipped = false;
     ScoreController scoreController;
-    [SerializeField] UnityEngine.XR.Interaction.Toolkit.XRController controllerR;
 
     //Realoding
     private bool reloading = false;
@@ -116,7 +115,6 @@ public class Shoot : MonoBehaviour
     private void Fire()
     {
         //print("Fired for real for real");
-        controllerR.SendHapticImpulse(0.7f, 0.1f);
 
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
