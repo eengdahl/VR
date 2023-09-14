@@ -265,6 +265,7 @@ public class Shoot : MonoBehaviour
         //update thisController
         equipped = true;
         transform.parent = grabscript.attachTransform;
+        Debug.Log(grabscript.attachTransform);
         Debug.Log(equipped);
     }
 
