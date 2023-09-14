@@ -8,7 +8,7 @@ public class MusicScript : MonoBehaviour
 
     public AudioClip backgroundNoise;
     public List<AudioClip> backGroundMusic;
-    public int count;
+    private int count;
 
     private AudioSource aS;
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class MusicScript : MonoBehaviour
         count = 0;
         aS = GetComponent<AudioSource>();
 
-          StartCoroutine(StartBackground());
+        StartCoroutine(StartBackground());
 
         StartCoroutine(StartMusic());
     }
@@ -34,7 +34,7 @@ public class MusicScript : MonoBehaviour
     {
 
         aS.PlayOneShot(backGroundMusic[count], 0.2f);
-        yield return new WaitForSeconds(backGroundMusic[count].length);
+        yield return new WaitForSeconds(/*/backGroundMusic[count].length/*/3);
         count++;
         if (count >= backGroundMusic.Count)
         {
