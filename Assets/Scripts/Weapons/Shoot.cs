@@ -138,7 +138,6 @@ public class Shoot : MonoBehaviour
 
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
-        physBullet.transform.parent = gunhead;
         physBullet.transform.position = gunhead.transform.position;
         physBullet.transform.rotation = gunhead.transform.rotation;
 
@@ -200,7 +199,6 @@ public class Shoot : MonoBehaviour
 
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
-        physBullet.transform.parent = gunhead;
         physBullet.transform.position = gunhead.transform.position;
         physBullet.transform.rotation = gunhead.transform.rotation;
 
