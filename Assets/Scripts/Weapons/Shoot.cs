@@ -41,6 +41,7 @@ public class Shoot : MonoBehaviour
     public GameController gameController;
 
     public XRBaseController thisController;
+    public XRGrabInteractable grabscript;
 
     //Play state (round started or not), controlled and updated by GameController
     public bool playing;
@@ -54,7 +55,7 @@ public class Shoot : MonoBehaviour
         scoreController = FindObjectOfType<ScoreController>();
         currentAmmo = magSize;
         gunStabilizer = 0.2f;
-
+        grabscript = GetComponent<XRGrabInteractable>();
     }
     private void OnEnable()
     {
@@ -261,7 +262,9 @@ public class Shoot : MonoBehaviour
 
     public void Equipped()
     {
+        //update thisController
         equipped = true;
+        transform.parent = grabscript.attachTransform;
         Debug.Log(equipped);
     }
 
