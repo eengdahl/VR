@@ -611,18 +611,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8451837797441125636}
-        m_TargetAssemblyTypeName: CylinderPopulate, Assembly-CSharp
-        m_MethodName: DisableGrabInput
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -802,6 +790,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   gameController: {fileID: 0}
   thisController: {fileID: 0}
+  rightController: {fileID: 0}
   grabscript: {fileID: 0}
   playing: 0
 --- !u!82 &1564205702103906150
