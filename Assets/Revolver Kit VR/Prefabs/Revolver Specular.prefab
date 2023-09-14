@@ -611,6 +611,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7146796511352294180}
+        m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -783,8 +795,8 @@ MonoBehaviour:
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
-  shell: {fileID: 1813471793046504, guid: a880ba4d1682c7644a5bf51c28dbd0ef, type: 3}
   gunhead: {fileID: 4294462989375342}
+  controllerR: {fileID: 0}
   currentAmmo: 0
   magSize: 10
   reloadingClip: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
@@ -1792,3 +1804,4 @@ MonoBehaviour:
   gun: {fileID: 1991293317751832}
   bulletPrefab: {fileID: 1813471793046504, guid: 6e3ce6fc0134b1c498e1796842ed858b, type: 3}
   bullets: []
+  actioRef: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
