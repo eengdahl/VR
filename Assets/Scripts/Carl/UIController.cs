@@ -23,14 +23,6 @@ public class UIController : MonoBehaviour
 
     public bool timeTrialEnabled;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-            MoveUpCountDownSigns();
-        if (Input.GetKeyDown(KeyCode.K))
-            StartCountDown();
-    }
-
     public void SelectDifficulty(int selection)
     {
 
@@ -48,6 +40,7 @@ public class UIController : MonoBehaviour
         }
 
         difficultyPanel.SetActive(false);
+        timeTrialPanel.SetActive(false);
         startPanel.SetActive(true);
         MoveUpCountDownSigns();
     }
@@ -71,6 +64,7 @@ public class UIController : MonoBehaviour
         gameController.TogglePlayState();
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
+        timeTrialPanel.SetActive(true);
     }
 
     public void RestartGame()
@@ -104,5 +98,6 @@ public class UIController : MonoBehaviour
     {
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
+        timeTrialPanel.SetActive(true);
     }
 }
