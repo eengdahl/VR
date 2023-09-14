@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.OpenXR.Input;
 
 
 public class Shoot : MonoBehaviour
@@ -39,11 +40,16 @@ public class Shoot : MonoBehaviour
 
     public GameController gameController;
 
+    public XRBaseController thisController;
+
     //Play state (round started or not), controlled and updated by GameController
     public bool playing;
 
+    HapticScript haptic;
+
     private void Start()
     {
+        haptic = FindAnyObjectByType<HapticScript>();
         bulletPool = FindAnyObjectByType<BulletPool>();
         scoreController = FindObjectOfType<ScoreController>();
         currentAmmo = magSize;
@@ -116,6 +122,7 @@ public class Shoot : MonoBehaviour
     {
         //print("Fired for real for real");
 
+        haptic.TriggerHapticEvent(thisController);
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();

@@ -5,9 +5,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HapticScript : MonoBehaviour
 {
-    [Range(0, 1)]
-    float intensity;
-    float duration;
+
+    public float intensity = 1f;
+    public float duration = 1f;
 
     XRBaseInteractable interactable;
 
