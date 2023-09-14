@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CylinderPopulate : MonoBehaviour
 {
@@ -15,9 +16,10 @@ public class CylinderPopulate : MonoBehaviour
     private bool isAnimating = false;
     private bool cylinderOpen = false;
     public float rotationSpeed = 0.1f;
+    public InputActionProperty righthandReleaseCylinder;
+    public InputActionProperty lefthandReleaseCylinder;
 
-
-
+    private Rigidbody cylinderRB;
     public GameObject gun;
     public GameObject bulletPrefab;
     public List<GameObject> bullets = new List<GameObject>();
@@ -27,6 +29,7 @@ public class CylinderPopulate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cylinderRB = GetComponent<Rigidbody>();
         bulletSpent = new bool[numberOfChambers];
         FillBarrel(6);
     }
@@ -34,6 +37,7 @@ public class CylinderPopulate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(transform.localRotation.y);
         if (this.isAnimating)
 
         {
@@ -44,8 +48,30 @@ public class CylinderPopulate : MonoBehaviour
                 this.isAnimating = false;
             }
         }
-    }
 
+        float righthandCylinderRelease = this.righthandReleaseCylinder.action.ReadValue<float>();
+        float lefthandCylinderRelease = this.lefthandReleaseCylinder.action.ReadValue<float>();
+
+        if (righthandCylinderRelease != 0)
+        {
+            cylinderRB.isKinematic = false;
+
+        }
+        if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
+        {
+            cylinderRB.isKinematic = true;
+        }
+
+        if (lefthandCylinderRelease != 0)
+        {
+            cylinderRB.isKinematic = false;
+
+        }
+        if (transform.localRotation.y > 0.5 && lefthandCylinderRelease == 0)
+        {
+            cylinderRB.isKinematic = true;
+        }
+    }
     void FillBarrel(int amount)
     {
 

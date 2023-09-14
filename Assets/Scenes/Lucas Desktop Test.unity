@@ -135,17 +135,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: RevolverAmmo
       objectReference: {fileID: 0}
-    - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
+    - target: {fileID: 1813471793046504, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -186,10 +178,6 @@ PrefabInstance:
     - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2552,6 +2540,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 992877813865408312, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6254954210811370584, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13211593
@@ -2563,6 +2555,46 @@ PrefabInstance:
     - target: {fileID: 6254954210811370584, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.08446927
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: releaseCylinder.m_Action.m_Id
+      value: 741a92c5-ec04-4013-9bca-bab61c78cdc8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: releaseCylinder.m_Action.m_Name
+      value: Release Cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: lefthandReleaseCylinder.m_Reference
+      value: 
+      objectReference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: righthandReleaseCylinder.m_Reference
+      value: 
+      objectReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: lefthandReleaseCylinder.m_Action.m_Id
+      value: 208dd07f-df3b-4ea4-b180-3bd8f6bfbcc9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: lefthandReleaseCylinder.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: righthandReleaseCylinder.m_Action.m_Id
+      value: c921a166-9c21-4c84-bb98-c40c4ac29c7b
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: lefthandReleaseCylinder.m_Action.m_Name
+      value: Lefthand Release Cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: righthandReleaseCylinder.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: righthandReleaseCylinder.m_Action.m_Name
+      value: Righthand Release Cylinder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
