@@ -174,7 +174,7 @@ public class TargetPlacer : MonoBehaviour
     {
         foreach (GameObject target in activeTargets)
         {
-            target.gameObject.SetActive(false);
+            target.SetActive(false);
         }
     }
 }
