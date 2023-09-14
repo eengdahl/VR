@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
     public void TogglePlayState()
     {
         playing = !playing;
-        shoot.playing = playing;
+        shoot.playing = !shoot.playing;
     }
 
     public void BulletFired(bool wasOnTarget)
