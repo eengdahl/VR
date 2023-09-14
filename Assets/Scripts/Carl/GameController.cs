@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
         scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
         shoot = FindObjectOfType<Shoot>();
+        shoot.gameController = this;
 
         uiController.gameController = this;
         scoreController.gameController = this;
@@ -77,7 +78,7 @@ public class GameController : MonoBehaviour
     public void TogglePlayState()
     {
         playing = !playing;
-        shoot.playing = playing;
+        shoot.playing = !shoot.playing;
     }
 
     public void BulletFired(bool wasOnTarget)
