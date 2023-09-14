@@ -20,9 +20,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private CountdownSign signThree;
     [SerializeField] private CountdownSign signTwo;
     [SerializeField] private CountdownSign signOne;
-    
-    private bool countDown;
-    private bool playing;
 
     public bool timeTrialEnabled;
 
@@ -32,11 +29,6 @@ public class UIController : MonoBehaviour
             MoveUpCountDownSigns();
         if (Input.GetKeyDown(KeyCode.K))
             StartCountDown();
-        
-        if (playing)
-        {
-            
-        }
     }
 
     public void SelectDifficulty(int selection)

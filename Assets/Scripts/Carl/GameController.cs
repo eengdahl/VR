@@ -18,9 +18,6 @@ public class GameController : MonoBehaviour
     public bool timeTrialEnabled;
 
     public float gameTime = 90f;
-    public int bulletsFired;
-    public int bulletsOnTarget;
-    public float accuracy;
     
     private void Start()
     {
