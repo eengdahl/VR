@@ -75,6 +75,7 @@ public class UIController : MonoBehaviour
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
+        gameController.targetPlacer.RemoveTargets();
     }
 
     public void RestartGame()
