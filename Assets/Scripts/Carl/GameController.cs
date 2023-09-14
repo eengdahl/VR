@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
         scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
         shoot = FindObjectOfType<Shoot>();
+        shoot.gameController = this;
 
         uiController.gameController = this;
         scoreController.gameController = this;
