@@ -71,6 +71,9 @@ public class UIController : MonoBehaviour
     public void SelectNewDifficulty()
     {
         StopAllCoroutines();
+        signOne.anim.SetTrigger("reset");
+        signTwo.anim.SetTrigger("reset");
+        signThree.anim.SetTrigger("reset");
         gameController.TogglePlayState();
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
@@ -95,10 +98,13 @@ public class UIController : MonoBehaviour
     IEnumerator CountDown()
     {
         yield return new WaitForSeconds(1);
+        signThree.anim.ResetTrigger("reset");
         signThree.CountdownSignFlip();
         yield return new WaitForSeconds(1);
+        signTwo.anim.ResetTrigger("reset");
         signTwo.CountdownSignFlip();
         yield return new WaitForSeconds(1);
+        signOne.anim.ResetTrigger("reset");
         signOne.CountdownSignFlip();
 
         yield return new WaitForSeconds(0.5f);
