@@ -5566,10 +5566,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Revolver Specular
       objectReference: {fileID: 0}
-    - target: {fileID: 1991293317751832, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4168377896971870, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.146
@@ -5610,17 +5606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6348070893201334953, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      propertyPath: shell
-      value: 
-      objectReference: {fileID: 1813471793046504, guid: a880ba4d1682c7644a5bf51c28dbd0ef, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1991293317751832, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1628766421}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
 --- !u!114 &533303413 stripped
 MonoBehaviour:
@@ -13167,36 +13156,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e688177f9bc445f4da94c58227a714cc, type: 3}
   m_PrefabInstance: {fileID: 1626993503}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1628766414 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1991293317751832, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-  m_PrefabInstance: {fileID: 530052304}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1628766417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6348070893201334953, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
   m_PrefabInstance: {fileID: 530052304}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628766414}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e08f16ab2d61ef49a5b9514b2eb7d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1628766421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628766414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b00d57b6499e01a46b2fb27bcaa6cb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4570737503435115584, guid: 2b81887e27954094fb2e6317a9b313f9, type: 3}
-  maxBullet: 100
 --- !u!1001 &1654411939
 PrefabInstance:
   m_ObjectHideFlags: 0
