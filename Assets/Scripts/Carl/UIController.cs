@@ -102,9 +102,9 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(1);
         signOne.CountdownSignFlip();
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         //Add something to show that the game has started
-        gameController.playing = true;
+        gameController.TogglePlayState();
     }
 
     public void EndGame()

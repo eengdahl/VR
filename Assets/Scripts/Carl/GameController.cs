@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         uiController = FindObjectOfType<UIController>();
+        uiController.gameController = this;
         scoreController = FindObjectOfType<ScoreController>();
         scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
@@ -85,10 +86,5 @@ public class GameController : MonoBehaviour
     public void BulletFired(bool wasOnTarget)
     {
         scoreController.BulletWasFired(wasOnTarget);
-    }
-
-    private void UpdateScoreBoardData()
-    {
-        //Code to update the scoreboard with time/shots fired/accuracy
     }
 }
