@@ -20,7 +20,7 @@ public class ShootableButton : MonoBehaviour
                 GetComponent<Button>().onClick.Invoke();
                 break;
             case UItype.toggleType:
-                GetComponent<Toggle>().isOn ^= GetComponent<Toggle>().isOn;
+                GetComponent<Toggle>().isOn = !GetComponent<Toggle>().isOn;
                 break;
         }
     }

@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class DifficultyController : MonoBehaviour
 {
+    // THIS SCRIPT IS NOT USED ANYWHERE
+    // IT REMAINS AS A TESTAMENT TO OVERDESIGN
+    
     [SerializeField] private ScriptableObject easyDifficulty;
     [SerializeField] private ScriptableObject mediumDifficulty;
     [SerializeField] private ScriptableObject hardDifficulty;

@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
 
     public void TogglePlayState()
     {
-        playing ^= playing;
+        playing = !playing;
         shoot.playing = playing;
     }
 
