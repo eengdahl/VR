@@ -13,12 +13,12 @@ public class GameController : MonoBehaviour
     public Shoot shoot;
 
     public bool playing;
-    
+
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
 
     public float gameTime = 90f;
-    
+
     private void Start()
     {
         uiController = FindObjectOfType<UIController>();
@@ -26,18 +26,19 @@ public class GameController : MonoBehaviour
         scoreController = FindObjectOfType<ScoreController>();
         scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
-        shoot = FindObjectOfType<Shoot>();
+        //shoot = FindObjectOfType<Shoot>();
         shoot.gameController = this;
 
         uiController.gameController = this;
         scoreController.gameController = this;
     }
-    
+
     private void Update()
     {
         if (playing && timeTrialEnabled)
         {
             gameTime -= 1 * Time.deltaTime;
+            scoreController.UpdateTimer(gameTime);
 
             if (gameTime <= 0)
             {

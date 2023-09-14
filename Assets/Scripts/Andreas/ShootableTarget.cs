@@ -49,6 +49,7 @@ public class ShootableTarget : MonoBehaviour
 
     public void OnHit()
     {
+        //print("A Target Has Been hit in Lego City!");
         //Idk what to do here yet
         StartCoroutine(nameof(PlayHitAnim));
 
@@ -57,6 +58,7 @@ public class ShootableTarget : MonoBehaviour
 
     IEnumerator PlayHitAnim()
     {
+        //print("Playing Hit Anim");
         anim.SetTrigger("hit");
         _collider.enabled = false;
 
