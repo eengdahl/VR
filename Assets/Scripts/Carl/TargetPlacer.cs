@@ -22,9 +22,9 @@ public class TargetPlacer : MonoBehaviour
     private List<GameObject> shuffledPointsList = new();
     public List<GameObject> shuffledParentsList = new();
     private int currentIndex;
-    
+
     public List<GameObject> activeTargets = new();
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -44,34 +44,35 @@ public class TargetPlacer : MonoBehaviour
                 int easyTotalTargetCount = easySettings.totalTargets;
                 int easyMovingTargetCount = easySettings.movingTargets;
                 int easyStationaryTargetCount = easyTotalTargetCount - easyMovingTargetCount;
-                
+
                 for (int j = 0; j <= easyStationaryTargetCount; j++)
                 {
                     GameObject newTarget = GetRandomStationaryTarget();
                     newTarget.gameObject.SetActive(true);
+                    newTarget.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Idle);
                     activeTargets.Add(newTarget);
                     j++;
                 }
 
                 currentIndex = 0;
-                
+
                 for (int j = 0; j <= easyMovingTargetCount; j++)
                 {
                     GameObject newTarget = GetRandomMovingTarget();
                     newTarget.gameObject.SetActive(true);
                     activeTargets.Add(newTarget);
                 }
-                
+
                 currentIndex = 0;
                 break;
-            
+
             case Difficulty.Normal:
                 ShuffleStationaryTargetPoints(normalStationaryTargets);
                 ShuffleMovingParents(normalMovingTargets);
                 int normalTotalTargetCount = normalSettings.totalTargets;
                 int normalMovingTargetCount = normalSettings.movingTargets;
                 int normalStationaryTargetCount = normalTotalTargetCount - normalMovingTargetCount;
-                
+
                 for (int j = 0; j < normalStationaryTargetCount; j++)
                 {
                     GameObject newTarget = GetRandomStationaryTarget();
@@ -81,7 +82,7 @@ public class TargetPlacer : MonoBehaviour
                 }
 
                 currentIndex = 0;
-                
+
                 for (int j = 0; j < normalMovingTargetCount; j++)
                 {
                     GameObject newTarget = GetRandomMovingTarget();
@@ -89,17 +90,17 @@ public class TargetPlacer : MonoBehaviour
                     activeTargets.Add(newTarget);
                     j++;
                 }
-                
+
                 currentIndex = 0;
                 break;
-            
+
             case Difficulty.Hard:
                 ShuffleStationaryTargetPoints(hardStationaryTargets);
                 ShuffleMovingParents(hardTargetMovingParents);
                 int hardTotalTargetCount = hardSettings.totalTargets;
                 int hardMovingTargetCount = hardSettings.movingTargets;
                 int hardStationaryTargetCount = hardTotalTargetCount - hardMovingTargetCount;
-                
+
                 for (int j = 0; j < hardStationaryTargetCount; j++)
                 {
                     GameObject newTarget = GetRandomStationaryTarget();
@@ -109,7 +110,7 @@ public class TargetPlacer : MonoBehaviour
                 }
 
                 currentIndex = 0;
-                
+
                 for (int j = 0; j < hardMovingTargetCount; j++)
                 {
                     GameObject newTarget = GetRandomMovingTarget();
@@ -117,7 +118,7 @@ public class TargetPlacer : MonoBehaviour
                     activeTargets.Add(newTarget);
                     j++;
                 }
-                
+
                 currentIndex = 0;
                 break;
         }

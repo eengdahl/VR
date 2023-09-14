@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f87c20f594054741b954a7f9fbb85db, type: 3}
   m_Name: HardDifficulty
   m_EditorClassIdentifier: 
-  totalTargets: 15
-  movingTargets: 5
+  totalTargets: 7
+  movingTargets: 3
