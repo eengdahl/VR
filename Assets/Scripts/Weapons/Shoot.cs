@@ -51,6 +51,7 @@ public class Shoot : MonoBehaviour
 
     private void Start()
     {
+
         haptic = FindAnyObjectByType<HapticScript>();
         bulletPool = FindAnyObjectByType<BulletPool>();
         scoreController = FindObjectOfType<ScoreController>();
@@ -265,16 +266,12 @@ public class Shoot : MonoBehaviour
     {
         //update thisController
         equipped = true;
-        transform.parent = thisController.GetComponent<XRDirectInteractor>().transform;
-        Debug.Log("without script ref" + thisController.transform);
-        Debug.Log("withscriptref" + thisController.GetComponent<XRDirectInteractor>().transform);
-        Debug.Log(equipped);
+        //transform.parent = thisController.transform;
     }
 
     public void Dropped()
     {
         equipped = false;
-        Debug.Log(equipped);
 
     }
 }
