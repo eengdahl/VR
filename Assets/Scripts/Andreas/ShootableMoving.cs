@@ -38,6 +38,7 @@ public class ShootableMoving : MonoBehaviour
     [SerializeField] bool testTarget = false;
 
     float returnBuffer;
+    bool shouldMove;
 
     public enum CurrentState { Moving, Waiting, Idle }
     CurrentState currentState = CurrentState.Waiting;
@@ -100,6 +101,8 @@ public class ShootableMoving : MonoBehaviour
 
     void WaypointMove()
     {
+        if (!shouldMove) { return; }
+
         if (!smoothMovement)
             transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, moveSpeed * Time.deltaTime);
         else
@@ -155,6 +158,9 @@ public class ShootableMoving : MonoBehaviour
 
     void WaypointWait()
     {
+        if (!shouldMove)
+            return;
+
         waitTimer -= Time.deltaTime;
 
         if (waitTimer <= 0)

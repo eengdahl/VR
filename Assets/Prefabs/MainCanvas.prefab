@@ -2310,7 +2310,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20.1, y: 20.5, z: 3.92}
+  m_Size: {x: 42.7, y: 40.6, z: 3.92}
   m_Center: {x: -0.1, y: 5.07, z: -1}
 --- !u!114 &5251859501475735630
 MonoBehaviour:
@@ -2611,6 +2611,8 @@ GameObject:
   - component: {fileID: 8467449683222338361}
   - component: {fileID: 3639251549088671400}
   - component: {fileID: 8194306480266998921}
+  - component: {fileID: 9116670166058805457}
+  - component: {fileID: 5912520400401315338}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -2719,7 +2721,53 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3639251549088671400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9116670166058805457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320787286577973543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ee334d89c772442b561f7414d6bc8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiType: 0
+--- !u!65 &5912520400401315338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320787286577973543}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.12, y: 2.06, z: 0.43}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9061111332190113980
 GameObject:
   m_ObjectHideFlags: 0
