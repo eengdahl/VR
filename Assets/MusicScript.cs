@@ -34,7 +34,7 @@ public class MusicScript : MonoBehaviour
     {
 
         aS.PlayOneShot(backGroundMusic[count], 0.2f);
-        yield return new WaitForSeconds(/*/backGroundMusic[count].length/*/3);
+        yield return new WaitForSeconds(backGroundMusic[count].length);
         count++;
         if (count >= backGroundMusic.Count)
         {
