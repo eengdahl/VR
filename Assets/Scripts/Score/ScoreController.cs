@@ -127,15 +127,15 @@ public class ScoreController : MonoBehaviour
         accuracyText.text = "Accuracy: " + accuracy.ToString("P1");
     }
 
-    public void StartNewGame(bool timeTrial)
-    {
-        ResetScore();
-    }
+    //public void StartNewGame(bool timeTrial)
+    //{
+    //    ResetScore();
+    //}
 
-    public void EndCurrentGame()
-    {
-        //Add code to save score if time trial was enabled
-    }
+    //public void EndCurrentGame()
+    //{
+    //    //Add code to save score if time trial was enabled
+    //}
 
     public void ResetScore()
     {
@@ -352,8 +352,8 @@ public class ScoreController : MonoBehaviour
         timerText.text = "TIME LEFT: " + Mathf.Round(time).ToString("00");
         if (time <= 0)
         {
-            timerText.text = "GAME OVER! GOOD JOB!";
 
+            timerText.text = "GAME OVER! GOOD JOB!";
         }
     }
 }

@@ -23,6 +23,11 @@ public class UIController : MonoBehaviour
 
     public bool timeTrialEnabled;
 
+    void Start()
+    {
+        ToggleTimeTrial(true);
+    }
+
     public void SelectDifficulty(int selection)
     {
 
@@ -44,6 +49,7 @@ public class UIController : MonoBehaviour
         startPanel.SetActive(true);
         backPanel.SetActive(true);
         MoveUpCountDownSigns();
+        gameController.scoreController.ResetScore();
     }
 
     public void MoveUpCountDownSigns()
@@ -118,7 +124,5 @@ public class UIController : MonoBehaviour
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
-
-        gameController.scoreController.ResetScore();
     }
 }
