@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootableMoving : MonoBehaviour
+public class ShootableMoving : ShootableTarget
 {
     public enum MoveType { Waypoints, FlipUp }
     [Tooltip("Should the target move from point to point or only flip up?")]
@@ -38,13 +38,15 @@ public class ShootableMoving : MonoBehaviour
     [SerializeField] bool testTarget = false;
 
     float returnBuffer;
-    bool shouldMove;
+    [HideInInspector] public bool shouldMove;
 
     public enum CurrentState { Moving, Waiting, Idle }
     CurrentState currentState = CurrentState.Waiting;
 
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+
         if (testTarget)
         {
             if (moveType == MoveType.Waypoints)
@@ -184,8 +186,19 @@ public class ShootableMoving : MonoBehaviour
     public void ManualChangeState(CurrentState stateToChangeTo) //should you need to manually change the state of a target
     {
         if (stateToChangeTo == CurrentState.Idle)
-            returnBuffer = .8f;
+            returnBuffer = .3f;
 
         currentState = stateToChangeTo;
+    }
+
+    public void ManualSetDownTarget()
+    {
+        anim.SetTrigger("hit");
+    }
+
+    public void ManualSetUpTarget()
+    {
+        anim.ResetTrigger("hit");
+        anim.SetTrigger("getUp");
     }
 }

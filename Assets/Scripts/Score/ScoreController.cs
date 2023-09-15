@@ -106,7 +106,7 @@ public class ScoreController : MonoBehaviour
         }
     }
 
-    //INGAME SCORE:
+    //---------INGAME SCORE---------------
     public void AddScore(int scoreToAdd)
     {
         latestScoreReceived = scoreToAdd;
@@ -144,7 +144,7 @@ public class ScoreController : MonoBehaviour
         multiplierTimer = 0;
     }
 
-    //HIGHSCORE:
+    //-----------HIGHSCORE---------------
     public void CheckLeaderboard(Difficulty difficulty)
     {
         switch (difficulty)
@@ -345,8 +345,15 @@ public class ScoreController : MonoBehaviour
         accuracy = bulletsFired / bulletsOnTarget;
     }
 
+    //------------TIMER------------
+
     public void UpdateTimer(float time)
     {
         timerText.text = "TIME LEFT: " + Mathf.Round(time).ToString("00");
+        if (time <= 0)
+        {
+            timerText.text = "GAME OVER! GOOD JOB!";
+
+        }
     }
 }

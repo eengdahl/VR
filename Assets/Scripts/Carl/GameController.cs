@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
     public Shoot shoot;
+    private AudioSource aS;
 
     public bool playing;
 
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        aS = GetComponent<AudioSource>();
         uiController = FindObjectOfType<UIController>();
         uiController.gameController = this;
         scoreController = FindObjectOfType<ScoreController>();
@@ -66,6 +68,7 @@ public class GameController : MonoBehaviour
 
     public void EndGame()
     {
+        aS.Play();
         gameTime = 90f;
         TogglePlayState();
         targetPlacer.RemoveTargets();

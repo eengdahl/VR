@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ShootableTarget : MonoBehaviour
 {
-    [Tooltip("For Testing Purposes! Click to test animations")]
-    [SerializeField] bool hit; //for testing purposes
+    //[Tooltip("For Testing Purposes! Click to test animations")]
+    //[SerializeField] bool hit; //for testing purposes
 
     [Tooltip("How long to wait before getting up again after being shot down")]
     [SerializeField] float downTime = 2f;
@@ -14,10 +14,8 @@ public class ShootableTarget : MonoBehaviour
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
 
-    float returnBuffer;
-
     //components
-    Animator anim;
+    [HideInInspector] public Animator anim;
     ScoreController score;
     Collider _collider;
     ShootableMoving mover;
@@ -40,11 +38,11 @@ public class ShootableTarget : MonoBehaviour
     {
 
         //for testing purposes
-        if (hit)
-        {
-            OnHit();
-            hit = false;
-        }
+        //if (hit)
+        //{
+        //    OnHit();
+        //    hit = false;
+        //}
     }
 
     public void OnHit()
