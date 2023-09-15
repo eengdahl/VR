@@ -1120,6 +1120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downTime: 2
+  keepOnStart: 0
+  anim: {fileID: 0}
   moveType: 1
   waypointParent: {fileID: 252750828}
   randomWaypoint: 0
@@ -1129,6 +1132,7 @@ MonoBehaviour:
   moveSpeed: 5
   currentwaypoint: 0
   testTarget: 1
+  shouldMove: 0
 --- !u!114 &123449137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,9 +1145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799a8e5538b73e24f9f45bae7caf2fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: 0
   downTime: 6
   keepOnStart: 0
+  anim: {fileID: 0}
 --- !u!114 &123449138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7106,6 +7110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downTime: 2
+  keepOnStart: 0
+  anim: {fileID: 0}
   moveType: 0
   waypointParent: {fileID: 1960713149}
   randomWaypoint: 0
@@ -7115,6 +7122,7 @@ MonoBehaviour:
   moveSpeed: 6
   currentwaypoint: 0
   testTarget: 1
+  shouldMove: 0
 --- !u!1001 &827565964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11499,6 +11507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downTime: 2
+  keepOnStart: 0
+  anim: {fileID: 0}
   moveType: 1
   waypointParent: {fileID: 252750828}
   randomWaypoint: 0
@@ -11508,6 +11519,7 @@ MonoBehaviour:
   moveSpeed: 5
   currentwaypoint: 0
   testTarget: 1
+  shouldMove: 0
 --- !u!114 &1403980365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11520,9 +11532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799a8e5538b73e24f9f45bae7caf2fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: 0
   downTime: 6
   keepOnStart: 0
+  anim: {fileID: 0}
 --- !u!1001 &1421150465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16352,6 +16364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downTime: 2
+  keepOnStart: 0
+  anim: {fileID: 0}
   moveType: 0
   waypointParent: {fileID: 2028433285}
   randomWaypoint: 0
@@ -16361,6 +16376,7 @@ MonoBehaviour:
   moveSpeed: 0.9
   currentwaypoint: 0
   testTarget: 1
+  shouldMove: 0
 --- !u!1001 &2106496245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16761,7 +16777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 839257315975086572, guid: bd96a62c85daaf44ab239c0d9de55d9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SaveHighscore
+      value: SubmitHighscore
       objectReference: {fileID: 0}
     - target: {fileID: 969652793288092249, guid: bd96a62c85daaf44ab239c0d9de55d9a, type: 3}
       propertyPath: m_Name

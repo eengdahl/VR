@@ -122,6 +122,12 @@ public class TargetPlacer : MonoBehaviour
                 currentIndex = 0;
                 break;
         }
+
+        foreach (var target in activeTargets)
+        {
+            target.GetComponent<ShootableMoving>().ManualSetDownTarget();
+            target.GetComponent<ShootableMoving>().shouldMove = false;
+        }
     }
 
     private void ShuffleStationaryTargetPoints(List<GameObject> targetPointList)
@@ -175,6 +181,16 @@ public class TargetPlacer : MonoBehaviour
         foreach (GameObject target in activeTargets)
         {
             target.SetActive(false);
+        }
+    }
+
+    public void InitializeTargets()
+    {
+        foreach (var target in activeTargets)
+        {
+            target.GetComponent<ShootableMoving>().ManualSetUpTarget();
+            target.GetComponent<ShootableMoving>().shouldMove = true;
+            target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
         }
     }
 }

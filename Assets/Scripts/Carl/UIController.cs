@@ -110,6 +110,7 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //Add something to show that the game has started
         gameController.TogglePlayState();
+        gameController.targetPlacer.InitializeTargets();
     }
 
     public void EndGame()
@@ -117,5 +118,7 @@ public class UIController : MonoBehaviour
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
+
+        gameController.scoreController.ResetScore();
     }
 }
