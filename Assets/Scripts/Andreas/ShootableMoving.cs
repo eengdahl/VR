@@ -43,7 +43,7 @@ public class ShootableMoving : ShootableTarget
     public enum CurrentState { Moving, Waiting, Idle }
     CurrentState currentState = CurrentState.Waiting;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
 
