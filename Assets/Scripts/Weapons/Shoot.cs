@@ -41,7 +41,8 @@ public class Shoot : MonoBehaviour
     public GameController gameController;
 
     public XRBaseController thisController;
-    public XRDirectInteractor rightController;
+    public Transform rightController;
+    public Transform leftController;
     public XRGrabInteractable grabscript;
 
     //Play state (round started or not), controlled and updated by GameController
@@ -266,7 +267,7 @@ public class Shoot : MonoBehaviour
     {
         //update thisController
         equipped = true;
-        //transform.parent = thisController.transform;
+        transform.parent = rightController;
     }
 
     public void Dropped()
