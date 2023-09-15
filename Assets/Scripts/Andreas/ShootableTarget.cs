@@ -16,12 +16,14 @@ public class ShootableTarget : MonoBehaviour
 
     //components
     [HideInInspector] public Animator anim;
+    AudioSource aS;
     ScoreController score;
     Collider _collider;
     ShootableMoving mover;
 
     private void Start()
     {
+        aS = GetComponent<AudioSource>();
         anim = GetComponentInChildren<Animator>();
         _collider = GetComponent<CapsuleCollider>();
         mover = GetComponent<ShootableMoving>();
@@ -49,6 +51,7 @@ public class ShootableTarget : MonoBehaviour
     {
         //print("A Target Has Been hit in Lego City!");
         //Idk what to do here yet
+        aS.Play();
         StartCoroutine(nameof(PlayHitAnim));
 
         mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
