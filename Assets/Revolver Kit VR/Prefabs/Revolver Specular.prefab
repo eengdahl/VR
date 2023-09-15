@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 7916124449241399414}
   - component: {fileID: 8774089134147641993}
   - component: {fileID: 6703128651596463240}
+  - component: {fileID: 7833895787832393997}
   m_Layer: 0
   m_Name: Revolver Specular
   m_TagString: Untagged
@@ -903,7 +904,21 @@ MonoBehaviour:
   RightHandAttachTransform: {fileID: 0}
   LeftController: {fileID: 0}
   RightController: {fileID: 0}
-  m_attachTransform: {fileID: 0}
+  m_attachTransform: {fileID: 6268000277634446131}
+--- !u!114 &7833895787832393997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991293317751832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c9f5ee8742b8c4a9ad76bfe3661bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 1
+  duration: 0.1
 --- !u!1 &551360369659768325
 GameObject:
   m_ObjectHideFlags: 0
