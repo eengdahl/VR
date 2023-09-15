@@ -265,9 +265,7 @@ public class Shoot : MonoBehaviour
 
     public void Equipped()
     {
-        //update thisController
         equipped = true;
-        transform.parent = rightController;
     }
 
     public void Dropped()
