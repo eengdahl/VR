@@ -35,11 +35,6 @@ public class XRHandedGrabInteractable : XRGrabInteractable
             Debug.Log($"Right hand");
             attachTransform.SetPositionAndRotation(RightHandAttachTransform.position, RightHandAttachTransform.rotation);
         }
-        else
-        {
-            // Handle case where interactor is not left hand or right hand (socket?)
-            attachTransform.SetPositionAndRotation(m_OriginalAttachTransform.position, m_OriginalAttachTransform.rotation);
-        }
         base.OnSelectEntering(args);
     }
 }

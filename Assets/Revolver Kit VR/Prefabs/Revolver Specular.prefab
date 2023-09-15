@@ -492,8 +492,8 @@ GameObject:
   - component: {fileID: 1564205702103906150}
   - component: {fileID: 7916124449241399414}
   - component: {fileID: 8774089134147641993}
-  - component: {fileID: 6703128651596463240}
   - component: {fileID: 7833895787832393997}
+  - component: {fileID: 8428439352956129182}
   m_Layer: 0
   m_Name: Revolver Specular
   m_TagString: Untagged
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4570737503435115584, guid: 2b81887e27954094fb2e6317a9b313f9, type: 3}
   maxBullet: 100
---- !u!114 &6703128651596463240
+--- !u!114 &7833895787832393997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -762,7 +762,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991293317751832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bf23e9d0ed0ec9498f7c53f7ac67cad, type: 3}
+  m_Script: {fileID: 11500000, guid: b1c9f5ee8742b8c4a9ad76bfe3661bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 1
+  duration: 0.1
+--- !u!114 &8428439352956129182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991293317751832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -805,18 +819,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8451837797441125636}
-        m_TargetAssemblyTypeName: CylinderPopulate, Assembly-CSharp
-        m_MethodName: DisableGrabInput
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6348070893201334953}
         m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
         m_MethodName: Equipped
@@ -932,31 +934,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
+  m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  LeftHandAttachTransform: {fileID: 0}
-  RightHandAttachTransform: {fileID: 0}
-  LeftController: {fileID: 0}
-  RightController: {fileID: 0}
-  m_attachTransform: {fileID: 6268000277634446131}
---- !u!114 &7833895787832393997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991293317751832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c9f5ee8742b8c4a9ad76bfe3661bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 1
-  duration: 0.1
 --- !u!1 &551360369659768325
 GameObject:
   m_ObjectHideFlags: 0
