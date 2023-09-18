@@ -24,7 +24,6 @@ public class ShootableTarget : MonoBehaviour
     private void Start()
     {
         aS = GetComponent<AudioSource>();
-        anim = GetComponentInChildren<Animator>();
         _collider = GetComponent<CapsuleCollider>();
         mover = GetComponent<ShootableMoving>();
 
@@ -33,6 +32,16 @@ public class ShootableTarget : MonoBehaviour
 
         if (!keepOnStart)
             gameObject.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+        anim.CrossFade("TargetShotdown", 0, 0);
+    }
+    private void OnEnable()
+    {
+        anim.CrossFade("UpState", 0, 0);
     }
 
     // Update is called once per frame
