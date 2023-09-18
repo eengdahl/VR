@@ -190,16 +190,12 @@ public class CylinderPopulate : MonoBehaviour
         {
             righthandGrabSelect.action.Disable();
         }
-        else
-            lefthandGrabSelect.action.Disable();
     }
     public void EnableGrabInput()
     {
         if (UsingHand.Instance.usingRighthand)
         {
             righthandGrabSelect.action.Enable();
-        }
-        else
-            lefthandGrabSelect.action.Enable(); 
+        } 
     }
 }

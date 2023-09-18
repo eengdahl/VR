@@ -14,6 +14,6 @@ public class AmmoPouch : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(headsetPos.position.x - 0.5f, headsetPos.position.y - 1, headsetPos.position.z);
+        transform.position = new Vector3(headsetPos.position.x - 0.2f, headsetPos.position.y - 0.4f, headsetPos.position.z);
     }
 }
