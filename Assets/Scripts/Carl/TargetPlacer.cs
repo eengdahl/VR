@@ -10,10 +10,10 @@ public class TargetPlacer : MonoBehaviour
     [SerializeField] List<GameObject> easyTargets = new();
     [SerializeField] List<GameObject> mediumTargets = new();
     [SerializeField] List<GameObject> hardTargets = new();
-    
+
     public List<GameObject> activeTargets = new();
 
-    private TargetTrailsRenderer targetTrailRenderer;
+    //private TargetTrailsRenderer targetTrailRenderer;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -27,13 +27,13 @@ public class TargetPlacer : MonoBehaviour
         switch (difficulty)
         {
             case Difficulty.Easy:
-                activeTargets = easyTargets;
+                activeTargets.AddRange(easyTargets);
                 break;
             case Difficulty.Normal:
-                activeTargets = mediumTargets;
+                activeTargets.AddRange(mediumTargets);
                 break;
             case Difficulty.Hard:
-                activeTargets = hardTargets;
+                activeTargets.AddRange(hardTargets);
                 break;
         }
 
@@ -41,19 +41,16 @@ public class TargetPlacer : MonoBehaviour
         {
             target.GetComponent<ShootableTarget>().firstTimeDeactivate = true;
             target.gameObject.SetActive(true);
-            targetTrailRenderer.PopulateList(activeTargets);
+            //targetTrailRenderer.PopulateList(activeTargets);
         }
     }
 
     public void RemoveTargets()
     {
-        foreach (var target in activeTargets)
-        {
-            target.gameObject.SetActive(false);
-        }
+        DeactivateTargets();
 
         activeTargets.Clear();
-        targetTrailRenderer.PopulateList(activeTargets);
+        //targetTrailRenderer.PopulateList(activeTargets);
     }
 
     public void InitializeTargets()
@@ -63,6 +60,15 @@ public class TargetPlacer : MonoBehaviour
             target.GetComponent<ShootableMoving>().ManualSetUpTarget();
             target.GetComponent<ShootableMoving>().shouldMove = true;
             target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
+        }
+    }
+
+    public void DeactivateTargets()
+    {
+        foreach (var target in activeTargets)
+        {
+            target.GetComponent<ShootableMoving>().shouldMove = false;
+            target.gameObject.SetActive(false);
         }
     }
 }
