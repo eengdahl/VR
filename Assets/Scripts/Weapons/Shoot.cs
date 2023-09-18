@@ -13,6 +13,8 @@ public class Shoot : MonoBehaviour
     public InputActionProperty rightWeaponTrigger;
     public InputActionProperty leftFanReleased;
     public InputActionProperty rightFanReleased;
+    public InputActionProperty revolverCock;
+
     public GameObject linePrefab;
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
@@ -28,7 +30,7 @@ public class Shoot : MonoBehaviour
     private float reloadTime = 1.5f;
     private int maxAmmo = 1000;
     public int currentAmmo;
-    public int magSize = 10;
+    public int magSize;
     public AudioClip reloadingClip;
 
     //HitOffset
@@ -49,6 +51,7 @@ public class Shoot : MonoBehaviour
     //Play state (round started or not), controlled and updated by GameController
     public bool playing;
 
+    public Animator revolverAnims;
     HapticScript haptic;
 
     private void Start()
@@ -57,7 +60,6 @@ public class Shoot : MonoBehaviour
         haptic = FindAnyObjectByType<HapticScript>();
         bulletPool = FindAnyObjectByType<BulletPool>();
         scoreController = FindObjectOfType<ScoreController>();
-        currentAmmo = magSize;
         gunStabilizer = 0.2f;
         grabscript = GetComponent<XRGrabInteractable>();
     }
@@ -97,11 +99,20 @@ public class Shoot : MonoBehaviour
 
             bool leftFanReleased = this.leftFanReleased.action.WasReleasedThisFrame();
             bool rightFanReleased = this.rightFanReleased.action.WasReleasedThisFrame();
+
+            bool revolverIsCocked = revolverCock.action.WasPressedThisFrame();
+            if (revolverIsCocked && !isCock)
+            {
+                isCock = true;
+                revolverAnims.CrossFade("HammerCock", 0);
+                
+            }
+
             if (leftTriggerHeld != 0 || righttriggerHeld != 0)
             {
                 if (leftFanReleased || rightFanReleased)
                 {
-                    if (playing)
+                    if (playing && currentAmmo > 0)
                         Fire();
                     else
                         BlankFire();
@@ -110,16 +121,20 @@ public class Shoot : MonoBehaviour
 
             if (leftTriggerValue || rightTriggerValue)
             {
-                if (playing)
+                if (playing && currentAmmo > 0 && isCock)
+                {
                     Fire();
+                    isCock = false;
+                    revolverAnims.CrossFade("HammerUncock", 0);
+                }
                 else
                     BlankFire();
             }
-
-            if (currentAmmo <= 0)
-            {
-                StartCoroutine(Reloading());
-            }
+            //Autoreload
+            //if (currentAmmo <= 0)
+            //{
+            //    StartCoroutine(Reloading());
+            //}
         }
     }
 

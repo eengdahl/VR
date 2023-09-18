@@ -7,6 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class CylinderPopulate : MonoBehaviour
 {
+    public AudioClip shellLoaded;
+    public AudioClip cylinderSpin;
 
     public int numberOfChambers = 6;
     public Collider[] gunColliders;
@@ -30,10 +32,12 @@ public class CylinderPopulate : MonoBehaviour
     public InputActionReference righthandGrabSelect;
     public InputActionReference lefthandGrabSelect;
 
+    Shoot shoot;
 
     // Start is called before the first frame update
     void Start()
     {
+        shoot = GetComponentInParent<Shoot>();
         cylinderRB = GetComponent<Rigidbody>();
         bulletSpent = new bool[numberOfChambers];
         FillBarrel(6);
@@ -118,6 +122,7 @@ public class CylinderPopulate : MonoBehaviour
                 col.enabled = false;
                 bullet.GetComponent<Collider>().enabled = false;
                 bullets.Add(bullet);
+                shoot.currentAmmo++;
             }
         }
     }
