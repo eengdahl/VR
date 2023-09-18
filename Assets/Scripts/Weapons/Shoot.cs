@@ -21,7 +21,7 @@ public class Shoot : MonoBehaviour
     BulletPool bulletPool;
     public Transform gunhead;
     private bool shooting = false;
-    private bool isCock;
+    private bool isCock = false;
     private bool equipped = false;
     ScoreController scoreController;
 
