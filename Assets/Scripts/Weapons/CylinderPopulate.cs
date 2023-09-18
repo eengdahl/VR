@@ -16,7 +16,7 @@ public class CylinderPopulate : MonoBehaviour
     private int currentRevolvIndex = 0;
     private Quaternion rotationTarget;
     private bool isAnimating = false;
-    private bool cylinderOpen = false;
+    public bool cylinderOpen = false;
     public float rotationSpeed = 0.1f;
     public InputActionProperty righthandReleaseCylinder;
     public InputActionProperty lefthandReleaseCylinder;
