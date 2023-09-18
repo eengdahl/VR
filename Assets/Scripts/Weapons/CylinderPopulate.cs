@@ -190,8 +190,6 @@ public class CylinderPopulate : MonoBehaviour
         {
             righthandGrabSelect.action.Disable();
         }
-        else
-            lefthandGrabSelect.action.Disable();
     }
     public void EnableGrabInput()
     {
@@ -199,7 +197,5 @@ public class CylinderPopulate : MonoBehaviour
         {
             righthandGrabSelect.action.Enable();
         }
-        else
-            lefthandGrabSelect.action.Enable(); 
     }
 }
