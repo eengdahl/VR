@@ -54,7 +54,6 @@ public class UIController : MonoBehaviour
         startPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
-        gameController.targetPlacer.RemoveTargets();
         gameController.ReturnToMenu();
     }
 

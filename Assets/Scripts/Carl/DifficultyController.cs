@@ -23,7 +23,7 @@ public class DifficultyController : MonoBehaviour
 
     public void PlaceTargets(Difficulty difficulty)
     {
-        gameController.targetPlacer.RemoveTargets();
-        targetPlacer.PlaceTargets(difficulty);
+        //gameController.targetPlacer.RemoveTargets();
+        //targetPlacer.PlaceTargets(difficulty);
     }
 }

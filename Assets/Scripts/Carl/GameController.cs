@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
     {
         chosenDifficulty = difficulty;
         gameTime = 90f;
-        //targetPlacer.PlaceTargets(chosenDifficulty);
+        targetPlacer.PlaceTargets(chosenDifficulty);
         countdownSigns.GetComponent<Animator>().SetTrigger("readyCountdown");
     }
 
@@ -74,8 +74,8 @@ public class GameController : MonoBehaviour
     {
         gameTime = 90f;
         //TogglePlayState();
-        targetPlacer.RemoveTargets();
-        targetPlacer.PlaceTargets(chosenDifficulty);
+        //targetPlacer.RemoveTargets();
+        //targetPlacer.PlaceTargets(chosenDifficulty);
         //uiController.MoveUpCountDownSigns();
         uiController.StartCountDown();
     }
