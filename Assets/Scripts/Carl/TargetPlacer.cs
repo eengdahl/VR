@@ -10,9 +10,10 @@ public class TargetPlacer : MonoBehaviour
     [SerializeField] List<GameObject> easyTargets = new();
     [SerializeField] List<GameObject> mediumTargets = new();
     [SerializeField] List<GameObject> hardTargets = new();
-
+    
     public List<GameObject> activeTargets = new();
 
+    private TargetTrailsRenderer targetTrailRenderer;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -40,6 +41,7 @@ public class TargetPlacer : MonoBehaviour
         {
             target.GetComponent<ShootableTarget>().firstTimeDeactivate = true;
             target.gameObject.SetActive(true);
+            targetTrailRenderer.PopulateList(activeTargets);
         }
     }
 
@@ -51,6 +53,7 @@ public class TargetPlacer : MonoBehaviour
         }
 
         activeTargets.Clear();
+        targetTrailRenderer.PopulateList(activeTargets);
     }
 
     public void InitializeTargets()
