@@ -145,7 +145,7 @@ public class ScoreController : MonoBehaviour
     }
 
     //-----------HIGHSCORE---------------
-    public void CheckLeaderboard(Difficulty difficulty)
+    public bool CheckLeaderboard(Difficulty difficulty)
     {
         switch (difficulty)
         {
@@ -154,6 +154,7 @@ public class ScoreController : MonoBehaviour
                 {
                     //TODO show panel for inputting name
                     ShowInputName();
+                    return true;
                 }
                 break;
             case Difficulty.Normal:
@@ -161,6 +162,7 @@ public class ScoreController : MonoBehaviour
                 {
                     //TODO show panel for inputting name
                     ShowInputName();
+                    return true;
                 }
                 break;
             case Difficulty.Hard:
@@ -168,11 +170,13 @@ public class ScoreController : MonoBehaviour
                 {
                     //TODO show panel for inputting name
                     ShowInputName();
+                    return true;
                 }
                 break;
             default:
                 break;
         }
+        return false;
     }
 
     void ShowInputName()

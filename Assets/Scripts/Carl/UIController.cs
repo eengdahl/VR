@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-
     [SerializeField] public GameObject difficultyPanel;
     [SerializeField] public GameObject startPanel;
     [SerializeField] public GameObject restartPanel;
@@ -21,108 +20,57 @@ public class UIController : MonoBehaviour
     [SerializeField] private CountdownSign signTwo;
     [SerializeField] private CountdownSign signOne;
 
-    public bool timeTrialEnabled;
-
-    void Start()
+    public void SelectDifficulty(int selection) //Choose difficulty and SetupGame in Gamecontroller
     {
-        ToggleTimeTrial(true);
-    }
-
-    public void SelectDifficulty(int selection)
-    {
-
         switch (selection)
         {
             case 0:
-                gameController.InitializeGame(Difficulty.Easy, timeTrialEnabled);
+                gameController.SetupGame(Difficulty.Easy);
                 break;
             case 1:
-                gameController.InitializeGame(Difficulty.Normal, timeTrialEnabled);
+                gameController.SetupGame(Difficulty.Normal);
                 break;
             case 2:
-                gameController.InitializeGame(Difficulty.Hard, timeTrialEnabled);
+                gameController.SetupGame(Difficulty.Hard);
                 break;
         }
 
         difficultyPanel.SetActive(false);
         timeTrialPanel.SetActive(false);
         startPanel.SetActive(true);
-        backPanel.SetActive(true);
-        MoveUpCountDownSigns();
         gameController.scoreController.ResetScore();
     }
 
-    public void MoveUpCountDownSigns()
+    public void ToggleTimeTrial(bool timeTrial) //change timetrial bool in GameController
     {
-        signOne.MoveUpSigns();
-        signTwo.MoveUpSigns();
-        signThree.MoveUpSigns();
+        gameController.timeTrialEnabled = timeTrial;
     }
 
-    public void ToggleTimeTrial(bool timeTrial)
+    public void BackToDifficultySelection() //Calls ReturnToMenu in GameController
     {
-        timeTrialEnabled = timeTrial;
-        //print("Enabled Time Trial");
-    }
+        if (gameController.currentGameState != GameController.GameState.inGame) return;
 
-    public void BackToDifficultySelection()
-    {
         backPanel.SetActive(false);
         startPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
         gameController.targetPlacer.RemoveTargets();
+        gameController.ReturnToMenu();
     }
 
-    public void SelectNewDifficulty()
-    {
-        StopAllCoroutines();
-        signOne.anim.SetTrigger("reset");
-        signTwo.anim.SetTrigger("reset");
-        signThree.anim.SetTrigger("reset");
-        gameController.TogglePlayState();
-        restartPanel.SetActive(false);
-        difficultyPanel.SetActive(true);
-        timeTrialPanel.SetActive(true);
-        gameController.targetPlacer.RemoveTargets();
-        gameController.gameTime = 90f;
-    }
-
-    public void RestartGame()
-    {
-        gameController.RestartGame();
-    }
-
-    public void StartCountDown()
+    public void StartCountDown() //Removes menu in preparation for game
     {
         //Add function to move Canvas
         startPanel.SetActive(false);
         restartPanel.SetActive(true);
-        StartCoroutine(nameof(CountDown));
+        gameController.StartCountdown();
     }
 
-    IEnumerator CountDown()
-    {
-        yield return new WaitForSeconds(1);
-        signThree.anim.ResetTrigger("reset");
-        signThree.CountdownSignFlip();
-        yield return new WaitForSeconds(1);
-        signTwo.anim.ResetTrigger("reset");
-        signTwo.CountdownSignFlip();
-        yield return new WaitForSeconds(1);
-        signOne.anim.ResetTrigger("reset");
-        signOne.CountdownSignFlip();
-
-        yield return new WaitForSeconds(0.5f);
-        //Add something to show that the game has started
-        gameController.TogglePlayState();
-        gameController.targetPlacer.InitializeTargets();
-    }
-
-    public void EndGame()
+    public void ShowMenu() //A ReturnToMenu Function
     {
         restartPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
+        gameController.ReturnToMenu();
     }
 }

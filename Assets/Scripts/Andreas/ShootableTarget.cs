@@ -47,7 +47,6 @@ public class ShootableTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //for testing purposes
         //if (hit)
         //{

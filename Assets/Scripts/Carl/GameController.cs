@@ -7,13 +7,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public enum GameState { inMenu, Countdown, inGame }
+    public GameState currentGameState;
+
     public UIController uiController;
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
     public Shoot shoot;
-    private AudioSource aS;
-
-    public bool playing;
+    private AudioSource audSource;
+    [SerializeField] GameObject countdownSigns;
 
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
@@ -22,7 +24,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        aS = GetComponent<AudioSource>();
+        audSource = GetComponent<AudioSource>();
         uiController = FindObjectOfType<UIController>();
         uiController.gameController = this;
         scoreController = FindObjectOfType<ScoreController>();
@@ -37,7 +39,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (playing && timeTrialEnabled)
+        if (currentGameState == GameState.inGame && timeTrialEnabled)
         {
             gameTime -= 1 * Time.deltaTime;
             scoreController.UpdateTimer(gameTime);
@@ -49,40 +51,51 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void InitializeGame(Difficulty difficulty, bool timeTrial)
+    public void SetupGame(Difficulty difficulty) //spawn targets and ready the countdown
     {
         chosenDifficulty = difficulty;
-        timeTrialEnabled = timeTrial;
-        targetPlacer.PlaceTargets(chosenDifficulty);
+        gameTime = 90f;
+        //targetPlacer.PlaceTargets(chosenDifficulty);
+        countdownSigns.GetComponent<Animator>().SetTrigger("readyCountdown");
     }
 
-    public void RestartGame()
+    public void StartCountdown() //activate the countdown animation
+    {
+        currentGameState = GameState.Countdown;
+        countdownSigns.GetComponent<Animator>().SetTrigger("startCountdown");
+    }
+
+    public void StartGame() //start game
+    {
+        currentGameState = GameState.inGame;
+    }
+
+    public void RestartGame() //might be removed later
     {
         gameTime = 90f;
-        TogglePlayState();
+        //TogglePlayState();
         targetPlacer.RemoveTargets();
         targetPlacer.PlaceTargets(chosenDifficulty);
-        uiController.MoveUpCountDownSigns();
+        //uiController.MoveUpCountDownSigns();
         uiController.StartCountDown();
     }
 
-    public void EndGame()
+    public void EndGame() //only called when time is up, otherwise call ReturnToMenu
     {
-        aS.Play();
-        gameTime = 90f;
-        TogglePlayState();
+        currentGameState = GameState.inMenu;
+        audSource.Play();
         targetPlacer.RemoveTargets();
-        //playing = false;
-        //scoreController.SaveHighscoreToJson(chosenDifficulty, "WAD");
-        scoreController.CheckLeaderboard(chosenDifficulty);
+
         //Code to end the round and save score
-        uiController.EndGame();
+        if (!scoreController.CheckLeaderboard(chosenDifficulty))
+            uiController.ShowMenu();
     }
 
-    public void TogglePlayState()
+    public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame
     {
-        playing = !playing;
-        shoot.playing = !shoot.playing;
+        currentGameState = GameState.inMenu;
+        targetPlacer.RemoveTargets();
+
     }
 
     public void BulletFired(bool wasOnTarget)
