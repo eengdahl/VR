@@ -27,7 +27,8 @@ public class CylinderPopulate : MonoBehaviour
     public List<GameObject> bullets = new List<GameObject>();
     private bool[] bulletSpent;
 
-    public InputActionReference actioRef;
+    public InputActionReference righthandGrabSelect;
+    public InputActionReference lefthandGrabSelect;
 
 
     // Start is called before the first frame update
@@ -43,7 +44,8 @@ public class CylinderPopulate : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            actioRef.action.Enable();
+            righthandGrabSelect.action.Enable();
+            lefthandGrabSelect.action.Enable();
         }
 
         if (this.isAnimating)
@@ -57,14 +59,19 @@ public class CylinderPopulate : MonoBehaviour
             }
         }
 
+
+        //Input for cylinder release
+
         float righthandCylinderRelease = this.righthandReleaseCylinder.action.ReadValue<float>();
         float lefthandCylinderRelease = this.lefthandReleaseCylinder.action.ReadValue<float>();
 
+        //button held, release it
         if (righthandCylinderRelease != 0)
         {
             cylinderRB.isKinematic = false;
 
         }
+        //cylinder returns to default spot and no input, lock it
         if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
         {
             cylinderRB.isKinematic = true;
@@ -174,6 +181,10 @@ public class CylinderPopulate : MonoBehaviour
 
     public void DisableGrabInput()
     {
-        actioRef.action.Disable();
+        righthandGrabSelect.action.Disable();
+    }
+    public void EnableGrabInput()
+    {
+        righthandGrabSelect.action.Enable();
     }
 }
