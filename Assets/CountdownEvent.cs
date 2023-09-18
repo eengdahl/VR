@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CountdownEvent : MonoBehaviour
 {
-    public void CallStartGame()
+    public void CallStartGame() //Used by the countdown animation! Dont Remove!
     {
         GameObject.FindObjectOfType<GameController>().StartGame();
     }

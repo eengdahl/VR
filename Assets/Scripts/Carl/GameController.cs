@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         scoreController = FindObjectOfType<ScoreController>();
         scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
-        //shoot = FindObjectOfType<Shoot>();
+        //shoot = FindObjectOfType<Shoot>(); //Dont know if this still is used
         shoot.gameController = this;
 
         uiController.gameController = this;
@@ -53,8 +53,9 @@ public class GameController : MonoBehaviour
 
     public void SetupGame(Difficulty difficulty) //spawn targets and ready the countdown
     {
-        chosenDifficulty = difficulty;
+        chosenDifficulty = difficulty; //set difficulty
         gameTime = 90f;
+        scoreController.ResetScore(); //reset the score
         targetPlacer.PlaceTargets(chosenDifficulty);
         countdownSigns.GetComponent<Animator>().SetTrigger("readyCountdown");
     }
@@ -65,19 +66,14 @@ public class GameController : MonoBehaviour
         countdownSigns.GetComponent<Animator>().SetTrigger("startCountdown");
     }
 
+    public void ResetCountdown()
+    {
+        countdownSigns.GetComponent<Animator>().SetTrigger("resetCountdown");
+    }
+
     public void StartGame() //start game
     {
         currentGameState = GameState.inGame;
-    }
-
-    public void RestartGame() //might be removed later
-    {
-        gameTime = 90f;
-        //TogglePlayState();
-        //targetPlacer.RemoveTargets();
-        //targetPlacer.PlaceTargets(chosenDifficulty);
-        //uiController.MoveUpCountDownSigns();
-        uiController.StartCountDown();
     }
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu
@@ -87,7 +83,7 @@ public class GameController : MonoBehaviour
         targetPlacer.RemoveTargets();
 
         //Code to end the round and save score
-        if (!scoreController.CheckLeaderboard(chosenDifficulty))
+        if (!scoreController.CheckLeaderboard(chosenDifficulty)) //if we're not on the leaderboard, automatically return to menu, otherwise we return throught SubmitScore
             uiController.ShowMenu();
     }
 
@@ -95,7 +91,6 @@ public class GameController : MonoBehaviour
     {
         currentGameState = GameState.inMenu;
         targetPlacer.RemoveTargets();
-
     }
 
     public void BulletFired(bool wasOnTarget)

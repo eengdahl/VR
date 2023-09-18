@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShootableTarget : MonoBehaviour
 {
+    //----The Update for this no longer exists!
     //[Tooltip("For Testing Purposes! Click to test animations")]
     //[SerializeField] bool hit; //for testing purposes
 
@@ -14,18 +15,18 @@ public class ShootableTarget : MonoBehaviour
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
 
-    public bool firstTimeDeactivate;
+    [HideInInspector] public bool firstTimeDeactivate;
 
     //components
     [HideInInspector] public Animator anim;
-    AudioSource aS;
+    AudioSource audSource;
     ScoreController score;
     Collider _collider;
     ShootableMoving mover;
 
     private void Start()
     {
-        aS = GetComponent<AudioSource>();
+        audSource = GetComponent<AudioSource>();
         _collider = GetComponent<CapsuleCollider>();
         mover = GetComponent<ShootableMoving>();
 
@@ -49,22 +50,9 @@ public class ShootableTarget : MonoBehaviour
         anim.CrossFade("UpState", 0, 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //for testing purposes
-        //if (hit)
-        //{
-        //    OnHit();
-        //    hit = false;
-        //}
-    }
-
     public void OnHit()
     {
-        //print("A Target Has Been hit in Lego City!");
-        //Idk what to do here yet
-        aS.Play();
+        audSource.Play();
         StartCoroutine(nameof(PlayHitAnim));
 
         mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
@@ -72,7 +60,6 @@ public class ShootableTarget : MonoBehaviour
 
     IEnumerator PlayHitAnim()
     {
-        //print("Playing Hit Anim");
         anim.SetTrigger("hit");
         _collider.enabled = false;
 
