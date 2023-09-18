@@ -9227,6 +9227,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1714345446}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Usingrighthand
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UsingHand, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130243816065915520, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2612068368502516043, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
       propertyPath: m_Name
       value: Complete XR Butched by Emil
@@ -9362,6 +9402,62 @@ PrefabInstance:
     - target: {fileID: 6267655678943791870, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.24596232
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1714345446}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1714345446}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Usingrighthand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Usinglefthand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UsingHand, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UsingHand, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8655928648131461333, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14875,6 +14971,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
+--- !u!1 &1714345445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1714345447}
+  - component: {fileID: 1714345446}
+  m_Layer: 0
+  m_Name: HandChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1714345446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714345445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b89a6b06fe2b5a4f95f7093067593e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usingRighthand: 1
+--- !u!4 &1714345447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714345445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5091438, y: 8.169611, z: -21.663465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1721061109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18906,3 +19047,4 @@ SceneRoots:
   - {fileID: 452463679}
   - {fileID: 1492360861}
   - {fileID: 1067867591}
+  - {fileID: 1714345447}
