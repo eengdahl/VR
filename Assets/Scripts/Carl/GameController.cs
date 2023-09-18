@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
 
         //Code to end the round and save score
         if (!scoreController.CheckLeaderboard(chosenDifficulty)) //if we're not on the leaderboard, automatically return to menu, otherwise we return throught SubmitScore
-            uiController.ShowMenu();
+            uiController.ReturnToMenu();
     }
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame

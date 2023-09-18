@@ -199,7 +199,7 @@ public class ScoreController : MonoBehaviour
 
         nameInputPanel.SetActive(false);
 
-        gameController.uiController.ShowMenu();
+        gameController.uiController.ReturnToMenu();
     }
 
     public void SaveHighscoreToJson(Difficulty difficulty, string name)

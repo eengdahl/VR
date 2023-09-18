@@ -47,6 +47,7 @@ public class UIController : MonoBehaviour
     {
         if (gameController.currentGameState != GameController.GameState.inGame) return;
 
+        restartPanel.SetActive(false);
         backPanel.SetActive(false);
         startPanel.SetActive(false);
         difficultyPanel.SetActive(true);
@@ -62,13 +63,12 @@ public class UIController : MonoBehaviour
         gameController.StartCountdown();
     }
 
-    public void ShowMenu() //A ReturnToMenu Function
-    {
-        restartPanel.SetActive(false);
-        difficultyPanel.SetActive(true);
-        timeTrialPanel.SetActive(true);
-        gameController.ReturnToMenu();
-    }
+    //public void ShowMenu() //A ReturnToMenu Function
+    //{
+    //    difficultyPanel.SetActive(true);
+    //    timeTrialPanel.SetActive(true);
+    //    gameController.ReturnToMenu();
+    //}
 
     public void BackButton() //used by the backbutton in main menu
     {
