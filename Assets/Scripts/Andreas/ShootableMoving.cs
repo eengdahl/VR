@@ -16,12 +16,6 @@ public class ShootableMoving : ShootableTarget
     [Tooltip("Should the target move in sequence or randomly?")]
     [SerializeField] bool randomWaypoint = false;
 
-    [Tooltip("Should the target teleport back when reaching the last waypoint?")]
-    [SerializeField] bool teleportToStart = false;
-
-    [Tooltip("Should the target accelerate? Don't use for normal targets!")]
-    [SerializeField] bool smoothMovement = false;
-
     [Header("Variables")]
     [Tooltip("How long the target should wait at each waypoint")]
     [SerializeField] float waitTime = 1f;
@@ -58,33 +52,18 @@ public class ShootableMoving : ShootableTarget
             if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
         }
     }
+
     private void OnEnable()
     {
-        anim.CrossFade("UpState", 0, 0);
+        anim.CrossFade("TargetDownState", 0, 0);
     }
 
-    public void InitiatePatrol(GameObject newParent)
-    {
-        waypointParent = newParent.transform;
-        //Create our list of waypoints and warns if it's empty
-        if (moveType == MoveType.Waypoints)
-        {
-            for (int i = 0; i < waypointParent.childCount; i++)
-            {
-                waypoints.Add(waypointParent.GetChild(i));
-            }
-
-            if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
-        }
-    }
     // Update is called once per frame
     void Update()
     {
         if (moveType == MoveType.Waypoints)
             MoveWaypoints();
     }
-
-
 
     void MoveWaypoints() //State Machine for a target moving with Waypoints
     {
@@ -109,18 +88,7 @@ public class ShootableMoving : ShootableTarget
     {
         if (!shouldMove) { return; }
 
-        if (!smoothMovement)
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, moveSpeed * Time.deltaTime);
-        else
-        {
-            if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) > 5f)
-                if (acceleration <= moveSpeed) acceleration += Time.deltaTime * 3;
-
-            if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) < 5f)
-                acceleration -= Time.deltaTime * 3;
-
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, acceleration * Time.deltaTime);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[currentwaypoint].position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, waypoints[currentwaypoint].position) < 0.1f)
         {
@@ -129,11 +97,6 @@ public class ShootableMoving : ShootableTarget
             waitTimer = waitTime;
             currentState = CurrentState.Waiting;
             acceleration = 0;
-
-            if (currentwaypoint == 0 && teleportToStart)
-            {
-                transform.position = waypoints[0].position;
-            }
         }
     }
 
