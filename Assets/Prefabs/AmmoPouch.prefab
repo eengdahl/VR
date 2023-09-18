@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2885953889543341266}
   - component: {fileID: 5931548195303302001}
   - component: {fileID: 7085512200737212034}
+  - component: {fileID: 8796693611703893211}
   m_Layer: 0
   m_Name: AmmoPouch
   m_TagString: AmmoPouch
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.569, y: 0.491, z: -2.3256469}
-  m_LocalScale: {x: 0.16915, y: 0.16915, z: 0.16915}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.44, y: 0.44, z: 0.44}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2584719118135141559}
   m_Father: {fileID: 0}
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8796693611703893211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610907426606217658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842b8e44bd7fa8f41a228f09bb2db869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headsetPos: {fileID: 0}
 --- !u!1 &3025735896112647763
 GameObject:
   m_ObjectHideFlags: 0
