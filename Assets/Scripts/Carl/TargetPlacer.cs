@@ -13,7 +13,13 @@ public class TargetPlacer : MonoBehaviour
 
     public List<GameObject> activeTargets = new();
 
-    //private TargetTrailsRenderer targetTrailRenderer;
+    private TargetTrailsRenderer targetTrailRenderer;
+
+    private void Start()
+    {
+        targetTrailRenderer = FindObjectOfType<TargetTrailsRenderer>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -41,8 +47,8 @@ public class TargetPlacer : MonoBehaviour
         {
             target.GetComponent<ShootableTarget>().firstTimeDeactivate = true;
             target.gameObject.SetActive(true);
-            //targetTrailRenderer.PopulateList(activeTargets);
         }
+        targetTrailRenderer.PopulateList(activeTargets);
     }
 
     public void RemoveTargets()
@@ -50,7 +56,7 @@ public class TargetPlacer : MonoBehaviour
         DeactivateTargets();
 
         activeTargets.Clear();
-        //targetTrailRenderer.PopulateList(activeTargets);
+        targetTrailRenderer.DePopulateList();
     }
 
     public void InitializeTargets()

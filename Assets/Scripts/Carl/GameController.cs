@@ -8,7 +8,7 @@ using UnityEngine;
 
 public enum GameState { inMenu, Countdown, inGame }
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour 
 {
     public GameState currentGameState;
 
