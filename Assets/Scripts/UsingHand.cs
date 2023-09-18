@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UsingHand : MonoBehaviour
 {
-    public bool usingRighthand = true;
+    public bool usingRighthand = false;
+    public bool usingLefthand = false;
     private static UsingHand _Instance;
     public static UsingHand Instance { get { return _Instance; } }
 
@@ -20,12 +21,12 @@ public class UsingHand : MonoBehaviour
 
     public void Usinglefthand()
     {
-        usingRighthand = false;
+        usingLefthand = !usingLefthand;
     }
 
     public void Usingrighthand()
     {
-        usingRighthand = true;
+        usingRighthand = !usingRighthand;
     }
 
 }

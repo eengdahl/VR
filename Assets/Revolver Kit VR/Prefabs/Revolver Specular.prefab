@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 33216293007584198}
   - component: {fileID: 23010481650415144}
   - component: {fileID: 114519239286550592}
+  - component: {fileID: 2936914249452988882}
   m_Layer: 0
   m_Name: hammer
   m_TagString: Untagged
@@ -395,6 +396,27 @@ MonoBehaviour:
   axis: {x: 0, y: 0, z: 1}
   startRotation: -30
   endRotation: 30
+--- !u!95 &2936914249452988882
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431238365511148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9d7bf9678d8d9845a004ae2e00536a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1686151780560844
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +630,18 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  revolverCock:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Revolver Cock
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 39d194aa-46ee-4247-ba20-348bcf5ed6b2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
@@ -617,11 +651,13 @@ MonoBehaviour:
   reloadingClip: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
   offset: {x: 0, y: 0, z: 0}
   gameController: {fileID: 0}
-  thisController: {fileID: 0}
+  rightControllerAction: {fileID: 0}
+  leftControllerAction: {fileID: 0}
   rightController: {fileID: 0}
   leftController: {fileID: 0}
   grabscript: {fileID: 0}
   playing: 0
+  revolverAnims: {fileID: 2936914249452988882}
 --- !u!82 &1564205702103906150
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1800,12 +1836,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd0949adae4b1f45b7e75a20dce5585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shellLoaded: {fileID: 0}
+  cylinderSpin: {fileID: 0}
   numberOfChambers: 6
   gunColliders:
   - {fileID: 64761800549044114}
   - {fileID: 64761800549044114}
   bulletPlacementRadius: 0.0102
   bulletForwardAxisOffset: 0.0092
+  cylinderOpen: 0
   rotationSpeed: 0.1
   righthandReleaseCylinder:
     m_UseReference: 1
