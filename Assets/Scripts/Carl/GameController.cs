@@ -10,8 +10,10 @@ public enum GameState { inMenu, Countdown, inGame }
 
 public class GameController : MonoBehaviour 
 {
+    [Header("State")]
     public GameState currentGameState;
 
+    [Header("Components")]
     public UIController uiController;
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
@@ -19,10 +21,11 @@ public class GameController : MonoBehaviour
     private AudioSource audSource;
     [SerializeField] GameObject countdownSigns;
 
+    [Header("Settings")]
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
-
     public float gameTime = 90f;
+    private float gameTimer;
 
     private void Awake()
     {
@@ -46,10 +49,10 @@ public class GameController : MonoBehaviour
     {
         if (currentGameState == GameState.inGame && timeTrialEnabled)
         {
-            gameTime -= 1 * Time.deltaTime;
-            scoreController.UpdateTimer(gameTime);
+            gameTimer -= 1 * Time.deltaTime;
+            scoreController.UpdateTimer(gameTimer);
 
-            if (gameTime <= 0)
+            if (gameTimer <= 0)
             {
                 EndGame();
             }
@@ -59,7 +62,7 @@ public class GameController : MonoBehaviour
     public void SetupGame(Difficulty difficulty) //spawn targets and ready the countdown
     {
         chosenDifficulty = difficulty; //set difficulty
-        gameTime = 90f;
+        gameTimer = gameTime;
         scoreController.ResetScore(); //reset the score
         targetPlacer.PlaceTargets(chosenDifficulty);
         countdownSigns.GetComponent<Animator>().SetTrigger("readyCountdown");
