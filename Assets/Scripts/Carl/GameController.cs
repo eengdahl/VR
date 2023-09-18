@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     public float gameTime = 90f;
 
-    private void Start()
+    private void Awake()
     {
         audSource = GetComponent<AudioSource>();
         uiController = FindObjectOfType<UIController>();
@@ -37,6 +37,9 @@ public class GameController : MonoBehaviour
 
         uiController.gameController = this;
         scoreController.gameController = this;
+
+        EndGame();
+        ReturnToMenu();
     }
 
     private void Update()
