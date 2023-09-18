@@ -74,6 +74,7 @@ public class GameController : MonoBehaviour
     public void StartGame() //start game
     {
         currentGameState = GameState.inGame;
+        targetPlacer.InitializeTargets();
     }
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu

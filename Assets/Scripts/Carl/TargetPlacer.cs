@@ -53,13 +53,13 @@ public class TargetPlacer : MonoBehaviour
         activeTargets.Clear();
     }
 
-    //public void InitializeTargets()
-    //{
-    //    foreach (var target in activeTargets)
-    //    {
-    //        target.GetComponent<ShootableMoving>().ManualSetUpTarget();
-    //        target.GetComponent<ShootableMoving>().shouldMove = true;
-    //        target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
-    //    }
-    //}
+    public void InitializeTargets()
+    {
+        foreach (var target in activeTargets)
+        {
+            target.GetComponent<ShootableMoving>().ManualSetUpTarget();
+            target.GetComponent<ShootableMoving>().shouldMove = true;
+            target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
+        }
+    }
 }

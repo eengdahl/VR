@@ -48,17 +48,14 @@ public class ShootableMoving : ShootableTarget
         anim = GetComponentInChildren<Animator>();
         anim.CrossFade("UpState", 0, 0);
 
-        if (testTarget)
+        if (moveType == MoveType.Waypoints)
         {
-            if (moveType == MoveType.Waypoints)
+            for (int i = 0; i < waypointParent.childCount; i++)
             {
-                for (int i = 0; i < waypointParent.childCount; i++)
-                {
-                    waypoints.Add(waypointParent.GetChild(i));
-                }
-
-                if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
+                waypoints.Add(waypointParent.GetChild(i));
             }
+
+            if (waypoints.Count == 0) Debug.LogErrorFormat("Waypoints List is empty, have you Tagged {0} the wrong MoveType?", gameObject.name);
         }
     }
     private void OnEnable()
@@ -86,7 +83,7 @@ public class ShootableMoving : ShootableTarget
         if (moveType == MoveType.Waypoints)
             MoveWaypoints();
     }
-    
+
 
 
     void MoveWaypoints() //State Machine for a target moving with Waypoints
