@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8498756903460411415}
+  - component: {fileID: 7254516359489949379}
+  - component: {fileID: 6204718434451823353}
   m_Layer: 0
   m_Name: CountdownSigns
   m_TagString: Untagged
@@ -34,6 +36,39 @@ Transform:
   - {fileID: 2245834739917765702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7254516359489949379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8991959367306874391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f7585862ab15034bb61ca9fab3cbee8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6204718434451823353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8991959367306874391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97226bf7d95abf4db4a5664588d101f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &461534442484772586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45,6 +80,14 @@ PrefabInstance:
     - target: {fileID: 806087321339166898, guid: 6b782c19aa71a1d43a86570d2ec588cc, type: 3}
       propertyPath: m_Name
       value: Number2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336147117086465068, guid: 6b782c19aa71a1d43a86570d2ec588cc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424424035872981829, guid: 6b782c19aa71a1d43a86570d2ec588cc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263304730052159645, guid: 6b782c19aa71a1d43a86570d2ec588cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,6 +129,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7633652957283110754, guid: 6b782c19aa71a1d43a86570d2ec588cc, type: 3}
+      propertyPath: m_fontStyle
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -107,6 +154,14 @@ PrefabInstance:
     - target: {fileID: 488893948514410544, guid: 12ff3dd07301eac4eb7e04d5cc1161b2, type: 3}
       propertyPath: m_Name
       value: Number3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089145347114591175, guid: 12ff3dd07301eac4eb7e04d5cc1161b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182209229959593134, guid: 12ff3dd07301eac4eb7e04d5cc1161b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7578251378371872799, guid: 12ff3dd07301eac4eb7e04d5cc1161b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,6 +267,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4857785452344479274, guid: d73835440c4ef1d418c39c6812fb9d97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845639855679546866, guid: d73835440c4ef1d418c39c6812fb9d97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902672261164317339, guid: d73835440c4ef1d418c39c6812fb9d97, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
