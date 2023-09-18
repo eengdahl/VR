@@ -40,7 +40,8 @@ public class Shoot : MonoBehaviour
 
     public GameController gameController;
 
-    public XRBaseController thisController;
+    public XRBaseController rightControllerAction;
+    public XRBaseController leftControllerAction;
     public Transform rightController;
     public Transform leftController;
     public XRGrabInteractable grabscript;
@@ -126,7 +127,7 @@ public class Shoot : MonoBehaviour
     {
         //print("Fired for real for real");
 
-        haptic.TriggerHapticEvent(thisController);
+        HapticCall();
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
@@ -255,6 +256,18 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = magSize;
         reloading = false;
+    }
+
+    private void HapticCall()
+    {
+
+        bool tempHand = UsingHand.Instance.usingRighthand;
+        if (tempHand)
+            haptic.TriggerHapticEvent(rightControllerAction);
+        else
+        {
+            haptic.TriggerHapticEvent(leftControllerAction);
+        }
     }
 
     private GameObject GetLine()
