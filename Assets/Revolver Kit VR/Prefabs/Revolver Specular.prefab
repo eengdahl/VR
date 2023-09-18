@@ -1834,5 +1834,5 @@ MonoBehaviour:
   gun: {fileID: 1991293317751832}
   bulletPrefab: {fileID: 1813471793046504, guid: 6e3ce6fc0134b1c498e1796842ed858b, type: 3}
   bullets: []
-  righthandGrabSelect: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  lefthandGrabSelect: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  righthandGrabSelect: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  lefthandGrabSelect: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
