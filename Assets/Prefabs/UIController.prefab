@@ -48,4 +48,5 @@ MonoBehaviour:
   startPanel: {fileID: 0}
   restartPanel: {fileID: 0}
   timeTrialPanel: {fileID: 0}
-  timeTrialButton: {fileID: 0}
+  backPanel: {fileID: 0}
+  gameController: {fileID: 0}

@@ -45,14 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89ffdbe4f1773e49a30298a0fa6456b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGameState: 0
   uiController: {fileID: 0}
   scoreController: {fileID: 0}
   targetPlacer: {fileID: 0}
   shoot: {fileID: 0}
-  playing: 0
+  countdownSigns: {fileID: 0}
   chosenDifficulty: 0
   timeTrialEnabled: 0
-  gameTime: 9.8
+  gameTime: 90
 --- !u!82 &2973659127992535073
 AudioSource:
   m_ObjectHideFlags: 0
