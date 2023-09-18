@@ -348,7 +348,10 @@ public class ScoreController : MonoBehaviour
         bulletsFired++;
         if (wasOnTarget)
             bulletsOnTarget++;
-        accuracy = bulletsFired / bulletsOnTarget;
+        if (bulletsOnTarget != 0)
+        {
+            accuracy = bulletsFired / bulletsOnTarget;
+        }
     }
 
     //------------TIMER------------

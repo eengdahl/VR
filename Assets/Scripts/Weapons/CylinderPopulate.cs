@@ -170,9 +170,9 @@ public class CylinderPopulate : MonoBehaviour
                 bullet.transform.parent = null;
                 bullet.GetComponent<Rigidbody>().isKinematic = false;
             }
+        bullets.Clear();
         }
 
-        bullets.Clear();
     }
 
     private void OnTriggerEnter(Collider other)

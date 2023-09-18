@@ -16,7 +16,7 @@ public class TargetTrailsRenderer : MonoBehaviour
 
     private void Update()
     {
-        while (activeTargets.Count != 0 && gameController.currentGameState == GameController.GameState.inGame)
+        while (activeTargets.Count != 0 && gameController.currentGameState == GameState.inGame)
         {
             foreach (GameObject target in activeTargets)
             {

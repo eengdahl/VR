@@ -5831,6 +5831,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6348070893201334953, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: magSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348070893201334953, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
       propertyPath: leftController
       value: 
       objectReference: {fileID: 1067867594}

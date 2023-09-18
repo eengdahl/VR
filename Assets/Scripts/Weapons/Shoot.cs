@@ -51,6 +51,9 @@ public class Shoot : MonoBehaviour
     //Play state (round started or not), controlled and updated by GameController
     public bool playing;
 
+    public GameState currentGameState;
+
+
     public Animator revolverAnims;
     HapticScript haptic;
 
@@ -105,30 +108,34 @@ public class Shoot : MonoBehaviour
             {
                 isCock = true;
                 revolverAnims.CrossFade("HammerCock", 0);
-                
+
             }
 
             if (leftTriggerHeld != 0 || righttriggerHeld != 0)
             {
                 if (leftFanReleased || rightFanReleased)
                 {
-                    if (playing && currentAmmo > 0)
+                    if (currentGameState == GameState.inGame && currentAmmo > 0)
                         Fire();
-                    else
+                    if (currentGameState == GameState.inMenu)
+                    {
                         BlankFire();
+                    }
                 }
             }
 
             if (leftTriggerValue || rightTriggerValue)
             {
-                if (playing && currentAmmo > 0 && isCock)
+                if (currentGameState == GameState.inGame && currentAmmo > 0 && isCock)
                 {
                     Fire();
                     isCock = false;
                     revolverAnims.CrossFade("HammerUncock", 0);
                 }
-                else
+                if (currentGameState == GameState.inMenu)
+                {
                     BlankFire();
+                }
             }
             //Autoreload
             //if (currentAmmo <= 0)
@@ -178,7 +185,7 @@ public class Shoot : MonoBehaviour
         var Line = GetLine();
 
         Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
-
+        currentAmmo--;
         if (hit.collider == null)
         {
             return;
@@ -212,7 +219,7 @@ public class Shoot : MonoBehaviour
                 hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
             }
 
-            currentAmmo--;
+         
         }
     }
 
@@ -263,15 +270,15 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    IEnumerator Reloading()
-    {
-        reloading = true;
-        var aS = gameObject.GetComponent<AudioSource>();
-        aS.PlayOneShot(reloadingClip);
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = magSize;
-        reloading = false;
-    }
+        //IEnumerator Reloading()
+        //{
+        //    reloading = true;
+        //    var aS = gameObject.GetComponent<AudioSource>();
+        //    aS.PlayOneShot(reloadingClip);
+        //    yield return new WaitForSeconds(reloadTime);
+        //    currentAmmo = magSize;
+        //    reloading = false;
+        //}
 
     private void HapticCall()
     {

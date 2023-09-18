@@ -5,9 +5,11 @@ using Carl;
 using UnityEditor;
 using UnityEngine;
 
+
+public enum GameState { inMenu, Countdown, inGame }
+
 public class GameController : MonoBehaviour
 {
-    public enum GameState { inMenu, Countdown, inGame }
     public GameState currentGameState;
 
     public UIController uiController;
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
         scoreController = FindObjectOfType<ScoreController>();
         scoreController.gameController = this;
         targetPlacer = FindObjectOfType<TargetPlacer>();
-        //shoot = FindObjectOfType<Shoot>(); //Dont know if this still is used
+        shoot = FindObjectOfType<Shoot>(); //Dont know if this still is used
         shoot.gameController = this;
 
         uiController.gameController = this;
@@ -74,12 +76,14 @@ public class GameController : MonoBehaviour
     public void StartGame() //start game
     {
         currentGameState = GameState.inGame;
+        shoot.currentGameState = currentGameState;
         targetPlacer.InitializeTargets();
     }
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu
     {
         currentGameState = GameState.inMenu;
+        shoot.currentGameState = currentGameState;
         audSource.Play();
         targetPlacer.RemoveTargets();
 
