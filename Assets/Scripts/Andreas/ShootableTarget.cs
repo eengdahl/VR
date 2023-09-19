@@ -10,7 +10,9 @@ public class ShootableTarget : MonoBehaviour
     //[SerializeField] bool hit; //for testing purposes
 
     [Tooltip("How long to wait before getting up again after being shot down")]
-    [SerializeField] float downTime = 2f;
+    public float minDownTime = 2f;
+    public float maxDownTime = 5f;
+    private float downTime;
 
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
@@ -65,6 +67,7 @@ public class ShootableTarget : MonoBehaviour
 
         yield return new WaitForSeconds(downTime);
 
+        downTime = Random.Range(minDownTime, maxDownTime);
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
         _collider.enabled = true;

@@ -11,9 +11,13 @@ public class TargetPlacer : MonoBehaviour
     [SerializeField] List<GameObject> mediumTargets = new();
     [SerializeField] List<GameObject> hardTargets = new();
 
-    public List<GameObject> activeTargets = new();
+    [HideInInspector] public List<GameObject> activeTargets = new();
 
     private TargetTrailsRenderer targetTrailRenderer;
+
+    [Header("Variables")]
+    [Tooltip("The random range of how long targets should stay down in each difficulty. Easy is 0 and 1 etc.")]
+    [SerializeField] List<float> downTimes = new List<float>();
 
     private void Start()
     {
@@ -47,8 +51,24 @@ public class TargetPlacer : MonoBehaviour
         {
             target.GetComponent<ShootableTarget>().firstTimeDeactivate = true;
             target.gameObject.SetActive(true);
+
+            if (difficulty == Difficulty.Easy)
+            {
+                target.GetComponent<ShootableTarget>().minDownTime = downTimes[0];
+                target.GetComponent<ShootableTarget>().maxDownTime = downTimes[1];
+            }
+            else if (difficulty == Difficulty.Normal)
+            {
+                target.GetComponent<ShootableTarget>().minDownTime = downTimes[2];
+                target.GetComponent<ShootableTarget>().maxDownTime = downTimes[3];
+            }
+            if (difficulty == Difficulty.Hard)
+            {
+                target.GetComponent<ShootableTarget>().minDownTime = downTimes[4];
+                target.GetComponent<ShootableTarget>().maxDownTime = downTimes[5];
+            }
         }
-        targetTrailRenderer.PopulateList(activeTargets);
+        //targetTrailRenderer.PopulateList(activeTargets);
     }
 
     public void RemoveTargets()
@@ -56,7 +76,7 @@ public class TargetPlacer : MonoBehaviour
         DeactivateTargets();
 
         activeTargets.Clear();
-        targetTrailRenderer.DePopulateList();
+        //targetTrailRenderer.DePopulateList();
     }
 
     public void InitializeTargets()
