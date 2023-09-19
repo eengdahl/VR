@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9109f62bbe7e44419a68d388eedff0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundNoise: {fileID: 8300000, guid: 2d31bf7f0a2a66c4faa27dd847532cc4, type: 3}
+  backgroundNoise:
+  - {fileID: 8300000, guid: 89a1343f1621165428d9ac42080593ed, type: 3}
+  - {fileID: 8300000, guid: 81c04f702f8b40741b42636c21e0e08c, type: 3}
   backGroundMusic:
-  - {fileID: 8300000, guid: 82fd665ccd9560849b61e425624b41c0, type: 3}
-  - {fileID: 8300000, guid: 60c4bab7673733942bf5bf650ea4cf5c, type: 3}
-  - {fileID: 8300000, guid: c5e1503b8b6ede94a9b27e77ad9b83f4, type: 3}
-  count: 0
+  - {fileID: 8300000, guid: 4f6e63480c56d1847bedc4c47389fb28, type: 3}
+  - {fileID: 8300000, guid: 9e0410631f2b54445ac80695494aa816, type: 3}

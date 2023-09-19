@@ -6,9 +6,9 @@ using UnityEngine;
 public class MusicScript : MonoBehaviour
 {
 
-    public AudioClip backgroundNoise;
+    public List<AudioClip> backgroundNoise;
     public List<AudioClip> backGroundMusic;
-    private int count;
+    private int count, count1;
 
     private AudioSource aS;
     // Start is called before the first frame update
@@ -23,10 +23,14 @@ public class MusicScript : MonoBehaviour
     }
     IEnumerator StartBackground()
     {
-        aS.PlayOneShot(backgroundNoise, 0.1f);
+        aS.PlayOneShot(backgroundNoise[count1], 0.1f);
 
-        yield return new WaitForSeconds(backgroundNoise.length);
-
+        yield return new WaitForSeconds(backgroundNoise[count1].length);
+        count1++;
+        if (count1 >= backgroundNoise.Count)
+        {
+            count1 = 0;
+        }
         StartCoroutine(StartBackground());
     }
 

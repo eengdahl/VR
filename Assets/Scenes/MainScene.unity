@@ -1800,6 +1800,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3034678532794237171, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: backGroundMusic.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e0410631f2b54445ac80695494aa816, type: 3}
+    - target: {fileID: 3034678532794237171, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: backGroundMusic.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f6e63480c56d1847bedc4c47389fb28, type: 3}
+    - target: {fileID: 3034678532794237171, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: backgroundNoise.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 81c04f702f8b40741b42636c21e0e08c, type: 3}
+    - target: {fileID: 3034678532794237171, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: backgroundNoise.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 89a1343f1621165428d9ac42080593ed, type: 3}
     - target: {fileID: 9138983081874964309, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
       propertyPath: m_Name
       value: Music
