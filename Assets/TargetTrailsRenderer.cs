@@ -35,6 +35,10 @@ public class TargetTrailsRenderer : MonoBehaviour
     public void DePopulateList()
     {
         activeLines.Clear();
+        foreach (GameObject line in activeLines)
+        {
+            Destroy(line);
+        }
         activeTargets.Clear();
     }
 }
