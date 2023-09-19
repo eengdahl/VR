@@ -55,7 +55,7 @@ public class CylinderPopulate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             righthandGrabSelect.action.Enable();
-            lefthandGrabSelect.action.Enable();
+            lefthandGrabSelect.action.Enable();   
         }
 
         if (this.isAnimating)
@@ -132,6 +132,7 @@ public class CylinderPopulate : MonoBehaviour
             if (space < 6)
             {
                 GameObject bullet = Instantiate(bulletPrefab, this.transform);
+                bullet.transform.parent = cylinderMesh.transform;
                 float degrees = AngleForIndex(space);
                 float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
                 float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);

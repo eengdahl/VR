@@ -89,7 +89,7 @@ public class Shoot : MonoBehaviour
             if (playing)
                 Fire();
             else
-                BlankFire();
+                Fire();
         }
 
 
