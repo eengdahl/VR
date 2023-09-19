@@ -9,6 +9,8 @@ public class CylinderPopulate : MonoBehaviour
 {
     public AudioClip shellLoaded;
     public AudioClip cylinderSpin;
+    private AudioSource aS;
+    private bool cylinderSpinOpened;
 
     public int numberOfChambers = 6;
     public Collider[] gunColliders;
@@ -26,6 +28,7 @@ public class CylinderPopulate : MonoBehaviour
     private Rigidbody cylinderRB;
     public GameObject gun;
     public GameObject bulletPrefab;
+    public GameObject cylinderMesh;
     public List<GameObject> bullets = new List<GameObject>();
     private bool[] bulletSpent;
 
@@ -38,6 +41,7 @@ public class CylinderPopulate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        aS = GetComponent<AudioSource>();
         shoot = GetComponentInParent<Shoot>();
         inputData = FindObjectOfType<DisplayInputData>();
         cylinderRB = GetComponent<Rigidbody>();
@@ -51,13 +55,13 @@ public class CylinderPopulate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             righthandGrabSelect.action.Enable();
-            lefthandGrabSelect.action.Enable();
+            lefthandGrabSelect.action.Enable();   
         }
 
         if (this.isAnimating)
 
         {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
+            cylinderMesh.transform.localRotation = Quaternion.Lerp(cylinderMesh.transform.localRotation, this.rotationTarget, rotationSpeed);
             float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
             if (curAngle < 1)
             {
@@ -81,6 +85,13 @@ public class CylinderPopulate : MonoBehaviour
         if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
         {
             cylinderRB.isKinematic = true;
+            //This might not work. if not testing  in Inputdata!=null, 
+            if (cylinderSpinOpened)
+            {
+                aS.clip = cylinderSpin;
+                aS.Play();
+                cylinderSpinOpened = false;
+            }
         }
 
         if (lefthandCylinderRelease != 0)
@@ -98,7 +109,8 @@ public class CylinderPopulate : MonoBehaviour
             if (inputData.leftControllerVelocity.x > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
             {
                 Debug.Log("triggerd");
-                cylinderRB.AddForce(new Vector3(0,0,500), ForceMode.Impulse);
+                cylinderRB.AddForce(new Vector3(0, 0, 500), ForceMode.Impulse);
+
             }
         }
     }
@@ -120,6 +132,7 @@ public class CylinderPopulate : MonoBehaviour
             if (space < 6)
             {
                 GameObject bullet = Instantiate(bulletPrefab, this.transform);
+                bullet.transform.parent = cylinderMesh.transform;
                 float degrees = AngleForIndex(space);
                 float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
                 float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);
@@ -164,11 +177,13 @@ public class CylinderPopulate : MonoBehaviour
     public void OpenCylinder()
     {
         cylinderOpen = true;
+        cylinderSpinOpened = true;
     }
 
     public void CloseCylinder()
     {
         cylinderOpen = false;
+
     }
 
     public void ReleaseBullets()
@@ -181,7 +196,7 @@ public class CylinderPopulate : MonoBehaviour
                 bullet.transform.parent = null;
                 bullet.GetComponent<Rigidbody>().isKinematic = false;
             }
-        bullets.Clear();
+            bullets.Clear();
         }
 
     }
@@ -191,6 +206,8 @@ public class CylinderPopulate : MonoBehaviour
         if (other.CompareTag(".44"))
         {
             FillBarrel(1);
+            aS.clip = shellLoaded;
+            aS.Play();
             Destroy(other.gameObject);
         }
     }
@@ -207,6 +224,6 @@ public class CylinderPopulate : MonoBehaviour
         if (UsingHand.Instance.usingRighthand)
         {
             righthandGrabSelect.action.Enable();
-        } 
+        }
     }
 }

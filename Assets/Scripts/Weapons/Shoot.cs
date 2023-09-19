@@ -56,10 +56,11 @@ public class Shoot : MonoBehaviour
 
     public Animator revolverAnims;
     HapticScript haptic;
+    CylinderPopulate cylinderScript;
 
     private void Start()
     {
-
+        cylinderScript = FindObjectOfType<CylinderPopulate>();
         haptic = FindAnyObjectByType<HapticScript>();
         bulletPool = FindAnyObjectByType<BulletPool>();
         scoreController = FindObjectOfType<ScoreController>();
@@ -88,7 +89,7 @@ public class Shoot : MonoBehaviour
             if (playing)
                 Fire();
             else
-                BlankFire();
+                Fire();
         }
 
 
@@ -148,7 +149,7 @@ public class Shoot : MonoBehaviour
     private void Fire()
     {
         //print("Fired for real for real");
-
+        cylinderScript.Revolve();
         HapticCall();
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
@@ -182,9 +183,10 @@ public class Shoot : MonoBehaviour
 
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
+        //replace with trailrenderer on physical bullets
         var Line = GetLine();
-
         Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
+
         currentAmmo--;
         if (hit.collider == null)
         {
