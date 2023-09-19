@@ -446,14 +446,35 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  revolverCock:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Revolver Cock
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 0490d379-cabd-444f-8df9-74231ac6c065
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
-  gun: {fileID: 208354170735891307}
   gunhead: {fileID: 208354170735891307}
   currentAmmo: 0
   magSize: 10
   reloadingClip: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
+  offset: {x: 0, y: 0, z: 0}
+  gameController: {fileID: 0}
+  rightControllerAction: {fileID: 0}
+  leftControllerAction: {fileID: 0}
+  rightController: {fileID: 0}
+  leftController: {fileID: 0}
+  grabscript: {fileID: 0}
+  playing: 0
+  currentGameState: 0
+  revolverAnims: {fileID: 0}
 --- !u!1 &665601661147255620
 GameObject:
   m_ObjectHideFlags: 0

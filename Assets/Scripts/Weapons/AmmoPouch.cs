@@ -10,10 +10,11 @@ public class AmmoPouch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        headsetPos = Camera.main.transform;
     }
 
     private void Update()
     {
-        transform.position = new Vector3(headsetPos.position.x - 0.2f, headsetPos.position.y - 0.4f, headsetPos.position.z);
+        transform.position = new Vector3(headsetPos.position.x - 0.3f, headsetPos.position.y - 0.5f, headsetPos.position.z);
     }
 }
