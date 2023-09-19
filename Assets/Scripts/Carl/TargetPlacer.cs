@@ -68,7 +68,7 @@ public class TargetPlacer : MonoBehaviour
                 target.GetComponent<ShootableTarget>().maxDownTime = downTimes[5];
             }
         }
-        //targetTrailRenderer.PopulateList(activeTargets);
+        targetTrailRenderer.PopulateList(activeTargets);
     }
 
     public void RemoveTargets()
@@ -76,7 +76,7 @@ public class TargetPlacer : MonoBehaviour
         DeactivateTargets();
 
         activeTargets.Clear();
-        //targetTrailRenderer.DePopulateList();
+        targetTrailRenderer.DePopulateList();
     }
 
     public void InitializeTargets()
