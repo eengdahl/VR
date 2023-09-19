@@ -33,11 +33,13 @@ public class CylinderPopulate : MonoBehaviour
     public InputActionReference lefthandGrabSelect;
 
     Shoot shoot;
+    DisplayInputData inputData;
 
     // Start is called before the first frame update
     void Start()
     {
         shoot = GetComponentInParent<Shoot>();
+        inputData = FindObjectOfType<DisplayInputData>();
         cylinderRB = GetComponent<Rigidbody>();
         bulletSpent = new bool[numberOfChambers];
         FillBarrel(6);
@@ -91,7 +93,7 @@ public class CylinderPopulate : MonoBehaviour
             cylinderRB.isKinematic = true;
         }
 
-        if (gun.GetComponent<Rigidbody>().velocity.x > 5 || Input.GetKeyDown(KeyCode.F))
+        if (inputData.leftControllerVelocity.x > 3 || Input.GetKeyDown(KeyCode.F))
         {
             cylinderRB.AddForce(new Vector3(0,0,500), ForceMode.Impulse);
         }

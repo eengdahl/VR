@@ -6,6 +6,7 @@ using UnityEngine.XR;
 public class DisplayInputData : MonoBehaviour
 {
     private InputData inputData;
+    public Vector3 leftControllerVelocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,12 @@ public class DisplayInputData : MonoBehaviour
         //get leftcontroller velocity
         if (inputData.leftController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 leftVelocity))
         {
-            //use velocity here
+            leftControllerVelocity = leftVelocity;
         }
         //get rightcontroller velocity
         if (inputData.leftController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 rightVelocity))
         {
-            //use velocity here
+            
         }
     }
 }
