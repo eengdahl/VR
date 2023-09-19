@@ -182,9 +182,10 @@ public class Shoot : MonoBehaviour
 
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
+        //replace with trailrenderer on physical bullets
         var Line = GetLine();
-
         Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
+
         currentAmmo--;
         if (hit.collider == null)
         {
