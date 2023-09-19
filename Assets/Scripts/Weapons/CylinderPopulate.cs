@@ -90,6 +90,11 @@ public class CylinderPopulate : MonoBehaviour
         {
             cylinderRB.isKinematic = true;
         }
+
+        if (gun.GetComponent<Rigidbody>().velocity.x > 5 || Input.GetKeyDown(KeyCode.F))
+        {
+            cylinderRB.AddForce(new Vector3(0,0,500), ForceMode.Impulse);
+        }
     }
     void FillBarrel(int amount)
     {
