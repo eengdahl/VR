@@ -93,7 +93,7 @@ public class CylinderPopulate : MonoBehaviour
             cylinderRB.isKinematic = true;
         }
 
-        if (inputData.leftControllerVelocity.x > 1 || Input.GetKeyDown(KeyCode.F))
+        if (inputData.leftControllerVelocity.x > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
         {
             Debug.Log("triggerd");
             cylinderRB.AddForce(new Vector3(0,0,500), ForceMode.Impulse);
