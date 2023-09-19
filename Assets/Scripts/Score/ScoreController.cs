@@ -120,28 +120,20 @@ public class ScoreController : MonoBehaviour
 
     void UpdateScoreText()
     {
-        //TODO update the text and all that
         scoreText.text = "Score: " + score;
         multiplierText.text = "Combo: " + currentMultiplier;
         bulletsFiredText.text = "Shots fired: " + bulletsFired;
         accuracyText.text = "Accuracy: " + accuracy.ToString("P1");
     }
 
-    //public void StartNewGame(bool timeTrial)
-    //{
-    //    ResetScore();
-    //}
-
-    //public void EndCurrentGame()
-    //{
-    //    //Add code to save score if time trial was enabled
-    //}
-
     public void ResetScore()
     {
         score = 0;
         currentMultiplier = 0;
         multiplierTimer = 0;
+
+        bulletsFiredText.gameObject.SetActive(false);
+        accuracyText.gameObject.SetActive(false);
     }
 
     //-----------HIGHSCORE---------------
@@ -273,21 +265,8 @@ public class ScoreController : MonoBehaviour
                 break;
         }
 
-        //if (easyHighscores.Count >= 4) //if we inserted, the list is too long and we trim the excess
-
         string jsonString = JsonUtility.ToJson(hsSaveData);
         PlayerPrefs.SetString("HighscoreSaveData", jsonString);
-
-        //print(jsonString);
-    }
-
-    public void SaveHighscore(int difficulty)
-    {
-        //save all highscoredata to json and playerprefs
-        string jsonString = JsonUtility.ToJson(hsSaveData);
-        //PlayerPrefs.SetString("HighscoreSaveData", jsonString);
-        print(jsonString);
-        //PlayerPrefs.SetString("EasyHighscores", jsonString);
     }
 
     public void WriteName(int i)
@@ -313,21 +292,6 @@ public class ScoreController : MonoBehaviour
         return returnedName;
     }
 
-    public string RandomName() //NOT USED ANYMORE
-    {
-        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        string returnedName = "";
-
-        for (int i = 0; i < 3; i++)
-        {
-            int ind = UnityEngine.Random.Range(0, chars.Length);
-
-            returnedName += chars[ind];
-        }
-
-        return returnedName;
-    }
-
     public char GetLetter(int i)
     {
         return chars[i];
@@ -343,6 +307,8 @@ public class ScoreController : MonoBehaviour
         }
     }
 
+    //------END GAME STATS-------
+
     public void BulletWasFired(bool wasOnTarget)
     {
         bulletsFired++;
@@ -354,6 +320,15 @@ public class ScoreController : MonoBehaviour
         }
     }
 
+    void DisplayStats()
+    {
+        bulletsFiredText.gameObject.SetActive(true);
+        accuracyText.gameObject.SetActive(true);
+
+        bulletsFiredText.text = "Shots: " + bulletsFired;
+        accuracyText.text = string.Format("Accuracy: {0}%", accuracy * 100);
+    }
+
     //------------TIMER------------
 
     public void UpdateTimer(float time)
@@ -361,7 +336,7 @@ public class ScoreController : MonoBehaviour
         timerText.text = "TIME LEFT: " + Mathf.Round(time).ToString("00");
         if (time <= 0)
         {
-
+            DisplayStats();
             timerText.text = "GAME OVER! GOOD JOB!";
         }
     }

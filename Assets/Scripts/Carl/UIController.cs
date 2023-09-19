@@ -60,6 +60,7 @@ public class UIController : MonoBehaviour
         //Add function to move Canvas (?)
         startPanel.SetActive(false);
         restartPanel.SetActive(true);
+        backPanel.SetActive(false);
         gameController.StartCountdown();
     }
 

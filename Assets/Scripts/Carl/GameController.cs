@@ -8,7 +8,7 @@ using UnityEngine;
 
 public enum GameState { inMenu, Countdown, inGame }
 
-public class GameController : MonoBehaviour 
+public class GameController : MonoBehaviour
 {
     [Header("State")]
     public GameState currentGameState;
@@ -40,7 +40,10 @@ public class GameController : MonoBehaviour
 
         uiController.gameController = this;
         scoreController.gameController = this;
+    }
 
+    private void Start()
+    {
         EndGame();
         ReturnToMenu();
     }
@@ -88,7 +91,6 @@ public class GameController : MonoBehaviour
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu
     {
-        currentGameState = GameState.inMenu;
         shoot.currentGameState = currentGameState;
         audSource.Play();
         targetPlacer.RemoveTargets();
@@ -96,6 +98,8 @@ public class GameController : MonoBehaviour
         //Code to end the round and save score
         if (!scoreController.CheckLeaderboard(chosenDifficulty)) //if we're not on the leaderboard, automatically return to menu, otherwise we return throught SubmitScore
             uiController.ReturnToMenu();
+
+        currentGameState = GameState.inMenu; //this needs to happen last
     }
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame

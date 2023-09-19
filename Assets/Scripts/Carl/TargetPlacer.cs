@@ -19,7 +19,7 @@ public class TargetPlacer : MonoBehaviour
     [Tooltip("The random range of how long targets should stay down in each difficulty. Easy is 0 and 1 etc.")]
     [SerializeField] List<float> downTimes = new List<float>();
 
-    private void Start()
+    private void Awake()
     {
         targetTrailRenderer = FindObjectOfType<TargetTrailsRenderer>();
     }
