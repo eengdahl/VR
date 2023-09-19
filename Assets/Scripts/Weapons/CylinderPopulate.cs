@@ -28,6 +28,7 @@ public class CylinderPopulate : MonoBehaviour
     private Rigidbody cylinderRB;
     public GameObject gun;
     public GameObject bulletPrefab;
+    public GameObject cylinderMesh;
     public List<GameObject> bullets = new List<GameObject>();
     private bool[] bulletSpent;
 
@@ -60,7 +61,7 @@ public class CylinderPopulate : MonoBehaviour
         if (this.isAnimating)
 
         {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, this.rotationTarget, rotationSpeed);
+            cylinderMesh.transform.localRotation = Quaternion.Lerp(cylinderMesh.transform.localRotation, this.rotationTarget, rotationSpeed);
             float curAngle = Quaternion.Angle(this.transform.localRotation, this.rotationTarget);
             if (curAngle < 1)
             {
@@ -85,9 +86,12 @@ public class CylinderPopulate : MonoBehaviour
         {
             cylinderRB.isKinematic = true;
             //This might not work. if not testing  in Inputdata!=null, 
-            aS.clip = cylinderSpin;
-            aS.Play();
-            cylinderSpinOpened = false;
+            if (cylinderSpinOpened)
+            {
+                aS.clip = cylinderSpin;
+                aS.Play();
+                cylinderSpinOpened = false;
+            }
         }
 
         if (lefthandCylinderRelease != 0)
