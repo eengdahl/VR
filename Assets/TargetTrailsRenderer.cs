@@ -27,6 +27,8 @@ public class TargetTrailsRenderer : MonoBehaviour
 
     public void PopulateList(List<GameObject> newList)
     {
+        //Populates list with the currently active targets
+        //Called from TargetPlacer
         activeTargets = newList;
         activeTargets.AddRange(newList);
         ShowLines();
@@ -34,6 +36,7 @@ public class TargetTrailsRenderer : MonoBehaviour
 
     public void DePopulateList()
     {
+        //Depopulates list and removes the lines when targets are removed
         activeLines.Clear();
         foreach (GameObject line in activeLines)
         {

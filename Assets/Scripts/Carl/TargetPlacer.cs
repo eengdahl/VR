@@ -49,7 +49,6 @@ public class TargetPlacer : MonoBehaviour
 
         foreach (var target in activeTargets)
         {
-            target.GetComponent<ShootableTarget>().firstTimeDeactivate = true;
             target.gameObject.SetActive(true);
 
             if (difficulty == Difficulty.Easy)

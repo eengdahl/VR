@@ -42,12 +42,6 @@ public class GameController : MonoBehaviour
         scoreController.gameController = this;
     }
 
-    private void Start()
-    {
-        EndGame();
-        ReturnToMenu();
-    }
-
     private void Update()
     {
         if (currentGameState == GameState.inGame && timeTrialEnabled)
@@ -104,6 +98,7 @@ public class GameController : MonoBehaviour
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame
     {
+        shoot.currentGameState = currentGameState;
         currentGameState = GameState.inMenu;
         targetPlacer.RemoveTargets();
     }

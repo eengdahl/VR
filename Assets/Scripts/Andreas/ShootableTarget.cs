@@ -17,8 +17,6 @@ public class ShootableTarget : MonoBehaviour
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
 
-    [HideInInspector] public bool firstTimeDeactivate;
-
     //components
     [HideInInspector] public Animator anim;
     AudioSource audSource;
@@ -34,12 +32,6 @@ public class ShootableTarget : MonoBehaviour
 
         score = GameObject.FindWithTag("Score").GetComponent<ScoreController>();
         if (score == null) Debug.LogError("Cannot find ScoreController, is there one in the scene tagged 'Score'?");
-
-        if (!firstTimeDeactivate)
-        {
-            firstTimeDeactivate = true;
-            gameObject.SetActive(false);
-        }
     }
 
     private void Awake()
