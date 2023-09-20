@@ -85,7 +85,6 @@ public class GameController : MonoBehaviour
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu
     {
-        shoot.currentGameState = currentGameState;
         audSource.Play();
         targetPlacer.RemoveTargets();
 
@@ -93,13 +92,15 @@ public class GameController : MonoBehaviour
         if (!scoreController.CheckLeaderboard(chosenDifficulty)) //if we're not on the leaderboard, automatically return to menu, otherwise we return throught SubmitScore
             uiController.ReturnToMenu();
 
-        currentGameState = GameState.inMenu; //this needs to happen last
+        currentGameState = GameState.inMenu; 
+        //this needs to happen last
+        shoot.currentGameState = currentGameState;
     }
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame
     {
-        shoot.currentGameState = currentGameState;
         currentGameState = GameState.inMenu;
+        shoot.currentGameState = currentGameState;
         targetPlacer.RemoveTargets();
     }
 
