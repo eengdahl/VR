@@ -106,7 +106,7 @@ public class CylinderPopulate : MonoBehaviour
 
         if (inputData != null)
         {
-            if (inputData.leftControllerVelocity.x > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
+            if (inputData.leftControllerVelocity.magnitude > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
             {
                 Debug.Log("triggerd");
                 cylinderRB.AddForce(new Vector3(0, 0, 500), ForceMode.Impulse);
