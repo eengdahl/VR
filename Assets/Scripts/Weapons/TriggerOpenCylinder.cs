@@ -5,10 +5,12 @@ using UnityEngine;
 public class TriggerOpenCylinder : MonoBehaviour
 {
     CylinderPopulate cylinderScript;
+    ScoreController scoreController;
     public Collider triggerCollider;
 
     private void Awake()
     {
+        scoreController = FindAnyObjectByType<ScoreController>();
         cylinderScript = gameObject.GetComponentInParent<CylinderPopulate>();
     }
     private void OnTriggerEnter(Collider other)
@@ -16,6 +18,7 @@ public class TriggerOpenCylinder : MonoBehaviour
         if (other == triggerCollider)
         {
             cylinderScript.CloseCylinder();
+            scoreController.EndCombo();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -23,6 +26,7 @@ public class TriggerOpenCylinder : MonoBehaviour
         if (other == triggerCollider)
         {
             cylinderScript.OpenCylinder();
+            scoreController.StartCombo();
         }
     }
 }
