@@ -322,7 +322,7 @@ public class ScoreController : MonoBehaviour
             bulletsOnTarget++;
         if (bulletsOnTarget != 0)
         {
-            accuracy = bulletsFired / bulletsOnTarget;
+            accuracy = bulletsOnTarget / bulletsFired;
         }
     }
 
