@@ -213,17 +213,11 @@ public class CylinderPopulate : MonoBehaviour
     }
 
     public void DisableGrabInput()
-    {
-        if (UsingHand.Instance.usingRighthand == true)
-        {
-            righthandGrabSelect.action.Disable();
-        }
+    {    
+        righthandGrabSelect.action.Disable();
     }
     public void EnableGrabInput()
     {
-        if (UsingHand.Instance.usingRighthand)
-        {
-            righthandGrabSelect.action.Enable();
-        }
+        righthandGrabSelect.action.Enable();  
     }
 }
