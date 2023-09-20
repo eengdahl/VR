@@ -31,6 +31,12 @@ public class ShootableMoving : ShootableTarget
     [Tooltip("Targets that exists in the scene on start need this")]
     [SerializeField] bool testTarget = false;
 
+    [Tooltip("Target color change stuff")] 
+    [SerializeField] private MeshRenderer targetsMesh;
+    [SerializeField] private Color normalColor; //The normal mesh color
+    [SerializeField] private Color hitColor; //The hit mesh color
+    private Material targetMaterial;
+    
     float returnBuffer;
     [HideInInspector] public bool shouldMove;
 
@@ -39,6 +45,7 @@ public class ShootableMoving : ShootableTarget
 
     private void Awake()
     {
+        targetMaterial = targetsMesh.material;
         anim = GetComponentInChildren<Animator>();
         anim.CrossFade("UpState", 0, 0);
 
@@ -167,5 +174,41 @@ public class ShootableMoving : ShootableTarget
     {
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
+    }
+
+    public void StartHitFeedback()
+    {
+        StartCoroutine(nameof(PlayHitFeedback));
+    }
+    
+    IEnumerator PlayHitFeedback()
+    {
+        //Changes the color of the target when it's been hit.
+        float lerpDuration = 0.05f;
+        float reverseLerpDuration = 0.5f;
+
+        float startTime = Time.time;
+
+        while (Time.time - startTime < lerpDuration)
+        {
+            float t = (Time.time - startTime) / lerpDuration;
+            targetMaterial.color = Color.Lerp(normalColor, hitColor, t);
+            yield return null;
+        }
+
+        targetMaterial.color = hitColor;
+
+        yield return new WaitForSeconds(0.1f);
+
+        startTime = Time.time;
+
+        while (Time.time - startTime < reverseLerpDuration)
+        {
+            float t = (Time.time - startTime) / reverseLerpDuration;
+            targetMaterial.color = Color.Lerp(hitColor, normalColor, t);
+            yield return null;
+        }
+        
+        targetMaterial.color = normalColor;
     }
 }

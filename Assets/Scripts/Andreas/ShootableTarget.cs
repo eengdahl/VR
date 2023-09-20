@@ -48,7 +48,7 @@ public class ShootableTarget : MonoBehaviour
     {
         audSource.Play();
         StartCoroutine(nameof(PlayHitAnim));
-
+        mover.StartHitFeedback();
         mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
     }
 
