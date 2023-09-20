@@ -45,7 +45,7 @@ public class UIController : MonoBehaviour
 
     public void ReturnToMenu() //Calls ReturnToMenu in GameController
     {
-        if (gameController.currentGameState != GameState.inGame) return;
+        if (gameController.currentGameState == GameState.Countdown) return;
 
         restartPanel.SetActive(false);
         backPanel.SetActive(false);
