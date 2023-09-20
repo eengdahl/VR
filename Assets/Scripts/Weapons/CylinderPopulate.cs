@@ -196,6 +196,7 @@ public class CylinderPopulate : MonoBehaviour
                 bullet.transform.parent = null;
                 bullet.GetComponent<Rigidbody>().isKinematic = false;
             }
+            shoot.currentAmmo = 0;
             bullets.Clear();
         }
 
