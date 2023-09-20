@@ -37,11 +37,10 @@ public class ScoreController : MonoBehaviour
     [Header("Current Score")]
     public int score;
     private int latestScoreReceived;
-    public int currentMultiplier;
-    [SerializeField] int maxMultiplier = 9;
-
-    [SerializeField] float multiplierTime;
-    float multiplierTimer;
+    int currentCombo;
+    [SerializeField] int maxCombo = 10;
+    bool comboBool;
+    float comboTimer;
 
     private int bulletsFired;
     private int bulletsOnTarget;
@@ -94,14 +93,9 @@ public class ScoreController : MonoBehaviour
 
     private void Update()
     {
-        if (multiplierTimer > 0)
+        if (comboBool && comboTimer > 1)
         {
-            multiplierTimer -= Time.deltaTime;
-            multiplierSlider.value = multiplierTimer / multiplierTime;
-        }
-        else if (multiplierTimer <= 0)
-        {
-            currentMultiplier = 0;
+            comboTimer -= Time.deltaTime * 0.7f;
             UpdateScoreText();
         }
     }
@@ -110,30 +104,41 @@ public class ScoreController : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         latestScoreReceived = scoreToAdd;
-        latestScoreReceived *= (currentMultiplier + 1);
+        latestScoreReceived *= (currentCombo + 1);
         score += latestScoreReceived;
 
-        if (currentMultiplier < maxMultiplier) currentMultiplier++;
-        multiplierTimer = multiplierTime;
+        //if (currentMultiplier < maxMultiplier) currentMultiplier++;
+        //multiplierTimer = multiplierTime;
         UpdateScoreText();
     }
 
     void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
-        multiplierText.text = "Combo: " + currentMultiplier;
-        bulletsFiredText.text = "Shots fired: " + bulletsFired;
-        accuracyText.text = "Accuracy: " + accuracy.ToString("P1");
+        multiplierText.text = "Combo: " + Mathf.Round(comboTimer);
     }
 
     public void ResetScore()
     {
         score = 0;
-        currentMultiplier = 0;
-        multiplierTimer = 0;
+        currentCombo = 0;
+        comboTimer = 0;
 
         bulletsFiredText.gameObject.SetActive(false);
         accuracyText.gameObject.SetActive(false);
+    }
+
+    //--------COMBO--------
+    public void StartCombo()
+    {
+        comboTimer = maxCombo;
+        comboBool = true;
+    }
+
+    public void EndCombo()
+    {
+        comboBool = false;
+        currentCombo = Mathf.RoundToInt(comboTimer);
     }
 
     //-----------HIGHSCORE---------------
@@ -325,8 +330,8 @@ public class ScoreController : MonoBehaviour
         bulletsFiredText.gameObject.SetActive(true);
         accuracyText.gameObject.SetActive(true);
 
-        bulletsFiredText.text = "Shots: " + bulletsFired;
-        accuracyText.text = string.Format("Accuracy: {0}%", accuracy * 100);
+        bulletsFiredText.text = "Shots fired: " + bulletsFired;
+        accuracyText.text = "Accuracy: " + accuracy.ToString("P1");
     }
 
     //------------TIMER------------
