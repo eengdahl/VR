@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public ScoreController scoreController;
     public TargetPlacer targetPlacer;
     public Shoot shoot;
+    AchievementHandler achievementHandler;
     private AudioSource audSource;
     [SerializeField] GameObject countdownSigns;
 
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour
         targetPlacer = FindObjectOfType<TargetPlacer>();
         shoot = FindObjectOfType<Shoot>(); //Dont know if this still is used
         shoot.gameController = this;
+        achievementHandler = FindObjectOfType<AchievementHandler>();
 
         uiController.gameController = this;
         scoreController.gameController = this;
@@ -61,6 +63,7 @@ public class GameController : MonoBehaviour
         chosenDifficulty = difficulty; //set difficulty
         gameTimer = gameTime;
         scoreController.ResetScore(); //reset the score
+        scoreController.ClearAchievementsDisplay();
         targetPlacer.PlaceTargets(chosenDifficulty);
         countdownSigns.GetComponent<Animator>().SetTrigger("readyCountdown");
     }
@@ -87,12 +90,13 @@ public class GameController : MonoBehaviour
     {
         audSource.Play();
         targetPlacer.RemoveTargets();
+        achievementHandler.SendAchievements();
 
         //Code to end the round and save score
         if (!scoreController.CheckLeaderboard(chosenDifficulty)) //if we're not on the leaderboard, automatically return to menu, otherwise we return throught SubmitScore
             uiController.ReturnToMenu();
 
-        currentGameState = GameState.inMenu; 
+        currentGameState = GameState.inMenu;
         //this needs to happen last
         shoot.currentGameState = currentGameState;
     }
