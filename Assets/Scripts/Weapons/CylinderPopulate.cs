@@ -103,8 +103,8 @@ public class CylinderPopulate : MonoBehaviour
         {
             if (inputData.leftControllerVelocity.magnitude > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
             {
-                Debug.Log("triggerd");
                 cylinderRB.AddForce(new Vector3(0, 0, 500), ForceMode.Impulse);
+                Debug.Log("triggerd");
                 if (cylinderSpinOpened)
                 {
                     aS.clip = cylinderSpin;
