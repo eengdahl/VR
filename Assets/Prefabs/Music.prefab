@@ -142,8 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundNoise:
-  - {fileID: 8300000, guid: 89a1343f1621165428d9ac42080593ed, type: 3}
   - {fileID: 8300000, guid: 81c04f702f8b40741b42636c21e0e08c, type: 3}
+  - {fileID: 8300000, guid: 89a1343f1621165428d9ac42080593ed, type: 3}
   backGroundMusic:
-  - {fileID: 8300000, guid: 4f6e63480c56d1847bedc4c47389fb28, type: 3}
+  - {fileID: 8300000, guid: 5bbf8abfbdfb2954daab533bddfdf3da, type: 3}
   - {fileID: 8300000, guid: 9e0410631f2b54445ac80695494aa816, type: 3}
+  - {fileID: 8300000, guid: 4f6e63480c56d1847bedc4c47389fb28, type: 3}
