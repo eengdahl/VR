@@ -101,7 +101,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -175,9 +175,9 @@ GameObject:
   - component: {fileID: 546073750132334447}
   - component: {fileID: 6053387499578444663}
   - component: {fileID: 1742037140459184670}
-  - component: {fileID: 5389642303834473509}
+  - component: {fileID: 2143372099805884083}
   m_Layer: 0
-  m_Name: TargetOriginMoving
+  m_Name: TargetOriginStationary
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799a8e5538b73e24f9f45bae7caf2fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downTime: 2
+  minDownTime: 2
+  maxDownTime: 5
   keepOnStart: 0
   anim: {fileID: 0}
 --- !u!114 &6053387499578444663
@@ -226,18 +227,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downTime: 2
+  minDownTime: 2
+  maxDownTime: 5
   keepOnStart: 0
   anim: {fileID: 0}
-  moveType: 0
+  moveType: 1
   waypointParent: {fileID: 0}
   randomWaypoint: 0
-  teleportToStart: 0
-  smoothMovement: 0
   waitTime: 2
   moveSpeed: 5
   currentwaypoint: 0
   testTarget: 0
+  targetsMesh: {fileID: 3068947311593241406}
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
   shouldMove: 0
 --- !u!136 &1742037140459184670
 CapsuleCollider:
@@ -262,7 +265,7 @@ CapsuleCollider:
   m_Height: 2.09
   m_Direction: 1
   m_Center: {x: 0, y: 0.89, z: 0}
---- !u!82 &5389642303834473509
+--- !u!82 &2143372099805884083
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,7 +482,7 @@ GameObject:
   - component: {fileID: 5567176156414484404}
   m_Layer: 0
   m_Name: Target
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,7 +569,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
