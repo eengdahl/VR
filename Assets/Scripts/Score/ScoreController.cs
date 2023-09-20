@@ -96,6 +96,7 @@ public class ScoreController : MonoBehaviour
         if (comboBool && comboTimer > 1)
         {
             comboTimer -= Time.deltaTime * 0.7f;
+            multiplierSlider.value = comboTimer / maxCombo;
             UpdateScoreText();
         }
     }
