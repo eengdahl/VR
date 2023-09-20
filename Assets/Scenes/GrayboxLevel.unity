@@ -780,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 1628766417}
     - target: {fileID: 1966319990515851788, guid: 89c70be671c5d74469c81b89de0ca67e, type: 3}
       propertyPath: gameTime
-      value: 90
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 1966319990515851788, guid: 89c70be671c5d74469c81b89de0ca67e, type: 3}
       propertyPath: targetPlacer
@@ -12249,7 +12249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.023
+      value: 2.26
       objectReference: {fileID: 0}
     - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12257,7 +12257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.015
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 4490677775107208, guid: 20ed230a64dbbd34d885fbcb076634fc, type: 3}
       propertyPath: m_LocalRotation.w
