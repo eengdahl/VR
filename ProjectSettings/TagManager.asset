@@ -15,6 +15,7 @@ TagManager:
   - AmmoPouch
   - Hand
   - Bullet
+  - SixpackAmmo
   layers:
   - Default
   - TransparentFX

@@ -210,6 +210,13 @@ public class CylinderPopulate : MonoBehaviour
             aS.clip = shellLoaded;
             aS.Play();
             Destroy(other.gameObject);
+        }        
+        if (other.CompareTag("SixpackAmmo"))
+        {
+            FillBarrel(6);
+            aS.clip = shellLoaded;
+            aS.Play();
+            Destroy(other.gameObject);
         }
     }
 

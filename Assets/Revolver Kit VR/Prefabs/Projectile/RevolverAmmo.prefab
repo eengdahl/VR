@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 54065642720688538}
   - component: {fileID: 136853751101435762}
   - component: {fileID: 8024156907079964215}
-  - component: {fileID: 3515022606429396000}
+  - component: {fileID: 4220629437410565685}
   m_Layer: 0
   m_Name: RevolverAmmo
   m_TagString: .44
@@ -183,8 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders:
-  - {fileID: 3515022606429396000}
+  m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -221,10 +220,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4220629437410565685}
+        m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
+        m_MethodName: EnableCollision
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4220629437410565685}
+        m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
+        m_MethodName: DestroyAfterTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -319,26 +342,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!136 &3515022606429396000
-CapsuleCollider:
+--- !u!114 &4220629437410565685
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813471793046504}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.037293762
-  m_Height: 0.12842289
-  m_Direction: 0
-  m_Center: {x: -0.0016643405, y: -0.00064790994, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collision: 0
