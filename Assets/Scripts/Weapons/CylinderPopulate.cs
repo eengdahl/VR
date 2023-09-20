@@ -86,12 +86,7 @@ public class CylinderPopulate : MonoBehaviour
         {
             cylinderRB.isKinematic = true;
             //This might not work. if not testing  in Inputdata!=null, 
-            if (cylinderSpinOpened)
-            {
-                aS.clip = cylinderSpin;
-                aS.Play();
-                cylinderSpinOpened = false;
-            }
+
         }
 
         if (lefthandCylinderRelease != 0)
@@ -110,7 +105,12 @@ public class CylinderPopulate : MonoBehaviour
             {
                 Debug.Log("triggerd");
                 cylinderRB.AddForce(new Vector3(0, 0, 500), ForceMode.Impulse);
-
+                if (cylinderSpinOpened)
+                {
+                    aS.clip = cylinderSpin;
+                    aS.Play();
+                    cylinderSpinOpened = false;
+                }
             }
         }
     }
