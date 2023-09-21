@@ -37,10 +37,13 @@ public class ScoreController : MonoBehaviour
     [Header("Current Score")]
     public int score;
     private int latestScoreReceived;
+
+    [Header("Combo")]
     int currentCombo;
     [SerializeField] int maxCombo = 10;
     bool comboBool;
     float comboTimer;
+    [SerializeField] [Range(0.01f, 1f)] float comboTimerModifier = 0.7f;
 
     private int bulletsFired;
     private int bulletsOnTarget;
@@ -101,7 +104,7 @@ public class ScoreController : MonoBehaviour
     {
         if (comboBool && comboTimer > 1)
         {
-            comboTimer -= Time.deltaTime * 0.7f;
+            comboTimer -= Time.deltaTime * comboTimerModifier;
             multiplierSlider.value = comboTimer / maxCombo;
             UpdateScoreText();
         }

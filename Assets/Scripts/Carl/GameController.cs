@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     public float gameTime = 90f;
     private float gameTimer;
 
+    private bool spawnedBoss;
+
     private void Awake()
     {
         audSource = GetComponent<AudioSource>();
@@ -50,6 +52,12 @@ public class GameController : MonoBehaviour
         {
             gameTimer -= 1 * Time.deltaTime;
             scoreController.UpdateTimer(gameTimer);
+
+            if (gameTimer <= 15 && !spawnedBoss)
+            {
+                targetPlacer.InitializeTargets(targetPlacer.SpawnBoss(chosenDifficulty));
+                spawnedBoss = true;
+            }
 
             if (gameTimer <= 0)
             {
@@ -91,6 +99,7 @@ public class GameController : MonoBehaviour
         audSource.Play();
         targetPlacer.RemoveTargets();
         achievementHandler.SendAchievements();
+        spawnedBoss = false;
 
         //Code to end the round and save score
         if (!scoreController.CheckLeaderboard(chosenDifficulty)) //if we're not on the leaderboard, automatically return to menu, otherwise we return throught SubmitScore
@@ -103,6 +112,7 @@ public class GameController : MonoBehaviour
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame
     {
+        spawnedBoss = false;
         currentGameState = GameState.inMenu;
         shoot.currentGameState = currentGameState;
         targetPlacer.RemoveTargets();

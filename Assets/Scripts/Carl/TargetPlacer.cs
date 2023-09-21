@@ -123,5 +123,10 @@ public class TargetPlacer : MonoBehaviour
             target.GetComponent<ShootableMoving>().shouldMove = false;
             target.gameObject.SetActive(false);
         }
+
+        foreach (var item in bossTargets)
+        {
+            item.SetActive(false);
+        }
     }
 }
