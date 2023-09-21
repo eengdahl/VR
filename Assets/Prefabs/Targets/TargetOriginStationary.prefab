@@ -214,7 +214,10 @@ MonoBehaviour:
   minDownTime: 2
   maxDownTime: 5
   keepOnStart: 0
+  monsterType: 0
   anim: {fileID: 0}
+  audSource: {fileID: 0}
+  mover: {fileID: 0}
 --- !u!114 &6053387499578444663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,13 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDownTime: 2
-  maxDownTime: 5
-  keepOnStart: 0
-  anim: {fileID: 0}
   moveType: 1
   waypointParent: {fileID: 0}
+  waypoints: []
   randomWaypoint: 0
+  pingPong: 0
   waitTime: 2
   moveSpeed: 5
   currentwaypoint: 0
@@ -321,7 +322,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

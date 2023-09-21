@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -17,6 +18,11 @@ public class ShootableTarget : MonoBehaviour
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
 
+    public enum MonsterType { skeleton, dracula, zombie, boss }
+
+    [SerializeField] public MonsterType monsterType;
+    monsterspawnSound spawnSound;
+
     //components
     [HideInInspector] public Animator anim;
     [HideInInspector] public AudioSource audSource;
@@ -26,6 +32,7 @@ public class ShootableTarget : MonoBehaviour
 
     private void Start()
     {
+        spawnSound = FindAnyObjectByType<monsterspawnSound>();
         audSource = GetComponent<AudioSource>();
         _collider = GetComponent<CapsuleCollider>();
         mover = GetComponent<ShootableMoving>();
@@ -65,7 +72,15 @@ public class ShootableTarget : MonoBehaviour
         downTime = Random.Range(minDownTime, maxDownTime);
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
+        PlayAwakeSound();
         _collider.enabled = true;
         mover.ManualChangeState(ShootableMoving.CurrentState.Moving);
     }
+
+    void PlayAwakeSound()
+    {
+        var temp = spawnSound.PlaySpawnSound(this.monsterType);
+        audSource.PlayOneShot(temp);
+    }
+
 }

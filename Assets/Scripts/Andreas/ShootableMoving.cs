@@ -48,9 +48,11 @@ public class ShootableMoving : MonoBehaviour
     CurrentState currentState = CurrentState.Waiting;
 
     ShootableTarget targetBase;
+    monsterspawnSound spawnSound;
 
     private void Awake()
     {
+        spawnSound = FindAnyObjectByType<monsterspawnSound>();
         targetBase = GetComponent<ShootableTarget>();
         targetMaterial = targetsMesh.material;
         targetBase.anim = GetComponentInChildren<Animator>();
@@ -158,7 +160,10 @@ public class ShootableMoving : MonoBehaviour
             if (currentwaypoint < waypoints.Count - 1)
                 newWayPoint = currentwaypoint += 1;
             else
+            {
                 newWayPoint = 0;
+                PlayAwakeSound();
+            }
 
             return newWayPoint;
         }
@@ -242,5 +247,12 @@ public class ShootableMoving : MonoBehaviour
         }
 
         targetMaterial.color = normalColor;
+    }
+
+
+    void PlayAwakeSound()
+    {
+        var temp = spawnSound.PlaySpawnSound(this.targetBase.monsterType);
+        targetBase.audSource.PlayOneShot(temp);
     }
 }
