@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
     {
         currentGameState = GameState.inGame;
         shoot.currentGameState = currentGameState;
-        targetPlacer.InitializeTargets();
+        targetPlacer.InitializeTargets(targetPlacer.activeTargets);
     }
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu

@@ -19,10 +19,10 @@ public class ShootableTarget : MonoBehaviour
 
     //components
     [HideInInspector] public Animator anim;
-    AudioSource audSource;
+    [HideInInspector] public AudioSource audSource;
     ScoreController score;
     Collider _collider;
-    ShootableMoving mover;
+    [HideInInspector] public ShootableMoving mover;
 
     private void Start()
     {
@@ -39,12 +39,14 @@ public class ShootableTarget : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         anim.CrossFade("TargetShotdown", 0, 0);
     }
-    private void OnEnable()
+
+    public void OnEnable()
     {
+        downTime = Random.Range(minDownTime, maxDownTime);
         anim.CrossFade("UpState", 0, 0);
     }
 
-    public void OnHit()
+    public virtual void OnHit()
     {
         audSource.Play();
         StartCoroutine(nameof(PlayHitAnim));
@@ -52,10 +54,11 @@ public class ShootableTarget : MonoBehaviour
         mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
     }
 
-    IEnumerator PlayHitAnim()
+    public IEnumerator PlayHitAnim()
     {
         anim.SetTrigger("hit");
         _collider.enabled = false;
+        //Debug.LogFormat("{0} has a downtime of:  {1}", gameObject.name, downTime);
 
         yield return new WaitForSeconds(downTime);
 

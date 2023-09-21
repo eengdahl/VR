@@ -388,9 +388,10 @@ MonoBehaviour:
   - {fileID: 4695626238087341373}
   - {fileID: 4759045866130947163}
   - {fileID: 2504937246494263367}
-  achParentObj: {fileID: 0}
+  achParentObj: {fileID: 7598548243700669286}
   achEntries: []
-  achEntryTemplate: {fileID: 0}
+  achEntryTemplate: {fileID: 1071369704814118599}
+  achProgressText: {fileID: 8644994743431830437}
 --- !u!1 &1067013401578950179
 GameObject:
   m_ObjectHideFlags: 0

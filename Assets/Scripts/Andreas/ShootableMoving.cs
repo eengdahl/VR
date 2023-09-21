@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootableMoving : ShootableTarget
+public class ShootableMoving : MonoBehaviour
 {
     public enum MoveType { Waypoints, FlipUp }
     [Tooltip("Should the target move from point to point or only flip up?")]
@@ -31,23 +31,26 @@ public class ShootableMoving : ShootableTarget
     [Tooltip("Targets that exists in the scene on start need this")]
     [SerializeField] bool testTarget = false;
 
-    [Tooltip("Target color change stuff")] 
+    [Tooltip("Target color change stuff")]
     [SerializeField] private MeshRenderer targetsMesh;
     [SerializeField] private Color normalColor; //The normal mesh color
     [SerializeField] private Color hitColor; //The hit mesh color
     private Material targetMaterial;
-    
+
     float returnBuffer;
     [HideInInspector] public bool shouldMove;
 
     public enum CurrentState { Moving, Waiting, Idle }
     CurrentState currentState = CurrentState.Waiting;
 
+    ShootableTarget targetBase;
+
     private void Awake()
     {
+        targetBase = GetComponent<ShootableTarget>();
         targetMaterial = targetsMesh.material;
-        anim = GetComponentInChildren<Animator>();
-        anim.CrossFade("UpState", 0, 0);
+        targetBase.anim = GetComponentInChildren<Animator>();
+        targetBase.anim.CrossFade("UpState", 0, 0);
 
         if (moveType == MoveType.Waypoints)
         {
@@ -62,7 +65,7 @@ public class ShootableMoving : ShootableTarget
 
     private void OnEnable()
     {
-        anim.CrossFade("TargetDownState", 0, 0);
+        targetBase.anim.CrossFade("TargetDownState", 0, 0);
     }
 
     // Update is called once per frame
@@ -167,20 +170,20 @@ public class ShootableMoving : ShootableTarget
 
     public void ManualSetDownTarget()
     {
-        anim.SetTrigger("hit");
+        targetBase.anim.SetTrigger("hit");
     }
 
     public void ManualSetUpTarget()
     {
-        anim.ResetTrigger("hit");
-        anim.SetTrigger("getUp");
+        targetBase.anim.ResetTrigger("hit");
+        targetBase.anim.SetTrigger("getUp");
     }
 
     public void StartHitFeedback()
     {
         StartCoroutine(nameof(PlayHitFeedback));
     }
-    
+
     IEnumerator PlayHitFeedback()
     {
         //Changes the color of the target when it's been hit.
@@ -208,7 +211,7 @@ public class ShootableMoving : ShootableTarget
             targetMaterial.color = Color.Lerp(hitColor, normalColor, t);
             yield return null;
         }
-        
+
         targetMaterial.color = normalColor;
     }
 }

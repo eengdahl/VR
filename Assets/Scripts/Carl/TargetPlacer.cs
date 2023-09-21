@@ -10,6 +10,8 @@ public class TargetPlacer : MonoBehaviour
     [SerializeField] List<GameObject> easyTargets = new();
     [SerializeField] List<GameObject> mediumTargets = new();
     [SerializeField] List<GameObject> hardTargets = new();
+    [Tooltip("0 = Easy boss, 1 = Medium boss, 2 = hard boss")]
+    [SerializeField] List<GameObject> bossTargets = new(); //find a way to spawn targets
 
     [HideInInspector] public List<GameObject> activeTargets = new();
 
@@ -68,6 +70,24 @@ public class TargetPlacer : MonoBehaviour
             }
         }
         targetTrailRenderer.PopulateList(activeTargets);
+
+        //this needs to happen somewhere else, for example when timer is 10
+        //InitializeTargets(SpawnBoss(difficulty)); //spawn our boss monster
+    }
+
+    public GameObject SpawnBoss(Difficulty difficulty) //spawn appropriate boss target
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                return bossTargets[0];
+            case Difficulty.Normal:
+                return bossTargets[1];
+            case Difficulty.Hard:
+                return bossTargets[2];
+            default:
+                return bossTargets[2];
+        }
     }
 
     public void RemoveTargets()
@@ -78,14 +98,22 @@ public class TargetPlacer : MonoBehaviour
         targetTrailRenderer.DePopulateList();
     }
 
-    public void InitializeTargets()
+    public void InitializeTargets(List<GameObject> targetsToInitalize)
     {
-        foreach (var target in activeTargets)
+        foreach (var target in targetsToInitalize)
         {
             target.GetComponent<ShootableMoving>().ManualSetUpTarget();
             target.GetComponent<ShootableMoving>().shouldMove = true;
             target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
         }
+    }
+
+    public void InitializeTargets(GameObject bossToSpawn) //spawn our boss monster
+    {
+        bossToSpawn.SetActive(true);
+        bossToSpawn.GetComponent<ShootableMoving>().ManualSetUpTarget();
+        bossToSpawn.GetComponent<ShootableMoving>().shouldMove = true;
+        bossToSpawn.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
     }
 
     public void DeactivateTargets()
