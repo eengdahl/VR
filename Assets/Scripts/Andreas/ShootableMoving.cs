@@ -16,6 +16,10 @@ public class ShootableMoving : MonoBehaviour
     [Tooltip("Should the target move in sequence or randomly?")]
     [SerializeField] bool randomWaypoint = false;
 
+    [Tooltip("Should waypoints be visited in loop or back and forth?")]
+    [SerializeField] bool pingPong = false;
+    private bool ascending;
+
     [Header("Variables")]
     [Tooltip("How long the target should wait at each waypoint")]
     [SerializeField] float waitTime = 1f;
@@ -114,22 +118,47 @@ public class ShootableMoving : MonoBehaviour
     {
         int newWayPoint = 0;
 
-        if (!randomWaypoint) //move in sequence
-        {
-            if (currentwaypoint < waypoints.Count - 1)
-                newWayPoint = currentwaypoint += 1;
-            else
-                newWayPoint = 0;
-
-            return newWayPoint;
-        }
-        else //otherwise, pick a random point
+        if (randomWaypoint) //move random
         {
             newWayPoint = Random.Range(0, waypoints.Count);
 
             //if it rolls 3 twice it's fine, it just waits an extra half-second or something
             if (newWayPoint == currentwaypoint && currentwaypoint < waypoints.Count - 1)
                 newWayPoint++;
+
+            return newWayPoint;
+
+        }
+
+        else if (pingPong) //cycle back and forth waypoints
+        {
+            if (currentwaypoint < waypoints.Count - 1 && ascending)
+                newWayPoint = currentwaypoint += 1;
+
+            else if (currentwaypoint == waypoints.Count - 1 && ascending)
+            {
+                newWayPoint = currentwaypoint -= 1;
+                ascending = false;
+            }
+
+            else if (currentwaypoint > 0 && !ascending)
+                newWayPoint = currentwaypoint -= 1;
+
+            else if (currentwaypoint == 0 && !ascending)
+            {
+                newWayPoint = currentwaypoint += 1;
+                ascending = true;
+            }
+
+            return newWayPoint;
+        }
+
+        else //move in sequence
+        {
+            if (currentwaypoint < waypoints.Count - 1)
+                newWayPoint = currentwaypoint += 1;
+            else
+                newWayPoint = 0;
 
             return newWayPoint;
         }
