@@ -252,7 +252,7 @@ public class ShootableMoving : MonoBehaviour
 
     void PlayAwakeSound()
     {
-        var temp = spawnSound.PlaySpawnSound(this.targetBase.monsterType);
+        var temp = spawnSound.PlaySpawnSound(this.targetBase.monsterType, targetBase.audSource);
         targetBase.audSource.PlayOneShot(temp);
     }
 }
