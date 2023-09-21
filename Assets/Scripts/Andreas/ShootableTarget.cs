@@ -37,13 +37,13 @@ public class ShootableTarget : MonoBehaviour
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        anim.CrossFade("TargetShotdown", 0, 0);
+        //anim.CrossFade("TargetShotdown", 0, 0);
     }
 
     public void OnEnable()
     {
         downTime = Random.Range(minDownTime, maxDownTime);
-        anim.CrossFade("UpState", 0, 0);
+        //anim.CrossFade("UpState", 0, 0);
     }
 
     public virtual void OnHit()

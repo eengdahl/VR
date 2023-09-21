@@ -24,4 +24,9 @@ public class ShootableBoss : ShootableTarget
         else
             base.OnHit();
     }
+
+    private void Update()
+    {
+        transform.LookAt(Vector3.zero);
+    }
 }

@@ -11,7 +11,7 @@ public class ShootableMoving : MonoBehaviour
     [Header("Waypoints")]
     [Tooltip("An empty gameobject with the transforms of the waypoints as children")]
     [SerializeField] Transform waypointParent;
-    List<Transform> waypoints = new(); //added automatically
+    [HideInInspector] public List<Transform> waypoints = new(); //added automatically
 
     [Tooltip("Should the target move in sequence or randomly?")]
     [SerializeField] bool randomWaypoint = false;

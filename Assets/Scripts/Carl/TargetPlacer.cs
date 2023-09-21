@@ -121,6 +121,10 @@ public class TargetPlacer : MonoBehaviour
         foreach (var target in activeTargets)
         {
             target.GetComponent<ShootableMoving>().shouldMove = false;
+
+            if (target.GetComponent<ShootableMoving>().moveType == ShootableMoving.MoveType.Waypoints)
+                target.transform.position = target.GetComponent<ShootableMoving>().waypoints[0].position;
+
             target.gameObject.SetActive(false);
         }
 
