@@ -79,7 +79,7 @@ public class ShootableTarget : MonoBehaviour
 
     void PlayAwakeSound()
     {
-        var temp = spawnSound.PlaySpawnSound(this.monsterType, audSource);
+        var temp = spawnSound.PlaySpawnSound(this.monsterType, this.audSource);
         audSource.PlayOneShot(temp);
     }
 
