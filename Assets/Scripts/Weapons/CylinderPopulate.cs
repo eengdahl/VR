@@ -16,6 +16,7 @@ public class CylinderPopulate : MonoBehaviour
     public Collider[] gunColliders;
     public float bulletPlacementRadius = 0.0102f;
     public float bulletForwardAxisOffset = 0.0092f;
+    public Transform bulletTransform;
 
     private int currentRevolvIndex = 0;
     private Quaternion rotationTarget;
@@ -77,28 +78,28 @@ public class CylinderPopulate : MonoBehaviour
         float lefthandCylinderRelease = this.lefthandReleaseCylinder.action.ReadValue<float>();
 
         //button held, release it
-        if (righthandCylinderRelease != 0)
-        {
-            cylinderRB.isKinematic = false;
+        //if (righthandCylinderRelease != 0)
+        //{
+        //    cylinderRB.isKinematic = false;
 
-        }
-        //cylinder returns to default spot and no input, lock it
-        if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
-        {
-            cylinderRB.isKinematic = true;
-            //This might not work. if not testing  in Inputdata!=null, 
+        //}
+        ////cylinder returns to default spot and no input, lock it
+        //if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
+        //{
+        //    cylinderRB.isKinematic = true;
+        //    //This might not work. if not testing  in Inputdata!=null, 
 
-        }
+        //}
 
-        if (lefthandCylinderRelease != 0)
-        {
-            cylinderRB.isKinematic = false;
+        //if (lefthandCylinderRelease != 0)
+        //{
+        //    cylinderRB.isKinematic = false;
 
-        }
-        if (transform.localRotation.y > 0.5 && lefthandCylinderRelease == 0)
-        {
-            cylinderRB.isKinematic = true;
-        }
+        //}
+        //if (transform.localRotation.y > 0.5 && lefthandCylinderRelease == 0)
+        //{
+        //    cylinderRB.isKinematic = true;
+        //}
 
         if (inputData != null)
         {
@@ -132,8 +133,8 @@ public class CylinderPopulate : MonoBehaviour
             }
             if (space < 6)
             {
-                GameObject bullet = Instantiate(bulletPrefab, this.transform);
-                bullet.transform.parent = cylinderMesh.transform;
+                GameObject bullet = Instantiate(bulletPrefab, bulletTransform);
+                bullet.transform.parent = bulletTransform;
                 float degrees = AngleForIndex(space);
                 float x = bulletPlacementRadius * Mathf.Cos(degrees * Mathf.Deg2Rad);  // we're rotated so x == z
                 float y = bulletPlacementRadius * Mathf.Sin(degrees * Mathf.Deg2Rad);
