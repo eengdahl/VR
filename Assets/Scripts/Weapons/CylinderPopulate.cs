@@ -78,28 +78,28 @@ public class CylinderPopulate : MonoBehaviour
         float lefthandCylinderRelease = this.lefthandReleaseCylinder.action.ReadValue<float>();
 
         //button held, release it
-        //if (righthandCylinderRelease != 0)
-        //{
-        //    cylinderRB.isKinematic = false;
+        if (righthandCylinderRelease != 0)
+        {
+            cylinderRB.isKinematic = false;
 
-        //}
-        ////cylinder returns to default spot and no input, lock it
-        //if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
-        //{
-        //    cylinderRB.isKinematic = true;
-        //    //This might not work. if not testing  in Inputdata!=null, 
+        }
+        //cylinder returns to default spot and no input, lock it
+        if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
+        {
+            cylinderRB.isKinematic = true;
+            //This might not work. if not testing  in Inputdata!=null, 
 
-        //}
+        }
 
-        //if (lefthandCylinderRelease != 0)
-        //{
-        //    cylinderRB.isKinematic = false;
+        if (lefthandCylinderRelease != 0)
+        {
+            cylinderRB.isKinematic = false;
 
-        //}
-        //if (transform.localRotation.y > 0.5 && lefthandCylinderRelease == 0)
-        //{
-        //    cylinderRB.isKinematic = true;
-        //}
+        }
+        if (transform.localRotation.y > 0.5 && lefthandCylinderRelease == 0)
+        {
+            cylinderRB.isKinematic = true;
+        }
 
         if (inputData != null)
         {
