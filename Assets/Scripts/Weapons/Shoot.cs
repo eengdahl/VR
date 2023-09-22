@@ -108,7 +108,7 @@ public class Shoot : MonoBehaviour
             if (revolverIsCocked && !isCock)
             {
                 isCock = true;
-                revolverAnims.CrossFade("HammerCock", 0);
+                revolverAnims.CrossFade("RoflCock", 0);
 
             }
 
@@ -131,7 +131,7 @@ public class Shoot : MonoBehaviour
                 {
                     Fire();
                     isCock = false;
-                    revolverAnims.CrossFade("HammerUncock", 0);
+                    revolverAnims.CrossFade("RolfUncock", 0);
                 }
                 if (currentGameState == GameState.inMenu)
                 {
