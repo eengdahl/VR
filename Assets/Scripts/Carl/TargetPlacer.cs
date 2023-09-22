@@ -53,20 +53,24 @@ public class TargetPlacer : MonoBehaviour
         {
             target.gameObject.SetActive(true);
 
-            if (difficulty == Difficulty.Easy)
+            if (target.GetComponent<ShootableTarget>() != null)
             {
-                target.GetComponent<ShootableTarget>().minDownTime = downTimes[0];
-                target.GetComponent<ShootableTarget>().maxDownTime = downTimes[1];
-            }
-            else if (difficulty == Difficulty.Normal)
-            {
-                target.GetComponent<ShootableTarget>().minDownTime = downTimes[2];
-                target.GetComponent<ShootableTarget>().maxDownTime = downTimes[3];
-            }
-            if (difficulty == Difficulty.Hard)
-            {
-                target.GetComponent<ShootableTarget>().minDownTime = downTimes[4];
-                target.GetComponent<ShootableTarget>().maxDownTime = downTimes[5];
+
+                if (difficulty == Difficulty.Easy)
+                {
+                    target.GetComponent<ShootableTarget>().minDownTime = downTimes[0];
+                    target.GetComponent<ShootableTarget>().maxDownTime = downTimes[1];
+                }
+                else if (difficulty == Difficulty.Normal)
+                {
+                    target.GetComponent<ShootableTarget>().minDownTime = downTimes[2];
+                    target.GetComponent<ShootableTarget>().maxDownTime = downTimes[3];
+                }
+                else if (difficulty == Difficulty.Hard)
+                {
+                    target.GetComponent<ShootableTarget>().minDownTime = downTimes[4];
+                    target.GetComponent<ShootableTarget>().maxDownTime = downTimes[5];
+                }
             }
         }
         targetTrailRenderer.PopulateList(activeTargets);
@@ -102,9 +106,12 @@ public class TargetPlacer : MonoBehaviour
     {
         foreach (var target in targetsToInitalize)
         {
-            target.GetComponent<ShootableMoving>().ManualSetUpTarget();
-            target.GetComponent<ShootableMoving>().shouldMove = true;
-            target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
+            if (target.GetComponent<ShootableMoving>() != null)
+            {
+                target.GetComponent<ShootableMoving>().ManualSetUpTarget();
+                target.GetComponent<ShootableMoving>().shouldMove = true;
+                target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
+            }
         }
     }
 
