@@ -2525,11 +2525,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1901648976 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 162942058858384877, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-  m_PrefabInstance: {fileID: 5715843487002043661}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3095500142960571906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3151,10 +3146,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7266863929781853970, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
-      propertyPath: triggerCollider
-      value: 
-      objectReference: {fileID: 1901648976}
     - target: {fileID: 8531514132493836504, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
       propertyPath: revolverAnims
       value: 
