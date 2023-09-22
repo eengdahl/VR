@@ -108,7 +108,7 @@ public class Shoot : MonoBehaviour
             if (revolverIsCocked && !isCock)
             {
                 isCock = true;
-                revolverAnims.CrossFade("RoflCock", 0);
+                revolverAnims.CrossFade("RolfCock", 0);
 
             }
 
