@@ -22,6 +22,7 @@ public class CylinderPopulate : MonoBehaviour
     private bool isAnimating = false;
     public bool cylinderOpen = false;
     public float rotationSpeed = 0.1f;
+    public Vector3 cylinderFlickForce;
     public InputActionProperty righthandReleaseCylinder;
     public InputActionProperty lefthandReleaseCylinder;
 
@@ -101,9 +102,9 @@ public class CylinderPopulate : MonoBehaviour
 
         if (inputData != null)
         {
-            if (inputData.leftControllerVelocity.magnitude > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
+            if (inputData.leftControllerVelocity.magnitude > 3 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
             {
-                cylinderRB.AddForce(new Vector3(0, 0, 500), ForceMode.Impulse);
+                cylinderRB.AddForce(cylinderFlickForce, ForceMode.Impulse);
                 Debug.Log("triggerd");
                 if (cylinderSpinOpened)
                 {
@@ -114,7 +115,7 @@ public class CylinderPopulate : MonoBehaviour
             }
         }
     }
-    void FillBarrel(int amount)
+    public void FillBarrel(int amount)
     {
 
         for (int i = 0; i < amount; i++)

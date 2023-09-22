@@ -92,6 +92,7 @@ public class GameController : MonoBehaviour
         currentGameState = GameState.inGame;
         shoot.currentGameState = currentGameState;
         targetPlacer.InitializeTargets(targetPlacer.activeTargets);
+        FindObjectOfType<CylinderPopulate>().FillBarrel(6);
     }
 
     public void EndGame() //only called when time is up, otherwise call ReturnToMenu

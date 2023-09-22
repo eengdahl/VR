@@ -1932,6 +1932,7 @@ MonoBehaviour:
   bulletForwardAxisOffset: 0.0092
   cylinderOpen: 0
   rotationSpeed: 0.1
+  cylinderFlickForce: {x: 0, y: 150, z: 150}
   righthandReleaseCylinder:
     m_UseReference: 1
     m_Action:
