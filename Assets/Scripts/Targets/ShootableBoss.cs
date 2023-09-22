@@ -18,7 +18,7 @@ public class ShootableBoss : ShootableTarget
         if (currentHealth > 0)
         {
             currentHealth--;
-            mover.StartHitFeedback();
+            StartHitFeedback();
             audSource.Play();
         }
         else
