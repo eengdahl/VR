@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef254f3dcab61614c926434a2afdf6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerCollider: {fileID: 0}
+  triggerCollider: {fileID: 8425220234205908283}
 --- !u!1 &5048178958959412642
 GameObject:
   m_ObjectHideFlags: 0
