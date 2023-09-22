@@ -1681,17 +1681,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 938812143848918064, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 480507025}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
---- !u!4 &186882756 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 938812143848918064, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
-  m_PrefabInstance: {fileID: 186882755}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &187528163 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
@@ -5437,54 +5429,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 246e55031d1207e44a20501691e811f6, type: 3}
   m_PrefabInstance: {fileID: 474787119}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &480507024
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 480507025}
-  - component: {fileID: 480507026}
-  m_Layer: 0
-  m_Name: MonsterSpawnSoundMaker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &480507025
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480507024}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 186882756}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &480507026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480507024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1197af2e4056c1941804843c7c69c8b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonClip: {fileID: 8300000, guid: 41c25bf60e07a5548ab3031c4dbb4b54, type: 3}
-  draculaClip: {fileID: 8300000, guid: df0a3ac3e64095d43a7ba9f34210c7f2, type: 3}
-  zombieClip: {fileID: 8300000, guid: af7997b3b0f8e4b46b1a6d666acfd8d1, type: 3}
-  bossClip: {fileID: 8300000, guid: 4c5472d79eab3bf4e8f35ce243dad835, type: 3}
 --- !u!1001 &482249452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17911,6 +17855,9 @@ MonoBehaviour:
   maxDownTime: 20
   keepOnStart: 0
   monsterType: 0
+  targetsMesh: {fileID: 0}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  hitColor: {r: 0, g: 0, b: 0, a: 0}
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
@@ -18128,6 +18075,9 @@ MonoBehaviour:
   maxDownTime: 20
   keepOnStart: 0
   monsterType: 0
+  targetsMesh: {fileID: 0}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  hitColor: {r: 0, g: 0, b: 0, a: 0}
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}

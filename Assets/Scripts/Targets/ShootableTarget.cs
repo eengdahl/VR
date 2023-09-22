@@ -23,6 +23,13 @@ public class ShootableTarget : MonoBehaviour
     [SerializeField] public MonsterType monsterType;
     monsterspawnSound spawnSound;
 
+
+    [Tooltip("Target color change stuff")]
+    [SerializeField] private MeshRenderer targetsMesh;
+    [SerializeField] private Color normalColor; //The normal mesh color
+    [SerializeField] private Color hitColor; //The hit mesh color
+    private Material targetMaterial;
+
     //components
     [HideInInspector] public Animator anim;
     [HideInInspector] public AudioSource audSource;
@@ -30,20 +37,19 @@ public class ShootableTarget : MonoBehaviour
     Collider _collider;
     [HideInInspector] public ShootableMoving mover;
 
-    private void Start()
+    public virtual void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
         spawnSound = FindAnyObjectByType<monsterspawnSound>();
         audSource = GetComponent<AudioSource>();
         _collider = GetComponent<CapsuleCollider>();
         mover = GetComponent<ShootableMoving>();
+        targetMaterial = targetsMesh.material;
+
 
         score = GameObject.FindWithTag("Score").GetComponent<ScoreController>();
         if (score == null) Debug.LogError("Cannot find ScoreController, is there one in the scene tagged 'Score'?");
-    }
 
-    private void Awake()
-    {
-        anim = GetComponentInChildren<Animator>();
         //anim.CrossFade("TargetShotdown", 0, 0);
     }
 
@@ -57,7 +63,7 @@ public class ShootableTarget : MonoBehaviour
     {
         audSource.Play();
         StartCoroutine(nameof(PlayHitAnim));
-        mover.StartHitFeedback();
+        StartHitFeedback();
         mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
     }
 
@@ -81,6 +87,43 @@ public class ShootableTarget : MonoBehaviour
     {
         var temp = spawnSound.PlaySpawnSound(this.monsterType, this.audSource);
         audSource.PlayOneShot(temp);
+    }
+
+
+    public void StartHitFeedback()
+    {
+        StartCoroutine(nameof(PlayHitFeedback));
+    }
+
+    IEnumerator PlayHitFeedback()
+    {
+        //Changes the color of the target when it's been hit.
+        float lerpDuration = 0.05f;
+        float reverseLerpDuration = 0.5f;
+
+        float startTime = Time.time;
+
+        while (Time.time - startTime < lerpDuration)
+        {
+            float t = (Time.time - startTime) / lerpDuration;
+            targetMaterial.color = Color.Lerp(normalColor, hitColor, t);
+            yield return null;
+        }
+
+        targetMaterial.color = hitColor;
+
+        yield return new WaitForSeconds(0.1f);
+
+        startTime = Time.time;
+
+        while (Time.time - startTime < reverseLerpDuration)
+        {
+            float t = (Time.time - startTime) / reverseLerpDuration;
+            targetMaterial.color = Color.Lerp(hitColor, normalColor, t);
+            yield return null;
+        }
+
+        targetMaterial.color = normalColor;
     }
 
 }
