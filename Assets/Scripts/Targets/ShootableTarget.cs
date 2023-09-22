@@ -23,7 +23,7 @@ public class ShootableTarget : MonoBehaviour
     [SerializeField] public MonsterType monsterType;
     monsterspawnSound spawnSound;
 
-
+    [Header("Hit Effect")]
     [Tooltip("Target color change stuff")]
     [SerializeField] private MeshRenderer targetsMesh;
     [SerializeField] private Color normalColor; //The normal mesh color
