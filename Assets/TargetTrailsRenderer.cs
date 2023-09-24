@@ -5,9 +5,11 @@ public class TargetTrailsRenderer : MonoBehaviour
 {
     [SerializeField] private GameObject standardTrailRendererPrefab;
     [SerializeField] private GameObject vampireTrail;
+    [SerializeField] private float amplitude = 1.0f;
+    [SerializeField] private int waveCount = 5;
     private List<GameObject> activeTargets = new();
     private LineRenderer lineRenderer;
-    private List<GameObject> activeLines = new ();
+    private List<GameObject> activeLines = new();
     
     private void ShowLines()
     {
@@ -18,6 +20,7 @@ public class TargetTrailsRenderer : MonoBehaviour
             //Renders each line when the targets are placed
             ShootableTarget.MonsterType type = target.GetComponentInParent<ShootableTarget>().monsterType;
 
+            //Decides look of the trail (just color for now)
             switch (type)
             {
                 case ShootableTarget.MonsterType.dracula:
@@ -36,32 +39,41 @@ public class TargetTrailsRenderer : MonoBehaviour
                     trail = standardTrailRendererPrefab;
                     break;
             }
-
+            
+            //Uncomment the below line to make trails "fly" to target instead of snaking along the ground
+            // Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
+            
+            
             Vector3 targetPosition = new Vector3(target.transform.position.x, 0.4f, target.transform.position.z);
             GameObject newLine = Instantiate(trail, transform.position, Quaternion.identity);
             LineRenderer lineRenderer = newLine.GetComponent<LineRenderer>();
             int maxIndex = lineRenderer.positionCount;
-            int index = 0;
-            Vector3 nextPos = new Vector3(targetPosition.x * 0.2f, targetPosition.y * 0.2f, targetPosition.z * 0.2f);
-            lineRenderer.SetPosition(0, nextPos);
-            
-            while (index <= maxIndex)
+
+            Vector3[] points = new Vector3[maxIndex];
+
+            for (int i = 0; i < maxIndex; i++)
             {
-                nextPos = new Vector3(nextPos.x * 1.5f, nextPos.y * 1.5f, nextPos.z * .9f + Random.Range(-.5f, .5f));
-                lineRenderer.SetPosition(index, nextPos);
-                index++;
+                float t = i / (float)(maxIndex - 1);
+                Vector3 linePoint = Vector3.Lerp(transform.position*.2f, targetPosition*.8f, t);
+                
+                float offset = 0f;
+
+                for (int waveIndex = 0; waveIndex < waveCount; waveIndex++)
+                {
+                    float waveOffset = Mathf.Sin(t * Mathf.PI * waveCount * waveIndex * Mathf.PI) * amplitude;
+
+                    offset += waveOffset;
+                }
+
+                if (i % 2 != 0)
+                    linePoint += transform.right * offset;
+                else
+                    linePoint += -transform.right * offset;
+                //Comment out the below line to make lines "fly"
+                linePoint.y = 0.4f;
+                points[i] = linePoint;
             }
-            
-            // lineRenderer.SetPosition(0, new Vector3(targetPosition.x * 0.2f, targetPosition.y * .2f, targetPosition.z * .2f));
-            // lineRenderer.SetPosition(1, new Vector3(targetPosition.x * 0.25f, targetPosition.y * .25f, targetPosition.z * .25f + Random.Range(-.8f, 0.8f)));
-            // lineRenderer.SetPosition(2, new Vector3(targetPosition.x * 0.4f, targetPosition.y * .4f, targetPosition.z * .4f + Random.Range(-0.8f, 0.8f)));
-            // lineRenderer.SetPosition(3, new Vector3(targetPosition.x * 0.6f, targetPosition.y * .6f, targetPosition.z * .6f + Random.Range(-0.8f, 0.8f)));
-            // lineRenderer.SetPosition(4, new Vector3(targetPosition.x * 0.75f, targetPosition.y * .75f, targetPosition.z * .75f));
-            
-            //lineRenderer.SetPosition(1, targetPosition * 0.25f);
-            // lineRenderer.SetPosition(2, targetPosition * 0.4f);
-            // lineRenderer.SetPosition(3, targetPosition * 0.6f);  
-            // lineRenderer.SetPosition(4, targetPosition * 0.75f);
+            lineRenderer.SetPositions(points);
             activeLines.Add(newLine);
             
         }
@@ -72,18 +84,17 @@ public class TargetTrailsRenderer : MonoBehaviour
         //Populates list with the currently active targets
         //Called from TargetPlacer
         activeTargets = newList;
-        activeTargets.AddRange(newList);
         ShowLines();
     }
 
     public void DePopulateList()
     {
         //Depopulates list and removes the lines when targets are removed
-        activeLines.Clear();
         foreach (GameObject line in activeLines)
         {
             Destroy(line);
         }
         activeTargets.Clear();
+        activeLines.Clear();
     }
 }

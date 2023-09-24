@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTrailRendererPrefab: {fileID: 5017750975935430848, guid: 141e2e45581b06349b89ade864f73105, type: 3}
   vampireTrail: {fileID: 5017750975935430848, guid: 7cc3d4f4ca10d154fa7381e4ec7eb858, type: 3}
+  amplitude: 0.02
+  waveCount: 50

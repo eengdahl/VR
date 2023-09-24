@@ -139,5 +139,6 @@ public class TargetPlacer : MonoBehaviour
         {
             item.SetActive(false);
         }
+        targetTrailRenderer.DePopulateList();
     }
 }
