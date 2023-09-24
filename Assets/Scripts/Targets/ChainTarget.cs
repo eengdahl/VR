@@ -6,10 +6,15 @@ public class ChainTarget : MonoBehaviour
 {
     [SerializeField] bool test;
 
+    [Tooltip("The children targets, should be added automatically")]
     [SerializeField] List<ChainTargetChild> targets; //the chainTargets targets
+    [Tooltip("Whether the first one has been hit")]
     public bool chainReaction = false;
+    [Tooltip("How long after the first one has been hit the rest go down")]
     [SerializeField] float chainTime;
     float chainTimer;
+
+    [SerializeField] float[] downTime;
 
     private void OnEnable()
     {
@@ -19,6 +24,8 @@ public class ChainTarget : MonoBehaviour
 
         chainTimer = chainTime;
         chainReaction = false;
+
+        StartCoroutine(nameof(WaitForReset));
     }
 
     public void InitializeChildren()
@@ -43,6 +50,7 @@ public class ChainTarget : MonoBehaviour
 
         chainTimer = chainTime;
         chainReaction = false;
+        StartCoroutine(nameof(WaitForReset));
     }
 
     private void Update()
@@ -61,5 +69,12 @@ public class ChainTarget : MonoBehaviour
                 StopChainReaction();
             }
         }
+    }
+
+    IEnumerator WaitForReset()
+    {
+        yield return new WaitForSeconds(Random.Range(downTime[0], downTime[1]));
+
+        InitializeChildren();
     }
 }

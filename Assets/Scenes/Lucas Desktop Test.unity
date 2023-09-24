@@ -654,17 +654,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2936914249452988882, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
   m_PrefabInstance: {fileID: 5715843487002043661}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &281677303 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8451837797441125636, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-  m_PrefabInstance: {fileID: 5715843487002043661}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd0949adae4b1f45b7e75a20dce5585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &288338453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,17 +1837,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb73467a2bc4e8a41a681965e4ed7ed4, type: 3}
---- !u!114 &1155926462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6348070893201334953, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
-  m_PrefabInstance: {fileID: 5715843487002043661}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e08f16ab2d61ef49a5b9514b2eb7d24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1249617917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,22 +3068,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 253938930237804130, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1155926462}
-    - target: {fileID: 253938930237804130, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
-      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 281677303}
-    - target: {fileID: 253938930237804130, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1155926462}
-    - target: {fileID: 253938930237804130, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 281677303}
     - target: {fileID: 1698018045260371921, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.837
