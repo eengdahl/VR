@@ -13,7 +13,7 @@ public class RevolverAmmo : MonoBehaviour
 
     public void DestroyAfterTime()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 20);
     }
 
 }

@@ -192,10 +192,13 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2741379403053573069}
         m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
-        m_MethodName: EnableCollision
+        m_MethodName: DestroyAfterTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -205,12 +208,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 2741379403053573069}
         m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
-        m_MethodName: DestroyAfterTime
+        m_MethodName: EnableCollision
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
