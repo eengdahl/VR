@@ -1510,7 +1510,7 @@ MonoBehaviour:
   grabscript: {fileID: 0}
   playing: 0
   currentGameState: 0
-  revolverAnims: {fileID: 0}
+  revolverAnims: {fileID: 2833131880945212029}
 --- !u!82 &4950830298942263317
 AudioSource:
   m_ObjectHideFlags: 0
