@@ -245,9 +245,9 @@ public class Shoot : MonoBehaviour
 
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
 
-        var Line = GetLine();
+        //var Line = GetLine();
+        //Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
 
-        Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
         if (hit.collider != null)
         {
             if (hit.collider.CompareTag("Ground"))
