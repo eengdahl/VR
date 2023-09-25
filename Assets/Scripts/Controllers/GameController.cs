@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
         chosenDifficulty = difficulty; //set difficulty
         gameTimer = gameTime;
         scoreController.ResetScore(); //reset the score
-        scoreController.ClearAchievementsDisplay();
+        //scoreController.ClearAchievementsDisplay();
         targetPlacer.PlaceTargets(chosenDifficulty);
         countdownSigns.GetComponent<Animator>().SetTrigger("readyCountdown");
     }

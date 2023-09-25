@@ -71,11 +71,11 @@ public class ScoreController : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] mediumLeaderboard;
     [SerializeField] TextMeshProUGUI[] hardLeaderboard;
 
-    [Header("Achievements")]
-    [SerializeField] Transform achParentObj;
-    [SerializeField] List<TextMeshProUGUI> achEntries = new();
-    [SerializeField] GameObject achEntryTemplate;
-    [SerializeField] TextMeshProUGUI achProgressText;
+    //[Header("Achievements")]
+    //[SerializeField] Transform achParentObj;
+    //[SerializeField] List<TextMeshProUGUI> achEntries = new();
+    //[SerializeField] GameObject achEntryTemplate;
+    //[SerializeField] TextMeshProUGUI achProgressText;
 
     private void Start()
     {
@@ -358,30 +358,30 @@ public class ScoreController : MonoBehaviour
 
     //-----ACHIEVEMENTS-----
 
-    public void DisplayAchievements(List<string> unlockedAchievements, int maxAchievements) //display all achievements that we have unlocked
-    {
-        for (int i = 0; i < unlockedAchievements.Count; i++)
-        {
-            achEntries.Add(achEntryTemplate.GetComponent<TextMeshProUGUI>());
-            achEntries[i].text = unlockedAchievements[i];
-            Instantiate(achEntries[i], achParentObj);
-        }
+    //public void DisplayAchievements(List<string> unlockedAchievements, int maxAchievements) //display all achievements that we have unlocked
+    //{
+    //    for (int i = 0; i < unlockedAchievements.Count; i++)
+    //    {
+    //        achEntries.Add(achEntryTemplate.GetComponent<TextMeshProUGUI>());
+    //        achEntries[i].text = unlockedAchievements[i];
+    //        Instantiate(achEntries[i], achParentObj);
+    //    }
 
-        achProgressText.text = string.Format("Found: {0} / {1}", unlockedAchievements.Count.ToString(), maxAchievements);
-    }
+    //    achProgressText.text = string.Format("Found: {0} / {1}", unlockedAchievements.Count.ToString(), maxAchievements);
+    //}
 
-    public void ClearAchievementsDisplay() //clears the achievements display
-    {
-        if (achParentObj.childCount == 1) return;
+    //public void ClearAchievementsDisplay() //clears the achievements display
+    //{
+    //    if (achParentObj.childCount == 1) return;
 
-        foreach (Transform child in achParentObj)
-        {
-            Destroy(child.gameObject);
-        }
+    //    foreach (Transform child in achParentObj)
+    //    {
+    //        Destroy(child.gameObject);
+    //    }
 
-        achProgressText.text = string.Format("Found: {0} / {1}", 0, 3);
+    //    achProgressText.text = string.Format("Found: {0} / {1}", 0, 3);
 
 
-        achEntries.Clear();
-    }
+    //    achEntries.Clear();
+    //}
 }

@@ -49,7 +49,7 @@ public class AchievementHandler : MonoBehaviour
         foreach (var item in unlockedAchievements)
             unlocked.Add(item.name);
 
-        GameObject.FindObjectOfType<ScoreController>().DisplayAchievements(unlocked, allAchievements.Count);
+        //GameObject.FindObjectOfType<ScoreController>().DisplayAchievements(unlocked, allAchievements.Count);
     }
 
     public void ResetAchievements()
