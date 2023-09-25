@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IChainListener
+{
+    public void ObserveChainDone();
+}
+
 public class ChainTarget : MonoBehaviour
 {
     [SerializeField] bool test;
@@ -15,6 +20,8 @@ public class ChainTarget : MonoBehaviour
     float chainTimer;
 
     [SerializeField] float[] downTime;
+
+    List<IChainListener> listeners;
 
     private void OnEnable()
     {
@@ -50,6 +57,12 @@ public class ChainTarget : MonoBehaviour
 
         chainTimer = chainTime;
         chainReaction = false;
+
+        foreach (var listener in listeners)
+        {
+            listener.ObserveChainDone();
+        }
+
         StartCoroutine(nameof(WaitForReset));
     }
 
@@ -76,5 +89,10 @@ public class ChainTarget : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(downTime[0], downTime[1]));
 
         InitializeChildren();
+    }
+
+    public void ChainSubscribe(IChainListener subscriber)
+    {
+        listeners.Add(subscriber);
     }
 }

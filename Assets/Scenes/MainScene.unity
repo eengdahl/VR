@@ -10490,6 +10490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Complete XR Butched by Emil
       objectReference: {fileID: 0}
+    - target: {fileID: 6536350075765392638, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: trailRendererPrefab
+      value: 
+      objectReference: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
     - target: {fileID: 8051774389148429173, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

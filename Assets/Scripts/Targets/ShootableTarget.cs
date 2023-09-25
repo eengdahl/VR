@@ -56,7 +56,7 @@ public class ShootableTarget : MonoBehaviour
     public void OnEnable()
     {
         downTime = Random.Range(minDownTime, maxDownTime);
-        //anim.CrossFade("UpState", 0, 0);
+        anim.CrossFade("TargetDownState", 0, 0);
     }
 
     public virtual void OnHit()

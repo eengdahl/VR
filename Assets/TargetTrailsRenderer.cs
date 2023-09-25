@@ -10,11 +10,11 @@ public class TargetTrailsRenderer : MonoBehaviour
     private List<GameObject> activeTargets = new();
     private LineRenderer lineRenderer;
     private List<GameObject> activeLines = new();
-    
+
     private void ShowLines()
     {
         GameObject trail;
-        
+
         foreach (GameObject target in activeTargets)
         {
             //Renders each line when the targets are placed
@@ -39,11 +39,11 @@ public class TargetTrailsRenderer : MonoBehaviour
                     trail = standardTrailRendererPrefab;
                     break;
             }
-            
+
             //Uncomment the below line to make trails "fly" to target instead of snaking along the ground
             // Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
-            
-            
+
+
             Vector3 targetPosition = new Vector3(target.transform.position.x, 0.4f, target.transform.position.z);
             GameObject newLine = Instantiate(trail, transform.position, Quaternion.identity);
             LineRenderer lineRenderer = newLine.GetComponent<LineRenderer>();
@@ -54,8 +54,8 @@ public class TargetTrailsRenderer : MonoBehaviour
             for (int i = 0; i < maxIndex; i++)
             {
                 float t = i / (float)(maxIndex - 1);
-                Vector3 linePoint = Vector3.Lerp(transform.position*.2f, targetPosition*.8f, t);
-                
+                Vector3 linePoint = Vector3.Lerp(transform.position * .2f, targetPosition * .8f, t);
+
                 float offset = 0f;
 
                 for (int waveIndex = 0; waveIndex < waveCount; waveIndex++)
@@ -75,7 +75,7 @@ public class TargetTrailsRenderer : MonoBehaviour
             }
             lineRenderer.SetPositions(points);
             activeLines.Add(newLine);
-            
+
         }
     }
 

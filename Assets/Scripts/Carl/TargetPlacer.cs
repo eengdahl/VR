@@ -118,9 +118,12 @@ public class TargetPlacer : MonoBehaviour
     public void InitializeTargets(GameObject bossToSpawn) //spawn our boss monster
     {
         bossToSpawn.SetActive(true);
-        bossToSpawn.GetComponent<ShootableMoving>().ManualSetUpTarget();
-        bossToSpawn.GetComponent<ShootableMoving>().shouldMove = true;
-        bossToSpawn.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
+        if (bossToSpawn.GetComponent<ShootableMoving>() != null)
+        {
+            bossToSpawn.GetComponent<ShootableMoving>().ManualSetUpTarget();
+            bossToSpawn.GetComponent<ShootableMoving>().shouldMove = true;
+            bossToSpawn.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
+        }
     }
 
     public void DeactivateTargets()

@@ -64,11 +64,6 @@ public class ShootableMoving : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        targetBase.anim.CrossFade("TargetDownState", 0, 0);
-    }
-
     // Update is called once per frame
     void Update()
     {
