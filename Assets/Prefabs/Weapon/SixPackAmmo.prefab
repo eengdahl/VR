@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8693755127899885559}
   - component: {fileID: 6527485582739157984}
   - component: {fileID: 6929594047962266967}
-  - component: {fileID: 1927902059938890174}
   - component: {fileID: 3608050077436003453}
   - component: {fileID: 5616194913074542773}
   - component: {fileID: 6874780063415685303}
+  - component: {fileID: 2741379403053573069}
   m_Layer: 0
   m_Name: SixPackAmmo
   m_TagString: SixpackAmmo
@@ -93,19 +93,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1927902059938890174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522140422737320095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!65 &3608050077436003453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,7 +136,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -167,12 +154,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 3608050077436003453}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -205,7 +193,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1927902059938890174}
+      - m_Target: {fileID: 2741379403053573069}
         m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
         m_MethodName: EnableCollision
         m_Mode: 1
@@ -220,7 +208,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1927902059938890174}
+      - m_Target: {fileID: 2741379403053573069}
         m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
         m_MethodName: DestroyAfterTime
         m_Mode: 1
@@ -320,12 +308,25 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
+  m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &2741379403053573069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522140422737320095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collision: 0
 --- !u!1 &2833329695905517703
 GameObject:
   m_ObjectHideFlags: 0

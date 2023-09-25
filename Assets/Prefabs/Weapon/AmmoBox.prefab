@@ -184,7 +184,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -704,7 +704,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1300,7 +1300,6 @@ GameObject:
   - component: {fileID: 4408353438168819884}
   - component: {fileID: 6777518817368644744}
   - component: {fileID: 5675674862333387915}
-  - component: {fileID: 8606800506264125903}
   m_Layer: 0
   m_Name: SixPackAmmoModel (3)
   m_TagString: SixpackAmmo
@@ -1379,19 +1378,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8606800506264125903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342181235929826616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &2367382373313643270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1389,6 @@ GameObject:
   - component: {fileID: 7269678738592843060}
   - component: {fileID: 2894653776300257269}
   - component: {fileID: 1779955890062125748}
-  - component: {fileID: 8672414293165794080}
   m_Layer: 0
   m_Name: SixPackAmmoModel (7)
   m_TagString: SixpackAmmo
@@ -1482,19 +1467,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8672414293165794080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2367382373313643270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &2447812247867187266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1478,6 @@ GameObject:
   - component: {fileID: 3225315732705630140}
   - component: {fileID: 7709428902589620944}
   - component: {fileID: 3422104262279375830}
-  - component: {fileID: 637961762339020926}
   m_Layer: 0
   m_Name: SixPackAmmoModel (5)
   m_TagString: SixpackAmmo
@@ -1585,19 +1556,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &637961762339020926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2447812247867187266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &2485100772343098165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,7 +3092,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3315,7 +3273,6 @@ GameObject:
   - component: {fileID: 4013517576156939454}
   - component: {fileID: 1346792014623667987}
   - component: {fileID: 102587685821753491}
-  - component: {fileID: 9167631794807687440}
   m_Layer: 0
   m_Name: SixPackAmmoModel (8)
   m_TagString: SixpackAmmo
@@ -3394,19 +3351,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9167631794807687440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3965108461152449325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &4105987192840277670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3528,6 @@ GameObject:
   - component: {fileID: 459362576798598627}
   - component: {fileID: 4998094320296598194}
   - component: {fileID: 6545371108766748092}
-  - component: {fileID: 1637078192903385374}
   m_Layer: 0
   m_Name: SixPackAmmoModel (2)
   m_TagString: SixpackAmmo
@@ -3663,19 +3606,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1637078192903385374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4342174587683840285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &4718557000063712734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,7 +3632,7 @@ Transform:
   m_GameObject: {fileID: 4718557000063712734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.64, y: -0.139, z: 0.001}
+  m_LocalPosition: {x: 0.4, y: 0.185, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4147,7 +4077,6 @@ GameObject:
   - component: {fileID: 3310697228721656483}
   - component: {fileID: 5186917892085974868}
   - component: {fileID: 5086836787594286945}
-  - component: {fileID: 8070918315062648193}
   m_Layer: 0
   m_Name: SixPackAmmoModel (6)
   m_TagString: SixpackAmmo
@@ -4226,19 +4155,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8070918315062648193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5221753978821866238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &5222212831604628094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,7 +4256,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4455,8 +4371,8 @@ Transform:
   m_GameObject: {fileID: 5525493982456175927}
   serializedVersion: 2
   m_LocalRotation: {x: 0.71750593, y: -9.1590735e-10, z: -9.1590735e-10, w: 0.6965524}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.022902256, y: 0.28270572, z: 0.061707176}
+  m_LocalPosition: {x: 0.034, y: 0.001, z: -0.05}
+  m_LocalScale: {x: 0.016359251, y: 0.2670865, z: 0.03509041}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6708191846293456786}
@@ -4481,8 +4397,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.525185, y: 1.6597414, z: 1.6147221}
-  m_Center: {x: 1.262593, y: -0.065748945, z: 0.040696736}
+  m_Size: {x: 7.8558826, y: 1.7196928, z: 6.829318}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4956343011511851740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4741,7 +4657,6 @@ GameObject:
   - component: {fileID: 3826745605240100442}
   - component: {fileID: 5707896584136885396}
   - component: {fileID: 8608400678621596476}
-  - component: {fileID: 3357670181851199454}
   m_Layer: 0
   m_Name: SixPackAmmoModel (1)
   m_TagString: SixpackAmmo
@@ -4820,19 +4735,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3357670181851199454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5960637298681848973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &6041763030850889320
 GameObject:
   m_ObjectHideFlags: 0
@@ -5229,7 +5131,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5244,7 +5146,6 @@ GameObject:
   - component: {fileID: 2599644939755810587}
   - component: {fileID: 4393605964374784635}
   - component: {fileID: 2263987005862562158}
-  - component: {fileID: 4165577175025853566}
   m_Layer: 0
   m_Name: SixPackAmmoModel (4)
   m_TagString: SixpackAmmo
@@ -5323,19 +5224,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4165577175025853566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7266568563477605456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &7293536198335169427
 GameObject:
   m_ObjectHideFlags: 0
@@ -6094,7 +5982,6 @@ GameObject:
   - component: {fileID: 712431518769301941}
   - component: {fileID: 5035129065656995381}
   - component: {fileID: 3264326379152377718}
-  - component: {fileID: 3679009055276256268}
   m_Layer: 0
   m_Name: SixPackAmmoModel
   m_TagString: SixpackAmmo
@@ -6173,19 +6060,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3679009055276256268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8747674150332762630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149cf5879c89354fa67f17757020dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collision: 0
 --- !u!1 &8788949528404372887
 GameObject:
   m_ObjectHideFlags: 0
