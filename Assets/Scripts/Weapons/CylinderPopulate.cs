@@ -161,7 +161,7 @@ public class CylinderPopulate : MonoBehaviour
     Quaternion RotationForIndex(int curIndex)
     {
         float angle = AngleForIndex(curIndex);
-        return Quaternion.AngleAxis(angle, Vector3.left);
+        return Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void Revolve()
@@ -213,7 +213,7 @@ public class CylinderPopulate : MonoBehaviour
             aS.Play();
             Destroy(other.gameObject);
         }        
-        if (other.CompareTag("SixpackAmmo"))
+        if (other.CompareTag("SixpackAmmo") && other.gameObject.GetComponent<RevolverAmmo>().collision)
         {
             FillBarrel(6);
             aS.clip = shellLoaded;
