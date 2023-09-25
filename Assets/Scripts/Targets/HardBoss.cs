@@ -40,10 +40,10 @@ public class HardBoss : MonoBehaviour, IChainListener
     {
         targetToActivate = Random.Range(0, targets.Count);
 
-        //if (targetToActivate == lastActivatedTarget && targetToActivate < targets.Count - 1)
-        //    targetToActivate++;
-        //else if (targetToActivate == lastActivatedTarget)
-        //    targetToActivate = 0;
+        if (targetToActivate == lastActivatedTarget && targetToActivate < targets.Count - 1)
+            targetToActivate++;
+        else if (targetToActivate == lastActivatedTarget)
+            targetToActivate = 0;
 
         return targetToActivate;
     }
