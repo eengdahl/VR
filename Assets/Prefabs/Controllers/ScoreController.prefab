@@ -851,7 +851,7 @@ MonoBehaviour:
   - {fileID: 4524522869874896253}
   - {fileID: 2091008891372721166}
   - {fileID: 7092980224992624054}
-  leaderboardAnim: {fileID: 0}
+  leaderboardAnim: {fileID: 3656960139501732294}
 --- !u!1 &1067013401578950179
 GameObject:
   m_ObjectHideFlags: 0
