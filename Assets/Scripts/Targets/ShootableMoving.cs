@@ -192,16 +192,7 @@ public class ShootableMoving : MonoBehaviour
         currentState = stateToChangeTo;
     }
 
-    public void ManualSetDownTarget()
-    {
-        targetBase.anim.SetTrigger("hit");
-    }
 
-    public void ManualSetUpTarget()
-    {
-        targetBase.anim.ResetTrigger("hit");
-        targetBase.anim.SetTrigger("getUp");
-    }
 
     void PlayAwakeSound()
     {

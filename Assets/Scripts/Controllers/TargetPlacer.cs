@@ -108,7 +108,7 @@ public class TargetPlacer : MonoBehaviour
         {
             if (target.GetComponent<ShootableMoving>() != null)
             {
-                target.GetComponent<ShootableMoving>().ManualSetUpTarget();
+                target.GetComponent<ShootableTarget>().ManualSetUpTarget();
                 target.GetComponent<ShootableMoving>().shouldMove = true;
                 target.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
             }
@@ -120,7 +120,7 @@ public class TargetPlacer : MonoBehaviour
         bossToSpawn.SetActive(true);
         if (bossToSpawn.GetComponent<ShootableMoving>() != null)
         {
-            bossToSpawn.GetComponent<ShootableMoving>().ManualSetUpTarget();
+            bossToSpawn.GetComponent<ShootableTarget>().ManualSetUpTarget();
             bossToSpawn.GetComponent<ShootableMoving>().shouldMove = true;
             bossToSpawn.GetComponent<ShootableMoving>().ManualChangeState(ShootableMoving.CurrentState.Moving);
         }
