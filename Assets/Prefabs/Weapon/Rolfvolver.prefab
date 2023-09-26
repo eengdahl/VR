@@ -792,6 +792,7 @@ GameObject:
   - component: {fileID: 1699007728700181278}
   - component: {fileID: 8916809723943696428}
   - component: {fileID: 7709807593412530898}
+  - component: {fileID: 6270894428957796478}
   m_Layer: 0
   m_Name: CylinderNew
   m_TagString: Untagged
@@ -1043,6 +1044,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &6270894428957796478
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128592489953921974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.032740325
+  m_Height: 0.07112765
+  m_Direction: 2
+  m_Center: {x: -0.0020095003, y: 0.0014801471, z: 0.0024455783}
 --- !u!1 &6917679518817560506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,7 +1502,7 @@ MonoBehaviour:
   grabscript: {fileID: 0}
   playing: 0
   currentGameState: 0
-  revolverAnims: {fileID: 2833131880945212029}
+  revolverAnims: {fileID: 0}
 --- !u!82 &4950830298942263317
 AudioSource:
   m_ObjectHideFlags: 0
