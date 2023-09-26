@@ -22,7 +22,7 @@ public class BulletPool : MonoBehaviour
     {
         bullets ??= new Queue<GameObject>();
 
-        CreateBullets(10);
+        CreateBullets(20);
     }
 
 
@@ -30,7 +30,7 @@ public class BulletPool : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            var newBullet = Instantiate(bulletPrefab);
+            var newBullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
             newBullet.transform.parent = parent;
             bullets.Enqueue(newBullet);
         }
@@ -60,7 +60,7 @@ public class BulletPool : MonoBehaviour
             var newBullet = Instantiate(bulletPrefab);
             return newBullet;
         }
-         var bullet = bullets.Dequeue();
+        var bullet = bullets.Dequeue();
 
         bullet.gameObject.SetActive(true);
         return bullet;
