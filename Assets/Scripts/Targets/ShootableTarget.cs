@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class ShootableTarget : MonoBehaviour
@@ -38,6 +40,13 @@ public class ShootableTarget : MonoBehaviour
     Collider _collider;
     [HideInInspector] public ShootableMoving mover;
 
+    //Variables used to display line renderer
+    [SerializeField] private float timeToTriggerTrail = 30f;
+    private float timeSinceLastHit;
+    private bool lineActive;
+    public TargetTrailsRenderer trailRenderer;
+    public GameObject line;
+    
     public virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -58,6 +67,18 @@ public class ShootableTarget : MonoBehaviour
     {
         downTime = Random.Range(minDownTime, maxDownTime);
         anim.CrossFade("TargetDownState", 0, 0);
+        timeSinceLastHit = 0f;
+    }
+
+    private void Update()
+    {
+        if (timeSinceLastHit >= timeToTriggerTrail && !lineActive)
+        {
+            trailRenderer.ShowLine(gameObject, monsterType);
+            lineActive = true;
+        }
+        else
+            timeSinceLastHit += Time.deltaTime;
     }
 
     public virtual void OnHit()
@@ -67,6 +88,9 @@ public class ShootableTarget : MonoBehaviour
         StartHitFeedback();
         if (mover != null)
             mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
+        timeSinceLastHit = 0f;
+        if (lineActive)
+            DisableLine();
     }
 
     public IEnumerator PlayHitAnim()
@@ -146,4 +170,10 @@ public class ShootableTarget : MonoBehaviour
         anim.SetTrigger("getUp");
     }
 
+    private void DisableLine()
+    {
+        lineActive = false;
+        trailRenderer.RemoveLine(line);
+        line = null;
+    }
 }
