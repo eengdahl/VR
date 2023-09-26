@@ -80,6 +80,7 @@ public class GameController : MonoBehaviour
     {
         currentGameState = GameState.Countdown;
         countdownSigns.GetComponent<Animator>().SetTrigger("startCountdown");
+        scoreController.leaderboardAnim.SetBool("showLeaderboard", false);
     }
 
     public void ResetCountdown()
@@ -109,6 +110,8 @@ public class GameController : MonoBehaviour
         currentGameState = GameState.inMenu;
         //this needs to happen last
         shoot.currentGameState = currentGameState;
+
+        scoreController.leaderboardAnim.SetBool("showLeaderboard", true); //show leaderboards again
     }
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame
@@ -117,6 +120,7 @@ public class GameController : MonoBehaviour
         currentGameState = GameState.inMenu;
         shoot.currentGameState = currentGameState;
         targetPlacer.RemoveTargets();
+        scoreController.leaderboardAnim.SetBool("showLeaderboard", true); //show leaderboards again
     }
 
     public void BulletFired(bool wasOnTarget)

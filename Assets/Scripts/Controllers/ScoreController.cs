@@ -71,6 +71,8 @@ public class ScoreController : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] mediumLeaderboard;
     [SerializeField] TextMeshProUGUI[] hardLeaderboard;
 
+    public Animator leaderboardAnim;
+
     //[Header("Achievements")]
     //[SerializeField] Transform achParentObj;
     //[SerializeField] List<TextMeshProUGUI> achEntries = new();
