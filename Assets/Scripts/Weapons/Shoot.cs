@@ -177,8 +177,8 @@ public class Shoot : MonoBehaviour
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
-        physBullet.transform.position = gunhead.transform.localPosition;
-        physBullet.transform.rotation = gunhead.transform.localRotation;
+        physBullet.transform.position = gunhead.transform.position;
+        physBullet.transform.rotation = gunhead.transform.rotation;
         physBullet.GetComponent<TrailRenderer>().enabled = true;
 
         //  physBullet.GetComponent<BulletScript>().AimOffset(offset);
@@ -240,8 +240,8 @@ public class Shoot : MonoBehaviour
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
-        physBullet.transform.position = gunhead.localToWorldMatrix.GetPosition();
-        physBullet.transform.rotation = gunhead.transform.localRotation;
+        physBullet.transform.position = gunhead.transform.position;
+        physBullet.transform.rotation = gunhead.transform.rotation;
         physBullet.GetComponent<TrailRenderer>().enabled = true;
 
         //  physBullet.GetComponent<BulletScript>().AimOffset(offset);
