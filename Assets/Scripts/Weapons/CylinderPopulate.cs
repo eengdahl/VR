@@ -71,7 +71,7 @@ public class CylinderPopulate : MonoBehaviour
             }
         }
 
-        Debug.Log(transform.localRotation);
+        //Debug.Log(transform.localRotation);
         //Input for cylinder release
 
         float righthandCylinderRelease = this.righthandReleaseCylinder.action.ReadValue<float>();
