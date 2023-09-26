@@ -200,7 +200,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -401,7 +402,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus_03 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 35986e7858bdf134cb284502fad2bea5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -467,7 +469,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coach
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 9210f739e2467864d973e462fbf0cf15, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -772,7 +775,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -944,7 +948,6 @@ Transform:
   - {fileID: 824624323}
   - {fileID: 1892822035}
   - {fileID: 55665875}
-  - {fileID: 601438387}
   - {fileID: 1100342623}
   - {fileID: 2141060198}
   - {fileID: 308567626}
@@ -1469,7 +1472,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_04 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 785aa00fbd71627418b6de3e5d8b0914, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1880,7 +1884,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 27e7ed4fa4c19a6498a38b37eec6e0ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2127,7 +2132,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01 (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2478,7 +2484,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3061,7 +3068,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hay (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 964e2721afd4f244da5c39085c3bcef8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3143,7 +3151,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3701,7 +3710,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01 (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3928,7 +3938,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hay (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 964e2721afd4f244da5c39085c3bcef8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5141,7 +5152,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01 (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5293,7 +5305,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hay
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 964e2721afd4f244da5c39085c3bcef8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5494,7 +5507,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5667,7 +5681,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Saloon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 246e55031d1207e44a20501691e811f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5749,7 +5764,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01 (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5990,7 +6006,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6133,7 +6150,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6234,7 +6252,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 49.430676
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 526b8341fc722fc45852a2c197c1118d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5818787431298993016, guid: 526b8341fc722fc45852a2c197c1118d, type: 3}
@@ -6400,7 +6419,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 2d7bf058345e07f488af293ec7dec066, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6466,7 +6486,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01 (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6620,7 +6641,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01 (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6712,72 +6734,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6683235501912448366, guid: 5747b762874c13d428d81279a7678392, type: 3}
   m_PrefabInstance: {fileID: 596670272}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &601438386
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 88004138}
-    m_Modifications:
-    - target: {fileID: 707329187876721820, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_Name
-      value: Fog_partic
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6354195054960443793, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 150
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
---- !u!4 &601438387 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2983350749879155076, guid: 1e16695f485dd6c43acc20e35c883874, type: 3}
-  m_PrefabInstance: {fileID: 601438386}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &602542171
 PrefabInstance:
@@ -7302,7 +7258,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0f9711582842315479d7d31e6739eae2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8451,7 +8408,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trolley
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 2c431ddf67efcda41b2188795cee3ddd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2c431ddf67efcda41b2188795cee3ddd, type: 3}
@@ -8607,7 +8565,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8924,7 +8883,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9017,7 +8977,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 2d7bf058345e07f488af293ec7dec066, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9099,7 +9060,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reservoir
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 1bdc5a3250b036b43ab846c4b8d26358, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9926,7 +9888,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01 (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10138,7 +10101,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10225,7 +10189,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10472,7 +10437,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus_03
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 35986e7858bdf134cb284502fad2bea5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10616,7 +10582,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11316,7 +11283,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12554,7 +12522,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0f9711582842315479d7d31e6739eae2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12636,7 +12605,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14382,7 +14352,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15068,7 +15039,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barn_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: e777d3265adcccd4aa15641237d32471, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15155,7 +15127,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15431,7 +15404,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15518,7 +15492,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_Simple (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 09b6f5bf63352c64f89ce12011a76231, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16529,6 +16504,10 @@ PrefabInstance:
       propertyPath: m_StartingSelectedInteractable
       value: 
       objectReference: {fileID: 34076019}
+    - target: {fileID: 5525493982456175927, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6041763030850889320, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
       propertyPath: m_Name
       value: AmmoBox
@@ -16610,7 +16589,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16868,7 +16848,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus_03 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 35986e7858bdf134cb284502fad2bea5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17850,7 +17831,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_03
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 56d2f45c2d790274089e541ea88edc07, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18357,7 +18339,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18624,7 +18607,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Well
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: a65c008a8798fce4a9ec86bc4550e9b7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19110,7 +19094,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: dd36e323af2547342bb89a4c2051ebea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19192,7 +19177,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_01 (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 558a10379b25fdb4eb58a073571fd21d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19454,7 +19440,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_Standard_04
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 785aa00fbd71627418b6de3e5d8b0914, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19622,7 +19609,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Western_Wagon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 846edcecb228de449a39371d15993dc4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -20196,7 +20184,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -21318,7 +21307,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_01 (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5716681864270162303, guid: 0a33bac1074a2a945b55ab00d20b84a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
