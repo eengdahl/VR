@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class UIController : MonoBehaviour
     [SerializeField] public GameObject timeTrialPanel;
     [SerializeField] public GameObject backPanel;
     public GameController gameController;
+
+    [SerializeField] TextMeshProUGUI difficultyConfirmText;
 
     public void SelectDifficulty(int selection) //Choose difficulty and SetupGame in Gamecontroller
     {
@@ -36,6 +39,8 @@ public class UIController : MonoBehaviour
         timeTrialPanel.SetActive(false);
         startPanel.SetActive(true);
         backPanel.SetActive(true);
+
+        difficultyConfirmText.text = gameController.chosenDifficulty.ToString();
     }
 
     public void ToggleTimeTrial(bool timeTrial) //change timetrial bool in GameController
