@@ -71,7 +71,7 @@ public class CylinderPopulate : MonoBehaviour
             }
         }
 
-
+        Debug.Log(transform.localRotation);
         //Input for cylinder release
 
         float righthandCylinderRelease = this.righthandReleaseCylinder.action.ReadValue<float>();
@@ -84,11 +84,9 @@ public class CylinderPopulate : MonoBehaviour
 
         }
         //cylinder returns to default spot and no input, lock it
-        if (transform.localRotation.y > 0.5 && righthandCylinderRelease == 0)
+        if (transform.localRotation.z < 0 && righthandCylinderRelease == 0)
         {
             cylinderRB.isKinematic = true;
-            //This might not work. if not testing  in Inputdata!=null, 
-
         }
 
         if (lefthandCylinderRelease != 0)
@@ -96,7 +94,7 @@ public class CylinderPopulate : MonoBehaviour
             cylinderRB.isKinematic = false;
 
         }
-        if (transform.localRotation.y > 0.5 && lefthandCylinderRelease == 0)
+        if (transform.localRotation.z < 0 && lefthandCylinderRelease == 0)
         {
             cylinderRB.isKinematic = true;
         }
