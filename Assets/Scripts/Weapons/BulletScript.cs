@@ -31,20 +31,23 @@ public class BulletScript : MonoBehaviour, BulletStats
     private void OnEnable()
     {
         Invoke(nameof(DisableMe), 1);
-
         //transform.position = GetComponentInParent<Transform>().position;
         //transform.rotation = GetComponentInParent<Transform>().rotation;
     }
 
     private void OnDisable()
     {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.rotation = Quaternion.identity;
+        GetComponent<TrailRenderer>().enabled = false;
+
+   //     rb.velocity = Vector3.zero;
+     //   rb.angularVelocity = Vector3.zero;
+       // rb.rotation = Quaternion.identity;
     }
 
     public void DisableMe()
     {
+
+        // this.transform.position = transform.parent.position;
         pool.DisableBullet(this.transform.gameObject);
     }
 
@@ -54,6 +57,7 @@ public class BulletScript : MonoBehaviour, BulletStats
     }
     public void AimOffset(Vector3 offset)
     {
+
 
         if (offset == Vector3.zero)
         {

@@ -176,17 +176,17 @@ public class Shoot : MonoBehaviour
 
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
-        physBullet.transform.position = gunhead.transform.position;
-        physBullet.transform.rotation = gunhead.transform.rotation;
-
-        physBullet.GetComponent<BulletScript>().AimOffset(offset);
-
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
+        physBullet.transform.position = gunhead.transform.localPosition;
+        physBullet.transform.rotation = gunhead.transform.localRotation;
+        physBullet.GetComponent<TrailRenderer>().enabled = true;
+
+        //  physBullet.GetComponent<BulletScript>().AimOffset(offset);
+
 
         //replace with trailrenderer on physical bullets
-        var Line = GetLine();
-        Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
-
+        //var Line = GetLine();
+        //Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
         currentAmmo--;
         if (hit.collider == null)
         {
@@ -221,12 +221,13 @@ public class Shoot : MonoBehaviour
                 hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
             }
 
-         
+
         }
     }
 
     private void BlankFire()
     {
+
         var aS = gameObject.GetComponent<AudioSource>();
         aS.pitch = Random.Range(0.80f, 1.20f);
         aS.Play();
@@ -238,12 +239,14 @@ public class Shoot : MonoBehaviour
 
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
-        physBullet.transform.position = gunhead.transform.position;
-        physBullet.transform.rotation = gunhead.transform.rotation;
-
-        physBullet.GetComponent<BulletScript>().AimOffset(offset);
-
         physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
+        physBullet.transform.position = gunhead.localToWorldMatrix.GetPosition();
+        physBullet.transform.rotation = gunhead.transform.localRotation;
+        physBullet.GetComponent<TrailRenderer>().enabled = true;
+
+        //  physBullet.GetComponent<BulletScript>().AimOffset(offset);
+
+
 
         //var Line = GetLine();
         //Line.GetComponent<LineController>().DrawLine(gunhead.localToWorldMatrix.GetPosition(), hit.point);
@@ -272,15 +275,15 @@ public class Shoot : MonoBehaviour
         }
     }
 
-        //IEnumerator Reloading()
-        //{
-        //    reloading = true;
-        //    var aS = gameObject.GetComponent<AudioSource>();
-        //    aS.PlayOneShot(reloadingClip);
-        //    yield return new WaitForSeconds(reloadTime);
-        //    currentAmmo = magSize;
-        //    reloading = false;
-        //}
+    //IEnumerator Reloading()
+    //{
+    //    reloading = true;
+    //    var aS = gameObject.GetComponent<AudioSource>();
+    //    aS.PlayOneShot(reloadingClip);
+    //    yield return new WaitForSeconds(reloadTime);
+    //    currentAmmo = magSize;
+    //    reloading = false;
+    //}
 
     private void HapticCall()
     {
