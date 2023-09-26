@@ -2739,6 +2739,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Revolver Specular
       objectReference: {fileID: 0}
+    - target: {fileID: 1991293317751832, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4168377896971870, guid: 0016527aff1d95144ad9934a87a22768, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2198
