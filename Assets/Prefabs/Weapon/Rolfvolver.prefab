@@ -890,7 +890,7 @@ MonoBehaviour:
   bulletTransform: {fileID: 6953818415742678659}
   cylinderOpen: 0
   rotationSpeed: 0.1
-  cylinderFlickForce: {x: 0, y: 150, z: 150}
+  cylinderFlickForce: {x: 0, y: 500, z: 150}
   righthandReleaseCylinder:
     m_UseReference: 1
     m_Action:
@@ -932,7 +932,7 @@ Rigidbody:
   m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0.3, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.1, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
