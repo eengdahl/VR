@@ -3700,6 +3700,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8531514132493836504, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
+      propertyPath: revolverAnims
+      value: 
+      objectReference: {fileID: 631334255}
+    - target: {fileID: 8531514132493836504, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
       propertyPath: leftController
       value: 
       objectReference: {fileID: 1067867592}
@@ -9852,6 +9856,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
   m_PrefabInstance: {fileID: 626302343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &631334255 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2833131880945212029, guid: 18244dcf4871f4f43b9d5f0aed4f23c4, type: 3}
+  m_PrefabInstance: {fileID: 254022070}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &634663216 stripped
 Transform:

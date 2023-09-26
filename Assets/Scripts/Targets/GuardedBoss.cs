@@ -31,16 +31,15 @@ public class GuardedBoss : ShootableBoss
 
     void SpawnChild()
     {
-        spawnedKid++;
-
         if (spawnedKid < childTargets.Count)
-            for (int i = 0; i < spawnedKid; i++)
+            for (int i = 0; i < spawnedKid + 1; i++)
             {
                 childTargets[i].ManualSetUpTarget();
                 childTargets[i].mover.shouldMove = true;
                 childTargets[i].GetComponent<Collider>().enabled = true;
             }
 
+        spawnedKid++;
         deadKids = spawnedKid;
     }
 
@@ -49,7 +48,7 @@ public class GuardedBoss : ShootableBoss
         deadKids--;
         if (deadKids != 0) return;
 
-        if (spawnedKid <= childTargets.Count)
+        if (spawnedKid < childTargets.Count)
             StartCoroutine(nameof(SpawnChildDelay));
         else
             canBeHit = true;
@@ -74,6 +73,8 @@ public class GuardedBoss : ShootableBoss
 
     public override void OnHit()
     {
+        if (!canBeHit) return;
+
         if (currentHealth > 0)
         {
             currentHealth--;
