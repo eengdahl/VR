@@ -14,6 +14,7 @@ public class ShootableTarget : MonoBehaviour
     public float minDownTime = 2f;
     public float maxDownTime = 5f;
     private float downTime;
+    public bool selfGetUp = true;
 
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
@@ -53,7 +54,7 @@ public class ShootableTarget : MonoBehaviour
         //anim.CrossFade("TargetShotdown", 0, 0);
     }
 
-    public void OnEnable()
+    public virtual void OnEnable()
     {
         downTime = Random.Range(minDownTime, maxDownTime);
         anim.CrossFade("TargetDownState", 0, 0);
@@ -64,17 +65,25 @@ public class ShootableTarget : MonoBehaviour
         audSource.Play();
         StartCoroutine(nameof(PlayHitAnim));
         StartHitFeedback();
-        mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
+        if (mover != null)
+            mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
     }
 
     public IEnumerator PlayHitAnim()
     {
+        anim.ResetTrigger("getUp");
         anim.SetTrigger("hit");
         _collider.enabled = false;
         //Debug.LogFormat("{0} has a downtime of:  {1}", gameObject.name, downTime);
 
         yield return new WaitForSeconds(downTime);
 
+        if (selfGetUp)
+            PlayGetupAnim();
+    }
+
+    void PlayGetupAnim()
+    {
         downTime = Random.Range(minDownTime, maxDownTime);
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
@@ -124,6 +133,17 @@ public class ShootableTarget : MonoBehaviour
         }
 
         targetMaterial.color = normalColor;
+    }
+
+    public void ManualSetDownTarget()
+    {
+        anim.SetTrigger("hit");
+    }
+
+    public void ManualSetUpTarget()
+    {
+        anim.ResetTrigger("hit");
+        anim.SetTrigger("getUp");
     }
 
 }

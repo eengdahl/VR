@@ -7,7 +7,7 @@ public class ShootableBoss : ShootableTarget
     [SerializeField] int maxHealth = 4;
     public int currentHealth;
 
-    private new void OnEnable()
+    public override void OnEnable()
     {
         currentHealth = maxHealth;
         base.OnEnable();
