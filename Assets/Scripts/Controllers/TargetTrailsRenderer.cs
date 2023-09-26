@@ -14,7 +14,8 @@ public class TargetTrailsRenderer : MonoBehaviour
     private void ShowLines()
     {
         GameObject trail;
-
+        waveCount += Random.Range(-1, 1);
+        amplitude += Random.Range(-.01f, .01f);
         foreach (GameObject target in activeTargets)
         {
             //Renders each line when the targets are placed
@@ -40,12 +41,13 @@ public class TargetTrailsRenderer : MonoBehaviour
                     break;
             }
 
-            //Uncomment the below line to make trails "fly" to target instead of snaking along the ground
-            // Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
 
-
-            Vector3 targetPosition = new Vector3(target.transform.position.x, 0.4f, target.transform.position.z);
-            GameObject newLine = Instantiate(trail, transform.position, Quaternion.identity);
+            Vector3 startPoisiton = Vector3.Lerp(transform.position, target.transform.position, .15f);
+            Vector3 endPosition = Vector3.Lerp(transform.position, target.transform.position, .8f);
+            
+            //Comment the below line to make trails "fly" to target instead of snaking along the ground
+            endPosition = new Vector3(endPosition.x, .4f, endPosition.z);
+            GameObject newLine = Instantiate(trail, startPoisiton, Quaternion.identity);
             LineRenderer lineRenderer = newLine.GetComponent<LineRenderer>();
             int maxIndex = lineRenderer.positionCount;
 
@@ -54,7 +56,7 @@ public class TargetTrailsRenderer : MonoBehaviour
             for (int i = 0; i < maxIndex; i++)
             {
                 float t = i / (float)(maxIndex - 1);
-                Vector3 linePoint = Vector3.Lerp(transform.position * .2f, targetPosition * .8f, t);
+                Vector3 linePoint = Vector3.Lerp(startPoisiton, endPosition, t);
 
                 float offset = 0f;
 
