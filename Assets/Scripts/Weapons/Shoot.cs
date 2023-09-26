@@ -21,7 +21,7 @@ public class Shoot : MonoBehaviour
     BulletPool bulletPool;
     public Transform gunhead;
     private bool shooting = false;
-    private bool isCock = false;
+    public bool isCock = false;
     private bool equipped = false;
     ScoreController scoreController;
 
@@ -31,7 +31,11 @@ public class Shoot : MonoBehaviour
     private int maxAmmo = 1000;
     public int currentAmmo;
     public int magSize;
-    public AudioClip reloadingClip;
+    private AudioSource audioSource;
+    public AudioClip emptyClip;
+    public AudioClip reloadingSound;
+    public AudioClip fanShootSound;
+    public AudioClip ShootSound;
 
     //HitOffset
     RaycastHit hit;
@@ -66,6 +70,7 @@ public class Shoot : MonoBehaviour
         scoreController = FindObjectOfType<ScoreController>();
         gunStabilizer = 0.2f;
         grabscript = GetComponent<XRGrabInteractable>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -116,8 +121,15 @@ public class Shoot : MonoBehaviour
             {
                 if (leftFanReleased || rightFanReleased)
                 {
-                    if (currentGameState == GameState.inGame && currentAmmo > 0)
-                        Fire();
+                    if (currentGameState == GameState.inGame)
+                    {
+                        if (currentAmmo > 0)
+                        {
+                            audioSource.clip = ShootSound;
+                            Fire();
+                        }
+                        else audioSource.PlayOneShot(emptyClip);
+                    }
                     if (currentGameState == GameState.inMenu)
                     {
                         BlankFire();
@@ -127,22 +139,29 @@ public class Shoot : MonoBehaviour
 
             if (leftTriggerValue || rightTriggerValue)
             {
-                if (currentGameState == GameState.inGame && currentAmmo > 0 && isCock)
+                if (currentGameState == GameState.inGame && isCock)
                 {
-                    Fire();
-                    isCock = false;
-                    revolverAnims.CrossFade("RolfUncock", 0);
+                    if (currentAmmo > 0)
+                    {
+                        audioSource.clip = fanShootSound;
+                        Fire();
+                        isCock = false;
+                        revolverAnims.CrossFade("RolfUncock", 0);
+                    }
+                    else
+                    {
+                        audioSource.PlayOneShot(emptyClip);
+                        isCock = false;
+                        revolverAnims.CrossFade("RolfUncock", 0);
+
+                    }
+
                 }
                 if (currentGameState == GameState.inMenu)
                 {
                     BlankFire();
                 }
             }
-            //Autoreload
-            //if (currentAmmo <= 0)
-            //{
-            //    StartCoroutine(Reloading());
-            //}
         }
     }
 
@@ -151,9 +170,9 @@ public class Shoot : MonoBehaviour
         //print("Fired for real for real");
         cylinderScript.Revolve();
         HapticCall();
-        var aS = gameObject.GetComponent<AudioSource>();
-        aS.pitch = Random.Range(0.80f, 1.20f);
-        aS.Play();
+
+        audioSource.pitch = Random.Range(0.80f, 1.20f);
+        audioSource.Play();
         if (burst > 0.5f)
             burst = 0.5f;
 
@@ -275,15 +294,6 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    //IEnumerator Reloading()
-    //{
-    //    reloading = true;
-    //    var aS = gameObject.GetComponent<AudioSource>();
-    //    aS.PlayOneShot(reloadingClip);
-    //    yield return new WaitForSeconds(reloadTime);
-    //    currentAmmo = magSize;
-    //    reloading = false;
-    //}
 
     private void HapticCall()
     {

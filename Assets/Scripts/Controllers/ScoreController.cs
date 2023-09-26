@@ -126,8 +126,8 @@ public class ScoreController : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
-        multiplierText.text = "Combo: " + Mathf.Round(comboTimer);
+        scoreText.text = "Score " + score.ToString("000000");
+        multiplierText.text = "Combo " + Mathf.Round(comboTimer).ToString("00");
     }
 
     public void ResetScore()
@@ -334,6 +334,7 @@ public class ScoreController : MonoBehaviour
         if (bulletsOnTarget != 0)
         {
             accuracy = bulletsOnTarget / bulletsFired;
+            print(accuracy);
         }
     }
 
@@ -342,8 +343,8 @@ public class ScoreController : MonoBehaviour
         bulletsFiredText.gameObject.SetActive(true);
         accuracyText.gameObject.SetActive(true);
 
-        bulletsFiredText.text = "Shots fired: " + bulletsFired;
-        accuracyText.text = "Accuracy: " + accuracy.ToString("P1");
+        bulletsFiredText.text = "Shots fired " + bulletsFired;
+        accuracyText.text = "Accuracy " + accuracy.ToString("P1");
     }
 
     //------------TIMER------------
