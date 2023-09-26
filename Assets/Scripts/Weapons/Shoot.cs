@@ -124,13 +124,15 @@ public class Shoot : MonoBehaviour
                     if (currentGameState == GameState.inGame)
                     {
                         if (currentAmmo > 0)
-                        { audioSource.clip = ShootSound; Fire(); }
+                        {
+                            audioSource.clip = ShootSound;
+                            Fire();
+                        }
                         else audioSource.PlayOneShot(emptyClip);
                     }
                     if (currentGameState == GameState.inMenu)
                     {
                         BlankFire();
-
                     }
                 }
             }
@@ -168,9 +170,9 @@ public class Shoot : MonoBehaviour
         //print("Fired for real for real");
         cylinderScript.Revolve();
         HapticCall();
-        var aS = gameObject.GetComponent<AudioSource>();
-        aS.pitch = Random.Range(0.80f, 1.20f);
-        aS.Play();
+
+        audioSource.pitch = Random.Range(0.80f, 1.20f);
+        audioSource.Play();
         if (burst > 0.5f)
             burst = 0.5f;
 

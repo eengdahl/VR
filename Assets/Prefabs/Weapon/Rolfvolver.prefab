@@ -1496,7 +1496,7 @@ MonoBehaviour:
   emptyClip: {fileID: 8300000, guid: d214d814d9ed6484cbe8e66aac77e32e, type: 3}
   reloadingSound: {fileID: 8300000, guid: 4dcc4f7bdf6d056478616dfee44a0535, type: 3}
   fanShootSound: {fileID: 8300000, guid: 504f24a6c523bde41a548cf7cebdceda, type: 3}
-  ShootSound: {fileID: 8300000, guid: d8c05407622c3ee4eb750bb5ba1d0441, type: 3}
+  ShootSound: {fileID: 8300000, guid: d8ef78118ad922546af7257344e997f4, type: 3}
   offset: {x: 0, y: 0, z: 0}
   gameController: {fileID: 0}
   rightControllerAction: {fileID: 0}
