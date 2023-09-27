@@ -1507,7 +1507,7 @@ MonoBehaviour:
   grabscript: {fileID: 0}
   playing: 0
   currentGameState: 0
-  revolverAnims: {fileID: 0}
+  revolverAnims: {fileID: 2833131880945212029}
 --- !u!82 &4950830298942263317
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1954,6 +1954,58 @@ PrefabInstance:
     - target: {fileID: 4792554862977932045, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517391660944317230, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}
+      propertyPath: UVModule.frameOverTime.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4806183975817904257, guid: 4007e5e7c293e54478a3d94d7c3b6984, type: 3}

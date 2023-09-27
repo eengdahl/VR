@@ -22,6 +22,7 @@ public class CylinderPopulate : MonoBehaviour
     private Quaternion rotationTarget;
     private bool isAnimating = false;
     public bool cylinderOpen = false;
+    private bool flickTriggered;
     public float rotationSpeed = 0.1f;
     public Vector3 cylinderFlickForce;
     public InputActionProperty righthandReleaseCylinder;
@@ -87,6 +88,7 @@ public class CylinderPopulate : MonoBehaviour
         if (transform.localRotation.z < 0 && righthandCylinderRelease == 0)
         {
             cylinderRB.isKinematic = true;
+            cylinderOpen = false;
         }
 
         if (lefthandCylinderRelease != 0)
@@ -97,14 +99,19 @@ public class CylinderPopulate : MonoBehaviour
         if (transform.localRotation.z < 0 && lefthandCylinderRelease == 0)
         {
             cylinderRB.isKinematic = true;
+            cylinderOpen = false;
         }
+    }
 
-        if (inputData != null)
+    private void FixedUpdate()
+    {
+        if (inputData != null && cylinderOpen && !flickTriggered)
         {
-            if (inputData.leftControllerVelocity.magnitude > 1 || Input.GetKeyDown(KeyCode.F) && cylinderOpen)
+
+            if (inputData.leftControllerVelocity.magnitude > 1 || Input.GetKeyDown(KeyCode.F))
             {
                 cylinderRB.AddForce(cylinderFlickForce, ForceMode.Impulse);
-                Debug.Log("triggerd");
+                flickTriggered = true;
                 if (cylinderSpinOpened)
                 {
                     aS.clip = cylinderSpin;
@@ -178,12 +185,12 @@ public class CylinderPopulate : MonoBehaviour
     {
         cylinderOpen = true;
         cylinderSpinOpened = true;
+        flickTriggered = false;
     }
 
     public void CloseCylinder()
     {
         cylinderOpen = false;
-
     }
 
     public void ReleaseBullets()
