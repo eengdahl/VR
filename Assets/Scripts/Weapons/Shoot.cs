@@ -15,9 +15,11 @@ public class Shoot : MonoBehaviour
     public InputActionProperty rightFanReleased;
     public InputActionProperty revolverCock;
 
+
     public GameObject linePrefab;
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
+    private ParticleSystem muzzlePS;
     BulletPool bulletPool;
     public Transform gunhead;
     private bool shooting = false;
@@ -71,6 +73,7 @@ public class Shoot : MonoBehaviour
         gunStabilizer = 0.2f;
         grabscript = GetComponent<XRGrabInteractable>();
         audioSource = GetComponent<AudioSource>();
+        muzzlePS = GetComponentInChildren<ParticleSystem>();
     }
     private void OnEnable()
     {
@@ -139,19 +142,17 @@ public class Shoot : MonoBehaviour
 
             if (leftTriggerValue || rightTriggerValue)
             {
-                if (currentGameState == GameState.inGame && isCock)
+                if (currentGameState == GameState.inGame)
                 {
                     if (currentAmmo > 0)
                     {
-                        audioSource.clip = fanShootSound;
+                        audioSource.clip = ShootSound;
                         Fire();
-                        isCock = false;
                         revolverAnims.CrossFade("RolfUncock", 0);
                     }
                     else
                     {
                         audioSource.PlayOneShot(emptyClip);
-                        isCock = false;
                         revolverAnims.CrossFade("RolfUncock", 0);
 
                     }
@@ -170,6 +171,8 @@ public class Shoot : MonoBehaviour
         //print("Fired for real for real");
         cylinderScript.Revolve();
         HapticCall();
+
+        muzzlePS.Play();
 
         audioSource.pitch = Random.Range(0.80f, 1.20f);
         audioSource.Play();
