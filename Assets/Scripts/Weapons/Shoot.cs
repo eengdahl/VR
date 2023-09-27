@@ -80,8 +80,6 @@ public class Shoot : MonoBehaviour
         reloading = false;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
 
@@ -105,7 +103,7 @@ public class Shoot : MonoBehaviour
         {
             float leftTriggerHeld = leftWeaponTrigger.action.ReadValue<float>();
             float righttriggerHeld = rightWeaponTrigger.action.ReadValue<float>();
-            //Debug.Log(triggerHeld);
+
             bool leftTriggerValue = leftWeaponTrigger.action.WasPressedThisFrame();
             bool rightTriggerValue = rightWeaponTrigger.action.WasPressedThisFrame();
 
@@ -168,7 +166,6 @@ public class Shoot : MonoBehaviour
 
     private void Fire()
     {
-        //print("Fired for real for real");
         cylinderScript.Revolve();
         HapticCall();
 
@@ -225,7 +222,6 @@ public class Shoot : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("Target"))
             {
-                //Debug.Log("real hit");
                 gameController.BulletFired(true);
                 if (hit.collider.gameObject.GetComponent<AudioSource>() != null)
                 {

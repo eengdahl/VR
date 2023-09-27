@@ -27,10 +27,7 @@ public class MusicScript : MonoBehaviour
 
         yield return new WaitForSeconds(backgroundNoise[count1].length);
         count1++;
-        if (count1 >= backgroundNoise.Count)
-        {
-            count1 = 0;
-        }
+        if (count1 >= backgroundNoise.Count) count1 = 0;
         StartCoroutine(StartBackground());
     }
 
@@ -40,22 +37,8 @@ public class MusicScript : MonoBehaviour
         aS.PlayOneShot(backGroundMusic[count], 0.2f);
         yield return new WaitForSeconds(backGroundMusic[count].length);
         count++;
-        if (count >= backGroundMusic.Count)
-        {
-            count = 0;
-        }
+        if (count >= backGroundMusic.Count) count = 0;
 
         StartCoroutine(StartMusic());
-    }
-
-
-
-    public void PausMusic()
-    {
-
-    }
-    public void ResumeMusic()
-    {
-
     }
 }
