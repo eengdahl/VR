@@ -70,6 +70,7 @@ public class ShootableTarget : MonoBehaviour
         anim.CrossFade("TargetDownState", 0, 0);
 
         timeSinceLastHit = 0f;
+        lineActive = false;
     }
 
     private void Update()
