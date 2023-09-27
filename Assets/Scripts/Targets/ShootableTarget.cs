@@ -67,6 +67,8 @@ public class ShootableTarget : MonoBehaviour
     public virtual void OnEnable()
     {
         downTime = Random.Range(minDownTime, maxDownTime);
+        ResetAnimTriggers();
+        _collider.enabled = true;
         anim.CrossFade("TargetDownState", 0, 0);
 
         timeSinceLastHit = 0f;
@@ -166,16 +168,20 @@ public class ShootableTarget : MonoBehaviour
     //----ANIMATION OVERRIDES----
     public void ManualSetDownTarget()
     {
-        //anim.ResetTrigger("getUp");
-        //anim.SetTrigger("hit");
+        ResetAnimTriggers();
         anim.CrossFade("TargetShotdown", 0);
     }
 
     public void ManualSetUpTarget()
     {
-        //anim.ResetTrigger("hit");
-        //anim.SetTrigger("getUp");
+        ResetAnimTriggers();
         anim.CrossFade("TargetGetup", 0);
+    }
+
+    private void ResetAnimTriggers()
+    {
+        anim.ResetTrigger("hit");
+        anim.ResetTrigger("getUp");
     }
 
     private void OnDisable()
