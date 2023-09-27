@@ -83,6 +83,6 @@ public class UIController : MonoBehaviour
         startPanel.SetActive(false);
         backPanel.SetActive(false);
         gameController.ResetCountdown();
-        gameController.targetPlacer.DeactivateTargets();
+        gameController.targetPlacer.DeactivateTargets(true);
     }
 }

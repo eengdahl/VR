@@ -39,15 +39,11 @@ public class ChainTargetChild : ShootableTarget
         col.enabled = false;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void ChildForceDown()
     {
+        anim.ResetTrigger("getUp");
+        anim.ResetTrigger("hit");
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        anim.CrossFade("TargetShotdown", 0);
     }
 }

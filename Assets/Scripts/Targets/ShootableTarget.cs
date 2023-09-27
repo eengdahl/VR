@@ -46,7 +46,8 @@ public class ShootableTarget : MonoBehaviour
     private bool lineActive;
     public TargetTrailsRenderer trailRenderer;
     public GameObject line;
-    
+
+    //-----SETUP------
     public virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -67,6 +68,7 @@ public class ShootableTarget : MonoBehaviour
     {
         downTime = Random.Range(minDownTime, maxDownTime);
         anim.CrossFade("TargetDownState", 0, 0);
+
         timeSinceLastHit = 0f;
     }
 
@@ -81,6 +83,7 @@ public class ShootableTarget : MonoBehaviour
             timeSinceLastHit += Time.deltaTime;
     }
 
+    //--------WHEN HIT---------
     public virtual void OnHit()
     {
         audSource.Play();
@@ -93,7 +96,7 @@ public class ShootableTarget : MonoBehaviour
             DisableLine();
     }
 
-    public IEnumerator PlayHitAnim()
+    public IEnumerator PlayHitAnim() //play hit animation
     {
         anim.ResetTrigger("getUp");
         anim.SetTrigger("hit");
@@ -106,7 +109,7 @@ public class ShootableTarget : MonoBehaviour
             PlayGetupAnim();
     }
 
-    void PlayGetupAnim()
+    void PlayGetupAnim() //if our target can, get up
     {
         downTime = Random.Range(minDownTime, maxDownTime);
         anim.ResetTrigger("hit");
@@ -123,7 +126,7 @@ public class ShootableTarget : MonoBehaviour
     }
 
 
-    public void StartHitFeedback()
+    public void StartHitFeedback() //the flash of color
     {
         StartCoroutine(nameof(PlayHitFeedback));
     }
@@ -159,17 +162,28 @@ public class ShootableTarget : MonoBehaviour
         targetMaterial.color = normalColor;
     }
 
+    //----ANIMATION OVERRIDES----
     public void ManualSetDownTarget()
     {
-        anim.SetTrigger("hit");
+        //anim.ResetTrigger("getUp");
+        //anim.SetTrigger("hit");
+        anim.CrossFade("TargetShotdown", 0);
     }
 
     public void ManualSetUpTarget()
     {
-        anim.ResetTrigger("hit");
-        anim.SetTrigger("getUp");
+        //anim.ResetTrigger("hit");
+        //anim.SetTrigger("getUp");
+        anim.CrossFade("TargetGetup", 0);
     }
 
+    private void OnDisable()
+    {
+        anim.ResetTrigger("hit");
+        anim.ResetTrigger("getUp");
+    }
+
+    //------LINES----
     private void DisableLine()
     {
         lineActive = false;

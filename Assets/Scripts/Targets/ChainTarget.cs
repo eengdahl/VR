@@ -19,9 +19,11 @@ public class ChainTarget : MonoBehaviour
     [SerializeField] float chainTime;
     float chainTimer;
 
+    public bool selfReact;
+
     [SerializeField] float[] downTime;
 
-    List<IChainListener> listeners;
+    List<IChainListener> listeners = new();
 
     private void OnEnable()
     {
@@ -32,7 +34,8 @@ public class ChainTarget : MonoBehaviour
         chainTimer = chainTime;
         chainReaction = false;
 
-        StartCoroutine(nameof(WaitForReset));
+        if (selfReact)
+            StartCoroutine(nameof(WaitForReset));
     }
 
     public void InitializeChildren()
@@ -53,7 +56,7 @@ public class ChainTarget : MonoBehaviour
     private void StopChainReaction()
     {
         foreach (var item in targets)
-            item.ChildShotDown();
+            item.ChildForceDown();
 
         chainTimer = chainTime;
         chainReaction = false;
@@ -62,6 +65,8 @@ public class ChainTarget : MonoBehaviour
         {
             listener.ObserveChainDone();
         }
+
+        if (!selfReact) return;
 
         StartCoroutine(nameof(WaitForReset));
     }

@@ -127,4 +127,9 @@ public class GameController : MonoBehaviour
     {
         scoreController.BulletWasFired(wasOnTarget);
     }
+
+    public void OverrideTime(int time)
+    {
+        gameTimer += time;
+    }
 }

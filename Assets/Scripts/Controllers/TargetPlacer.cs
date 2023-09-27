@@ -96,10 +96,10 @@ public class TargetPlacer : MonoBehaviour
 
     public void RemoveTargets()
     {
-        DeactivateTargets();
+        DeactivateTargets(true);
 
         activeTargets.Clear();
-        targetTrailRenderer.DePopulateList();
+        //targetTrailRenderer.DePopulateList();
     }
 
     public void InitializeTargets(List<GameObject> targetsToInitalize)
@@ -126,7 +126,7 @@ public class TargetPlacer : MonoBehaviour
         }
     }
 
-    public void DeactivateTargets()
+    public void DeactivateTargets(bool includeBosses)
     {
         foreach (var target in activeTargets)
         {
@@ -138,10 +138,12 @@ public class TargetPlacer : MonoBehaviour
             target.gameObject.SetActive(false);
         }
 
-        foreach (var item in bossTargets)
-        {
-            item.SetActive(false);
-        }
+        if (includeBosses)
+            foreach (var item in bossTargets)
+            {
+                item.SetActive(false);
+            }
+
         targetTrailRenderer.DePopulateList();
     }
 }

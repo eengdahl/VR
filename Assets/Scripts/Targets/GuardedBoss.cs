@@ -15,7 +15,7 @@ public class GuardedBoss : ShootableBoss
         base.OnEnable();
         canBeHit = false;
         spawnedKid = 0;
-        anim.SetTrigger("getUp");
+        //anim.SetTrigger("getUp");
 
         foreach (var item in childTargets)
         {
@@ -29,7 +29,14 @@ public class GuardedBoss : ShootableBoss
         StartCoroutine(nameof(SpawnChildDelay));
     }
 
-    void SpawnChild()
+    IEnumerator SpawnChildDelay() //a small delay to spawning kids
+    {
+        yield return new WaitForSeconds(1f);
+
+        SpawnChild();
+    }
+
+    void SpawnChild() //spawn kids 
     {
         if (spawnedKid < childTargets.Count)
             for (int i = 0; i < spawnedKid + 1; i++)
@@ -43,7 +50,7 @@ public class GuardedBoss : ShootableBoss
         deadKids = spawnedKid;
     }
 
-    public void KidDied()
+    public void KidDied() //called when a kid dies, 
     {
         deadKids--;
         if (deadKids != 0) return;
@@ -54,14 +61,7 @@ public class GuardedBoss : ShootableBoss
             canBeHit = true;
     }
 
-    IEnumerator SpawnChildDelay()
-    {
-        yield return new WaitForSeconds(1f);
-
-        SpawnChild();
-    }
-
-    void DeactivateKids()
+    void DeactivateKids() //turn off all kids
     {
         foreach (var item in childTargets)
         {
@@ -71,7 +71,7 @@ public class GuardedBoss : ShootableBoss
         }
     }
 
-    public override void OnHit()
+    public override void OnHit() //when we are hit
     {
         if (!canBeHit) return;
 

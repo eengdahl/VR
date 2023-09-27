@@ -13,6 +13,9 @@ public class HardBoss : MonoBehaviour, IChainListener
 
     private void OnEnable()
     {
+        FindObjectOfType<TargetPlacer>().DeactivateTargets(false);
+        FindObjectOfType<GameController>().OverrideTime(20);
+
         //play spawn animation, since we've removed ShootableTarget and ShootableMoving
         anim = GetComponentInChildren<Animator>();
         anim.CrossFade("TargetDownState", 0, 0);
@@ -21,6 +24,7 @@ public class HardBoss : MonoBehaviour, IChainListener
         foreach (var item in targets)
         {
             item.gameObject.SetActive(true);
+            item.ChainSubscribe(this);
         }
         ActivateTarget();
     }
@@ -32,7 +36,7 @@ public class HardBoss : MonoBehaviour, IChainListener
 
     void ActivateTarget()
     {
-        Debug.Log("Activating target: " + targetToActivate);
+        //Debug.Log("Activating target: " + targetToActivate);
         targets[PickTarget()].InitializeChildren();
     }
 
