@@ -15,7 +15,7 @@ public class GuardedBoss : ShootableBoss
         base.OnEnable();
         canBeHit = false;
         spawnedKid = 0;
-        //anim.SetTrigger("getUp");
+        anim.SetTrigger("getUp");
 
         foreach (var item in childTargets)
         {

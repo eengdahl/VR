@@ -11,7 +11,7 @@ public class TargetPlacer : MonoBehaviour
     [SerializeField] List<GameObject> mediumTargets = new();
     [SerializeField] List<GameObject> hardTargets = new();
     [Tooltip("0 = Easy boss, 1 = Medium boss, 2 = hard boss")]
-    [SerializeField] List<GameObject> bossTargets = new(); //find a way to spawn targets
+    [SerializeField] List<GameObject> bossTargets = new();
 
     [HideInInspector] public List<GameObject> activeTargets = new();
 
