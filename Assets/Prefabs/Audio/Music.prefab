@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197af2e4056c1941804843c7c69c8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonClip: {fileID: 8300000, guid: 41c25bf60e07a5548ab3031c4dbb4b54, type: 3}
-  draculaClip: {fileID: 8300000, guid: df0a3ac3e64095d43a7ba9f34210c7f2, type: 3}
+  skeletonClip: {fileID: 8300000, guid: df0a3ac3e64095d43a7ba9f34210c7f2, type: 3}
+  draculaClip: {fileID: 8300000, guid: af7997b3b0f8e4b46b1a6d666acfd8d1, type: 3}
   zombieClip: {fileID: 8300000, guid: af7997b3b0f8e4b46b1a6d666acfd8d1, type: 3}
   bossClip: {fileID: 8300000, guid: 4c5472d79eab3bf4e8f35ce243dad835, type: 3}
 --- !u!1 &9138983081874964309

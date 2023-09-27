@@ -128,10 +128,10 @@ public class Shoot : MonoBehaviour
                     {
                         if (currentAmmo > 0)
                         {
-                            audioSource.clip = ShootSound;
+                            audioSource.clip = fanShootSound;
                             Fire();
                         }
-                        else audioSource.PlayOneShot(emptyClip);
+                        else audioSource.PlayOneShot(emptyClip, 0.6f);
                     }
                     if (currentGameState == GameState.inMenu)
                     {
@@ -152,7 +152,7 @@ public class Shoot : MonoBehaviour
                     }
                     else
                     {
-                        audioSource.PlayOneShot(emptyClip);
+                        audioSource.PlayOneShot(emptyClip, 0.6f);
                         revolverAnims.CrossFade("RolfUncock", 0);
 
                     }
