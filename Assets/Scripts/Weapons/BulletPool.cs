@@ -15,18 +15,18 @@ public class BulletPool : MonoBehaviour
     private void Start()
     {
         parent = this.gameObject.transform;
-        //transform.forward = Vector3.right;
         bullets ??= new Queue<GameObject>();
     }
     private void OnEnable()
     {
+        //Creating new queue if non exists 
         bullets ??= new Queue<GameObject>();
 
-        CreateBullets(20);
+        PopulateBulletPool(20);
     }
 
 
-    private void CreateBullets(int amount)
+    private void PopulateBulletPool(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
@@ -34,15 +34,16 @@ public class BulletPool : MonoBehaviour
             newBullet.transform.parent = parent;
             bullets.Enqueue(newBullet);
         }
-        DeactivateBullets();
+        DisableInitialBullets();
     }
     public void DisableBullet(GameObject usedBullet)
     {
+        //Put bullet to sleep
         usedBullet.transform.parent = null;
         usedBullet.SetActive(false);
         bullets.Enqueue(usedBullet);
     }
-    private void DeactivateBullets()
+    private void DisableInitialBullets()
     {
         int amount = bullets.Count;
         for (int i = 0; i < amount; i++)
@@ -55,11 +56,13 @@ public class BulletPool : MonoBehaviour
 
     public GameObject GetBullet()
     {
+        //If no bullets is non-active
         if (bullets.Count == 0)
         {
             var newBullet = Instantiate(bulletPrefab);
             return newBullet;
         }
+        //If bullets are disable, get from here
         var bullet = bullets.Dequeue();
 
         bullet.gameObject.SetActive(true);
