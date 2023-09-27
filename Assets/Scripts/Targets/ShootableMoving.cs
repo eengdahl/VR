@@ -41,7 +41,7 @@ public class ShootableMoving : MonoBehaviour
     [HideInInspector] public bool shouldMove;
 
     public enum CurrentState { Moving, Waiting, Idle }
-    CurrentState currentState = CurrentState.Waiting;
+    [SerializeField] CurrentState currentState = CurrentState.Waiting;
 
     ShootableTarget targetBase;
     monsterspawnSound spawnSound;
@@ -186,8 +186,8 @@ public class ShootableMoving : MonoBehaviour
 
     public void ManualChangeState(CurrentState stateToChangeTo) //should you need to manually change the state of a target
     {
-        if (stateToChangeTo == CurrentState.Idle)
-            returnBuffer = .3f;
+        //if (stateToChangeTo == CurrentState.Idle)
+        //    returnBuffer = .3f;
 
         currentState = stateToChangeTo;
     }
