@@ -44,6 +44,7 @@ public class GuardedBoss : ShootableBoss
                 childTargets[i].ManualSetUpTarget();
                 childTargets[i].mover.shouldMove = true;
                 childTargets[i].GetComponent<Collider>().enabled = true;
+                childTargets[i].mover.ManualChangeState(ShootableMoving.CurrentState.Moving);
             }
 
         spawnedKid++;
