@@ -236,7 +236,16 @@ public class Shoot : MonoBehaviour
             if (hit.collider != null && hit.collider.CompareTag("UI"))
             {
                 gameController.BulletFired(false);
-                hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
+                if (gameObject.GetComponent<ShootableButton>() != null)
+                {
+                    hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
+                }
+                else if (gameObject.GetComponent<LockScript>() != null)
+                {
+                    hit.collider.GetComponent<LockScript>().TriggerAnim();
+                }
+                
+
             }
 
 
