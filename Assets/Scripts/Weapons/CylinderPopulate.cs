@@ -218,7 +218,7 @@ public class CylinderPopulate : MonoBehaviour
             aS.Play();
             Destroy(other.gameObject);
         }        
-        if (other.CompareTag("SixpackAmmo") && other.gameObject.GetComponent<RevolverAmmo>().collision)
+        if (other.CompareTag("SixpackAmmo") && other.gameObject.GetComponent<RevolverAmmo>().collision && bullets.Count == 0 && cylinderOpen)
         {
             FillBarrel(6);
             aS.clip = shellLoaded;
