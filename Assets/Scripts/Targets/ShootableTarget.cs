@@ -18,6 +18,7 @@ public class ShootableTarget : MonoBehaviour
     private float downTime;
     public bool selfGetUp = true;
 
+    [Header("Testing")]
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
 
@@ -44,8 +45,14 @@ public class ShootableTarget : MonoBehaviour
     [SerializeField] private float timeToTriggerTrail = 30f;
     private float timeSinceLastHit;
     private bool lineActive;
+
+    [Header("Trails")]
     public TargetTrailsRenderer trailRenderer;
     public GameObject line;
+
+    [Header("Misc")]
+    [Tooltip("The score that this specific target gives")]
+    [SerializeField] int scoreToGive = 100;
 
     //-----SETUP------
     public virtual void Awake()
@@ -92,9 +99,13 @@ public class ShootableTarget : MonoBehaviour
         audSource.Play();
         StartCoroutine(nameof(PlayHitAnim));
         StartHitFeedback();
+
+        score.AddScore(scoreToGive);
+
         if (mover != null)
             mover.ManualChangeState(ShootableMoving.CurrentState.Idle);
         timeSinceLastHit = 0f;
+
         if (lineActive)
             DisableLine();
     }

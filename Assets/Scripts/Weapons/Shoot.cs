@@ -218,7 +218,7 @@ public class Shoot : MonoBehaviour
                 Instantiate(hitSparkPS, hit.point, Quaternion.identity);
 
                 hit.collider.gameObject.GetComponent<ShootableTarget>().OnHit();
-                scoreController.AddScore(100);
+                //score is now given in ShootableTarget!
             }
 
             if (hit.collider != null && hit.collider.CompareTag("UI"))
