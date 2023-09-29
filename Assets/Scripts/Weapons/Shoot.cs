@@ -110,49 +110,37 @@ public class Shoot : MonoBehaviour
             bool leftFanReleased = this.leftFanReleased.action.WasReleasedThisFrame();
             bool rightFanReleased = this.rightFanReleased.action.WasReleasedThisFrame();
 
-            bool revolverIsCocked = revolverCock.action.WasPressedThisFrame();
-            if (revolverIsCocked && !isCock)
-            {
-                isCock = true;
-                revolverAnims.CrossFade("RolfCock", 0);
 
-            }
-
-            if (leftTriggerHeld != 0 || righttriggerHeld != 0)
+            if (leftFanReleased || rightFanReleased)
             {
-                if (leftFanReleased || rightFanReleased)
+                if (currentGameState == GameState.inGame)
                 {
-                    if (currentGameState == GameState.inGame)
+                    if (currentAmmo > 0 && !cylinderScript.cylinderOpen)
                     {
-                        if (currentAmmo > 0)
-                        {
-                            audioSource.clip = fanShootSound;
-                            Fire();
-                        }
-                        else audioSource.PlayOneShot(emptyClip, 0.6f);
+                        audioSource.clip = fanShootSound;
+                        Fire();
                     }
-                    if (currentGameState == GameState.inMenu)
-                    {
-                        BlankFire();
-                    }
+                    else audioSource.PlayOneShot(emptyClip, 0.6f);
+                }
+                if (currentGameState == GameState.inMenu)
+                {
+                    BlankFire();
                 }
             }
+            
 
             if (leftTriggerValue || rightTriggerValue)
             {
                 if (currentGameState == GameState.inGame)
                 {
-                    if (currentAmmo > 0)
+                    if (currentAmmo > 0 && !cylinderScript.cylinderOpen)
                     {
                         audioSource.clip = ShootSound;
                         Fire();
-                        revolverAnims.CrossFade("RolfUncock", 0);
                     }
                     else
                     {
                         audioSource.PlayOneShot(emptyClip, 0.6f);
-                        revolverAnims.CrossFade("RolfUncock", 0);
-
                     }
 
                 }
