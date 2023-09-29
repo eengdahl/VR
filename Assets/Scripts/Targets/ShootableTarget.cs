@@ -84,7 +84,7 @@ public class ShootableTarget : MonoBehaviour
 
     private void Update()
     {
-        if (timeSinceLastHit >= timeToTriggerTrail && !lineActive)
+        if (timeSinceLastHit >= timeToTriggerTrail && !lineActive && trailRenderer != null)
         {
             trailRenderer.ShowLine(gameObject, monsterType);
             lineActive = true;
