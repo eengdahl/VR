@@ -127,7 +127,7 @@ public class Shoot : MonoBehaviour
                     BlankFire();
                 }
             }
-            
+
 
             if (leftTriggerValue || rightTriggerValue)
             {
@@ -232,7 +232,7 @@ public class Shoot : MonoBehaviour
                 {
                     hit.collider.GetComponent<LockScript>().TriggerAnim();
                 }
-                
+
 
             }
 
@@ -283,8 +283,15 @@ public class Shoot : MonoBehaviour
             }
             else if (hit.collider.CompareTag("UI"))
             {
-                hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
-                Instantiate(hitSparkPS, hit.point, Quaternion.identity);
+                gameController.BulletFired(false);
+                if (hit.collider.gameObject.GetComponent<ShootableButton>() != null)
+                {
+                    hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
+                }
+                else if (hit.collider.gameObject.GetComponent<LockScript>() != null)
+                {
+                    hit.collider.GetComponent<LockScript>().TriggerAnim();
+                }
             }
 
         }
