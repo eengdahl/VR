@@ -4442,6 +4442,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
+  timeToTriggerTrail: 30
+  trailRenderer: {fileID: 0}
+  line: {fileID: 0}
   maxHealth: 4
   currentHealth: 0
   childTargets:
@@ -11595,6 +11598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputData
       objectReference: {fileID: 0}
+    - target: {fileID: 2406162097483231703, guid: ffe77fc61ccbaf14990b766f8a1618f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7344248523964095559, guid: ffe77fc61ccbaf14990b766f8a1618f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16312,6 +16319,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
+  timeToTriggerTrail: 30
+  trailRenderer: {fileID: 0}
+  line: {fileID: 0}
   boss: {fileID: 0}
 --- !u!1001 &1210438847
 PrefabInstance:
@@ -20934,6 +20944,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
+  timeToTriggerTrail: 30
+  trailRenderer: {fileID: 0}
+  line: {fileID: 0}
   boss: {fileID: 0}
 --- !u!1 &1538451476
 GameObject:
@@ -21392,6 +21405,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
+  timeToTriggerTrail: 30
+  trailRenderer: {fileID: 0}
+  line: {fileID: 0}
   boss: {fileID: 0}
 --- !u!1001 &1576101694
 PrefabInstance:
@@ -24381,6 +24397,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
+  timeToTriggerTrail: 30
+  trailRenderer: {fileID: 0}
+  line: {fileID: 0}
   maxHealth: 4
   currentHealth: 0
 --- !u!1001 &1823250536
@@ -24675,6 +24694,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
+  timeToTriggerTrail: 30
+  trailRenderer: {fileID: 0}
+  line: {fileID: 0}
   maxHealth: 4
   currentHealth: 0
 --- !u!1001 &1851392214
