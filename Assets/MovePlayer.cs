@@ -21,11 +21,6 @@ public class MovePlayer : MonoBehaviour
 
     void Start()
     {
-        foreach (var item in credit)
-        {
-            item.transform.LookAt(Vector3.zero);
-
-        }
         timer = 0;
         //Unlock if we need the player to move
         lockScript = true;
@@ -78,7 +73,10 @@ public class MovePlayer : MonoBehaviour
 
 
         player.position = Vector3.MoveTowards(player.position, gamePosition.position, Time.deltaTime * totalSpeed);
+    }
 
+    void Update()
+    {
         if (Vector3.Distance(transform.position, gamePosition.position) < 0.1f)
         {
             var aS = GetComponent<AudioSource>();
@@ -87,8 +85,6 @@ public class MovePlayer : MonoBehaviour
             lockScript = true;
         }
     }
-
-
 
     private void TeleportToStart()
     {
@@ -113,12 +109,11 @@ public class MovePlayer : MonoBehaviour
     }
     void AtStart()
     {
-        foreach (var item in credit)
-        {
-            item.transform.LookAt(Vector3.zero, Vector3.right);
+        RotatingGrave[] credits = GameObject.FindObjectsOfType<RotatingGrave>();
 
+        foreach (var item in credits)
+        {
+            item.SetRotation();
         }
     }
-
-
 }
