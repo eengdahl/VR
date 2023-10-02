@@ -8,7 +8,7 @@ public class ShootTest : MonoBehaviour
     public GameObject linePrefab;
     PickupTest pickupScript;
     AudioSource gunAS;
-    DecalPainter decalPainter;
+   // DecalPainter decalPainter;
     public Transform gunTip;
     public GameObject smokePuff;
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class ShootTest : MonoBehaviour
     {
         pickupScript = FindObjectOfType<PickupTest>();
         gunAS = GameObject.Find("Gun").GetComponent<AudioSource>();
-        decalPainter = FindObjectOfType<DecalPainter>();
+     //   decalPainter = FindObjectOfType<DecalPainter>();
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class ShootTest : MonoBehaviour
             {
                 var Line = GetLine();
                 Line.GetComponent<LineController>().DrawLine(gunTip.localToWorldMatrix.GetPosition(), hit.point);
-                decalPainter.PaintDecal(hit.point, hit.normal, hit.collider);
+         //       decalPainter.PaintDecal(hit.point, hit.normal, hit.collider);
                 if (hit.collider.CompareTag("Bottle"))
                 {
 

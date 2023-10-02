@@ -5623,17 +5623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1 &301125932
 GameObject:
   m_ObjectHideFlags: 0
@@ -19923,6 +19912,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6267655678931803126, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6536350075765392638, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
       propertyPath: trailRendererPrefab
       value: 
@@ -19973,6 +19966,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655928648131461333, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680811432328133045, guid: de4a658d7dc14c14daed3cd2beb79b41, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23403,7 +23400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1249617918
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23446,7 +23443,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 151c04bce352f0445a3babb2f6f7676d, type: 2}
+  - {fileID: 2100000, guid: a9fef8ecec3b4de4ea8a484e0af252a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32243,6 +32240,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 850387907807958164, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c994d22a9398f64d9292e3849f59f92, type: 2}
+    - target: {fileID: 2624304277714174157, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c994d22a9398f64d9292e3849f59f92, type: 2}
+    - target: {fileID: 4086386287903913358, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c994d22a9398f64d9292e3849f59f92, type: 2}
     - target: {fileID: 4173574031454315032, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.823
@@ -32287,6 +32296,10 @@ PrefabInstance:
       propertyPath: m_StartingSelectedInteractable
       value: 
       objectReference: {fileID: 34076019}
+    - target: {fileID: 5196500940185791189, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c994d22a9398f64d9292e3849f59f92, type: 2}
     - target: {fileID: 5525493982456175927, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -32295,6 +32308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox
       objectReference: {fileID: 0}
+    - target: {fileID: 8321504193640263628, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c994d22a9398f64d9292e3849f59f92, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33326,7 +33343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1759555065
 TerrainCollider:
   m_ObjectHideFlags: 0
