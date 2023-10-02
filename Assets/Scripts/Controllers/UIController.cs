@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        fpsText.text = Mathf.Round(1 / Time.deltaTime).ToString();
+        //fpsText.text = Mathf.Round(1 / Time.deltaTime).ToString();
     }
 
     public void SelectDifficulty(int selection) //Choose difficulty and SetupGame in Gamecontroller
