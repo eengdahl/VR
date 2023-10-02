@@ -101,14 +101,11 @@ public class CylinderPopulate : MonoBehaviour
             cylinderRB.isKinematic = true;
             cylinderOpen = false;
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (inputData != null && cylinderOpen && !flickTriggered)
         {
 
-            if (inputData.leftControllerVelocity.magnitude > 1 || Input.GetKeyDown(KeyCode.F))
+            if (inputData.leftControllerVelocity.magnitude > 1)
             {
                 cylinderRB.AddForce(cylinderFlickForce, ForceMode.Impulse);
                 flickTriggered = true;
