@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.OpenXR.Input;
-
+using UnityEngine.SceneManagement;
 
 public class Shoot : MonoBehaviour
 {
@@ -292,6 +292,10 @@ public class Shoot : MonoBehaviour
                 {
                     hit.collider.GetComponent<LockScript>().TriggerAnim();
                 }
+            }
+            else if(hit.collider.CompareTag("Player"))
+            {
+                SceneManager.LoadScene(0);
             }
 
         }
