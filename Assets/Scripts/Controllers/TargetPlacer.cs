@@ -26,14 +26,6 @@ public class TargetPlacer : MonoBehaviour
         targetTrailRenderer = FindObjectOfType<TargetTrailsRenderer>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            PlaceTargets(Difficulty.Normal);
-        }
-    }
-
     public void PlaceTargets(Difficulty difficulty) //activate the appropriate targets
     {
         switch (difficulty)
