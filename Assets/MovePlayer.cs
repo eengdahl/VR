@@ -28,7 +28,7 @@ public class MovePlayer : MonoBehaviour
         player = this.transform;
         player.position = startPosition.position;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (lockScript) return;
 
@@ -65,6 +65,13 @@ public class MovePlayer : MonoBehaviour
             player.position = Vector3.MoveTowards(player.position, gamePosition.position, Time.deltaTime * speed);
             return;
         }
+        if (Vector3.Distance(transform.position, gamePosition.position) < 0.1f)
+        {
+            var aS = GetComponent<AudioSource>();
+            aS.Stop();
+            AtStart();
+            lockScript = true;
+        }
 
         sin = Mathf.Sin(1 * Time.time);
         sin = sin * 0.1f;
@@ -75,16 +82,7 @@ public class MovePlayer : MonoBehaviour
         player.position = Vector3.MoveTowards(player.position, gamePosition.position, Time.deltaTime * totalSpeed);
     }
 
-    void Update()
-    {
-        if (Vector3.Distance(transform.position, gamePosition.position) < 0.1f)
-        {
-            var aS = GetComponent<AudioSource>();
-            aS.Stop();
-            AtStart();
-            lockScript = true;
-        }
-    }
+
 
     private void TeleportToStart()
     {
