@@ -219,11 +219,11 @@ public class Shoot : MonoBehaviour
             if (hit.collider != null && hit.collider.CompareTag("UI"))
             {
                 gameController.BulletFired(false);
-                if (gameObject.GetComponent<ShootableButton>() != null)
+                if (hit.collider.gameObject.GetComponent<ShootableButton>() != null)
                 {
                     hit.collider.gameObject.GetComponent<ShootableButton>().TriggerButton();
                 }
-                else if (gameObject.GetComponent<LockScript>() != null)
+                else if (hit.collider.gameObject.GetComponent<LockScript>() != null)
                 {
                     hit.collider.GetComponent<LockScript>().TriggerAnim();
                 }
@@ -288,7 +288,7 @@ public class Shoot : MonoBehaviour
                     hit.collider.GetComponent<LockScript>().TriggerAnim();
                 }
             }
-            else if(hit.collider.CompareTag("Player"))
+            else if (hit.collider.CompareTag("Player"))
             {
                 SceneManager.LoadScene(0);
             }

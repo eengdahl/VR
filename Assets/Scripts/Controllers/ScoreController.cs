@@ -136,7 +136,7 @@ public class ScoreController : MonoBehaviour
         currentCombo = 0;
         comboTimer = 0;
 
-        multiplierSlider.gameObject.SetActive(false);
+        multiplierSlider.gameObject.SetActive(true);
         multiplierText.gameObject.SetActive(true);
 
         bulletsFiredText.gameObject.SetActive(false);
