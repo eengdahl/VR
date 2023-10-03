@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 90;
+       
 
         audSource = GetComponent<AudioSource>();
         uiController = FindObjectOfType<UIController>();
