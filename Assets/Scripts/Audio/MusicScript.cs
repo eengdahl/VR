@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class MusicScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MusicScript : MonoBehaviour
     void Start()
     {
         count = 0;
+        count1 = Random.Range(0, backgroundNoise.Count - 1);
         aS = GetComponent<AudioSource>();
 
         StartCoroutine(StartBackground());
@@ -23,7 +25,7 @@ public class MusicScript : MonoBehaviour
     }
     IEnumerator StartBackground()
     {
-        aS.PlayOneShot(backgroundNoise[count1], 0.2f);
+        aS.PlayOneShot(backgroundNoise[count1], 1f);
 
         yield return new WaitForSeconds(backgroundNoise[count1].length);
         count1++;

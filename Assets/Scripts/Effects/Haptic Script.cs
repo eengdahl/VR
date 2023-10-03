@@ -15,7 +15,7 @@ public class HapticScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        interactable = FindAnyObjectByType<XRBaseInteractable>();
+        interactable = GetComponent<XRBaseInteractable>();
         interactable.activated.AddListener(TriggerHapticEvent);
     }
 
