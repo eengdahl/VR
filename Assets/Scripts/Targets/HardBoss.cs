@@ -37,11 +37,13 @@ public class HardBoss : MonoBehaviour, IChainListener
     void ActivateTarget()
     {
         //Debug.Log("Activating target: " + targetToActivate);
-        targets[PickTarget()].InitializeChildren();
+        targets[PickNewTarget()].InitializeChildren();
     }
 
-    int PickTarget()
+    int PickNewTarget()
     {
+        targets[targetToActivate].StopChainReaction();
+
         targetToActivate = Random.Range(0, targets.Count);
 
         if (targetToActivate == lastActivatedTarget && targetToActivate < targets.Count - 1)
