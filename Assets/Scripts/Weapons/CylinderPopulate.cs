@@ -75,25 +75,26 @@ public class CylinderPopulate : MonoBehaviour
         //Debug.Log(transform.localRotation);
         //Input for cylinder release
 
-        float righthandCylinderRelease = this.righthandReleaseCylinder.action.ReadValue<float>();
+        //float righthandCylinderRelease = this.righthandReleaseCylinder.action.ReadValue<float>();
         float lefthandCylinderRelease = this.lefthandReleaseCylinder.action.ReadValue<float>();
 
         //button held, release it
-        if (righthandCylinderRelease != 0)
-        {
-            cylinderRB.isKinematic = false;
+        //if (righthandCylinderRelease != 0)
+        //{
+        //    cylinderRB.isKinematic = false;
 
-        }
-        //cylinder returns to default spot and no input, lock it
-        if (transform.localRotation.z < 0 && righthandCylinderRelease == 0)
-        {
-            cylinderRB.isKinematic = true;
-            cylinderOpen = false;
-        }
+        //}
+        ////cylinder returns to default spot and no input, lock it
+        //if (transform.localRotation.z < 0 && righthandCylinderRelease == 0)
+        //{
+        //    cylinderRB.isKinematic = true;
+        //    cylinderOpen = false;
+        //}
 
         if (lefthandCylinderRelease != 0)
         {
             cylinderRB.isKinematic = false;
+            flickTriggered = false;
 
         }
         if (transform.localRotation.z < 0 && lefthandCylinderRelease == 0)
@@ -105,7 +106,7 @@ public class CylinderPopulate : MonoBehaviour
         if (inputData != null && cylinderOpen && !flickTriggered)
         {
 
-            if (inputData.leftControllerVelocity.magnitude > 1)
+            if (inputData.leftControllerVelocity.magnitude > 1.2f)
             {
                 cylinderRB.AddForce(cylinderFlickForce, ForceMode.Impulse);
                 flickTriggered = true;

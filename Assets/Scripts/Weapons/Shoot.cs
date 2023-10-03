@@ -28,7 +28,6 @@ public class Shoot : MonoBehaviour
     ScoreController scoreController;
 
     //Realoding
-    private bool reloading = false;
     private float reloadTime = 1.5f;
     private int maxAmmo = 1000;
     public int currentAmmo;
@@ -75,10 +74,6 @@ public class Shoot : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         muzzlePS = GetComponentInChildren<ParticleSystem>();
     }
-    private void OnEnable()
-    {
-        reloading = false;
-    }
 
     void Update()
     {
@@ -99,19 +94,19 @@ public class Shoot : MonoBehaviour
         }
 
 
-        if (!reloading && equipped)
+        if (equipped)
         {
-            float leftTriggerHeld = leftWeaponTrigger.action.ReadValue<float>();
-            float righttriggerHeld = rightWeaponTrigger.action.ReadValue<float>();
+            //float leftTriggerHeld = leftWeaponTrigger.action.ReadValue<float>();
+            //float righttriggerHeld = rightWeaponTrigger.action.ReadValue<float>();
 
             bool leftTriggerValue = leftWeaponTrigger.action.WasPressedThisFrame();
-            bool rightTriggerValue = rightWeaponTrigger.action.WasPressedThisFrame();
+            //bool rightTriggerValue = rightWeaponTrigger.action.WasPressedThisFrame();
 
             bool leftFanReleased = this.leftFanReleased.action.WasReleasedThisFrame();
-            bool rightFanReleased = this.rightFanReleased.action.WasReleasedThisFrame();
+            //bool rightFanReleased = this.rightFanReleased.action.WasReleasedThisFrame();
 
 
-            if (leftFanReleased || rightFanReleased)
+            if (leftFanReleased)
             {
                 if (currentGameState == GameState.inGame)
                 {
@@ -129,7 +124,7 @@ public class Shoot : MonoBehaviour
             }
 
 
-            if (leftTriggerValue || rightTriggerValue)
+            if (leftTriggerValue)
             {
                 if (currentGameState == GameState.inGame)
                 {

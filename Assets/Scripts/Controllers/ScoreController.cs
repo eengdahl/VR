@@ -45,8 +45,8 @@ public class ScoreController : MonoBehaviour
     float comboTimer;
     [SerializeField] [Range(0.01f, 1f)] float comboTimerModifier = 0.7f;
 
-    private int bulletsFired;
-    private int bulletsOnTarget;
+    private float bulletsFired;
+    private float bulletsOnTarget;
     private float accuracy;
 
     [HideInInspector] public bool timeTrialEnabled;

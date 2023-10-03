@@ -6,15 +6,25 @@ using UnityEngine.InputSystem;
 
 public class AmmoPouch : MonoBehaviour
 {
-    public Transform headsetPos;
+    public GameObject ammoPrefab;
+    private bool ammoReady;
     // Start is called before the first frame update
     void Start()
     {
-        headsetPos = Camera.main.transform;
+        ammoReady = true;
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        transform.position = new Vector3(headsetPos.position.x - 0.3f, headsetPos.position.y - 0.5f, headsetPos.position.z);
+        if (other.CompareTag("Hand") && !ammoReady)
+        {
+            Instantiate(ammoPrefab, transform.position, Quaternion.identity);
+            ammoReady = true;
+        }
+    }
+
+    public void AmmoPickedUp()
+    {
+        ammoReady = false;
     }
 }
