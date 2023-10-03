@@ -19,7 +19,7 @@ public class ChainTarget : MonoBehaviour
     [SerializeField] float chainTime;
     float chainTimer;
 
-    public bool selfReact;
+    public bool selfReset;
 
     [SerializeField] float[] downTime;
 
@@ -34,7 +34,7 @@ public class ChainTarget : MonoBehaviour
         chainTimer = chainTime;
         chainReaction = false;
 
-        if (selfReact)
+        if (selfReset)
             StartCoroutine(nameof(WaitForReset));
     }
 
@@ -53,7 +53,7 @@ public class ChainTarget : MonoBehaviour
         chainReaction = true;
     }
 
-    private void StopChainReaction()
+    public void StopChainReaction()
     {
         foreach (var item in targets)
             item.ChildForceDown();
@@ -66,7 +66,7 @@ public class ChainTarget : MonoBehaviour
             listener.ObserveChainDone();
         }
 
-        if (!selfReact) return;
+        if (!selfReset) return;
 
         StartCoroutine(nameof(WaitForReset));
     }
