@@ -136,6 +136,9 @@ public class ScoreController : MonoBehaviour
         currentCombo = 0;
         comboTimer = 0;
 
+        multiplierSlider.gameObject.SetActive(false);
+        multiplierText.gameObject.SetActive(true);
+
         bulletsFiredText.gameObject.SetActive(false);
         accuracyText.gameObject.SetActive(false);
     }
@@ -340,6 +343,9 @@ public class ScoreController : MonoBehaviour
 
     void DisplayStats()
     {
+        multiplierSlider.gameObject.SetActive(false);
+        multiplierText.gameObject.SetActive(true);
+
         bulletsFiredText.gameObject.SetActive(true);
         accuracyText.gameObject.SetActive(true);
 
@@ -355,7 +361,7 @@ public class ScoreController : MonoBehaviour
         if (time <= 0)
         {
             DisplayStats();
-            timerText.text = "GAME OVER! GOOD JOB!";
+            timerText.text = "GAME OVER!";
         }
     }
 
