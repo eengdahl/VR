@@ -25,7 +25,7 @@ public class MusicScript : MonoBehaviour
     }
     IEnumerator StartBackground()
     {
-        aS.PlayOneShot(backgroundNoise[count1], 1f);
+        aS.PlayOneShot(backgroundNoise[count1], 0.4f);
 
         yield return new WaitForSeconds(backgroundNoise[count1].length);
         count1++;
