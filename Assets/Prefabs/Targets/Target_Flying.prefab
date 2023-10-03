@@ -487,9 +487,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4047518489227567272}
-  - component: {fileID: 8279292677589152583}
   - component: {fileID: 8634225126354335215}
   - component: {fileID: 4792966571334902063}
+  - component: {fileID: 1134466654552256833}
   m_Layer: 0
   m_Name: Target_Flying
   m_TagString: Target
@@ -513,29 +513,6 @@ Transform:
   - {fileID: 7351116188270483294}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 40.602, y: -240.181, z: 0}
---- !u!136 &8279292677589152583
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8305358158925327910}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6109582
-  m_Height: 1.2219169
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.54, z: 0}
 --- !u!82 &8634225126354335215
 AudioSource:
   m_ObjectHideFlags: 0
@@ -661,6 +638,27 @@ MonoBehaviour:
   scoreToGive: 0
   maxHealth: 4
   currentHealth: 0
+--- !u!65 &1134466654552256833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305358158925327910}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9050728, y: 2.2817562, z: 1}
+  m_Center: {x: -0.03827679, y: 0.64087915, z: -0.000001254859}
 --- !u!1 &9192495834775866843
 GameObject:
   m_ObjectHideFlags: 0
