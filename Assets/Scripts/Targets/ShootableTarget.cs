@@ -60,7 +60,7 @@ public class ShootableTarget : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         spawnSound = FindAnyObjectByType<monsterspawnSound>();
         audSource = GetComponent<AudioSource>();
-        _collider = GetComponent<CapsuleCollider>();
+        _collider = GetComponent<Collider>();
         mover = GetComponent<ShootableMoving>();
         targetMaterial = targetsMesh.material;
 

@@ -6,6 +6,7 @@ public class ShootableBoss : ShootableTarget
 {
     [SerializeField] int maxHealth = 4;
     public int currentHealth;
+    public bool flyingboss;
 
     public override void OnEnable()
     {
@@ -20,6 +21,10 @@ public class ShootableBoss : ShootableTarget
             currentHealth--;
             StartHitFeedback();
             audSource.Play();
+        }
+        else if (flyingboss)
+        {
+            gameObject.SetActive(false);
         }
         else
             base.OnHit();

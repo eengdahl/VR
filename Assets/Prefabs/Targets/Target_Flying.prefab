@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5576806242110985630}
   - component: {fileID: 6307101448345923915}
   - component: {fileID: 2652771957686940459}
+  - component: {fileID: 4595546890093926212}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -83,6 +84,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &4595546890093926212
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479198079110958359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.040394902
+  m_Height: 0.1135194
+  m_Direction: 2
+  m_Center: {x: 0.006859879, y: 0.0033988392, z: -0.020114083}
 --- !u!1 &971856029298907621
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,14 +513,15 @@ GameObject:
   - component: {fileID: 4047518489227567272}
   - component: {fileID: 8634225126354335215}
   - component: {fileID: 4792966571334902063}
-  - component: {fileID: 1134466654552256833}
+  - component: {fileID: 2991154487465495238}
+  - component: {fileID: 6451658380144387739}
   m_Layer: 0
   m_Name: Target_Flying
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4047518489227567272
 Transform:
   m_ObjectHideFlags: 0
@@ -638,7 +663,8 @@ MonoBehaviour:
   scoreToGive: 0
   maxHealth: 4
   currentHealth: 0
---- !u!65 &1134466654552256833
+  flyingboss: 1
+--- !u!65 &2991154487465495238
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -655,10 +681,33 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.9050728, y: 2.2817562, z: 1}
-  m_Center: {x: -0.03827679, y: 0.64087915, z: -0.000001254859}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6451658380144387739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305358158925327910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69245d66e05ebb4f9762f1eaba3c1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveType: 0
+  waypointParent: {fileID: 0}
+  waypoints: []
+  randomWaypoint: 0
+  pingPong: 0
+  waitTime: 1
+  moveSpeed: 1
+  currentwaypoint: 0
+  testTarget: 0
+  shouldMove: 0
+  currentState: 1
 --- !u!1 &9192495834775866843
 GameObject:
   m_ObjectHideFlags: 0

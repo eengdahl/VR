@@ -11,7 +11,7 @@ public class AmmoPouch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ammoReady = true;
+        ammoReady = false;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -212,7 +212,14 @@ public class Shoot : MonoBehaviour
                 }
                 Instantiate(hitSparkPS, hit.point, Quaternion.identity);
 
-                hit.collider.gameObject.GetComponent<ShootableTarget>().OnHit();
+                if (hit.collider.gameObject.GetComponent<ShootableTarget>() != null)
+                {
+                    hit.collider.gameObject.GetComponent<ShootableTarget>().OnHit();
+                }
+                if (hit.collider.gameObject.GetComponentInParent<ShootableBoss>() != null)
+                {
+                    hit.collider.gameObject.GetComponentInParent<ShootableBoss>().OnHit();
+                }
                 //score is now given in ShootableTarget!
             }
 
