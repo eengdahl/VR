@@ -168,7 +168,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -195,8 +195,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 89a1343f1621165428d9ac42080593ed, type: 3}
   - {fileID: 8300000, guid: 674811e0622abbe4aad5846285892cca, type: 3}
   - {fileID: 8300000, guid: a1598d8ea3490714abb3f2b441d9eade, type: 3}
-  - {fileID: 8300000, guid: 38d1ae9ded2674f419ad67f312c34d85, type: 3}
-  - {fileID: 8300000, guid: e34a2a63c47449c4bb811abd3743d01a, type: 3}
   backGroundMusic:
   - {fileID: 8300000, guid: 5bbf8abfbdfb2954daab533bddfdf3da, type: 3}
   - {fileID: 8300000, guid: 6a29bc69619508b4eb1d41bac2c15a62, type: 3}
