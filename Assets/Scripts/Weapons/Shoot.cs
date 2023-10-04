@@ -204,6 +204,11 @@ public class Shoot : MonoBehaviour
                 gameController.BulletFired(false);
             }
 
+            if (hit.collider.CompareTag("Pumpkin"))
+            {
+                Instantiate(pumpkinSplat, hit.point, Quaternion.identity);
+            }
+
             if (hit.collider != null && hit.collider.CompareTag("Target"))
             {
                 gameController.BulletFired(true);
@@ -235,8 +240,6 @@ public class Shoot : MonoBehaviour
                 {
                     hit.collider.GetComponent<LockScript>().TriggerAnim();
                 }
-
-
             }
 
 

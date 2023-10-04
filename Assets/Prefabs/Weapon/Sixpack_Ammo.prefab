@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5805254100404366492}
   m_Layer: 0
   m_Name: Sixpack_Ammo
-  m_TagString: Untagged
+  m_TagString: SixpackAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 0
+  time: 20
 --- !u!65 &5805254100404366492
 BoxCollider:
   m_ObjectHideFlags: 0

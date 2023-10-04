@@ -9,7 +9,7 @@ public class RevolverAmmo : MonoBehaviour
 
     public void EnableCollision()
     {
-        collision = true;
+        collision = !collision;
         GetComponent<Rigidbody>().isKinematic = false;
     }
 

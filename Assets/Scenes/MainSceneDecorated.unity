@@ -1584,7 +1584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3576337620059088147, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
       propertyPath: time
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1265486726519079142, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
       propertyPath: m_Name
@@ -1628,6 +1628,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3597696487775327641, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927943314837208836, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805254100404366492, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
