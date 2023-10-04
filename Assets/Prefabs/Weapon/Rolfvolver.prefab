@@ -885,7 +885,7 @@ MonoBehaviour:
   numberOfChambers: 6
   gunColliders:
   - {fileID: 6424020050688330799}
-  bulletPlacementRadius: 0.0102
+  bulletPlacementRadius: 0.013
   bulletForwardAxisOffset: 0.0092
   bulletTransform: {fileID: 6953818415742678659}
   cylinderOpen: 0
@@ -916,7 +916,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   gun: {fileID: 8645509538670377525}
-  bulletPrefab: {fileID: 1813471793046504, guid: 6e3ce6fc0134b1c498e1796842ed858b, type: 3}
+  bulletPrefab: {fileID: 2094312489446118993, guid: ac6c986b1c692fd44a9d26e7cfd6217e, type: 3}
   cylinderMesh: {fileID: 7402967639532037115}
   bullets: []
   righthandGrabSelect: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
