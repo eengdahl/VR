@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HardBoss : MonoBehaviour, IChainListener
+public class ChainSpawnerBoss : MonoBehaviour, IChainListener
 {
     [SerializeField] List<ChainTarget> targets;
 
@@ -42,7 +42,7 @@ public class HardBoss : MonoBehaviour, IChainListener
 
     int PickNewTarget()
     {
-        targets[targetToActivate].StopChainReaction();
+        targets[targetToActivate].ForceDownLinks();
 
         targetToActivate = Random.Range(0, targets.Count);
 

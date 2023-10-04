@@ -53,10 +53,15 @@ public class ChainTarget : MonoBehaviour
         chainReaction = true;
     }
 
-    public void StopChainReaction()
+    public void ForceDownLinks()
     {
         foreach (var item in targets)
             item.ChildForceDown();
+    }
+
+    public void StopChainReaction()
+    {
+        ForceDownLinks();
 
         chainTimer = chainTime;
         chainReaction = false;

@@ -37,7 +37,7 @@ public class MovePlayer : MonoBehaviour
         {
 
             timer += Time.deltaTime;
-            if (timer > 1.5f)
+            if (timer > .9f)
             {
                 TeleportToStart();
             }

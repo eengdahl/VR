@@ -7,12 +7,14 @@ public class ChainTargetChild : ShootableTarget
     [HideInInspector] public ChainTarget chainParent;
 
     Collider col;
+    bool hit;
 
     private new void OnEnable()
     {
         anim.CrossFade("TargetDownState", 0, 0);
         col = GetComponent<Collider>();
         col.enabled = false;
+        hit = true;
     }
 
     public override void OnHit()
@@ -22,6 +24,7 @@ public class ChainTargetChild : ShootableTarget
         StartHitFeedback();
         chainParent.StartChainReaction();
 
+        hit = true;
         //base.OnHit();
     }
 
@@ -30,6 +33,7 @@ public class ChainTargetChild : ShootableTarget
         anim.ResetTrigger("hit");
         anim.SetTrigger("getUp");
         col.enabled = true;
+        hit = false;
     }
 
     public void ChildShotDown()
@@ -44,6 +48,9 @@ public class ChainTargetChild : ShootableTarget
         anim.ResetTrigger("getUp");
         anim.ResetTrigger("hit");
 
-        anim.CrossFade("TargetShotdown", 0);
+        if (hit)
+            anim.CrossFade("TargetDownState", 0);
+        else
+            anim.CrossFade("TargetShotdown", 0);
     }
 }
