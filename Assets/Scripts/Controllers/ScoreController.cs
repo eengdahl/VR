@@ -64,7 +64,7 @@ public class ScoreController : MonoBehaviour
 
     [SerializeField] string currentName;
     [SerializeField] List<int> charInt = new(3);
-    string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    readonly string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     [Header("Leaderboards")]
     [SerializeField] TextMeshProUGUI[] easyLeaderboard;

@@ -24,7 +24,7 @@ public class ShootableTarget : MonoBehaviour
 
     public enum MonsterType { skeleton, dracula, zombie, boss }
 
-    [SerializeField] public MonsterType monsterType;
+    public MonsterType monsterType;
     monsterspawnSound spawnSound;
 
     [Header("Hit Effect")]
