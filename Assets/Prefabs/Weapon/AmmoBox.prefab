@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2485100772343098165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.047226906, y: 0.0384, z: 0.0106}
+  m_LocalPosition: {x: -0.047226906, y: 0.0228, z: 0.0106}
   m_LocalScale: {x: 1.3147874, y: 0.47613126, z: 0.43854934}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 4718557000063712734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.185, z: 0.08}
+  m_LocalPosition: {x: 0.64, y: -0.027, z: 0.912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f52bc27f3486f4a84ba86932952c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoPrefab: {fileID: 1522140422737320095, guid: ba1fbf9ed54a4574896ea9f71b0baf18, type: 3}
+  ammoPrefab: {fileID: 1265486726519079142, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
   spawnPoint: {fileID: 6708191846293456786}
 --- !u!1 &6041763030850889320
 GameObject:

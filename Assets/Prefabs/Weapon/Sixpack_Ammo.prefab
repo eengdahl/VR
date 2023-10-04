@@ -109,7 +109,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -164,25 +164,13 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -3576337620059088147}
-        m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
-        m_MethodName: EnableCollision
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 302524359050243974, guid: dea9c028df499064a9ffc4fe832c38ea, type: 3}
-        m_TargetAssemblyTypeName: AmmoPouch, Assembly-CSharp
-        m_MethodName: AmmoPickedUp
+      - m_Target: {fileID: -3576337620059088147}
+        m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
+        m_MethodName: DestroyAfterTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -194,7 +182,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: -3576337620059088147}
         m_TargetAssemblyTypeName: RevolverAmmo, Assembly-CSharp
-        m_MethodName: DestroyAfterTime
+        m_MethodName: EnableCollision
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
