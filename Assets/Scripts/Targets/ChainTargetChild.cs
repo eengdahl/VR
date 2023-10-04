@@ -8,13 +8,19 @@ public class ChainTargetChild : ShootableTarget
 
     Collider col;
     bool hit;
-
+    monsterspawnSound _monsterspawnSound;
+    public MonsterType monsterTypeBo;
+    public AudioSource aS;
     private new void OnEnable()
     {
+        aS = GetComponent<AudioSource>();
+        _monsterspawnSound = FindAnyObjectByType<monsterspawnSound>();
         anim.CrossFade("TargetDownState", 0, 0);
         col = GetComponent<Collider>();
         col.enabled = false;
         hit = true;
+        var imp = _monsterspawnSound.PlaySpawnSound(this.monsterType, this.aS);
+        aS.PlayOneShot(imp);
     }
 
     public override void OnHit()
@@ -34,6 +40,7 @@ public class ChainTargetChild : ShootableTarget
         anim.SetTrigger("getUp");
         col.enabled = true;
         hit = false;
+
     }
 
     public void ChildShotDown()

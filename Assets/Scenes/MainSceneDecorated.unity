@@ -4333,6 +4333,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122482284062349003, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: bossClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 41c25bf60e07a5548ab3031c4dbb4b54, type: 3}
     - target: {fileID: 9138983081874964309, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
       propertyPath: m_Name
       value: Music
@@ -6338,12 +6342,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: MinDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: af7997b3b0f8e4b46b1a6d666acfd8d1, type: 3}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5924453249164316338, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_LocalScale.x
@@ -11023,7 +11039,27 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634225126354335215, guid: 3750509cc2e4da5488293798813fa0c0, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634225126354335215, guid: 3750509cc2e4da5488293798813fa0c0, type: 3}
       propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634225126354335215, guid: 3750509cc2e4da5488293798813fa0c0, type: 3}
+      propertyPath: MaxDistance
+      value: 505.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634225126354335215, guid: 3750509cc2e4da5488293798813fa0c0, type: 3}
+      propertyPath: MinDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634225126354335215, guid: 3750509cc2e4da5488293798813fa0c0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cb4488ebc5be0f4aaae868a1273e4df, type: 3}
+    - target: {fileID: 8634225126354335215, guid: 3750509cc2e4da5488293798813fa0c0, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18918,21 +18954,53 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -18940,7 +19008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -18948,7 +19016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -18956,7 +19024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -40814,21 +40882,53 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -40836,7 +40936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -40844,7 +40944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -40852,7 +40952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -42028,21 +42128,53 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -42050,7 +42182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -42058,7 +42190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -42066,7 +42198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -44311,12 +44443,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: MinDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 12d673478eaddb0489c4c0e1d71975ce, type: 3}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5924453249164316338, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_LocalScale.x
@@ -44860,12 +45004,20 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ae5bbf588b50504f9805e4373a553bb, type: 3}
+    - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -45181,21 +45333,53 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208203591147207628, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278698016163517621, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760234005920807958, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: MinDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391128355855461084, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3571693932322957795, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -45203,7 +45387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4012813947379861759, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -45211,7 +45395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4714778872617725312, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
@@ -45219,7 +45403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5074599526513541834, guid: 9772687899f98c24fbb999eec4e093d4, type: 3}
       propertyPath: scoreToGive
