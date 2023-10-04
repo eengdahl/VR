@@ -13,7 +13,7 @@ public class TargetTrailsRenderer : MonoBehaviour
 
     public void ShowLine(GameObject target, ShootableTarget.MonsterType type)
     {
-        if (FindObjectOfType<GameController>().currentGameState != GameState.inGame) return;
+        //if (FindObjectOfType<GameController>().currentGameState != GameState.inGame) return;
 
         //Shows lines to targets that have not been hit for a while.
         //Called by ShootableTarget

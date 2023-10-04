@@ -40,6 +40,7 @@ public class ShootableTarget : MonoBehaviour
     ScoreController score;
     Collider _collider;
     [HideInInspector] public ShootableMoving mover;
+    GameController controller;
 
     //Variables used to display line renderer
     [SerializeField] private float timeToTriggerTrail = 30f;
@@ -57,6 +58,7 @@ public class ShootableTarget : MonoBehaviour
     //-----SETUP------
     public virtual void Awake()
     {
+        controller = FindObjectOfType<GameController>();
         anim = GetComponentInChildren<Animator>();
         spawnSound = FindAnyObjectByType<monsterspawnSound>();
         audSource = GetComponent<AudioSource>();
@@ -89,7 +91,7 @@ public class ShootableTarget : MonoBehaviour
             trailRenderer.ShowLine(gameObject, monsterType);
             lineActive = true;
         }
-        else
+        else if (controller.currentGameState == GameState.inGame)
             timeSinceLastHit += Time.deltaTime;
     }
 
