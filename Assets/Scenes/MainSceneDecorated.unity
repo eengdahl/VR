@@ -42510,6 +42510,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1326271872669129788, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
+      propertyPath: ammoPrefab
+      value: 
+      objectReference: {fileID: 1265486726519079142, guid: c8661f6e6eec8d143b75e851712e4a4f, type: 3}
     - target: {fileID: 4173574031454315032, guid: c03938a4fe6b61a498aa288b14f5f155, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.657
