@@ -65,13 +65,14 @@ public class MovePlayer : MonoBehaviour
             player.position = Vector3.MoveTowards(player.position, gamePosition.position, Time.deltaTime * speed);
             return;
         }
-        if (Vector3.Distance(transform.position, gamePosition.position) < 0.1f)
+        if (Vector3.Distance(transform.position, gamePosition.position) < 1.6f)
         {
             var aS = GetComponent<AudioSource>();
             aS.Stop();
             AtStart();
             lockScript = true;
         }
+
 
         sin = Mathf.Sin(1 * Time.time);
         sin = sin * 0.1f;
