@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-public enum GameState { inMenu, Countdown, inGame }
+public enum GameState { inMenu, Countdown, inGame, preGame }
 
 public class GameController : MonoBehaviour
 {
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-       
+        currentGameState = GameState.preGame;
 
         audSource = GetComponent<AudioSource>();
         uiController = FindObjectOfType<UIController>();

@@ -13,9 +13,11 @@ public class TargetTrailsRenderer : MonoBehaviour
 
     public void ShowLine(GameObject target, ShootableTarget.MonsterType type)
     {
+        if (FindObjectOfType<GameController>().currentGameState != GameState.inGame) return;
+
         //Shows lines to targets that have not been hit for a while.
         //Called by ShootableTarget
-        
+
         GameObject trail;
         waveCount += Random.Range(-1, 1);
         amplitude += Random.Range(-.015f, .015f);
