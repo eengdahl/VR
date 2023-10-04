@@ -67,6 +67,7 @@ public class MovePlayer : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, gamePosition.position) < 1.6f)
         {
+            TeleportToStart();
             var aS = GetComponent<AudioSource>();
             aS.Stop();
             AtStart();

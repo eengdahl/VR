@@ -22,7 +22,7 @@ public class BulletPool : MonoBehaviour
         //Creating new queue if non exists 
         bullets ??= new Queue<GameObject>();
 
-        PopulateBulletPool(20);
+        PopulateBulletPool(40);
     }
 
 
