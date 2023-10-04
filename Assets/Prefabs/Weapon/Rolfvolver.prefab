@@ -1490,6 +1490,7 @@ MonoBehaviour:
   linePrefab: {fileID: 7107513575717509767, guid: 5c776315b1f005343bd43dddf1e91dad, type: 3}
   smokePuffPS: {fileID: 1371049048328121531, guid: 0bc142f85b023a043a9bb14bc26c9c69, type: 3}
   hitSparkPS: {fileID: 1371049048328121531, guid: 36b11bbbfe735994ca177fa604875b9a, type: 3}
+  pumpkinSplat: {fileID: 1371049048328121531, guid: 330a290ad4442584083acef37024ff63, type: 3}
   gunhead: {fileID: 7694054236102110087}
   isCock: 0
   currentAmmo: 0

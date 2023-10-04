@@ -19,6 +19,7 @@ public class Shoot : MonoBehaviour
     public GameObject linePrefab;
     public GameObject smokePuffPS;
     public GameObject hitSparkPS;
+    public GameObject pumpkinSplat;
     private ParticleSystem muzzlePS;
     BulletPool bulletPool;
     public Transform gunhead;
@@ -178,7 +179,7 @@ public class Shoot : MonoBehaviour
 
         //Physical bullet
         var physBullet = bulletPool.GetBullet();
-        physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 100;
+        physBullet.GetComponent<Rigidbody>().velocity = gunhead.transform.forward * 200;
         physBullet.transform.position = gunhead.transform.position;
         physBullet.transform.rotation = gunhead.transform.rotation;
         physBullet.GetComponent<TrailRenderer>().enabled = true;
@@ -299,6 +300,8 @@ public class Shoot : MonoBehaviour
             {
                 SceneManager.LoadScene(0);
             }
+            else if (hit.collider.CompareTag("Pumpkin"))
+                Instantiate(pumpkinSplat, hit.point, Quaternion.identity);
 
         }
     }

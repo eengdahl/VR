@@ -16,6 +16,7 @@ TagManager:
   - Hand
   - Bullet
   - SixpackAmmo
+  - Pumpkin
   layers:
   - Default
   - TransparentFX
