@@ -40,9 +40,9 @@ public class ScoreController : MonoBehaviour
 
     [Header("Combo")]
     int currentCombo;
-    [SerializeField] int maxCombo = 10;
     bool comboBool;
     float comboTimer;
+    [SerializeField] float comboTime = .3f;
     [SerializeField] [Range(0.01f, 1f)] float comboTimerModifier = 0.7f;
 
     private float bulletsFired;
@@ -104,10 +104,10 @@ public class ScoreController : MonoBehaviour
 
     private void Update()
     {
-        if (comboBool && comboTimer > 1)
+        if (comboTimer > 0)
         {
             comboTimer -= Time.deltaTime * comboTimerModifier;
-            multiplierSlider.value = comboTimer / maxCombo;
+            multiplierSlider.value = comboTimer / comboTime;
             UpdateScoreText();
         }
     }
@@ -115,6 +115,9 @@ public class ScoreController : MonoBehaviour
     //---------INGAME SCORE---------------
     public void AddScore(int scoreToAdd)
     {
+        currentCombo++;
+        comboTimer = comboTime;
+
         latestScoreReceived = scoreToAdd;
         latestScoreReceived *= (currentCombo + 1);
         score += latestScoreReceived;
@@ -127,7 +130,7 @@ public class ScoreController : MonoBehaviour
     void UpdateScoreText()
     {
         scoreText.text = "Score " + score.ToString("000000");
-        multiplierText.text = "Combo " + Mathf.Round(comboTimer).ToString("00");
+        multiplierText.text = "Combo " + currentCombo.ToString("00");
     }
 
     public void ResetScore()
@@ -144,17 +147,17 @@ public class ScoreController : MonoBehaviour
     }
 
     //--------COMBO--------
-    public void StartCombo()
-    {
-        comboTimer = maxCombo;
-        comboBool = true;
-    }
+    //public void StartCombo()
+    //{
+    //    comboTimer = maxCombo;
+    //    comboBool = true;
+    //}
 
-    public void EndCombo()
-    {
-        comboBool = false;
-        currentCombo = Mathf.RoundToInt(comboTimer);
-    }
+    //public void EndCombo()
+    //{
+    //    comboBool = false;
+    //    currentCombo = Mathf.RoundToInt(comboTimer);
+    //}
 
     //-----------HIGHSCORE---------------
     public bool CheckLeaderboard(Difficulty difficulty)

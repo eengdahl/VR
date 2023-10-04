@@ -27,7 +27,6 @@ public class ShootableMoving : MonoBehaviour
 
     [Tooltip("How fast the target is walking between waypoints, Recommended between 1 and 5")]
     [SerializeField] float moveSpeed = 1f;
-    float acceleration;
 
     [Header("Debugging")]
     [Tooltip("Only viewable for debugging purposes, don't touch!")]
@@ -102,7 +101,6 @@ public class ShootableMoving : MonoBehaviour
 
             waitTimer = waitTime;
             currentState = CurrentState.Waiting;
-            acceleration = 0;
         }
     }
 

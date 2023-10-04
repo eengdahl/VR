@@ -18,7 +18,7 @@ public class TriggerOpenCylinder : MonoBehaviour
         if (other == triggerCollider)
         {
             cylinderScript.CloseCylinder();
-            scoreController.EndCombo();
+            //scoreController.EndCombo();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -26,7 +26,7 @@ public class TriggerOpenCylinder : MonoBehaviour
         if (other == triggerCollider)
         {
             cylinderScript.OpenCylinder();
-            scoreController.StartCombo();
+            //scoreController.StartCombo();
         }
     }
 }

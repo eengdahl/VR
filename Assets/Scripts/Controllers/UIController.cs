@@ -15,7 +15,6 @@ public class UIController : MonoBehaviour
     [SerializeField] public GameObject startPanel;
     [SerializeField] public GameObject restartPanel;
     [SerializeField] public GameObject timeTrialPanel;
-    [SerializeField] public GameObject backPanel;
     public GameController gameController;
 
     [SerializeField] TextMeshProUGUI difficultyConfirmText;
@@ -34,6 +33,8 @@ public class UIController : MonoBehaviour
 
     public void SelectDifficulty(int selection) //Choose difficulty and SetupGame in Gamecontroller
     {
+        if (gameController.currentGameState != GameState.inMenu) return;
+
         switch (selection)
         {
             case 0:
@@ -50,13 +51,14 @@ public class UIController : MonoBehaviour
         difficultyPanel.SetActive(false);
         timeTrialPanel.SetActive(false);
         startPanel.SetActive(true);
-        backPanel.SetActive(true);
 
         difficultyConfirmText.text = gameController.chosenDifficulty.ToString();
     }
 
     public void ToggleTimeTrial(bool timeTrial) //change timetrial bool in GameController
     {
+        if (gameController.currentGameState != GameState.inMenu) return;
+
         gameController.timeTrialEnabled = timeTrial;
     }
 
@@ -65,7 +67,6 @@ public class UIController : MonoBehaviour
         if (gameController.currentGameState == GameState.Countdown) return;
 
         restartPanel.SetActive(false);
-        backPanel.SetActive(false);
         startPanel.SetActive(false);
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
@@ -77,7 +78,6 @@ public class UIController : MonoBehaviour
         //Add function to move Canvas (?)
         startPanel.SetActive(false);
         restartPanel.SetActive(true);
-        backPanel.SetActive(false);
         gameController.StartCountdown();
     }
 
@@ -93,7 +93,6 @@ public class UIController : MonoBehaviour
         difficultyPanel.SetActive(true);
         timeTrialPanel.SetActive(true);
         startPanel.SetActive(false);
-        backPanel.SetActive(false);
         gameController.ResetCountdown();
         gameController.targetPlacer.DeactivateTargets(true);
     }

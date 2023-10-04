@@ -818,8 +818,8 @@ MonoBehaviour:
     - name: 
       score: 0
   score: 0
-  maxCombo: 10
-  comboTimerModifier: 0.7
+  comboTime: 0.3
+  comboTimerModifier: 1
   timeTrialEnabled: 0
   gameController: {fileID: 0}
   easyHighscores: 000000000000000000000000

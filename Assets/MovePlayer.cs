@@ -107,6 +107,8 @@ public class MovePlayer : MonoBehaviour
     }
     void AtStart()
     {
+        FindObjectOfType<GameController>().currentGameState = GameState.inMenu;
+
         RotatingGrave[] credits = GameObject.FindObjectsOfType<RotatingGrave>();
 
         foreach (var item in credits)
