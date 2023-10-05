@@ -107,6 +107,7 @@ public class ShootableMoving : MonoBehaviour
     int NewWaypoint()
     {
         int newWayPoint = 0;
+        PlayAwakeSound();
 
         if (randomWaypoint) //move random
         {
@@ -150,7 +151,7 @@ public class ShootableMoving : MonoBehaviour
             else
             {
                 newWayPoint = 0;
-                PlayAwakeSound();
+            
             }
 
             return newWayPoint;
