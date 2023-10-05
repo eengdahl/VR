@@ -2109,7 +2109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
@@ -8079,7 +8079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8143455454792240126, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: m_Volume
@@ -9756,7 +9756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8143455454792240126, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: m_Volume
@@ -10722,7 +10722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4163470082233058418, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: m_Volume
@@ -15641,7 +15641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4163470082233058418, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: m_Volume
@@ -27277,7 +27277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
@@ -31280,7 +31280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
@@ -36216,7 +36216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4163470082233058418, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: m_Volume
@@ -37815,7 +37815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
@@ -39201,7 +39201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_Volume
@@ -43085,7 +43085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8143455454792240126, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: m_Volume

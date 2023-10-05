@@ -180,7 +180,7 @@ MonoBehaviour:
   timeToTriggerTrail: 30
   trailRenderer: {fileID: 0}
   line: {fileID: 0}
-  scoreToGive: 100
+  scoreToGive: 50
   chainParent: {fileID: 0}
   monsterTypeBo: 0
   aS: {fileID: 0}
@@ -471,7 +471,7 @@ MonoBehaviour:
   timeToTriggerTrail: 30
   trailRenderer: {fileID: 0}
   line: {fileID: 0}
-  scoreToGive: 100
+  scoreToGive: 50
   chainParent: {fileID: 0}
   monsterTypeBo: 0
   aS: {fileID: 0}
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   timeToTriggerTrail: 30
   trailRenderer: {fileID: 0}
   line: {fileID: 0}
-  scoreToGive: 100
+  scoreToGive: 50
   chainParent: {fileID: 0}
   monsterTypeBo: 0
   aS: {fileID: 0}
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   timeToTriggerTrail: 30
   trailRenderer: {fileID: 0}
   line: {fileID: 0}
-  scoreToGive: 100
+  scoreToGive: 50
   chainParent: {fileID: 0}
   monsterTypeBo: 0
   aS: {fileID: 0}
@@ -1951,6 +1951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 0
+  monsterTypeBo: 0
   targets: []
   chainReaction: 0
   chainTime: 0.8
