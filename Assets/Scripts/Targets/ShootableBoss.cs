@@ -10,6 +10,7 @@ public class ShootableBoss : ShootableTarget
 
     public override void OnEnable()
     {
+        FindObjectOfType<GameController>().OverrideTime(20);
         currentHealth = maxHealth;
         base.OnEnable();
     }
