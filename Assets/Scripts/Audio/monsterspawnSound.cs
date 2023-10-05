@@ -9,6 +9,8 @@ public class monsterspawnSound : MonoBehaviour
     public AudioClip draculaClip;
     public AudioClip zombieClip;
     public AudioClip bossClip;
+    public AudioClip werewolfClip;
+
     public AudioClip PlaySpawnSound(ShootableTarget.MonsterType monster, AudioSource ass)
     {
         ass.pitch = Random.Range(0.8f, 1.2f);
@@ -16,6 +18,8 @@ public class monsterspawnSound : MonoBehaviour
         if (monster == ShootableTarget.MonsterType.dracula) return draculaClip;
         if (monster == ShootableTarget.MonsterType.zombie) return zombieClip;
         if (monster == ShootableTarget.MonsterType.boss) return bossClip;
+        if (monster == ShootableTarget.MonsterType.werewolf) return werewolfClip;
         else { return skeletonClip; }
+
     }
 }

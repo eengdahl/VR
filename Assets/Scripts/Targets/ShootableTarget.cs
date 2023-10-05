@@ -22,7 +22,7 @@ public class ShootableTarget : MonoBehaviour
     [Tooltip("Check true to keep target on start. For testing purposes!")]
     [SerializeField] bool keepOnStart = false;
 
-    public enum MonsterType { skeleton, dracula, zombie, boss }
+    public enum MonsterType { skeleton, dracula, zombie, boss, werewolf }
 
     public MonsterType monsterType;
     monsterspawnSound spawnSound;
