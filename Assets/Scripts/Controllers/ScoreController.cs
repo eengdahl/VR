@@ -110,6 +110,8 @@ public class ScoreController : MonoBehaviour
             multiplierSlider.value = comboTimer / comboTime;
             UpdateScoreText();
         }
+        if (comboTimer <= 0)
+            currentCombo = 0;
     }
 
     //---------INGAME SCORE---------------
