@@ -192,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 8653211543983977408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 0, z: 8.19}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -215,7 +215,7 @@ MonoBehaviour:
   maxDownTime: 5
   selfGetUp: 1
   keepOnStart: 0
-  monsterType: 0
+  monsterType: 1
   targetsMesh: {fileID: 3068947311593241406}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hitColor: {r: 0, g: 0, b: 0, a: 1}
@@ -268,7 +268,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6109582
+  m_Radius: 0.7
   m_Height: 1.2219169
   m_Direction: 1
   m_Center: {x: 0, y: 1.54, z: 0}
@@ -536,7 +536,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ba721b228bcd9e84695847f3ab84b839, type: 2}
+  - {fileID: 2100000, guid: a8c051b65cc544f4b9d8712dd9950d26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
