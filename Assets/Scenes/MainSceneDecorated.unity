@@ -13293,6 +13293,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088256762197290554, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
+      propertyPath: moveType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088256762197290554, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: waitTime
       value: 0
       objectReference: {fileID: 0}
@@ -13389,12 +13393,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDownTime: 2
   maxDownTime: 5
-  selfGetUp: 1
+  selfGetUp: 0
   keepOnStart: 0
   monsterType: 0
   targetsMesh: {fileID: 534114634}
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  hitColor: {r: 0, g: 0, b: 0, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hitColor: {r: 0, g: 0, b: 0, a: 1}
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
@@ -16641,6 +16645,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088256762197290554, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
+      propertyPath: moveType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088256762197290554, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: waitTime
       value: 0
       objectReference: {fileID: 0}
@@ -16742,12 +16750,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDownTime: 2
   maxDownTime: 5
-  selfGetUp: 1
+  selfGetUp: 0
   keepOnStart: 0
   monsterType: 0
   targetsMesh: {fileID: 668260464}
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  hitColor: {r: 0, g: 0, b: 0, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hitColor: {r: 0, g: 0, b: 0, a: 1}
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
@@ -16941,8 +16949,8 @@ MonoBehaviour:
   keepOnStart: 0
   monsterType: 2
   targetsMesh: {fileID: 685945578}
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  hitColor: {r: 0, g: 0, b: 0, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hitColor: {r: 0, g: 0, b: 0, a: 0.95686275}
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
@@ -32435,6 +32443,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088256762197290554, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
+      propertyPath: moveType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088256762197290554, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: waitTime
       value: 0
       objectReference: {fileID: 0}
@@ -32536,12 +32548,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDownTime: 2
   maxDownTime: 5
-  selfGetUp: 1
+  selfGetUp: 0
   keepOnStart: 0
   monsterType: 0
   targetsMesh: {fileID: 1306757877}
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  hitColor: {r: 0, g: 0, b: 0, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hitColor: {r: 0, g: 0, b: 0, a: 1}
   anim: {fileID: 0}
   audSource: {fileID: 0}
   mover: {fileID: 0}
