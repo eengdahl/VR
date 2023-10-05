@@ -24,6 +24,7 @@ public class ShootableBoss : ShootableTarget
         }
         else if (flyingboss)
         {
+            base.OnHit();
             gameObject.SetActive(false);
         }
         else
