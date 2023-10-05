@@ -4264,6 +4264,14 @@ PrefabInstance:
       propertyPath: bossClip
       value: 
       objectReference: {fileID: 8300000, guid: 41c25bf60e07a5548ab3031c4dbb4b54, type: 3}
+    - target: {fileID: 3122482284062349003, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: draculaClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cb4488ebc5be0f4aaae868a1273e4df, type: 3}
+    - target: {fileID: 3122482284062349003, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
+      propertyPath: werewolfClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 02174858a837d964a8887038b34a82ac, type: 3}
     - target: {fileID: 9138983081874964309, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
       propertyPath: m_Name
       value: Music
