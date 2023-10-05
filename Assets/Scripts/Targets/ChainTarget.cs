@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ShootableTarget;
 
 public interface IChainListener
 {
@@ -10,6 +11,10 @@ public interface IChainListener
 public class ChainTarget : MonoBehaviour
 {
     [SerializeField] bool test;
+    AudioSource aS;
+    monsterspawnSound _monsterspawnSound;
+   
+    public MonsterType monsterTypeBo;
 
     [Tooltip("The children targets, should be added automatically")]
     [SerializeField] List<ChainTargetChild> targets; //the chainTargets targets
@@ -27,6 +32,8 @@ public class ChainTarget : MonoBehaviour
 
     private void OnEnable()
     {
+        _monsterspawnSound = FindAnyObjectByType<monsterspawnSound>();
+        aS = GetComponent<AudioSource>();
         targets.Clear();
         foreach (Transform child in transform)
             targets.Add(child.GetComponent<ChainTargetChild>());
@@ -40,6 +47,8 @@ public class ChainTarget : MonoBehaviour
 
     public void InitializeChildren()
     {
+        var imp = _monsterspawnSound.PlaySpawnSound(this.monsterTypeBo, this.aS);
+        aS.PlayOneShot(imp);
         foreach (var item in targets)
         {
             item.gameObject.SetActive(true);
