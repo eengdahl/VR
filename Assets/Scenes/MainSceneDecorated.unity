@@ -6500,7 +6500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
@@ -9459,7 +9459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
@@ -10354,7 +10354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
@@ -15020,7 +15020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
@@ -34385,7 +34385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
@@ -35870,7 +35870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: monsterType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
@@ -38287,7 +38287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
@@ -40739,7 +40739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
@@ -41067,7 +41067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
@@ -42136,7 +42136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
@@ -48901,7 +48901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7721878031135930914, guid: 9edce3788bea00d459204c0212ad3fcd, type: 3}
       propertyPath: scoreToGive
@@ -49129,7 +49129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588830107474064814, guid: 93bbe39498cfc174e860205bc0220379, type: 3}
       propertyPath: scoreToGive
