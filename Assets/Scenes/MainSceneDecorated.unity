@@ -7971,7 +7971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
@@ -7985,6 +7985,10 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2483f35b10cbdb442aaf6eae23b34a35, type: 2}
     - target: {fileID: 5924453249164316338, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.25
@@ -8052,6 +8056,10 @@ PrefabInstance:
     - target: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_TagString
       value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747143741233956555, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15125,7 +15133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
@@ -15139,6 +15147,14 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2483f35b10cbdb442aaf6eae23b34a35, type: 2}
     - target: {fileID: 5924453249164316338, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.67
@@ -15206,6 +15222,10 @@ PrefabInstance:
     - target: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_TagString
       value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969146461435347098, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18133,7 +18153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
@@ -18146,6 +18166,22 @@ PrefabInstance:
     - target: {fileID: 2143372099805884083, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: MinDistance
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929105048856694811, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2483f35b10cbdb442aaf6eae23b34a35, type: 2}
+    - target: {fileID: 5691685145748681606, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5924453249164316338, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18210,6 +18246,10 @@ PrefabInstance:
     - target: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_TagString
       value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747143741233956555, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8969146461435347098, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_TagString
@@ -35344,7 +35384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: monsterType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 546073750132334447, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: scoreToGive
@@ -35358,6 +35398,10 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3068947311593241406, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2483f35b10cbdb442aaf6eae23b34a35, type: 2}
     - target: {fileID: 5924453249164316338, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.15
@@ -41787,7 +41831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8653211543983977408, guid: 022698dc3e7223c4cb1f8d5935c6ae90, type: 3}
       propertyPath: m_TagString
