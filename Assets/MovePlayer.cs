@@ -18,6 +18,7 @@ public class MovePlayer : MonoBehaviour
     public bool lockMusic;
     float timer;
     public List<Transform> credit = new List<Transform>();
+   public GameObject titleSprite;
 
     void Start()
     {
@@ -109,6 +110,7 @@ public class MovePlayer : MonoBehaviour
     }
     void AtStart()
     {
+        titleSprite.SetActive(false);
         FindObjectOfType<GameController>().currentGameState = GameState.inMenu;
 
         RotatingGrave[] credits = GameObject.FindObjectsOfType<RotatingGrave>();
