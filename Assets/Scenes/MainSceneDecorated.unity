@@ -4377,7 +4377,7 @@ PrefabInstance:
     - target: {fileID: 3122482284062349003, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
       propertyPath: werewolfClip
       value: 
-      objectReference: {fileID: 8300000, guid: 02174858a837d964a8887038b34a82ac, type: 3}
+      objectReference: {fileID: 8300000, guid: 2a95401d05c11654aba0e54f382e654a, type: 3}
     - target: {fileID: 9138983081874964309, guid: 37be4f4f68897934d8a94caa550a8f91, type: 3}
       propertyPath: m_Name
       value: Music
