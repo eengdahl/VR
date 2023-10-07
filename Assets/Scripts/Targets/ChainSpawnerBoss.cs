@@ -51,6 +51,8 @@ public class ChainSpawnerBoss : MonoBehaviour, IChainListener
         else if (targetToActivate == lastActivatedTarget)
             targetToActivate = 0;
 
+        lastActivatedTarget = targetToActivate;
+
         return targetToActivate;
     }
 

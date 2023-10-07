@@ -26,12 +26,23 @@ public class GameController : MonoBehaviour
     public Difficulty chosenDifficulty;
     public bool timeTrialEnabled;
     public float gameTime = 90f;
-    private float gameTimer;
+    public float gameTimer;
+
+    [Header("Moon")]
+    [SerializeField] MeshRenderer moon;
+    [SerializeField] Material normMoon;
+    [SerializeField] Material redMoon;
+    [SerializeField] Material normSky;
+    [SerializeField] Material redSky;
+
 
     private bool spawnedBoss;
 
     private void Awake()
     {
+        moon.material = normMoon;
+        RenderSettings.skybox = normSky;
+
         currentGameState = GameState.preGame;
 
         audSource = GetComponent<AudioSource>();
@@ -57,12 +68,18 @@ public class GameController : MonoBehaviour
 
             if (gameTimer <= 15 && !spawnedBoss)
             {
+                moon.material = redMoon;
+                RenderSettings.skybox = redSky;
+
                 targetPlacer.InitializeTargets(targetPlacer.SpawnBoss(chosenDifficulty));
                 spawnedBoss = true;
             }
 
             if (gameTimer <= 0)
             {
+                moon.material = normMoon;
+                RenderSettings.skybox = normSky;
+
                 EndGame();
             }
         }
@@ -118,6 +135,9 @@ public class GameController : MonoBehaviour
 
     public void ReturnToMenu() //only called when pressing "Choose New Difficulty", otherwise call EndGame
     {
+        moon.material = normMoon;
+        RenderSettings.skybox = normSky;
+
         spawnedBoss = false;
         currentGameState = GameState.inMenu;
         shoot.currentGameState = currentGameState;

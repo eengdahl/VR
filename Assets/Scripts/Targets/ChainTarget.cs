@@ -11,11 +11,13 @@ public interface IChainListener
 public class ChainTarget : MonoBehaviour
 {
     [SerializeField] bool test;
-    AudioSource aS;
+    AudioSource audSource;
     monsterspawnSound _monsterspawnSound;
-   
+
     public MonsterType monsterTypeBo;
 
+    [SerializeField] GameObject head;
+    Animator headAnim;
     [Tooltip("The children targets, should be added automatically")]
     [SerializeField] List<ChainTargetChild> targets; //the chainTargets targets
     [Tooltip("Whether the first one has been hit")]
@@ -32,11 +34,18 @@ public class ChainTarget : MonoBehaviour
 
     private void OnEnable()
     {
+        headAnim = head.GetComponentInChildren<Animator>();
+        headAnim.CrossFade("TargetDownState", 0, 0);
+
         _monsterspawnSound = FindAnyObjectByType<monsterspawnSound>();
-        aS = GetComponent<AudioSource>();
+        audSource = GetComponent<AudioSource>();
         targets.Clear();
+
         foreach (Transform child in transform)
-            targets.Add(child.GetComponent<ChainTargetChild>());
+        {
+            if (child.GetComponent<ChainTargetChild>() != null)
+                targets.Add(child.GetComponent<ChainTargetChild>());
+        }
 
         chainTimer = chainTime;
         chainReaction = false;
@@ -47,8 +56,10 @@ public class ChainTarget : MonoBehaviour
 
     public void InitializeChildren()
     {
-        var imp = _monsterspawnSound.PlaySpawnSound(this.monsterTypeBo, this.aS);
-        aS.PlayOneShot(imp);
+        headAnim.CrossFade("TargetGetup", 0, 0);
+
+        var imp = _monsterspawnSound.PlaySpawnSound(this.monsterTypeBo, this.audSource);
+        audSource.PlayOneShot(imp);
         foreach (var item in targets)
         {
             item.gameObject.SetActive(true);
@@ -70,6 +81,8 @@ public class ChainTarget : MonoBehaviour
 
     public void StopChainReaction()
     {
+        headAnim.CrossFade("TargetShotdown", 0, 0);
+
         ForceDownLinks();
 
         chainTimer = chainTime;
